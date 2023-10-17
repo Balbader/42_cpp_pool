@@ -19,6 +19,7 @@ int main()
 	int b = 42;
 	char str[] = "Hello from str\n";
 	char str2[] ("Hello from str2\n");
+
 	cout << str;
 	cout << str2;
 	cout << a;
