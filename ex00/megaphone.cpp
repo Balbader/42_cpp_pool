@@ -13,18 +13,9 @@
 #include <iostream>
 using namespace std;
 
-int main()
+int main(int ac, char **av)
 {
-	int a (42);
-	int b = 42;
-	char str[] = "Hello from str\n";
-	char str2[] ("Hello from str2\n");
-
-	cout << str;
-	cout << str2;
-	cout << a;
-	cout << "\n";
-	cout << "Hello World!" << endl;
-	cout << "I'm a C++ program!" << endl;
+	(void)ac;
+	puts(av[1]);
 	return 0;
 }
