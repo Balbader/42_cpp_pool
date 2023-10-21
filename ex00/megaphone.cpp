@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   megaphone.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: baalbade <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: baalbade <baalbade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/17 15:44:13 by baalbade          #+#    #+#             */
-/*   Updated: 2023/10/17 15:44:16 by baalbade         ###   ########.fr       */
+/*   Created: 2023/10/21 17:06:19 by baalbade          #+#    #+#             */
+/*   Updated: 2023/10/21 17:06:35 by baalbade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,17 @@ using namespace std;
 
 int main(int ac, char **av)
 {
-	(void)ac;
-	puts(av[1]);
-	return 0;
+	if (ac == 1) {
+		cout << "* LOUD SND UNBEARABLE FEEDBACK NOISE *" << endl;
+		return (0);
+	}
+	for (int j = 1; j < ac; ++j) {
+		string input = av[j];
+		for (int i = 0; input[i]; ++i) {
+			input[i] = toupper(input[i]);
+		}
+		cout << input;
+	}
+	cout << endl;
+	return (0);
 }
