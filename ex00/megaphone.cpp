@@ -12,21 +12,19 @@
 
 #include <iostream>
 
-using namespace std;
-
 int main(int ac, char **av)
 {
 	if (ac == 1) {
-		cout << "* LOUD SND UNBEARABLE FEEDBACK NOISE *" << endl;
+    std::cout << "* LOUD SND UNBEARABLE FEEDBACK NOISE *" << std::endl;
 		return (0);
 	}
 	for (int j = 1; j < ac; ++j) {
-		string input = av[j];
+    std::string input = av[j];
 		for (int i = 0; input[i]; ++i) {
 			input[i] = toupper(input[i]);
 		}
-		cout << input;
+    std::cout << input;
 	}
-	cout << endl;
+  std::cout << std::endl;
 	return (0);
 }
