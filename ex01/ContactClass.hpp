@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONTACTCLASS_H
-#define CONTACTCLASS_H
+#ifndef CONTACTCLASS_HPP
+#define CONTACTCLASS_HPP
 
 #endif // !CONTACTCLASS_H
