@@ -13,4 +13,22 @@
 #ifndef CONTACTCLASS_HPP
 #define CONTACTCLASS_HPP
 
+#include <iostream>
+#include <stdlib.h>
+
+class Contact {
+  char *name;
+  char *lastname;
+  char *nickname;
+  int *phoneNumber;
+
+public:
+  Contact();
+  ~Contact();
+};
+
+Contact::Contact() {}
+
+Contact::~Contact() {}
+
 #endif // !CONTACTCLASS_H
