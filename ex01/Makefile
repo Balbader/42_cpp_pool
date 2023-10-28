@@ -17,10 +17,13 @@ RM = rm -rf
 SRC = phonebook.cpp contact.cpp main.cpp
 OBJS = $(SRC:.cpp=.o)
 
-.c.o:
-	$(CC) $(CFLAGS) -c $(OBJS) -o $(NAME)
+.cpp.o:
+	$(CC) $(CFLAGS) -c $< -o $(<:.cpp=.o)
 
 all: $(NAME)
+
+$(NAME): $(OBJS)
+	$(CC) $(CFLAGS) -c $(OBJS) -o $(NAME)
 
 clean:
 	$(RM) $(OBJS)
