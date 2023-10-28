@@ -17,20 +17,48 @@
 #include <stdlib.h>
 
 class Contact {
-  int index;
-  std::string firstName;
-  std::string lastName;
-  std::string nickName;
-  std::string phoneNumber;
-  std::string darkSecret;
+	int index;
+	std::string firstName;
+	std::string lastName;
+	std::string nickName;
+	std::string phoneNumber;
+	std::string darkestSecret;
 
 public:
-  Contact();
-  ~Contact();
+	Contact(std::string, std::string, std::string, std::string, std::string) {};
+
+	// Functions Declaration
+	void ftSetFirstName(); // setter
+	void ftGetFirstName(); // getter
+
+	void ftSetLastName();
+	void ftGetLastName();
+
+	void ftSetNickname();
+	void ftGetNickname();
+
+	void ftSetPhoneNumber();
+	void ftGetPhoneNumber();
+
+	void ftSetDarkestSecret();
+	void ftGetDarkestSecret();
+
+	~Contact() {};
 };
 
-Contact::Contact() {}
+// Class Constructor
+/*
+Contact::Contact(std::string fName, std::string lName, std::string nName, \
+	std::string phNumber, std::string dSecret) {
+	firstName = fName;
+	lastName = lName;
+	nickname = nName;
+	phoneNumber = phNumber;
+	darkestSecret = dSecret;
+}
+*/
 
-Contact::~Contact() {}
+// Class Destructor
+//Contact::~Contact() {}
 
 #endif // !CONTACTCLASS_H
