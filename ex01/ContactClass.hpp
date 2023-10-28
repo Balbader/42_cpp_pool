@@ -57,7 +57,4 @@ Contact::Contact(std::string fName, std::string lName, std::string nName, \
 	darkestSecret = dSecret;
 }
 
-// Class Destructor
-Contact::~Contact() {}
-
 #endif // !CONTACTCLASS_H
