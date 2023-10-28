@@ -12,5 +12,8 @@
 
 #ifndef PHONEBOOK_HPP
 #define PHONEBOOK_HPP
+#include "ContactClass.hpp"
+
+class Phonebook {}
 
 #endif // !PHONEBOOK_H
