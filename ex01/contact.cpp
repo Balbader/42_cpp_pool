@@ -11,9 +11,9 @@
 /* ************************************************************************** */
 
 #include "ContactClass.hpp"
-#include <cstring>
+#include <string>
 
-// Contact info functions
+//============================================================ Contact firstName
 void Contact::ftSetFirstName() {
 	std::cout << "Enter New Contact First Name:" << std::endl;
 	std::cin >> firstName;
@@ -21,6 +21,8 @@ void Contact::ftSetFirstName() {
 std::string Contact::ftGetFirstName() {
 	return firstName;
 };
+
+//============================================================ Contact lastName
 void Contact::ftSetLastName() {
 	std::cout << "Enter New Contact Last Name:" << std::endl;
 	std::cin >> lastName;
@@ -28,6 +30,8 @@ void Contact::ftSetLastName() {
 std::string Contact::ftGetLastName() {
 	return lastName;
 };
+
+//============================================================ Contact nickname
 void Contact::ftSetNickname() {
 	std::cout << "Enter New Contact Nickname:" << std::endl;
 	std::cin >> nickname;
@@ -35,6 +39,8 @@ void Contact::ftSetNickname() {
 std::string Contact::ftGetNickname() {
 	return nickname;
 };
+
+//============================================================ Contact phoneNumber
 void Contact::ftSetPhoneNumber() {
 	std::cout << "Enter New Contact 8 Digits Phone Number:" << std::endl;
 	std::cin >> phoneNumber;
@@ -42,6 +48,8 @@ void Contact::ftSetPhoneNumber() {
 std::string Contact::ftGetPhoneNumber() {
 	return phoneNumber;
 };
+
+//============================================================ Contact darkestSecret
 void Contact::ftSetDarkestSecret() {
 	std::cout << "Enter New Contact Darkest Secret:" << std::endl;
 	std::cin >> darkestSecret;
@@ -50,7 +58,7 @@ std::string Contact::ftGetDarkestSecret() {
 	return darkestSecret;
 }
 
-// Run Program function
+//============================================================ Run Program function
 void Contact::ftRunProgram() {
 
 	ftSetFirstName();
