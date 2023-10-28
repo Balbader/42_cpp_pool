@@ -20,45 +20,44 @@ class Contact {
 	int index;
 	std::string firstName;
 	std::string lastName;
-	std::string nickName;
+	std::string nickname;
 	std::string phoneNumber;
 	std::string darkestSecret;
 
 public:
-	Contact(std::string, std::string, std::string, std::string, std::string) {};
-
 	// Functions Declaration
 	void ftSetFirstName(); // setter
-	void ftGetFirstName(); // getter
+	std::string ftGetFirstName(); // getter
 
 	void ftSetLastName();
-	void ftGetLastName();
+	std::string ftGetLastName();
 
 	void ftSetNickname();
-	void ftGetNickname();
+	std::string ftGetNickname();
 
 	void ftSetPhoneNumber();
-	void ftGetPhoneNumber();
+	std::string ftGetPhoneNumber();
 
 	void ftSetDarkestSecret();
-	void ftGetDarkestSecret();
+	std::string ftGetDarkestSecret();
 
-	~Contact() {};
+	void ftRunProgram();
+
+	Contact(std::string, std::string, std::string, std::string, std::string);
+	~Contact();
 };
 
 // Class Constructor
-/*
 Contact::Contact(std::string fName, std::string lName, std::string nName, \
-	std::string phNumber, std::string dSecret) {
+		std::string phNumber, std::string dSecret) {
 	firstName = fName;
 	lastName = lName;
 	nickname = nName;
 	phoneNumber = phNumber;
 	darkestSecret = dSecret;
 }
-*/
 
 // Class Destructor
-//Contact::~Contact() {}
+Contact::~Contact() {}
 
 #endif // !CONTACTCLASS_H
