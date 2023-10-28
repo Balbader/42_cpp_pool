@@ -17,10 +17,12 @@
 #include <stdlib.h>
 
 class Contact {
-  char *name;
-  char *lastname;
-  char *nickname;
-  int *phoneNumber;
+  int index;
+  std::string firstName;
+  std::string lastName;
+  std::string nickName;
+  std::string phoneNumber;
+  std::string darkSecret;
 
 public:
   Contact();

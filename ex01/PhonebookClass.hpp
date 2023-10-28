@@ -14,6 +14,12 @@
 #define PHONEBOOK_HPP
 #include "ContactClass.hpp"
 
-class Phonebook {}
+class Phonebook {
+public:
+  void getUserInfo(Contact);
+}
+
+void Phonebook::getUserInfo(Contact UserInfo) {
+}
 
 #endif // !PHONEBOOK_H
