@@ -53,8 +53,6 @@ std::string Contact::ftGetDarkestSecret() {
 // Run Program function
 void Contact::ftRunProgram() {
 
-	Contact NewContact;
-
 	ftSetFirstName();
 	ftSetLastName();
 	ftSetNickname();
