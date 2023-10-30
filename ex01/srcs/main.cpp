@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/ContactClass.hpp"
-// #include "ContactClass.hpp"
+#include "main.hpp"
 
 int main(void) { 
 	Contact newContact;

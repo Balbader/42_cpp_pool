@@ -10,11 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "ContactClass.hpp"
-#include "../inc/ContactClass.hpp"
+#include "main.hpp"
 #include <string>
 
-Contact::Contact() : _firstName(""), _lastName(""), _nickname(""), _phoneNumber(""), _darkestSecret("") {
+Contact::Contact() : _firstName(""), _lastName(""), _nickname(""), \
+		_phoneNumber(""), _darkestSecret("") {
 	std::cout << "----------------------------> Constructor Called!" << std::endl;
 	// std::cout << GREEN << "Constructor Called!" << RESET << std::endl;
 }
@@ -77,8 +77,9 @@ void Contact::ftRunProgram() {
 	_ftSetPhoneNumber();
 	_ftSetDarkestSecret();
 
-	std::cout << "Contact Name: " << _ftGetFirstName() << " " << _ftGetLastName() << std::endl;
-	std::cout << "Contact Nickname: " << _ftGetFirstName() << std::endl;
-	std::cout << "Contact Phone Number: " << _ftGetPhoneNumber() << std::endl;
-	std::cout << "Contact Darkest Secret: " << _ftGetDarkestSecret() << std::endl;
+	std::cout << "Contact's Name: " << _ftGetFirstName() << " " \
+		<< _ftGetLastName() << std::endl;
+	std::cout << "Contact's Nickname: " << _ftGetFirstName() << std::endl;
+	std::cout << "Contact's Phone Number: " << _ftGetPhoneNumber() << std::endl;
+	std::cout << "Contact's Darkest Secret: " << _ftGetDarkestSecret() << std::endl;
 }
