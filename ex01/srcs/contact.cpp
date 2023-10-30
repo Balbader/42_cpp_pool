@@ -3,72 +3,82 @@
 /*                                                        :::      ::::::::   */
 /*   contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: baalbade <baalbade@student.42.fr>          +#+  +:+       +#+        */
+/*   By: baalbade <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/22 15:12:33 by baalbade          #+#    #+#             */
-/*   Updated: 2023/10/22 15:12:35 by baalbade         ###   ########.fr       */
+/*   Created: 2023/10/30 09:10:34 by baalbade          #+#    #+#             */
+/*   Updated: 2023/10/30 09:10:36 by baalbade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 // #include "ContactClass.hpp"
 #include "../inc/ContactClass.hpp"
 #include <string>
 
+Contact::Contact() : _firstName(""), _lastName(""), _nickname(""), _phoneNumber(""), _darkestSecret("") {
+	std::cout << "----------------------------> Constructor Called!" << std::endl;
+	// std::cout << GREEN << "Constructor Called!" << RESET << std::endl;
+}
+
+Contact::~Contact() {
+	std::cout << "----------------------------> Destructor Called!" << std::endl;
+	// std::cout << RED << "Destructor Called!" << RESET << std::endl;
+}
 //============================================================ Contact firstName
-void Contact::ftSetFirstName() {
+void Contact::_ftSetFirstName() {
 	std::cout << "Enter New Contact First Name:" << std::endl;
-	std::cin >> firstName;
+	std::cin >> _firstName;
 };
-std::string Contact::ftGetFirstName() {
-	return firstName;
+std::string Contact::_ftGetFirstName() const {
+	return _firstName;
 };
 
 //============================================================ Contact lastName
-void Contact::ftSetLastName() {
+void Contact::_ftSetLastName() {
 	std::cout << "Enter New Contact Last Name:" << std::endl;
-	std::cin >> lastName;
+	std::cin >> _lastName;
 };
-std::string Contact::ftGetLastName() {
-	return lastName;
+std::string Contact::_ftGetLastName() const {
+	return _lastName;
 };
 
 //============================================================ Contact nickname
-void Contact::ftSetNickname() {
+void Contact::_ftSetNickname() {
 	std::cout << "Enter New Contact Nickname:" << std::endl;
-	std::cin >> nickname;
+	std::cin >> _nickname;
 };
-std::string Contact::ftGetNickname() {
-	return nickname;
+std::string Contact::_ftGetNickname() const {
+	return _nickname;
 };
 
 //============================================================ Contact phoneNumber
-void Contact::ftSetPhoneNumber() {
+void Contact::_ftSetPhoneNumber() {
 	std::cout << "Enter New Contact 8 Digits Phone Number:" << std::endl;
-	std::cin >> phoneNumber;
+	std::cin >> _phoneNumber;
 };
-std::string Contact::ftGetPhoneNumber() {
-	return phoneNumber;
+std::string Contact::_ftGetPhoneNumber() const {
+	return _phoneNumber;
 };
 
 //============================================================ Contact darkestSecret
-void Contact::ftSetDarkestSecret() {
+void Contact::_ftSetDarkestSecret() {
 	std::cout << "Enter New Contact Darkest Secret:" << std::endl;
-	std::cin >> darkestSecret;
+	std::cin >> _darkestSecret;
 }
-std::string Contact::ftGetDarkestSecret() {
-	return darkestSecret;
+std::string Contact::_ftGetDarkestSecret() const {
+	return _darkestSecret;
 }
 
 //============================================================ Run Program function
 void Contact::ftRunProgram() {
 
-	ftSetFirstName();
-	ftSetLastName();
-	ftSetNickname();
-	ftSetPhoneNumber();
-	ftSetDarkestSecret();
+	_ftSetFirstName();
+	_ftSetLastName();
+	_ftSetNickname();
+	_ftSetPhoneNumber();
+	_ftSetDarkestSecret();
 
-	std::cout << "Contact Name: " << ftGetFirstName() << " " << ftGetLastName() << std::endl;
-	std::cout << "Contact Nickname: " << ftGetFirstName() << std::endl;
-	std::cout << "Contact Phone Number: " << ftGetPhoneNumber() << std::endl;
-	std::cout << "Contact Darkest Secret: " << ftGetDarkestSecret() << std::endl;
+	std::cout << "Contact Name: " << _ftGetFirstName() << " " << _ftGetLastName() << std::endl;
+	std::cout << "Contact Nickname: " << _ftGetFirstName() << std::endl;
+	std::cout << "Contact Phone Number: " << _ftGetPhoneNumber() << std::endl;
+	std::cout << "Contact Darkest Secret: " << _ftGetDarkestSecret() << std::endl;
 }

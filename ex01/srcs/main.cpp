@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "../inc/ContactClass.hpp"
+// #include "ContactClass.hpp"
 
 int main(void) { 
 	Contact newContact;
