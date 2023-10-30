@@ -10,10 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ContactClass.hpp"
+#include "../inc/ContactClass.hpp"
 
 int main(void) { 
-
 	Contact newContact;
 	newContact.ftRunProgram();
 	return (0);

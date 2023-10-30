@@ -25,7 +25,9 @@ class Contact {
 	std::string darkestSecret;
 
 public:
-	Contact();
+	Contact() {
+		std::cout << "Constructor" << std::endl;
+	};
 	// Contact(std::string, std::string, std::string, std::string, std::string);
 
 	// Functions Declaration
@@ -46,7 +48,9 @@ public:
 
 	void ftRunProgram();
 
-	~Contact();
+	~Contact() {
+		std::cout << "Destructor" << std::endl;
+	};
 };
 
 // Class Constructor

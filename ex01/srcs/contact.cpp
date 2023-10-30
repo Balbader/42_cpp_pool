@@ -9,7 +9,8 @@
 /*   Updated: 2023/10/22 15:12:35 by baalbade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "ContactClass.hpp"
+// #include "ContactClass.hpp"
+#include "../inc/ContactClass.hpp"
 #include <string>
 
 //============================================================ Contact firstName
