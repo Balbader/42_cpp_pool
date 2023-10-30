@@ -14,53 +14,34 @@
 #define CONTACTCLASS_HPP
 
 #include <iostream>
-#include <stdlib.h>
 
 class Contact {
-	int index;
-	std::string firstName;
-	std::string lastName;
-	std::string nickname;
-	std::string phoneNumber;
-	std::string darkestSecret;
-
-public:
-	Contact() {
-		std::cout << "Constructor" << std::endl;
-	};
-	// Contact(std::string, std::string, std::string, std::string, std::string);
+	std::string _firstName;
+	std::string _lastName;
+	std::string _nickname;
+	std::string _phoneNumber;
+	std::string _darkestSecret;
 
 	// Functions Declaration
-	void ftSetFirstName(); // setter
-	std::string ftGetFirstName(); // getter
+	void _ftSetFirstName(); // setter
+	std::string _ftGetFirstName() const; // getter
 
-	void ftSetLastName();
-	std::string ftGetLastName();
+	void _ftSetLastName();
+	std::string _ftGetLastName() const;
 
-	void ftSetNickname();
-	std::string ftGetNickname();
+	void _ftSetNickname();
+	std::string _ftGetNickname() const;
 
-	void ftSetPhoneNumber();
-	std::string ftGetPhoneNumber();
+	void _ftSetPhoneNumber();
+	std::string _ftGetPhoneNumber() const;
 
-	void ftSetDarkestSecret();
-	std::string ftGetDarkestSecret();
+	void _ftSetDarkestSecret();
+	std::string _ftGetDarkestSecret() const;
 
+public:
+	Contact();
 	void ftRunProgram();
-
-	~Contact() {
-		std::cout << "Destructor" << std::endl;
-	};
+	~Contact();
 };
-
-// Class Constructor
-// Contact::Contact(std::string fName, std::string lName, std::string nName, \
-// 		std::string phNumber, std::string dSecret) {
-// 	firstName = fName;
-// 	lastName = lName;
-// 	nickname = nName;
-// 	phoneNumber = phNumber;
-// 	darkestSecret = dSecret;
-// }
 
 #endif // !CONTACTCLASS_H
