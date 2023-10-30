@@ -1,27 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.hpp                                      :+:      :+:    :+:   */
+/*   main.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: baalbade <baalbade@student.42.fr>          +#+  +:+       +#+        */
+/*   By: baalbade <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/22 15:08:03 by baalbade          #+#    #+#             */
-/*   Updated: 2023/10/22 15:08:06 by baalbade         ###   ########.fr       */
+/*   Created: 2023/10/30 10:14:35 by baalbade          #+#    #+#             */
+/*   Updated: 2023/10/30 10:14:37 by baalbade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-#define PHONEBOOK_HPP
+#ifndef MAIN_HPP
+#define MAIN_HPP
 
 #include "ContactClass.hpp"
-#include "main.hpp"
+#include "PhonebookClass.hpp"
+#include <iostream>
+#include <string>
 
-class Phonebook {
-public:
-  void getUserInfo(Contact);
-}
-
-void Phonebook::getUserInfo(Contact UserInfo) {
-}
-
-#endif // !PHONEBOOK_H
+#endif // !MAIN_HPP

@@ -14,6 +14,7 @@
 #define CONTACTCLASS_HPP
 
 #include <iostream>
+#include "main.hpp"
 
 class Contact {
 	std::string _firstName;
