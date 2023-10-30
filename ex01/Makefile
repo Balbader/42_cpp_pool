@@ -21,11 +21,12 @@ NAME = phonebook
 INC_DIR				:=	./inc/
 
 SRCS_DIR			:=	./srcs/
-SRCS				:=	\
+SRCS_FILES			:=	\
 						contact.cpp \
 						phonebook.cpp \
 						main.c
-SRCS				:=	$(SRCS:%=$(SRCS_DIR)/%)
+SRCS				:=	$(addprefix $(SRCS_DIR), $(SRCS_FILES))
+# SRCS				:=	$(SRCS:%=$(SRCS_DIR)/%)
 
 BUILD_DIR			:=	.build
 OBJS				:=	$(SRCS:$(SRCS_DIR)/%.c=$(BUILD_DIR)/%.o)
@@ -77,3 +78,6 @@ re:
 	@$(MAKE) all
 
 .PHONY: all clean fclean re
+
+# .cpp.o:
+# 	$(CC) $(CFLAGS) -c $< -o $(<:.cpp=.o)
