@@ -14,7 +14,8 @@
 #define CONTACTCLASS_HPP
 
 #include <iostream>
-#include "main.hpp"
+#include "PhonebookClass.hpp"
+#include "define.hpp"
 
 class Contact {
 	std::string _firstName;
@@ -41,7 +42,7 @@ class Contact {
 
 public:
 	Contact();
-	void ftRunProgram();
+	void ftGetContactInfo();
 	~Contact();
 };
 

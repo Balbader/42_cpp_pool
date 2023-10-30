@@ -10,10 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main.hpp"
+#include "PhoneboookClass.hpp"
 
-int main(void) { 
-	Contact newContact;
-	newContact.ftRunProgram();
+int main(void)
+{ 
+	Phonebook newPhonebook;
+	newPhonebook.ftRunProgram();
 	return (0);
 }

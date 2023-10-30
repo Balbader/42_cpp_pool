@@ -3,34 +3,81 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: baalbade <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: baalbade <baalbade@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/10/30 07:58:15 by baalbade          #+#    #+#              #
-#    Updated: 2023/10/30 07:58:17 by baalbade         ###   ########.fr        #
+#    Created: 2023/10/22 15:05:49 by baalbade          #+#    #+#              #
+#    Updated: 2023/10/22 15:05:51 by baalbade         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	phonebook
-CC		=	c++
-CFLAGS	=	-Wall -Wextra -Werror -std=c++98
-RM		=	rm
-SRC		=	main.cpp contact.cpp phonebook.cpp
-OBJS	=	$(SRC:.cpp=.o)
+########
+# NAME #
+########
+NAME = phonebook
 
-.cpp.o:
-	$(CC) $(CFLAGS) -c $< -o $(<:.cpp=.o)
+###############
+# INGREDIENTS #
+###############
+INC_DIR				:=	./inc/
+
+SRCS_DIR			:=	./srcs/
+SRCS_FILES			:=	\
+						contact.cpp \
+						phonebook.cpp \
+						main.cpp
+SRCS				:=	$(addprefix $(SRCS_DIR), $(SRCS_FILES))
+# SRCS				:=	$(SRCS:%=$(SRCS_DIR)/%)
+
+BUILD_DIR			:=	.build
+OBJS				:=	$(SRCS:$(SRCS_DIR)/%.c=$(BUILD_DIR)/%.o)
+DEPS				:=	$(OBJS:.o=.d)
+
+CC					:=	c++ -o
+CFLAGS				:=	-Wall -Wextra -Werror -std=c++98
+IFLAGS				:=	$(addprefix -I, $(INC_DIR))
+
+RM					:=	rm -rf
+DIR_DUP				=	mkdir -p $(dir $@)
+
+##########
+# COLORS #
+##########
+RED     			:= \033[0;31m
+GREEN   			:= \033[0;32m
+YELLOW  			:= \033[0;33m
+RESET   			:= \033[0m
+
+###########
+# RECIPES #
+###########
+all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+	@echo "[" "$(YELLOW)..$(RESET)" "] | Compiling $(NAME)..."
+	@$(CC) $(CFLAGS) -c $(OBJS) -o $(NAME)
+	@echo "[" "$(GREEN)OK$(RESET)" "] | $(NAME) ready!"
 
-all:		$(NAME)
+$(BUILD_DIR)/%.o: $(SRCS_DIR)/%.cpp
+	@$(DIR_DUP)
+	@$(CC) $(CFLAGS) $(IFLAGS) -c $< -o $(<:.cpp=.o)
+
+-include $(DEPS)
 
 clean:
-	$(RM) $(OBJS)
+	@echo "[" "$(YELLOW)..$(RESET)" "] | Removing object files...$(RESET)"
+	@$(RM) $(BUILD_DIR) $(DEPS)
+	@$(RM) $(OBJS)
+	@echo "[" "$(GREEN)OK$(RESET)" "] | Object files removed."
 
-fclean:		clean
-	$(RM) $(NAME)
+fclean: clean
+	@echo "[" "$(YELLOW)..$(RESET)" "] | Removing binary files...$(RESET)"
+	@$(RM) $(NAME)
+	@echo "[" "$(GREEN)OK$(RESET)" "] | Binary file removed."
+re:
+	@$(MAKE) fclean
+	@$(MAKE) all
 
-re:			fclean all
+.PHONY: all clean fclean re
 
-.PHONY:		all clean fclean re
+# .cpp.o:
+# 	$(CC) $(CFLAGS) -c $< -o $(<:.cpp=.o)

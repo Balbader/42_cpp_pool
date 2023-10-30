@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhonebookClass.hpp                                 :+:      :+:    :+:   */
+/*   phonebookClass.cpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: baalbade <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/30 11:19:22 by baalbade          #+#    #+#             */
-/*   Updated: 2023/10/30 11:19:25 by baalbade         ###   ########.fr       */
+/*   Created: 2023/10/30 10:53:36 by baalbade          #+#    #+#             */
+/*   Updated: 2023/10/30 10:53:38 by baalbade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOKCLASS_HPP
-#define PHONEBOOKCLASS_HPP
+#include "PhonebookClass.hpp"
 
-#include <iostream>
-#include "ContactClass.hpp"
-#include "define.hpp"
-
-class Phonebook {
-public:
-	void ftRunProgram();
-	Phonebook();
-	~Phonebook();
+Phonebook::Phonebook() {
+	std::cout << GREEN << "Phonebook Constructor Called!" << RESET << std::endl;
 }
 
-#endif // !PHONEBOOKCLASS_H
+Phonebook::~Phonebook() {
+	std::cout << GREEN << "Phonebook Destructor Called!" << RESET << std::endl;
+}
+
+void Phonebook::ftRunProgram() {
+	Contact newContact;
+	newContact.ftGetUserInfo();
+}
