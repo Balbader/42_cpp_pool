@@ -20,8 +20,8 @@ Phonebook::~Phonebook() {
 	std::cout << GREEN << "Phonebook Destructor Called!" << RESET << std::endl;
 };
 
-void Phonebook::ftRunProgram() {
+void Phonebook::RunProgram() {
 	Contact newContact;
 
-	newContact.ftGetContactInfo();
+	newContact.GetContactInfo();
 };
