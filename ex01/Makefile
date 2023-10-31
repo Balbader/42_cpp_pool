@@ -52,3 +52,29 @@ RESET		:=	\033[0;0m
 all: $(NAME)
 
 $(NAME): $(OBJS)
+	@echo "[" "$(YELLOW)..$(RESET)" "] | Compiling $(NAME)..."
+	@$(CC) $(CFLAGS) -c $(OBJS) -o $(NAME)
+	@echo "[" "$(GREEN)OK$(RESET)" "] | $(NAME) ready!"
+
+$(BUILD_DIR)/%.o: $(SRCS_DIR)/%.cpp
+	@$(DIR_DUP)
+	@$(CC) $(CFLAGS) $(IFLAGS) -c $< -o $(<:.cpp=.o)
+
+-include $(DEPS)
+
+clean:
+	@echo "[" "$(YELLOW)..$(RESET)" "] | Removing object files...$(RESET)"
+	@$(RM) $(BUILD_DIR) $(DEPS)
+	@$(RM) $(OBJS)
+	@echo "[" "$(GREEN)OK$(RESET)" "] | Object files removed."
+
+fclean: clean
+	@echo "[" "$(YELLOW)..$(RESET)" "] | Removing binary files...$(RESET)"
+	@$(RM) $(NAME)
+	@echo "[" "$(GREEN)OK$(RESET)" "] | Binary files removed."
+
+re:
+	@$(MAKE) fclean
+	@$(MAKE) all
+
+.PHONY: all clean fclean re
