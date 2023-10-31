@@ -13,9 +13,8 @@
 #include "ContactClass.hpp"
 #include "PhonebookClass.hpp"
 
-int main(void)
-{ 
-	Phonebook newPhonebook;
-	newPhonebook.ftRunProgram();
-	return (0);
+int main(void) {
+  Phonebook newPhonebook;
+  newPhonebook.RunProgram();
+  return (0);
 }
