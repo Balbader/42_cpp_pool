@@ -13,15 +13,15 @@
 #ifndef PHONEBOOKCLASS_HPP
 #define PHONEBOOKCLASS_HPP
 
-#include <iostream>
 #include "ContactClass.hpp"
 #include "define.hpp"
+#include <iostream>
 
 class Phonebook {
 public:
-	void ftRunProgram();
-	Phonebook();
-	~Phonebook();
+  void RunProgram();
+  Phonebook();
+  ~Phonebook();
 };
 
 #endif // !PHONEBOOKCLASS_H
