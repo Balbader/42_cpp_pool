@@ -9,7 +9,6 @@
 #    Updated: 2023/10/30 11:20:41 by baalbade         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
 ########
 # NAME #
 ########
@@ -18,13 +17,14 @@ NAME		:=	phonebook
 ###############
 # INGREDIENTS #
 ###############
-INC_DIR		:=	./inc/
-SRCS_DIR	:=	./srcs/
-SRCS_FILES	:=	\
+INC_DIR		:=	./inc
+
+SRCS_DIR	:=	./srcs
+SRCS		:=	\
 				contactClass.cpp \
 				phonebookClass.cpp \
 				main.cpp
-SRCS		:=	$(addprefix $(SRCS_DIR), $(SRCS_FILES))
+SRCS		:=	$(SRCS:%=$(SRCS_DIR)/%)
 
 BUILD_DIR	:=	.build
 OBJS		:=	$(SRCS:$(SRCS_DIR)/%.cpp=$(BUILD_DIR)/%.o)
@@ -40,7 +40,6 @@ DIR_DUP		=	mkdir -p $(dir $@)
 ##########
 # COLORS #
 ##########
-
 RED			:=	\033[0;31m
 GREEN		:=	\033[0;32m
 YELLOW		:=	\033[0;33m
@@ -53,12 +52,12 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	@echo "[" "$(YELLOW)..$(RESET)" "] | Compiling $(NAME)..."
-	@$(CC) $(CFLAGS) -c $(OBJS) -o $(NAME)
+	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 	@echo "[" "$(GREEN)OK$(RESET)" "] | $(NAME) ready!"
 
 $(BUILD_DIR)/%.o: $(SRCS_DIR)/%.cpp
 	@$(DIR_DUP)
-	@$(CC) $(CFLAGS) $(IFLAGS) -c $< -o $(<:.cpp=.o)
+	@$(CC) $(CFLAGS) $(IFLAGS) -c -o $@ $<
 
 -include $(DEPS)
 

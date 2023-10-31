@@ -10,7 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PhoneboookClass.hpp"
+#include "ContactClass.hpp"
+#include "PhonebookClass.hpp"
 
 int main(void)
 { 

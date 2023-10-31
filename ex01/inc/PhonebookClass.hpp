@@ -22,6 +22,6 @@ public:
 	void ftRunProgram();
 	Phonebook();
 	~Phonebook();
-}
+};
 
 #endif // !PHONEBOOKCLASS_H

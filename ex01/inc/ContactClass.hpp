@@ -14,7 +14,6 @@
 #define CONTACTCLASS_HPP
 
 #include <iostream>
-#include "PhonebookClass.hpp"
 #include "define.hpp"
 
 class Contact {

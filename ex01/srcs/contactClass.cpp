@@ -72,8 +72,8 @@ std::string Contact::_ftGetDarkestSecret() const {
 	return _darkestSecret;
 }
 
-//============================================================ Run Program function
-void Contact::ftGetUserInfo() {
+//============================================================ Contact Info
+void Contact::ftGetContactInfo() {
 
 	_ftSetFirstName();
 	_ftSetLastName();
