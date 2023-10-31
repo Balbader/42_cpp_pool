@@ -13,36 +13,39 @@
 #ifndef CONTACTCLASS_HPP
 #define CONTACTCLASS_HPP
 
-#include <iostream>
 #include "define.hpp"
+#include <iostream>
 
 class Contact {
-	std::string _firstName;
-	std::string _lastName;
-	std::string _nickname;
-	std::string _phoneNumber;
-	std::string _darkestSecret;
+  std::string _firstName;
+  std::string _lastName;
+  std::string _nickname;
+  std::string _phoneNumber;
+  std::string _darkestSecret;
 
-	// Functions Declaration
-	void _ftSetFirstName(); // setter
-	std::string _ftGetFirstName() const; // getter
+  // Functions Declaration
+  int _SetUserInput(std::string);               // setter
+  std::string _GetUserInput(std::string) const; // getter
 
-	void _ftSetLastName();
-	std::string _ftGetLastName() const;
+  int _SetFirstName();
+  std::string _GetFirstName() const;
 
-	void _ftSetNickname();
-	std::string _ftGetNickname() const;
+  int _SetLastName();
+  std::string _GetLastName() const;
 
-	void _ftSetPhoneNumber();
-	std::string _ftGetPhoneNumber() const;
+  int _SetNickname();
+  std::string _GetNickname() const;
 
-	void _ftSetDarkestSecret();
-	std::string _ftGetDarkestSecret() const;
+  int _SetPhoneNumber();
+  std::string _GetPhoneNumber() const;
+
+  int _SetDarkestSecret();
+  std::string _GetDarkestSecret() const;
 
 public:
-	Contact();
-	void ftGetContactInfo();
-	~Contact();
+  Contact();
+  void GetContactInfo();
+  ~Contact();
 };
 
 #endif // !CONTACTCLASS_H
