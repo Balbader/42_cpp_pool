@@ -24,11 +24,8 @@ class Contact {
   std::string _darkestSecret;
 
   // Functions Declaration
-  int _SetUserInput(std::string);               // setter
-  std::string _GetUserInput(std::string) const; // getter
-
-  int _SetFirstName();
-  std::string _GetFirstName() const;
+  int _SetFirstName();               // setter
+  std::string _GetFirstName() const; // getter
 
   int _SetLastName();
   std::string _GetLastName() const;
