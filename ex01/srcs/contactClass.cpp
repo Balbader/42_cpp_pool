@@ -25,6 +25,7 @@ Contact::~Contact() {
 		<< RESET << std::endl;
 	// std::cout << RED << "Destructor Called!" << RESET << std::endl;
 }
+
 //============================================================ Contact firstName
 void Contact::_ftSetFirstName() {
 	std::cout << YELLOW << "Enter New Contact First Name:" << RESET << std::endl;
