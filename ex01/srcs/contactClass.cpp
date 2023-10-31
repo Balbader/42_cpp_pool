@@ -13,80 +13,90 @@
 #include "ContactClass.hpp"
 #include <string>
 
-Contact::Contact() : _firstName(""), _lastName(""), _nickname(""),
-	_phoneNumber(""), _darkestSecret("") {
-	std::cout << GREEN << "----------------------------> Constructor Called!" \
-		<< RESET << std::endl;
-	// std::cout << GREEN << "Constructor Called!" << RESET << std::endl;
+Contact::Contact()
+    : _firstName(""), _lastName(""), _nickname(""), _phoneNumber(""),
+      _darkestSecret("") {
+  std::cout << GREEN << "----------------------------> Constructor Called!"
+            << RESET << std::endl;
+  // std::cout << GREEN << "Constructor Called!" << RESET << std::endl;
 }
 
 Contact::~Contact() {
-	std::cout << RED << "----------------------------> Destructor Called!" \
-		<< RESET << std::endl;
-	// std::cout << RED << "Destructor Called!" << RESET << std::endl;
+  std::cout << RED << "----------------------------> Destructor Called!"
+            << RESET << std::endl;
+  // std::cout << RED << "Destructor Called!" << RESET << std::endl;
 }
 
+//============================================================ Set User Info
+int Contact::_SetUserInput(std::string str) {
+  std::string tmp;
+
+  std::getline(std::cin, tmp);
+  if (tmp.length() == 0)
+    return (-1);
+  str = tmp;
+  std::cout << "_SetUserInput str : " << str << std::endl;
+  return 0;
+}
+
+std::string Contact::_GetUserInput(std::string str) const { return str; }
+
 //============================================================ Contact firstName
-void Contact::_ftSetFirstName() {
-	std::cout << YELLOW << "Enter New Contact First Name:" << RESET << std::endl;
-	std::cin >> _firstName;
+int Contact::_SetFirstName() {
+  std::cout << BLUE << "Enter New Contact First Name:" << RESET << std::endl;
+  return _SetUserInput(_firstName);
 };
-std::string Contact::_ftGetFirstName() const {
-	return _firstName;
+std::string Contact::_GetFirstName() const {
+  return _GetUserInput(_firstName);
 };
 
 //============================================================ Contact lastName
-void Contact::_ftSetLastName() {
-	std::cout << YELLOW << "Enter New Contact Last Name:" << RESET << std::endl;
-	std::cin >> _lastName;
+int Contact::_SetLastName() {
+  std::cout << BLUE << "Enter New Contact Last Name:" << RESET << std::endl;
+  return _SetUserInput(_lastName);
 };
-std::string Contact::_ftGetLastName() const {
-	return _lastName;
-};
+std::string Contact::_GetLastName() const { return _lastName; };
 
 //============================================================ Contact nickname
-void Contact::_ftSetNickname() {
-	std::cout << YELLOW << "Enter New Contact Nickname:" << RESET << std::endl;
-	std::cin >> _nickname;
+int Contact::_SetNickname() {
+  std::cout << BLUE << "Enter New Contact Nickname:" << RESET << std::endl;
+  return _SetUserInput(_nickname);
 };
-std::string Contact::_ftGetNickname() const {
-	return _nickname;
-};
+std::string Contact::_GetNickname() const { return _nickname; };
 
-//============================================================ Contact phoneNumber
-void Contact::_ftSetPhoneNumber() {
-	std::cout << YELLOW << "Enter New Contact 8 Digits Phone Number:" << RESET \
-		<< std::endl;
-	std::cin >> _phoneNumber;
+//============================================================ Contact
+// phoneNumber
+int Contact::_SetPhoneNumber() {
+  std::cout << BLUE << "Enter New Contact 8 Digits Phone Number:" << RESET
+            << std::endl;
+  return _SetUserInput(_phoneNumber);
 };
-std::string Contact::_ftGetPhoneNumber() const {
-	return _phoneNumber;
-};
+std::string Contact::_GetPhoneNumber() const { return _phoneNumber; };
 
-//============================================================ Contact darkestSecret
-void Contact::_ftSetDarkestSecret() {
-	std::cout << YELLOW << "Enter New Contact Darkest Secret:" << RESET << std::endl;
-	std::cin >> _darkestSecret;
+//============================================================ Contact
+// darkestSecret
+int Contact::_SetDarkestSecret() {
+  std::cout << BLUE << "Enter New Contact Darkest Secret:" << RESET
+            << std::endl;
+  return _SetUserInput(_darkestSecret);
 }
-std::string Contact::_ftGetDarkestSecret() const {
-	return _darkestSecret;
-}
+std::string Contact::_GetDarkestSecret() const { return _darkestSecret; }
 
 //============================================================ Contact Info
-void Contact::ftGetContactInfo() {
+void Contact::GetContactInfo() {
 
-	_ftSetFirstName();
-	_ftSetLastName();
-	_ftSetNickname();
-	_ftSetPhoneNumber();
-	_ftSetDarkestSecret();
+  _SetFirstName();
+  _SetLastName();
+  _SetNickname();
+  _SetPhoneNumber();
+  _SetDarkestSecret();
 
-	std::cout << "Contact's Name: " << GREEN << _ftGetFirstName() << " " \
-		<< GREEN << _ftGetLastName() << RESET << std::endl;
-	std::cout << "Contact's Nickname: " << GREEN << _ftGetFirstName() << RESET \
-		<< std::endl;
-	std::cout << "Contact's Phone Number: " << GREEN << _ftGetPhoneNumber() << RESET \
-		<< std::endl;
-	std::cout << "Contact's Darkest Secret: " << RED << _ftGetDarkestSecret() << RESET \
-		<< std::endl;
+  std::cout << "Contact's Name: " << GREEN << _GetFirstName() << " " << GREEN
+            << _GetLastName() << RESET << std::endl;
+  std::cout << "Contact's Nickname: " << GREEN << _GetNickname() << RESET
+            << std::endl;
+  std::cout << "Contact's Phone Number: " << GREEN << _GetPhoneNumber() << RESET
+            << std::endl;
+  std::cout << "Contact's Darkest Secret: " << RED << _GetDarkestSecret()
+            << RESET << std::endl;
 }
