@@ -2,6 +2,7 @@
 #define CONTACTCLASS_HPP
 
 #include "define.hpp"
+#include <iomanip>
 #include <iostream>
 
 class Contact {
