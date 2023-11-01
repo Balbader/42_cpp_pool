@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   contactClass.cpp                                   :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: baalbade <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/30 10:53:20 by baalbade          #+#    #+#             */
-/*   Updated: 2023/10/30 10:53:28 by baalbade         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "ContactClass.hpp"
 #include <string>
 
@@ -18,11 +6,13 @@ Contact::Contact()
       _darkestSecret("") {
   std::cout << GREEN << "----------------------------> Constructor Called!"
             << RESET << std::endl;
+  return;
 }
 
 Contact::~Contact() {
   std::cout << RED << "----------------------------> Destructor Called!"
             << RESET << std::endl;
+  return;
 }
 
 //============================================================ Contact firstName
@@ -88,6 +78,7 @@ void Contact::GetContactInfo() {
   _SetPhoneNumber();
   _SetDarkestSecret();
 
+  std::cout << std::endl;
   std::cout << "Contact's Name: " << GREEN << _GetFirstName() << " " << GREEN
             << _GetLastName() << RESET << std::endl;
   std::cout << "Contact's Nickname: " << GREEN << _GetNickname() << RESET
@@ -96,4 +87,5 @@ void Contact::GetContactInfo() {
             << std::endl;
   std::cout << "Contact's Darkest Secret: " << RED << _GetDarkestSecret()
             << RESET << std::endl;
+  return;
 }
