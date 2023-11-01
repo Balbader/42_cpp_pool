@@ -15,6 +15,7 @@ Contact::~Contact() {
             << RESET << std::endl;
   return;
 }
+
 //============================================================ Get Input
 std::string Contact::GetInput(std::string enter, std::string attr,
                               std::string empty, std::string input) {
@@ -29,8 +30,7 @@ std::string Contact::GetInput(std::string enter, std::string attr,
   return input;
 }
 
-//============================================================ Contact
-// firstName
+//============================================================ Contact firstname
 void Contact::_SetFirstName(std::string input) {
   _firstName = GetInput(ENTER, FIRST, EMPTY, input);
   return;
