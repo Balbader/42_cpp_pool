@@ -15,79 +15,52 @@ Contact::~Contact() {
             << RESET << std::endl;
   return;
 }
-
-//============================================================ Contact firstName
-void Contact::_SetFirstName(std::string input) {
-  std::cout << BLUE << ENTERFIRST << RESET << std::endl;
+//============================================================ Get Input
+std::string Contact::GetInput(std::string enter, std::string attr,
+                              std::string empty, std::string input) {
+  std::cout << BLUE << enter << attr << RESET << std::endl;
   std::getline(std::cin, input);
   while (input.length() == 0) {
-    std::cout << EMPTY << "first name." << std::endl;
+    std::cout << empty << attr << std::endl;
     std::cout << std::endl;
-    std::cout << BLUE << ENTERFIRST << RESET << std::endl;
+    std::cout << BLUE << enter << attr << RESET << std::endl;
     std::getline(std::cin, input);
   }
-  _firstName = input;
+  return input;
+}
+
+//============================================================ Contact
+// firstName
+void Contact::_SetFirstName(std::string input) {
+  _firstName = GetInput(ENTER, FIRST, EMPTY, input);
   return;
 };
 std::string Contact::_GetFirstName() const { return _firstName; };
 
 //============================================================ Contact lastName
 void Contact::_SetLastName(std::string input) {
-  std::cout << BLUE << ENTERLAST << RESET << std::endl;
-  std::getline(std::cin, input);
-  while (input.length() == 0) {
-    std::cout << EMPTY << "last name." << std::endl;
-    std::cout << std::endl;
-    std::cout << BLUE << ENTERLAST << RESET << std::endl;
-    std::getline(std::cin, input);
-  }
-  _lastName = input;
+  _lastName = GetInput(ENTER, LAST, EMPTY, input);
   return;
 };
 std::string Contact::_GetLastName() const { return _lastName; };
 
-//============================================================ Contact
-// nickname
+//============================================================ Contact Nickname
 void Contact::_SetNickname(std::string input) {
-  std::cout << BLUE << ENTERNICK << RESET << std::endl;
-  std::getline(std::cin, input);
-  while (input.length() == 0) {
-    std::cout << EMPTY << "nickname." << std::endl;
-    std::cout << std::endl;
-    std::cout << BLUE << ENTERNICK << RESET << std::endl;
-    std::getline(std::cin, input);
-  }
-  _nickname = input;
+  _nickname = GetInput(ENTER, NICK, EMPTY, input);
   return;
 };
 std::string Contact::_GetNickname() const { return _nickname; };
 
-//============================================================ Contact
-// phoneNumber
+//============================================================ Contact Phone
 void Contact::_SetPhoneNumber(std::string input) {
-  std::cout << BLUE << ENTERPHONE << RESET << std::endl;
-  std::getline(std::cin, input);
-  while (input.length() == 0) {
-    std::cout << EMPTY << " phone number." << std::endl;
-    std::cout << BLUE << ENTERPHONE << RESET << std::endl;
-    std::getline(std::cin, input);
-  }
-  _phoneNumber = input;
+  _phoneNumber = GetInput(ENTER, PHONE, EMPTY, input);
   return;
 };
 std::string Contact::_GetPhoneNumber() const { return _phoneNumber; };
 
-//============================================================ Contact
-// darkestSecret
+//============================================================ Contact Secret
 void Contact::_SetDarkestSecret(std::string input) {
-  std::cout << BLUE << ENTERDARK << RESET << std::endl;
-  std::getline(std::cin, input);
-  while (input.length() == 0) {
-    std::cout << EMPTY << " darkest secret." << std::endl;
-    std::cout << BLUE << ENTERDARK << RESET << std::endl;
-    std::getline(std::cin, input);
-  }
-  _darkestSecret = input;
+  _darkestSecret = GetInput(ENTER, SECRET, EMPTY, input);
   return;
 }
 std::string Contact::_GetDarkestSecret() const { return _darkestSecret; }
