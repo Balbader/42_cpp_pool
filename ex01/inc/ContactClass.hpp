@@ -13,19 +13,19 @@ class Contact {
   std::string _darkestSecret;
 
   // Functions Declaration
-  int _SetFirstName();               // setter
+  void _SetFirstName(std::string);   // setter
   std::string _GetFirstName() const; // getter
 
-  int _SetLastName();
+  void _SetLastName(std::string);
   std::string _GetLastName() const;
 
-  int _SetNickname();
+  void _SetNickname(std::string);
   std::string _GetNickname() const;
 
-  int _SetPhoneNumber();
+  void _SetPhoneNumber(std::string);
   std::string _GetPhoneNumber() const;
 
-  int _SetDarkestSecret();
+  void _SetDarkestSecret(std::string);
   std::string _GetDarkestSecret() const;
 
 public:
