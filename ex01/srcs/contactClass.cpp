@@ -3,9 +3,7 @@
 #include <iostream>
 #include <string>
 
-Contact::Contact()
-    : _firstName(""), _lastName(""), _nickname(""), _phoneNumber(""),
-      _darkestSecret("") {
+Contact::Contact() {
   std::cout << GREEN
             << "----------------------------> Contact Constructor Called!"
             << RESET << std::endl;
@@ -19,67 +17,91 @@ Contact::~Contact() {
 }
 
 //============================================================ Contact firstName
-int Contact::_SetFirstName() {
-  std::cout << BLUE << "Enter New Contact First Name:" << RESET << std::endl;
-  std::getline(std::cin, _firstName);
-  if (_firstName.length() == 0)
-    return (-1);
-  return 0;
+void Contact::_SetFirstName(std::string input) {
+  std::cout << BLUE << ENTERFIRST << RESET << std::endl;
+  std::getline(std::cin, input);
+  while (input.length() == 0) {
+    std::cout << EMPTY << "first name." << std::endl;
+    std::cout << std::endl;
+    std::cout << BLUE << ENTERFIRST << RESET << std::endl;
+    std::getline(std::cin, input);
+  }
+  _firstName = input;
+  return;
 };
 std::string Contact::_GetFirstName() const { return _firstName; };
 
 //============================================================ Contact lastName
-int Contact::_SetLastName() {
-  std::cout << BLUE << "Enter New Contact Last Name:" << RESET << std::endl;
-  std::getline(std::cin, _lastName);
-  if (_lastName.length() == 0)
-    return (-1);
-  return 0;
+void Contact::_SetLastName(std::string input) {
+  std::cout << BLUE << ENTERLAST << RESET << std::endl;
+  std::getline(std::cin, input);
+  while (input.length() == 0) {
+    std::cout << EMPTY << "last name." << std::endl;
+    std::cout << std::endl;
+    std::cout << BLUE << ENTERLAST << RESET << std::endl;
+    std::getline(std::cin, input);
+  }
+  _lastName = input;
+  return;
 };
 std::string Contact::_GetLastName() const { return _lastName; };
 
-//============================================================ Contact nickname
-int Contact::_SetNickname() {
-  std::cout << BLUE << "Enter New Contact Nickname:" << RESET << std::endl;
-  std::getline(std::cin, _nickname);
-  if (_nickname.length() == 0)
-    return (-1);
-  return 0;
+//============================================================ Contact
+// nickname
+void Contact::_SetNickname(std::string input) {
+  std::cout << BLUE << ENTERNICK << RESET << std::endl;
+  std::getline(std::cin, input);
+  while (input.length() == 0) {
+    std::cout << EMPTY << "nickname." << std::endl;
+    std::cout << std::endl;
+    std::cout << BLUE << ENTERNICK << RESET << std::endl;
+    std::getline(std::cin, input);
+  }
+  _nickname = input;
+  return;
 };
 std::string Contact::_GetNickname() const { return _nickname; };
 
 //============================================================ Contact
 // phoneNumber
-int Contact::_SetPhoneNumber() {
-  std::cout << BLUE << "Enter New Contact 8 Digits Phone Number:" << RESET
-            << std::endl;
-  std::getline(std::cin, _phoneNumber);
-  if (_phoneNumber.length() == 0)
-    return (-1);
-  return 0;
+void Contact::_SetPhoneNumber(std::string input) {
+  std::cout << BLUE << ENTERPHONE << RESET << std::endl;
+  std::getline(std::cin, input);
+  while (input.length() == 0) {
+    std::cout << EMPTY << " phone number." << std::endl;
+    std::cout << BLUE << ENTERPHONE << RESET << std::endl;
+    std::getline(std::cin, input);
+  }
+  _phoneNumber = input;
+  return;
 };
 std::string Contact::_GetPhoneNumber() const { return _phoneNumber; };
 
 //============================================================ Contact
 // darkestSecret
-int Contact::_SetDarkestSecret() {
-  std::cout << BLUE << "Enter New Contact Darkest Secret:" << RESET
-            << std::endl;
-  std::getline(std::cin, _darkestSecret);
-  if (_darkestSecret.length() == 0)
-    return (-1);
-  return 0;
+void Contact::_SetDarkestSecret(std::string input) {
+  std::cout << BLUE << ENTERDARK << RESET << std::endl;
+  std::getline(std::cin, input);
+  while (input.length() == 0) {
+    std::cout << EMPTY << " darkest secret." << std::endl;
+    std::cout << BLUE << ENTERDARK << RESET << std::endl;
+    std::getline(std::cin, input);
+  }
+  _darkestSecret = input;
+  return;
 }
 std::string Contact::_GetDarkestSecret() const { return _darkestSecret; }
 
 //============================================================ Contact Info
 void Contact::GetContactInfo() {
 
-  _SetFirstName();
-  _SetLastName();
-  _SetNickname();
-  _SetPhoneNumber();
-  _SetDarkestSecret();
+  std::string input = "";
+
+  _SetFirstName(input);
+  _SetLastName(input);
+  _SetNickname(input);
+  _SetPhoneNumber(input);
+  _SetDarkestSecret(input);
 
   std::cout << std::endl;
   std::cout << "Contact's Name: " << GREEN << _GetFirstName() << " " << GREEN
