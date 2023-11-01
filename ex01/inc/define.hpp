@@ -8,11 +8,12 @@
 #define RESET "\033[0;0m"
 
 // Error Messages
-#define ENTERFIRST "Enter New Contact's First Name:"
-#define ENTERLAST "Enter New Contact's Last Name:"
-#define ENTERNICK "Enter New Contact's Nickname:"
-#define ENTERPHONE "Enter New Contact's Phone Number:"
-#define ENTERDARK "Enter New Contact's Darkest Secret:"
+#define ENTER "Enter New Contact's "
+#define FIRST "first name."
+#define LAST "last name."
+#define NICK "nickname."
+#define PHONE "phone number."
+#define SECRET "darkest secret."
 
 #define EMPTY "Field is empty!\nPlease make sure to add the contact's "
 
