@@ -79,6 +79,7 @@ void Contact::GetContactInfo() {
   _SetDarkestSecret();
 
   std::cout << std::endl;
+
   std::cout << "Contact's Name: " << GREEN << _GetFirstName() << " " << GREEN
             << _GetLastName() << RESET << std::endl;
   std::cout << "Contact's Nickname: " << GREEN << _GetNickname() << RESET
