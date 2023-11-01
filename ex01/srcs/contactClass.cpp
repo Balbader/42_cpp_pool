@@ -1,16 +1,19 @@
 #include "ContactClass.hpp"
+#include <iomanip>
+#include <iostream>
 #include <string>
 
 Contact::Contact()
     : _firstName(""), _lastName(""), _nickname(""), _phoneNumber(""),
       _darkestSecret("") {
-  std::cout << GREEN << "----------------------------> Constructor Called!"
+  std::cout << GREEN
+            << "----------------------------> Contact Constructor Called!"
             << RESET << std::endl;
   return;
 }
 
 Contact::~Contact() {
-  std::cout << RED << "----------------------------> Destructor Called!"
+  std::cout << RED << "---------------------------->Contact Destructor Called!"
             << RESET << std::endl;
   return;
 }
@@ -79,7 +82,6 @@ void Contact::GetContactInfo() {
   _SetDarkestSecret();
 
   std::cout << std::endl;
-
   std::cout << "Contact's Name: " << GREEN << _GetFirstName() << " " << GREEN
             << _GetLastName() << RESET << std::endl;
   std::cout << "Contact's Nickname: " << GREEN << _GetNickname() << RESET
@@ -88,5 +90,6 @@ void Contact::GetContactInfo() {
             << std::endl;
   std::cout << "Contact's Darkest Secret: " << RED << _GetDarkestSecret()
             << RESET << std::endl;
+  std::cout << std::endl;
   return;
 }
