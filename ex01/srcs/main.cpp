@@ -3,6 +3,6 @@
 
 int main(void) {
   Phonebook newPhonebook;
-  newPhonebook.RunProgram();
+  newPhonebook.runProgram();
   return (0);
 }
