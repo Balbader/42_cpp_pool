@@ -8,7 +8,9 @@
 
 class Phonebook {
 public:
-  void RunProgram();
+  void runProgram();
+  void addContact();
+  void printContact();
   Phonebook();
   ~Phonebook();
 };
