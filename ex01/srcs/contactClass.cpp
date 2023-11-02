@@ -3,21 +3,21 @@
 #include <iostream>
 #include <string>
 
-Contact::Contact() {
+Contact::Contact(void) {
   std::cout << GREEN
             << "----------------------------> Contact Constructor Called!"
             << RESET << std::endl;
   return;
 }
 
-Contact::~Contact() {
+Contact::~Contact(void) {
   std::cout << RED << "---------------------------->Contact Destructor Called!"
             << RESET << std::endl;
   return;
 }
 
 //============================================================ Get Input
-std::string Contact::GetInput(std::string enter, std::string attr,
+std::string Contact::getInput(std::string enter, std::string attr,
                               std::string empty, std::string input) {
   std::cout << BLUE << enter << attr << RESET << std::endl;
   std::getline(std::cin, input);
@@ -32,42 +32,42 @@ std::string Contact::GetInput(std::string enter, std::string attr,
 
 //============================================================ Contact
 // firstname
-void Contact::_SetFirstName(std::string input) {
-  _firstName = GetInput(ENTER, FIRST, EMPTY, input);
+void Contact::_setFirstName(std::string input) {
+  _firstName = getInput(ENTER, FIRST, EMPTY, input);
   return;
 }
-std::string Contact::_GetFirstName() const { return _firstName; }
+std::string Contact::_getFirstName(void) const { return _firstName; }
 
 //============================================================ Contact lastName
-void Contact::_SetLastName(std::string input) {
-  _lastName = GetInput(ENTER, LAST, EMPTY, input);
+void Contact::_setLastName(std::string input) {
+  _lastName = getInput(ENTER, LAST, EMPTY, input);
   return;
 }
-std::string Contact::_GetLastName() const { return _lastName; }
+std::string Contact::_getLastName(void) const { return _lastName; }
 
 //============================================================ Contact Nickname
-void Contact::_SetNickname(std::string input) {
-  _nickname = GetInput(ENTER, NICK, EMPTY, input);
+void Contact::_setNickname(std::string input) {
+  _nickname = getInput(ENTER, NICK, EMPTY, input);
   return;
 }
-std::string Contact::_GetNickname() const { return _nickname; }
+std::string Contact::_getNickname(void) const { return _nickname; }
 
 //============================================================ Contact Phone
-void Contact::_SetPhoneNumber(std::string input) {
-  _phoneNumber = GetInput(ENTER, PHONE, EMPTY, input);
+void Contact::_setPhoneNumber(std::string input) {
+  _phoneNumber = getInput(ENTER, PHONE, EMPTY, input);
   return;
 }
-std::string Contact::_GetPhoneNumber() const { return _phoneNumber; }
+std::string Contact::_getPhoneNumber(void) const { return _phoneNumber; }
 
 //============================================================ Contact Secret
-void Contact::_SetDarkestSecret(std::string input) {
-  _darkestSecret = GetInput(ENTER, SECRET, EMPTY, input);
+void Contact::_setDarkestSecret(std::string input) {
+  _darkestSecret = getInput(ENTER, SECRET, EMPTY, input);
   return;
 }
-std::string Contact::_GetDarkestSecret() const { return _darkestSecret; }
+std::string Contact::_getDarkestSecret(void) const { return _darkestSecret; }
 
 //============================================================ Contact Info
-void Contact::GetContactInfo() {
+void Contact::getContactInfo(void) {
 
   std::string input = "";
 
