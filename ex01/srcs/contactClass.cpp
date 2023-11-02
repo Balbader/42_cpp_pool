@@ -30,7 +30,8 @@ std::string Contact::GetInput(std::string enter, std::string attr,
   return input;
 }
 
-//============================================================ Contact firstname
+//============================================================ Contact
+// firstname
 void Contact::_SetFirstName(std::string input) {
   _firstName = GetInput(ENTER, FIRST, EMPTY, input);
   return;
@@ -75,7 +76,10 @@ void Contact::GetContactInfo() {
   _SetNickname(input);
   _SetPhoneNumber(input);
   _SetDarkestSecret(input);
+  return;
+}
 
+void printContactInfo() {
   std::cout << std::endl;
   std::cout << "Contact's Name: " << GREEN << _GetFirstName() << " " << GREEN
             << _GetLastName() << RESET << std::endl;
