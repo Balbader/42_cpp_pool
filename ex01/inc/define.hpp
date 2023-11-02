@@ -8,13 +8,12 @@
 #define RESET "\033[0;0m"
 
 // Error Messages
+#define EMPTY "Field is empty!\nPlease make sure to add the contact's "
 #define ENTER "Enter New Contact's "
 #define FIRST "first name."
 #define LAST "last name."
 #define NICK "nickname."
 #define PHONE "phone number."
 #define SECRET "darkest secret."
-
-#define EMPTY "Field is empty!\nPlease make sure to add the contact's "
 
 #endif // !DEFINE_HPP
