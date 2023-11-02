@@ -20,7 +20,7 @@ class Contact {
   std::string _getLastName(void) const;
 
   void _setNickname(std::string);
-  std::string _setNickname(void) const;
+  std::string _getNickname(void) const;
 
   void _setPhoneNumber(std::string);
   std::string _getPhoneNumber(void) const;
