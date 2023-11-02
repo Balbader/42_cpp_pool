@@ -13,7 +13,7 @@ class Phonebook {
 public:
   Phonebook(void);
   void runProgram(void);
-  void addContact(Contact newContact);
+  bool addContact(Contact newContact);
   void printContact(int index);
   void printContactList(void);
   ~Phonebook(void);
