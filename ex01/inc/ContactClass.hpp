@@ -13,27 +13,26 @@ class Contact {
   std::string _darkestSecret;
 
   // Functions Declaration
-  void _SetFirstName(std::string);   // setter
-  std::string _GetFirstName() const; // getter
+  void _setFirstName(std::string);       // setter
+  std::string _getFirstName(void) const; // getter
 
-  void _SetLastName(std::string);
-  std::string _GetLastName() const;
+  void _setLastName(std::string);
+  std::string _getLastName(void) const;
 
-  void _SetNickname(std::string);
-  std::string _GetNickname() const;
+  void _setNickname(std::string);
+  std::string _setNickname(void) const;
 
-  void _SetPhoneNumber(std::string);
-  std::string _GetPhoneNumber() const;
+  void _setPhoneNumber(std::string);
+  std::string _getPhoneNumber(void) const;
 
-  void _SetDarkestSecret(std::string);
-  std::string _GetDarkestSecret() const;
+  void _setDarkestSecret(std::string);
+  std::string _getDarkestSecret(void) const;
 
 public:
-  Contact();
-  std::string GetInput(std::string, std::string, std::string, std::string);
-  void GetContactInfo();
-  void printContactInfo();
-  ~Contact();
+  Contact(void);
+  std::string getInput(std::string, std::string, std::string, std::string);
+  void getContactInfo(void);
+  ~Contact(void);
 };
 
 #endif // !CONTACTCLASS_H
