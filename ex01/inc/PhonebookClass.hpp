@@ -7,12 +7,16 @@
 #include <iostream>
 
 class Phonebook {
+  Contact _contactList[8];
+  int _contactCount;
+
 public:
-  void runProgram();
-  void addContact();
-  void printContact();
-  Phonebook();
-  ~Phonebook();
+  Phonebook(void);
+  void runProgram(void);
+  void addContact(Contact newContact);
+  void printContact(int index);
+  void printContactList(void);
+  ~Phonebook(void);
 };
 
 #endif // !PHONEBOOKCLASS_H
