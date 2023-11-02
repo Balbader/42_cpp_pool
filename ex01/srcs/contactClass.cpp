@@ -11,7 +11,7 @@ Contact::Contact(void) {
 }
 
 Contact::~Contact(void) {
-  std::cout << RED << "---------------------------->Contact Destructor Called!"
+  std::cout << RED << "----------------------------> Contact Destructor Called!"
             << RESET << std::endl;
   return;
 }
@@ -71,23 +71,23 @@ void Contact::getContactInfo(void) {
 
   std::string input = "";
 
-  _SetFirstName(input);
-  _SetLastName(input);
-  _SetNickname(input);
-  _SetPhoneNumber(input);
-  _SetDarkestSecret(input);
+  _setFirstName(input);
+  _setLastName(input);
+  _setNickname(input);
+  _setPhoneNumber(input);
+  _setDarkestSecret(input);
   return;
 }
 
 void printContactInfo() {
   std::cout << std::endl;
-  std::cout << "Contact's Name: " << GREEN << _GetFirstName() << " " << GREEN
-            << _GetLastName() << RESET << std::endl;
-  std::cout << "Contact's Nickname: " << GREEN << _GetNickname() << RESET
+  std::cout << "Contact's Name: " << GREEN << _getFirstName() << " " << GREEN
+            << _getLastName() << RESET << std::endl;
+  std::cout << "Contact's Nickname: " << GREEN << _etNickname() << RESET
             << std::endl;
-  std::cout << "Contact's Phone Number: " << GREEN << _GetPhoneNumber() << RESET
+  std::cout << "Contact's Phone Number: " << GREEN << _getPhoneNumber() << RESET
             << std::endl;
-  std::cout << "Contact's Darkest Secret: " << RED << _GetDarkestSecret()
+  std::cout << "Contact's Darkest Secret: " << RED << _getDarkestSecret()
             << RESET << std::endl;
   std::cout << std::endl;
   return;
