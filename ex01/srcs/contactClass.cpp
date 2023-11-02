@@ -76,14 +76,11 @@ void Contact::getContactInfo(void) {
   _setNickname(input);
   _setPhoneNumber(input);
   _setDarkestSecret(input);
-  return;
-}
 
-void printContactInfo() {
   std::cout << std::endl;
   std::cout << "Contact's Name: " << GREEN << _getFirstName() << " " << GREEN
             << _getLastName() << RESET << std::endl;
-  std::cout << "Contact's Nickname: " << GREEN << _etNickname() << RESET
+  std::cout << "Contact's Nickname: " << GREEN << _getNickname() << RESET
             << std::endl;
   std::cout << "Contact's Phone Number: " << GREEN << _getPhoneNumber() << RESET
             << std::endl;
@@ -92,3 +89,5 @@ void printContactInfo() {
   std::cout << std::endl;
   return;
 }
+
+void printContactInfo() { return; }

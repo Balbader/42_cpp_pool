@@ -15,8 +15,8 @@ Phonebook::~Phonebook(void) {
             << RESET << std::endl;
 };
 
-void Phonebook::addContact(Contact contact) {}
+void Phonebook::addContact(Contact contact) { (void)contact; }
 
-void Phonebook::printContact(int index) {}
+void Phonebook::printContact(int index) { (void)index; }
 
 void Phonebook::printContactList(void) {}
