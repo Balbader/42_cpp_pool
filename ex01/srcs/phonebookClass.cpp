@@ -15,6 +15,11 @@ Phonebook::~Phonebook() {
             << RESET << std::endl;
 };
 
+void Phonebook::printContact() {
+  Contact newContact;
+  newContact.printContactInfo();
+}
+
 void Phonebook::RunProgram() {
 
   Contact newContact;
