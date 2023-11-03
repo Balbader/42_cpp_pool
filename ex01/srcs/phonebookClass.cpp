@@ -20,3 +20,8 @@ void Phonebook::addContact(Contact contact) { (void)contact; }
 void Phonebook::printContact(int index) { (void)index; }
 
 void Phonebook::printContactList(void) {}
+
+void Phonebook::runProgram(void) {
+  Contact newContact;
+  newContact.getContactInfo();
+}
