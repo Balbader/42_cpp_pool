@@ -12,19 +12,30 @@ void Phonebook::addContact(int index, int _contactCount) {
 
   std::cout << std::endl;
   newContact.getContactInfo();
-  if (_contactCount > 8) {
-    // std::cout << "_contactCount : " << _contactCount << std::endl;
+  if (_contactCount > 3) {
+    std::cout << "_contactCount : " << _contactCount << std::endl;
     _contactCount = 0;
     _contactList[_contactCount] = newContact;
   } else {
-    // std::cout << "index : " << index << std::endl;
+    std::cout << "index : " << index << std::endl;
     _contactList[index] = newContact;
-    // std::cout << "_contactCount : " << _contactCount << std::endl;
+    std::cout << "_contactCount : " << _contactCount << std::endl;
   }
   std::cout << std::endl;
 }
 
 void Phonebook::printContact(int index) { (void)index; }
+
+void Phonebook::printContactList(void) {
+  std::cout << GREEN << "Contact's List :" << RESET << std::endl;
+  for (int i = 0; i < 3; ++i) {
+    std::cout << i + 1 << " | " << _contactList[i]._getFirstName() << " | "
+              << _contactList[i]._getLastName() << " | "
+              << _contactList[i]._getNickname() << " | "
+              << _contactList[i]._getPhoneNumber() << " | "
+              << _contactList[i]._getDarkestSecret() << std::endl;
+  }
+}
 
 void Phonebook::runProgram(void) {
   Phonebook newBook;
@@ -48,7 +59,7 @@ void Phonebook::runProgram(void) {
       std::cout << RED << "EXIT command entered!" << RESET << std::endl;
       break;
     } else if (input == "PRINT") {
-      printContactList();
+      newBook.printContactList();
     }
   }
   return;
