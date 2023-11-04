@@ -33,7 +33,7 @@ public:
   int index;
   std::string getInput(std::string, std::string, std::string, std::string);
   void getContactInfo(void);
-  void printContactInfo(Contact);
+  void printContactInfo(Contact, int);
   ~Contact(void);
 };
 
