@@ -35,17 +35,6 @@ void Phonebook::_keepGoing(void) {
   std::cout << "Please type in the appropriate command:" << std::endl;
 }
 
-void Phonebook::printContactList(Contact _contactList) {
-  std::cout << GREEN << "Contact's List :" << RESET << std::endl;
-  for (int i = 0; i < 3; ++i) {
-    std::cout << i + 1 << " | " << _contactList[i]._getFirstName() << " | "
-              << _contactList[i]._getLastName() << " | "
-              << _contactList[i]._getNickname() << " | "
-              << _contactList[i]._getPhoneNumber() << " | "
-              << _contactList[i]._getDarkestSecret() << std::endl;
-  }
-}
-
 //============================================================ Check Input
 // Checks if the user input is one of the 3 accepted commands
 std::string Phonebook::_checkInput(std::string input) {
