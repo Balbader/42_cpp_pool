@@ -4,15 +4,16 @@
 #include <string>
 
 Contact::Contact(void) {
-  std::cout << GREEN
-            << "----------------------------> Contact Constructor Called!"
-            << RESET << std::endl;
+  // std::cout << GREEN
+  //           << "----------------------------> Contact Constructor Called!"
+  //           << RESET << std::endl;
   return;
 }
 
 Contact::~Contact(void) {
-  std::cout << RED << "----------------------------> Contact Destructor Called!"
-            << RESET << std::endl;
+  // std::cout << RED << "----------------------------> Contact Destructor
+  // Called!"
+  //           << RESET << std::endl;
   return;
 }
 
