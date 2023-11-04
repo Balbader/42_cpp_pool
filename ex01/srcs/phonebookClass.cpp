@@ -7,12 +7,12 @@ Phonebook::Phonebook(void) { return; };
 
 Phonebook::~Phonebook(void) { return; };
 
-void Phonebook::addContact(void) {
+void Phonebook::addContact(int index) {
   Contact newContact;
 
   std::cout << std::endl;
   newContact.getContactInfo();
-  _contactList[] = newContact;
+  _contactList[index] = newContact;
   std::cout << std::endl;
   std::cout << newContact._getFirstName() << std::endl;
 }
@@ -32,7 +32,7 @@ void Phonebook::runProgram(void) {
   input = _checkInput(input);
 
   if (input == "ADD") {
-    newBook.addContact(void);
+    newBook.addContact(0);
   } else if (input == "SEARCH") {
     std::cout << RED << "SEARCH command entered!" << RESET << std::endl;
     return;
