@@ -3,24 +3,15 @@
 #include <iomanip>
 #include <iostream>
 
-Phonebook::Phonebook(void) {
-  // std::cout << GREEN
-  //           << "----------------------------> Phonebook Constructor Called!"
-  //           << RESET << std::endl;
-  return;
-};
+Phonebook::Phonebook(void) { return; };
 
-Phonebook::~Phonebook(void) {
-  // std::cout << RED
-  //           << "----------------------------> Phonebook Destructor Called!"
-  //           << RESET << std::endl;
-  return;
-};
+Phonebook::~Phonebook(void) { return; };
 
 void Phonebook::addContact(int i) {
   Contact newContact;
   newContact.getContactInfo();
   _contactList[i] = newContact;
+  newContact.printContactInfo(_contactList[i]);
 }
 
 void Phonebook::printContact(int index) { (void)index; }
@@ -37,4 +28,5 @@ void Phonebook::runProgram(void) {
     newBook.addContact(0);
   else
     std::cout << "Nothing Done!" << std::endl;
+  return;
 }
