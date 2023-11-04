@@ -9,6 +9,7 @@
 class Phonebook {
   Contact _contactList[8];
   int _contactCount;
+  std::string _checkInput(std::string);
 
 public:
   Phonebook(void);
