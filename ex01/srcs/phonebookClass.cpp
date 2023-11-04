@@ -13,20 +13,18 @@ void Phonebook::addContact(int index, int _contactCount) {
   std::cout << std::endl;
   newContact.getContactInfo();
   if (_contactCount > 8) {
-    std::cout << "_contactCount : " << _contactCount << std::endl;
+    // std::cout << "_contactCount : " << _contactCount << std::endl;
     _contactCount = 0;
     _contactList[_contactCount] = newContact;
   } else {
-    std::cout << "index : " << index << std::endl;
+    // std::cout << "index : " << index << std::endl;
     _contactList[index] = newContact;
-    std::cout << "_contactCount : " << _contactCount << std::endl;
+    // std::cout << "_contactCount : " << _contactCount << std::endl;
   }
   std::cout << std::endl;
 }
 
 void Phonebook::printContact(int index) { (void)index; }
-
-void Phonebook::printContactList(void) {}
 
 void Phonebook::runProgram(void) {
   Phonebook newBook;
@@ -34,20 +32,24 @@ void Phonebook::runProgram(void) {
   int index = 0;
 
   _contactCount = 0;
-  _printOptions();
-
-  std::getline(std::cin, input);
-
-  input = _checkInput(input);
-
-  if (input == "ADD") {
-    ++_contactCount;
-    newBook.addContact(index, _contactCount);
-    ++index;
-  } else if (input == "SEARCH") {
-    std::cout << RED << "SEARCH command entered!" << RESET << std::endl;
-    return;
-  } else if (input == "EXIT")
-    std::cout << RED << "EXIT command entered!" << RESET << std::endl;
+  while (true) {
+    _printOptions();
+    std::getline(std::cin, input);
+    input = _checkInput(input);
+    if (input == "ADD") {
+      ++_contactCount;
+      newBook.addContact(index, _contactCount);
+      ++index;
+      _keepGoing();
+    } else if (input == "SEARCH") {
+      std::cout << RED << "SEARCH command entered!" << RESET << std::endl;
+      break;
+    } else if (input == "EXIT") {
+      std::cout << RED << "EXIT command entered!" << RESET << std::endl;
+      break;
+    } else if (input == "PRINT") {
+      printContactList();
+    }
+  }
   return;
 }
