@@ -72,11 +72,8 @@ void Contact::getContactInfo(void) {
 
 void Contact::printContactInfo(Contact newContact, int index) {
   std::cout << std::endl;
-  std::cout << " | " << index << " | " << newContact._getFirstName() << " | "
-            << newContact._getLastName() << " | " << newContact._getNickname()
-            << std::endl;
-  // std::cout << std::setw(10) << index << " | " << newContact._getFirstName()
-  //           << " | " << newContact._getLastName() << " | "
-  //           << newContact._getNickname() << std::endl;
+  std::cout << std::setw(10) << index << " | " << newContact._getFirstName()
+            << " | " << newContact._getLastName() << " | "
+            << newContact._getNickname() << std::endl;
   return;
 }
