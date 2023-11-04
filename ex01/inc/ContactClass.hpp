@@ -6,6 +6,7 @@
 #include <iostream>
 
 class Contact {
+public:
   std::string _firstName;
   std::string _lastName;
   std::string _nickname;
