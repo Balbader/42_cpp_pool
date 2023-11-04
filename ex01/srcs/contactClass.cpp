@@ -70,7 +70,6 @@ void Contact::getContactInfo(void) {
 }
 
 void Contact::printContactInfo(Contact newContact) {
-  std::cout << std::endl;
   std::cout << "Contact's Name: " << GREEN << newContact._getFirstName() << " "
             << GREEN << newContact._getLastName() << RESET << std::endl;
   std::cout << "Contact's Nickname: " << GREEN << _getNickname() << RESET
@@ -79,6 +78,5 @@ void Contact::printContactInfo(Contact newContact) {
             << std::endl;
   std::cout << "Contact's Darkest Secret: " << RED << _getDarkestSecret()
             << RESET << std::endl;
-  std::cout << std::endl;
   return;
 }
