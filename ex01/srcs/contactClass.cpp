@@ -3,19 +3,9 @@
 #include <iostream>
 #include <string>
 
-Contact::Contact(void) {
-  // std::cout << GREEN
-  //           << "----------------------------> Contact Constructor Called!"
-  //           << RESET << std::endl;
-  return;
-}
+Contact::Contact(void) { return; }
 
-Contact::~Contact(void) {
-  // std::cout << RED << "----------------------------> Contact Destructor
-  // Called!"
-  //           << RESET << std::endl;
-  return;
-}
+Contact::~Contact(void) { return; }
 
 //============================================================ Get Input
 std::string Contact::getInput(std::string enter, std::string attr,
@@ -31,8 +21,7 @@ std::string Contact::getInput(std::string enter, std::string attr,
   return input;
 }
 
-//============================================================ Contact
-// firstname
+//============================================================ Contact firstname
 void Contact::_setFirstName(std::string input) {
   _firstName = getInput(ENTER, FIRST, EMPTY, input);
   return;
@@ -77,10 +66,13 @@ void Contact::getContactInfo(void) {
   _setNickname(input);
   _setPhoneNumber(input);
   _setDarkestSecret(input);
+  return;
+}
 
+void Contact::printContactInfo(Contact newContact) {
   std::cout << std::endl;
-  std::cout << "Contact's Name: " << GREEN << _getFirstName() << " " << GREEN
-            << _getLastName() << RESET << std::endl;
+  std::cout << "Contact's Name: " << GREEN << newContact._getFirstName() << " "
+            << GREEN << newContact._getLastName() << RESET << std::endl;
   std::cout << "Contact's Nickname: " << GREEN << _getNickname() << RESET
             << std::endl;
   std::cout << "Contact's Phone Number: " << GREEN << _getPhoneNumber() << RESET
@@ -90,5 +82,3 @@ void Contact::getContactInfo(void) {
   std::cout << std::endl;
   return;
 }
-
-void printContactInfo() { return; }
