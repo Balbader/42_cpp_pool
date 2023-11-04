@@ -61,6 +61,7 @@ void Contact::getContactInfo(void) {
 
   std::string input = "";
 
+  std::cout << GREEN << "New Contact Information:" << std::endl;
   _setFirstName(input);
   _setLastName(input);
   _setNickname(input);
@@ -69,14 +70,9 @@ void Contact::getContactInfo(void) {
   return;
 }
 
-void Contact::printContactInfo(Contact newContact) {
-  std::cout << "Contact's Name: " << GREEN << newContact._getFirstName() << " "
-            << GREEN << newContact._getLastName() << RESET << std::endl;
-  std::cout << "Contact's Nickname: " << GREEN << _getNickname() << RESET
-            << std::endl;
-  std::cout << "Contact's Phone Number: " << GREEN << _getPhoneNumber() << RESET
-            << std::endl;
-  std::cout << "Contact's Darkest Secret: " << RED << _getDarkestSecret()
-            << RESET << std::endl;
+void Contact::printContactInfo(Contact newContact, int index) {
+  std::cout << GREEN << "[" << index << "] | " << newContact._getFirstName()
+            << " | " << newContact._getLastName() << " | "
+            << newContact._getNickname() << RESET << std::endl;
   return;
 }
