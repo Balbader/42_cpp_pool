@@ -30,6 +30,7 @@ class Contact {
 
 public:
   Contact(void);
+  int index;
   std::string getInput(std::string, std::string, std::string, std::string);
   void getContactInfo(void);
   void printContactInfo(Contact);
