@@ -23,6 +23,7 @@ SRCS_DIR	:=	./srcs
 SRCS			:=	\
 							contactClass.cpp \
 							phonebookClass.cpp \
+							phonebookClassUtils.cpp \
 							main.cpp
 SRCS			:=	$(SRCS:%=$(SRCS_DIR)/%)
 
