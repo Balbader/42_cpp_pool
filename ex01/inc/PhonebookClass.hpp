@@ -15,7 +15,7 @@ class Phonebook {
 public:
   Phonebook(void);
   void runProgram(void);
-  void addContact(int);
+  void addContact(void);
   void printContact(int index);
   void printContactList(void);
   ~Phonebook(void);
