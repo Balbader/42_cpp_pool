@@ -32,8 +32,7 @@ public:
   Contact(void);
   std::string getInput(std::string, std::string, std::string, std::string);
   void getContactInfo(void);
-  void printContactInfo(std::string, std::string, std::string, std::string,
-                        std::string);
+  void printContactInfo(Contact);
   ~Contact(void);
 };
 
