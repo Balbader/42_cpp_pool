@@ -7,14 +7,21 @@ Phonebook::Phonebook(void) { return; };
 
 Phonebook::~Phonebook(void) { return; };
 
-void Phonebook::addContact(int index) {
+void Phonebook::addContact(int index, int _contactCount) {
   Contact newContact;
 
   std::cout << std::endl;
   newContact.getContactInfo();
-  _contactList[index] = newContact;
+  if (_contactCount > 8) {
+    std::cout << "_contactCount : " << _contactCount << std::endl;
+    _contactCount = 0;
+    _contactList[_contactCount] = newContact;
+  } else {
+    std::cout << "index : " << index << std::endl;
+    _contactList[index] = newContact;
+    std::cout << "_contactCount : " << _contactCount << std::endl;
+  }
   std::cout << std::endl;
-  std::cout << newContact._getFirstName() << std::endl;
 }
 
 void Phonebook::printContact(int index) { (void)index; }
@@ -24,7 +31,9 @@ void Phonebook::printContactList(void) {}
 void Phonebook::runProgram(void) {
   Phonebook newBook;
   std::string input;
+  int index = 0;
 
+  _contactCount = 0;
   _printOptions();
 
   std::getline(std::cin, input);
@@ -32,7 +41,9 @@ void Phonebook::runProgram(void) {
   input = _checkInput(input);
 
   if (input == "ADD") {
-    newBook.addContact(0);
+    ++_contactCount;
+    newBook.addContact(index, _contactCount);
+    ++index;
   } else if (input == "SEARCH") {
     std::cout << RED << "SEARCH command entered!" << RESET << std::endl;
     return;
