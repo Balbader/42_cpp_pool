@@ -16,13 +16,13 @@ void Phonebook::addContact(int index, int _contactCount) {
   std::cout << std::endl;
   newContact.getContactInfo();
   if (_contactCount > 3) {
-    std::cout << "_contactCount : " << _contactCount << std::endl;
+    std::cout << RED << "_contactCount : " << _contactCount << RESET << std::endl;
     _contactCount = 0;
     _contactList[_contactCount] = newContact;
   } else {
-    std::cout << "index : " << index << std::endl;
+    std::cout << RED << "index : " << index << RESET << std::endl;
     _contactList[index] = newContact;
-    std::cout << "_contactCount : " << _contactCount << std::endl;
+    std::cout << RED << "_contactCount : " << _contactCount << RESET << std::endl;
   }
   std::cout << std::endl;
 }
@@ -49,16 +49,18 @@ void Phonebook::runProgram(void) {
   std::string input;
   int index = 0;
 
+  std::cout << std::endl;
+  std::cout << "Welcome to your new Phonebook !" << std::endl;
+  _options();
   _contactCount = 0;
   while (true) {
-    _printOptions();
     std::getline(std::cin, input);
     input = _checkInput(input);
     if (input == "ADD") {
       ++_contactCount;
       newBook.addContact(index, _contactCount);
       ++index;
-      _keepGoing();
+      _contactAdded();
     } else if (input == "SEARCH") {
       std::cout << RED << "SEARCH command entered!" << RESET << std::endl;
       break;
@@ -67,6 +69,7 @@ void Phonebook::runProgram(void) {
       break;
     } else if (input == "PRINT") {
       newBook.printContactList();
+      _whatNext();
     }
   }
   return;

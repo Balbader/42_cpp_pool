@@ -3,10 +3,11 @@
 #include <iomanip>
 #include <iostream>
 
-void Phonebook::_printOptions(void) {
+void Phonebook::_welcomeMessage(void) {
   std::cout << std::endl;
   std::cout << "Welcome to your new Phonebook !" << std::endl;
-  std::cout << std::endl;
+}
+void Phonebook::_options(void) {
   std::cout << "Here are your options :" << std::endl;
   std::cout << "1. Add a new contact : " << GREEN << "ADD" << RESET
             << std::endl;
@@ -14,25 +15,25 @@ void Phonebook::_printOptions(void) {
             << RESET << std::endl;
   std::cout << "3. Quit the program : " << GREEN << "EXIT" << RESET
             << std::endl;
-  std::cout << std::endl;
-  std::cout << "Please type in the appropriate command:" << std::endl;
 }
 
-void Phonebook::_keepGoing(void) {
-  std::cout << std::endl;
-  std::cout << GREEN << "Contact added !" << RESET << std::endl;
-  std::cout << std::endl;
-  std::cout << "What next ?" << std::endl;
-  std::cout << "1. Add a new contact : " << GREEN << "ADD" << RESET
-            << std::endl;
-  std::cout << "2. Serch for an existing contact : " << GREEN << "SEARCH"
-            << RESET << std::endl;
-  std::cout << "3. Quit the program : " << GREEN << "EXIT" << RESET
-            << std::endl;
+void Phonebook::_printOption(void) {
   std::cout << "4. Print Phonebook ! " << GREEN << "PRINT" << RESET
             << std::endl;
   std::cout << std::endl;
+}
+
+void Phonebook::_whatNext(void) {
+  std::cout << std::endl;
+  std::cout << "What next ?" << std::endl;
+  _options();
+  _printOption();
   std::cout << "Please type in the appropriate command:" << std::endl;
+}
+
+void Phonebook::_contactAdded(void) {
+  std::cout << GREEN << "Contat added !" << RESET << std::endl;
+  _whatNext();
 }
 
 //============================================================ Check Input
