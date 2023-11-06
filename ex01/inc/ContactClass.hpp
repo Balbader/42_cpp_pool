@@ -6,7 +6,10 @@
 #include <iostream>
 
 class Contact {
-public: // TO DO: Do we need to keep this public of can we make it private ????
+  // TODO : Do we need to keep this public ????
+  //
+  //
+public:
   std::string _firstName;
   std::string _lastName;
   std::string _nickname;
