@@ -3,6 +3,7 @@
 #include <iomanip>
 #include <iostream>
 
+//============================================================ Display Messages
 void Phonebook::_welcomeMessage(void) {
   std::cout << std::endl;
   std::cout << "Welcome to your new Phonebook !" << std::endl;
