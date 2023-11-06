@@ -3,10 +3,13 @@
 #include <iomanip>
 #include <iostream>
 
+// ---------------------------------------------------> Constructor
 Phonebook::Phonebook(void) { return; };
 
+// ---------------------------------------------------> Destructor
 Phonebook::~Phonebook(void) { return; };
 
+// ---------------------------------------------------> Add Contact
 void Phonebook::addContact(int index, int _contactCount) {
   Contact newContact;
 
@@ -24,8 +27,10 @@ void Phonebook::addContact(int index, int _contactCount) {
   std::cout << std::endl;
 }
 
+// ---------------------------------------------------> Print Specific Contact
 void Phonebook::printContact(int index) { (void)index; }
 
+// ---------------------------------------------------> Print Contact List
 void Phonebook::printContactList(void) {
   std::cout << GREEN << "Contact's List :" << RESET << std::endl;
   for (int i = 0; i < 3; ++i) {
@@ -37,6 +42,7 @@ void Phonebook::printContactList(void) {
   }
 }
 
+// ---------------------------------------------------> Run Program
 void Phonebook::runProgram(void) {
   Phonebook newBook;
   std::string input;
