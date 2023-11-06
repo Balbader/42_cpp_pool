@@ -6,9 +6,9 @@
 #include <iostream>
 
 class Contact {
-  // TODO : Do we need to keep this public ????
-  //
-  //
+
+  // TODO: Do we need to keep this public ????
+
 public:
   std::string _firstName;
   std::string _lastName;
