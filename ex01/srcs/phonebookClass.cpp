@@ -33,6 +33,7 @@ void Phonebook::printContact(int index) { (void)index; }
 // ---------------------------------------------------> Print Contact List
 // Prints the full list of phonebook content
 void Phonebook::printContactList(void) {
+  std::cout << std::endl;
   std::cout << GREEN << "Contact's List :" << RESET << std::endl;
   for (int i = 0; i < 3; ++i) {
     std::cout << i + 1 << " | " << _contactList[i]._getFirstName() << " | "
