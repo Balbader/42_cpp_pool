@@ -10,8 +10,12 @@ class Phonebook {
   Contact _contactList[3];
   int _contactCount;
   std::string _checkInput(std::string);
-  void _printOptions(void);
-  void _keepGoing(void);
+  void _welcomeMessage(void);
+  void _withPrintOption(void);
+  void _options(void);
+  void _printOption(void);
+  void _whatNext(void);
+  void _contactAdded(void);
 
 public:
   Phonebook(void);
