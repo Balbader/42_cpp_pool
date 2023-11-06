@@ -16,19 +16,33 @@ void Phonebook::addContact(int index, int _contactCount) {
   std::cout << std::endl;
   newContact.getContactInfo();
   if (_contactCount > 3) {
-    std::cout << RED << "_contactCount : " << _contactCount << RESET << std::endl;
+    std::cout << RED << "_contactCount : " << _contactCount << RESET
+              << std::endl;
     _contactCount = 0;
     _contactList[_contactCount] = newContact;
   } else {
     std::cout << RED << "index : " << index << RESET << std::endl;
     _contactList[index] = newContact;
-    std::cout << RED << "_contactCount : " << _contactCount << RESET << std::endl;
+    std::cout << RED << "_contactCount : " << _contactCount << RESET
+              << std::endl;
   }
   std::cout << std::endl;
 }
 
 // ---------------------------------------------------> Print Specific Contact
-void Phonebook::printContact(int index) { (void)index; }
+void Phonebook::printContact(int index) {
+  std::cout << std::endl;
+  std::cout << GREEN << "Result :" << RESET << std::endl;
+  for (int i = 0; i < 3; ++i) {
+    if (i + 1 == index) {
+      std::cout << i + 1 << " | " << _contactList[i]._getFirstName() << " | "
+                << _contactList[i]._getLastName() << " | "
+                << _contactList[i]._getNickname() << " | "
+                << _contactList[i]._getPhoneNumber() << " | "
+                << _contactList[i]._getDarkestSecret() << std::endl;
+    }
+  }
+}
 
 // ---------------------------------------------------> Print Contact List
 // Prints the full list of phonebook content
