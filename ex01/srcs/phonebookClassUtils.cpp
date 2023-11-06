@@ -3,10 +3,10 @@
 #include <iomanip>
 #include <iostream>
 
-//============================================================ Options Messages
 void Phonebook::_welcomeMessage(void) {
   std::cout << std::endl;
   std::cout << "Welcome to your new Phonebook !" << std::endl;
+  std::cout << std::endl;
 }
 void Phonebook::_options(void) {
   std::cout << "Here are your options :" << std::endl;
@@ -26,7 +26,7 @@ void Phonebook::_printOption(void) {
 
 void Phonebook::_whatNext(void) {
   std::cout << std::endl;
-  std::cout << "What next ?" << std::endl;
+  std::cout << GREEN << "What next ?" << RESET << std::endl;
   _options();
   _printOption();
   std::cout << "Please type in the appropriate command:" << std::endl;
