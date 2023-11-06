@@ -31,6 +31,7 @@ void Phonebook::addContact(int index, int _contactCount) {
 void Phonebook::printContact(int index) { (void)index; }
 
 // ---------------------------------------------------> Print Contact List
+// Prints the full list of phonebook content
 void Phonebook::printContactList(void) {
   std::cout << GREEN << "Contact's List :" << RESET << std::endl;
   for (int i = 0; i < 3; ++i) {
