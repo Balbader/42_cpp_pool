@@ -9,6 +9,7 @@ void Phonebook::_welcomeMessage(void) {
   std::cout << "Welcome to your new Phonebook !" << std::endl;
   std::cout << std::endl;
 }
+
 void Phonebook::_options(void) {
   std::cout << "Here are your options :" << std::endl;
   std::cout << "1. Add a new contact : " << GREEN << "ADD" << RESET
