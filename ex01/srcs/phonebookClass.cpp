@@ -13,7 +13,7 @@ Phonebook::~Phonebook(void) { return; };
 int Phonebook::addContact(int index) {
   Contact newContact;
 
-  // TODO: change index limit from 2 to 8
+  // TODO: change index limit from 2 to 7
 
   if (index > 2)
     index = 0;
@@ -63,12 +63,10 @@ void Phonebook::runProgram(void) {
   std::cout << std::endl;
   std::cout << "Welcome to your new Phonebook !" << std::endl;
   _options();
-  contactCount = 0;
   while (true) {
     std::getline(std::cin, input);
     input = _checkInput(input);
     if (input == "ADD") {
-      // (contactCount > 2) ? contactCount = 0 : ++contactCount;
       index = newBook.addContact(index);
       _contactAdded();
     } else if (input == "SEARCH") {
