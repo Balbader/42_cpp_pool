@@ -9,15 +9,18 @@ void Search::_searchMessage(void) {
   return;
 }
 
-void Search::_searchContact(Contact _contactList[3]) {
-  std::string input;
-  std::getline(std::cin, input);
+void Search::searchContact(Contact _contactList[3]) {
+  std::string name;
+  std::getline(std::cin, name);
+  name = nameToUpper(name);
+  for (int i = 0; i < 8; ++i) {
+  }
   return;
 }
 
-std::string Search::_nameToUpper(std::string contactName) {
+std::string Search::nameToUpper(std::string contactName) {
   for (int i = 0; i < contactName.length(); ++i) {
-    std::toupper(contactName[i]);
+    std::toupper(contactName);
   }
   return contactName;
 }
