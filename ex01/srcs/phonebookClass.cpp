@@ -10,23 +10,17 @@ Phonebook::Phonebook(void) { return; };
 Phonebook::~Phonebook(void) { return; };
 
 // ---------------------------------------------------> Add Contact
-void Phonebook::addContact(int index, int _contactCount) {
+int Phonebook::addContact(int index) {
   Contact newContact;
 
+  if (index > 2)
+    index = 0;
   std::cout << std::endl;
+  std::cout << RED << "index : " << index << RESET << std::endl;
   newContact.getContactInfo();
-  if (_contactCount > 3) {
-    std::cout << RED << "_contactCount : " << _contactCount << RESET
-              << std::endl;
-    _contactCount = 0;
-    _contactList[_contactCount] = newContact;
-  } else {
-    std::cout << RED << "index : " << index << RESET << std::endl;
-    _contactList[index] = newContact;
-    std::cout << RED << "_contactCount : " << _contactCount << RESET
-              << std::endl;
-  }
-  std::cout << std::endl;
+  _contactList[index] = newContact;
+  ++index;
+  return index;
 }
 
 // ---------------------------------------------------> Print Specific Contact
@@ -67,14 +61,13 @@ void Phonebook::runProgram(void) {
   std::cout << std::endl;
   std::cout << "Welcome to your new Phonebook !" << std::endl;
   _options();
-  _contactCount = 0;
+  contactCount = 0;
   while (true) {
     std::getline(std::cin, input);
     input = _checkInput(input);
     if (input == "ADD") {
-      ++_contactCount;
-      newBook.addContact(index, _contactCount);
-      ++index;
+      // (contactCount > 2) ? contactCount = 0 : ++contactCount;
+      index = newBook.addContact(index);
       _contactAdded();
     } else if (input == "SEARCH") {
       std::cout << RED << "SEARCH command entered!" << RESET << std::endl;
