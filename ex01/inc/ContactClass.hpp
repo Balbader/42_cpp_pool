@@ -7,9 +7,6 @@
 #include <string>
 
 class Contact {
-
-  // TODO: Do we need to keep this public ????
-
   std::string _firstName;
   std::string _lastName;
   std::string _nickname;
@@ -20,8 +17,8 @@ class Contact {
 public:
   Contact(void);
 
-  void setFirstName(std::string);       // setter
-  std::string getFirstName(void) const; // getter
+  void setFirstName(std::string);
+  std::string getFirstName(void) const;
 
   void setLastName(std::string);
   std::string getLastName(void) const;
