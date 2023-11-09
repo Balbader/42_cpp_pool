@@ -2,6 +2,7 @@
 #define PHONEBOOKCLASS_HPP
 
 #include "ContactClass.hpp"
+#include "SearchClass.hpp"
 #include "define.hpp"
 #include <iomanip>
 #include <iostream>
