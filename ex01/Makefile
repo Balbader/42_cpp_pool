@@ -24,6 +24,7 @@ SRCS			:=	\
 							contactClass.cpp \
 							phonebookClass.cpp \
 							phonebookClassUtils.cpp \
+							search.cpp \
 							main.cpp
 SRCS			:=	$(SRCS:%=$(SRCS_DIR)/%)
 
