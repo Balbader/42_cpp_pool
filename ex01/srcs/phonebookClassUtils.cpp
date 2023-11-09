@@ -47,7 +47,6 @@ void Phonebook::_searchMessage(void) {
 }
 
 //============================================================ Check Input
-// Checks if the user input is one of the 3 accepted commands
 std::string Phonebook::_checkInput(std::string input) {
   if (input == "ADD" || input == "SEARCH" || input == "EXIT" ||
       input == "PRINT")
