@@ -8,22 +8,25 @@ void Phonebook::_welcomeMessage(void) {
   std::cout << std::endl;
   std::cout << "Welcome to your new Phonebook !" << std::endl;
   std::cout << std::endl;
+  return;
 }
 
 void Phonebook::_options(void) {
   std::cout << "Here are your options :" << std::endl;
   std::cout << "1. Add a new contact : " << GREEN << "ADD" << RESET
             << std::endl;
-  std::cout << "2. Serch for an existing contact : " << GREEN << "SEARCH"
+  std::cout << "2. Search for an existing contact : " << GREEN << "SEARCH"
             << RESET << std::endl;
   std::cout << "3. Quit the program : " << GREEN << "EXIT" << RESET
             << std::endl;
+  return;
 }
 
 void Phonebook::_printOption(void) {
   std::cout << "4. Print Phonebook ! " << GREEN << "PRINT" << RESET
             << std::endl;
   std::cout << std::endl;
+  return;
 }
 
 void Phonebook::_whatNext(void) {
@@ -32,11 +35,13 @@ void Phonebook::_whatNext(void) {
   _options();
   _printOption();
   std::cout << "Please type in the appropriate command:" << std::endl;
+  return;
 }
 
 void Phonebook::_contactAdded(void) {
   std::cout << GREEN << "Contat added !" << RESET << std::endl;
   _whatNext();
+  return;
 }
 
 //============================================================ Check Input
