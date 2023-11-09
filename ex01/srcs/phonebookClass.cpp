@@ -13,6 +13,8 @@ Phonebook::~Phonebook(void) { return; };
 int Phonebook::addContact(int index) {
   Contact newContact;
 
+  // TODO: change index limit from 2 to 8
+
   if (index > 2)
     index = 0;
   std::cout << std::endl;
