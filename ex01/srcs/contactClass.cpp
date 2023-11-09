@@ -1,7 +1,4 @@
 #include "ContactClass.hpp"
-#include <iomanip>
-#include <iostream>
-#include <string>
 
 Contact::Contact(void) { return; }
 
