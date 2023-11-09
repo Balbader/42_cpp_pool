@@ -77,11 +77,12 @@ void Phonebook::runProgram(void) {
       _searchMessage();
       std::cin >> contactID;
       newBook.printContact(contactID, index);
+      _whatNext();
     } else if (input == "EXIT") {
       std::cout << RED << "EXIT command entered!" << RESET << std::endl;
       break;
     } else if (input == "PRINT") {
-      newBook.printContactList(3);
+      newBook.printContactList(index);
       _whatNext();
     }
   }
