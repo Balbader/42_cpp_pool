@@ -1,5 +1,6 @@
 #include "PhonebookClass.hpp"
 #include "define.hpp"
+#include <ctype.h>
 #include <iomanip>
 #include <iostream>
 
@@ -26,13 +27,7 @@ int Phonebook::addContact(int index) {
 }
 
 // ---------------------------------------------------> Print Specific Contact
-void Phonebook::printContact(std::string contactName) {
-  Search newSearch;
-  std::string name;
-
-  name = newSearch.nameToUpper(contactName);
-  std::cout << "Name to upper : " << name << std::endl;
-}
+void Phonebook::printContact(std::string contactName) { (void)contactName; }
 
 // ---------------------------------------------------> Print Contact List
 // Prints the full list of phonebook content
@@ -65,11 +60,12 @@ void Phonebook::runProgram(void) {
       _contactAdded();
     } else if (input == "SEARCH") {
       std::cout << RED << "SEARCH command entered!" << RESET << std::endl;
+      break;
     } else if (input == "EXIT") {
       std::cout << RED << "EXIT command entered!" << RESET << std::endl;
       break;
     } else if (input == "PRINT") {
-      newBook.printContactList(index);
+      newBook.printContactList(3);
       _whatNext();
     }
   }
