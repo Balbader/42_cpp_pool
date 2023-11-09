@@ -4,6 +4,7 @@
 #include "define.hpp"
 #include <iomanip>
 #include <iostream>
+#include <string>
 
 class Contact {
 
