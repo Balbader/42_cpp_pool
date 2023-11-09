@@ -18,12 +18,13 @@ class Phonebook {
   void _printOption(void);
   void _whatNext(void);
   void _contactAdded(void);
+  void _searchMessage(void);
 
 public:
   Phonebook(void);
   void runProgram(void);
   int addContact(int);
-  void printContact(std::string);
+  void printContact(char, int);
   void printContactList(int);
   ~Phonebook(void);
 };
