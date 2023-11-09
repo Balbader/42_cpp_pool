@@ -23,8 +23,8 @@ public:
   Phonebook(void);
   void runProgram(void);
   int addContact(int);
-  void printContact(int index);
-  void printContactList(void);
+  void printContact(std::string);
+  void printContactList(int);
   ~Phonebook(void);
 };
 
