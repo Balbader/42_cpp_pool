@@ -39,7 +39,7 @@ void Phonebook::printContact(char contactID, int index) {
     }
     ++i;
   }
-  _whatNext();
+  // _whatNext();
   return;
 }
 
