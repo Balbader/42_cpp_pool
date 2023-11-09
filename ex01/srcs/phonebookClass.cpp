@@ -27,26 +27,39 @@ int Phonebook::addContact(int index) {
 }
 
 // ---------------------------------------------------> Print Specific Contact
-void Phonebook::printContact(std::string contactName) { (void)contactName; }
+void Phonebook::printContact(char contactID, int index) {
+  for (int i = 0; i < index; ++i) {
+    if ((contactID - '0') - 1 == i) {
+      std::cout << RED << "contactID : " << contactID << "\nindex : " << index
+                << RESET << std::endl;
+      std::cout << contactID << " | " << _contactList[i]._getFirstName()
+                << " | " << _contactList[i]._getLastName() << " | "
+                << _contactList[i]._getNickname() << " | "
+                << _contactList[i]._getPhoneNumber() << " | "
+                << _contactList[i]._getDarkestSecret() << std::endl;
+    }
+    ++i;
+  }
+  return;
+}
 
 // ---------------------------------------------------> Print Contact List
-// Prints the full list of phonebook content
 void Phonebook::printContactList(int index) {
   std::cout << std::endl;
   std::cout << GREEN << "Contact's List :" << RESET << std::endl;
   for (int i = 0; i < index; ++i) {
     std::cout << i + 1 << " | " << _contactList[i]._getFirstName() << " | "
               << _contactList[i]._getLastName() << " | "
-              << _contactList[i]._getNickname() << " | "
-              << _contactList[i]._getPhoneNumber() << " | "
-              << _contactList[i]._getDarkestSecret() << std::endl;
+              << _contactList[i]._getNickname() << std::endl;
   }
+  return;
 }
 
 // ---------------------------------------------------> Run Program
 void Phonebook::runProgram(void) {
   Phonebook newBook;
   std::string input;
+  char contactID;
   int index = 0;
 
   std::cout << std::endl;
@@ -60,7 +73,10 @@ void Phonebook::runProgram(void) {
       _contactAdded();
     } else if (input == "SEARCH") {
       std::cout << RED << "SEARCH command entered!" << RESET << std::endl;
-      printContactList(0);
+      newBook.printContactList(index);
+      _searchMessage();
+      std::cin >> contactID;
+      newBook.printContact(contactID, index);
     } else if (input == "EXIT") {
       std::cout << RED << "EXIT command entered!" << RESET << std::endl;
       break;
