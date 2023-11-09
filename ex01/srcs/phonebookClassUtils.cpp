@@ -41,6 +41,11 @@ void Phonebook::_contactAdded(void) {
   return;
 }
 
+void Phonebook::_searchMessage(void) {
+  std::cout << std::endl;
+  std::cout << "Please enter contact's id# :" << std::endl;
+}
+
 //============================================================ Check Input
 // Checks if the user input is one of the 3 accepted commands
 std::string Phonebook::_checkInput(std::string input) {
