@@ -30,7 +30,7 @@ void Phonebook::printContact(std::string contactName) {
   Search newSearch;
   std::string name;
 
-  name = newSearch._nameToUpper(name);
+  name = newSearch.nameToUpper(contactName);
   std::cout << "Name to upper : " << name << std::endl;
 }
 
