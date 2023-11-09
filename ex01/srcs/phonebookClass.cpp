@@ -31,15 +31,14 @@ int Phonebook::printContact(char contactID, int index) {
   std::cout << std::endl;
   for (int i = 0; i < index; ++i) {
     if ((contactID - '0') - 1 == i) {
-      std::cout << contactID << " | " << _contactList[i]._getFirstName()
-                << " | " << _contactList[i]._getLastName() << " | "
-                << _contactList[i]._getNickname() << " | "
-                << _contactList[i]._getPhoneNumber() << " | "
-                << _contactList[i]._getDarkestSecret() << std::endl;
+      std::cout << contactID << " | " << _contactList[i].getFirstName() << " | "
+                << _contactList[i].getLastName() << " | "
+                << _contactList[i].getNickname() << " | "
+                << _contactList[i].getPhoneNumber() << " | "
+                << _contactList[i].getDarkestSecret() << std::endl;
     }
     ++i;
   }
-  _whatNext();
   return index;
 }
 
@@ -48,9 +47,9 @@ void Phonebook::printContactList(int index) {
   std::cout << std::endl;
   std::cout << GREEN << "Contact's List :" << RESET << std::endl;
   for (int i = 0; i < index; ++i) {
-    std::cout << i + 1 << " | " << _contactList[i]._getFirstName() << " | "
-              << _contactList[i]._getLastName() << " | "
-              << _contactList[i]._getNickname() << std::endl;
+    std::cout << i + 1 << " | " << _contactList[i].getFirstName() << " | "
+              << _contactList[i].getLastName() << " | "
+              << _contactList[i].getNickname() << std::endl;
   }
   return;
 }
@@ -76,6 +75,7 @@ void Phonebook::runProgram(void) {
       _searchMessage();
       std::cin >> contactID;
       index = newBook.printContact(contactID, index);
+      _whatNext();
     } else if (input == "EXIT") {
       std::cout << RED << "EXIT command entered!" << RESET << std::endl;
       break;
