@@ -27,17 +27,11 @@ int Phonebook::addContact(int index) {
 
 // ---------------------------------------------------> Print Specific Contact
 void Phonebook::printContact(std::string contactName) {
-  std::cout << std::endl;
-  std::cout << GREEN << "Result :" << RESET << std::endl;
-  for (int i = 0; i < 3; ++i) {
-    if (i + 1 == index) {
-      std::cout << i + 1 << " | " << _contactList[i]._getFirstName() << " | "
-                << _contactList[i]._getLastName() << " | "
-                << _contactList[i]._getNickname() << " | "
-                << _contactList[i]._getPhoneNumber() << " | "
-                << _contactList[i]._getDarkestSecret() << std::endl;
-    }
-  }
+  Search newSearch;
+  std::string name;
+
+  name = newSearch._nameToUpper(name);
+  std::cout << "Name to upper : " << name << std::endl;
 }
 
 // ---------------------------------------------------> Print Contact List
@@ -71,7 +65,6 @@ void Phonebook::runProgram(void) {
       _contactAdded();
     } else if (input == "SEARCH") {
       std::cout << RED << "SEARCH command entered!" << RESET << std::endl;
-      break;
     } else if (input == "EXIT") {
       std::cout << RED << "EXIT command entered!" << RESET << std::endl;
       break;
