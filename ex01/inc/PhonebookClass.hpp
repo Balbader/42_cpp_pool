@@ -8,7 +8,6 @@
 
 class Phonebook {
   Contact _contactList[3];
-  int _contactCount;
   std::string _checkInput(std::string);
   void _welcomeMessage(void);
   void _withPrintOption(void);
@@ -19,8 +18,9 @@ class Phonebook {
 
 public:
   Phonebook(void);
+  int contactCount;
   void runProgram(void);
-  void addContact(int, int);
+  int addContact(int);
   void printContact(int index);
   void printContactList(void);
   ~Phonebook(void);
