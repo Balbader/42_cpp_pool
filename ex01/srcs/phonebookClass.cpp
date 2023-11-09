@@ -28,10 +28,9 @@ int Phonebook::addContact(int index) {
 
 // ---------------------------------------------------> Print Specific Contact
 void Phonebook::printContact(char contactID, int index) {
+  std::cout << std::endl;
   for (int i = 0; i < index; ++i) {
     if ((contactID - '0') - 1 == i) {
-      std::cout << RED << "contactID : " << contactID << "\nindex : " << index
-                << RESET << std::endl;
       std::cout << contactID << " | " << _contactList[i]._getFirstName()
                 << " | " << _contactList[i]._getLastName() << " | "
                 << _contactList[i]._getNickname() << " | "
@@ -40,6 +39,7 @@ void Phonebook::printContact(char contactID, int index) {
     }
     ++i;
   }
+  _whatNext();
   return;
 }
 
@@ -77,7 +77,6 @@ void Phonebook::runProgram(void) {
       _searchMessage();
       std::cin >> contactID;
       newBook.printContact(contactID, index);
-      _whatNext();
     } else if (input == "EXIT") {
       std::cout << RED << "EXIT command entered!" << RESET << std::endl;
       break;
