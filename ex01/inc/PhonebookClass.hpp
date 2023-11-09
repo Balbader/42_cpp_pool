@@ -24,7 +24,7 @@ public:
   Phonebook(void);
   void runProgram(void);
   int addContact(int);
-  int printContact(char, int);
+  void printContact(char, int);
   void printContactList(int);
   ~Phonebook(void);
 };
