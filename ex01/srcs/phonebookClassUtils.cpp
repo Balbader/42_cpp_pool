@@ -1,7 +1,4 @@
 #include "PhonebookClass.hpp"
-#include "define.hpp"
-#include <iomanip>
-#include <iostream>
 
 //============================================================ Display Messages
 void Phonebook::_welcomeMessage(void) {
