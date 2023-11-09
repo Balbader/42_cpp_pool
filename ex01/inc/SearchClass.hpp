@@ -9,8 +9,9 @@
 class Search {
   void _searchMessage(void);
 
-  void _searchContact(Contact);
-  std::string _nameToUpper(std::string);
+public:
+  void searchContact(Contact);
+  std::string nameToUpper(std::string);
 };
 
 #endif // !SEARCHCLASS_HPP
