@@ -7,8 +7,10 @@
 #include <iostream>
 
 class Search {
-  void searchContact(Contact);
-  std::string convertContact(std::string);
-}
+  void _searchMessage(void);
+
+  void _searchContact(Contact);
+  std::string _nameToUpper(std::string);
+};
 
 #endif // !SEARCHCLASS_HPP
