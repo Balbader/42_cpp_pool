@@ -16,6 +16,7 @@ public:
   std::string _nickname;
   std::string _phoneNumber;
   std::string _darkestSecret;
+  std::string _index;
 
   // Functions Declaration
   void _setFirstName(std::string);       // setter
