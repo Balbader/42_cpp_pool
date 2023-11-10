@@ -56,25 +56,36 @@ char Phonebook::_checkContactID(char contactID) {
 }
 
 //============================================================ Check Input
-std::string Phonebook::_checkInput(std::string input) {
-  if (input == "ADD" || input == "SEARCH" || input == "EXIT" ||
-      input == "PRINT")
-    return input;
-  else if (input != "ADD" || input != "SEARCH" || input != "EXIT" ||
-           input != "PRINT") {
-    while (input != "ADD" || input != "SEARCH" || input != "EXIT") {
-      std::cout << RED
-                << "Wrong input !\nPlease enter one of the following commands :"
-                << std::endl;
-      std::cout << BLUE << "1. ADD" << RESET << std::endl;
-      std::cout << BLUE << "2. SEARCH" << RESET << std::endl;
-      std::cout << BLUE << "3. EXIT" << RESET << std::endl;
-      std::cout << BLUE << "4. PRINT" << RESET << std::endl;
-      std::getline(std::cin, input);
-      if (input == "ADD" || input == "SEARCH" || input == "EXIT" ||
-          input == "PRINT")
-        break;
-    }
+// std::string Phonebook::_checkInput(std::string input) {
+int Phonebook::_checkInput(std::string input) {
+  // if (input == "ADD" || input == "SEARCH" || input == "EXIT" ||
+  //     input == "PRINT")
+  //   return input;
+  // else if (input != "ADD" || input != "SEARCH" || input != "EXIT" ||
+  //          input != "PRINT") {
+  //   while (input != "ADD" || input != "SEARCH" || input != "EXIT") {
+  //     std::cout << RED
+  //               << "Wrong input !\nPlease enter one of the following commands
+  //               :"
+  //               << std::endl;
+  //     std::cout << BLUE << "1. ADD" << RESET << std::endl;
+  //     std::cout << BLUE << "2. SEARCH" << RESET << std::endl;
+  //     std::cout << BLUE << "3. EXIT" << RESET << std::endl;
+  //     std::cout << BLUE << "4. PRINT" << RESET << std::endl;
+  //     std::getline(std::cin, input);
+  //     if (input == "ADD" || input == "SEARCH" || input == "EXIT" ||
+  //         input == "PRINT")
+  //       break;
+  //   }
+  // }
+  // return input;
+  std::cout << "input :" << input << std::endl;
+  if (input != "ADD" && input != "SEARCH" && input != "EXIT" &&
+      input != "PRINT") {
+    std::cout << RED
+              << "Wrong input !\nPlease enter one of the following commands : "
+              << std::endl;
+    return 1;
   }
-  return input;
+  return 0;
 }
