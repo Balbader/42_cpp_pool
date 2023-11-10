@@ -23,7 +23,7 @@ class Phonebook {
 public:
   Phonebook(void);
   void runProgram(void);
-  int addContact(int);
+  void addContact(int);
   void printContact(char, int);
   void printContactList(int);
   ~Phonebook(void);
