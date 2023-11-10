@@ -25,6 +25,7 @@ void Phonebook::printContact(char contactID, int index) {
   std::cout << std::endl;
   for (int i = 0; i < index; ++i) {
     if ((int)(contactID - '0') - 1 == i) {
+      std::cout << "Search result :" << std::endl;
       std::cout << std::setw(10) << contactID << "|" << std::setw(10)
                 << _contactList[i].getFirstName() << "|" << std::setw(10)
                 << _contactList[i].getLastName() << "|" << std::setw(10)
@@ -56,8 +57,7 @@ void Phonebook::runProgram(void) {
   char contactID;
   int index = 0;
 
-  std::cout << std::endl;
-  std::cout << "Welcome to your new Phonebook !" << std::endl;
+  _welcomeMessage();
   _options();
   while (true) {
     std::getline(std::cin, input);
@@ -67,7 +67,7 @@ void Phonebook::runProgram(void) {
                 << std::endl;
       break;
     }
-    input = _checkInput(input); // NOTE: turn _checkInput() to a bool ???
+    // _checkInput(input); // NOTE: turn _checkInput() to a bool ???
     if (input == "ADD") {
       if (index > 2)
         index = 0;
@@ -75,15 +75,18 @@ void Phonebook::runProgram(void) {
       ++index;
       _contactAdded();
     } else if (input == "SEARCH") {
+      // FIX: if _contactList is empty display error message
       newBook.printContactList(index);
       _searchMessage();
 
       // FIX: handle case if "contactID" is out of range / non existant
       std::cin >> contactID;
+      // contactID = _checkContactID(contactID);
 
       // FIX: make sure that after printing the contact, "_whatNext()" is
       // displayed and not "_checkInput()" message
       newBook.printContact(contactID, index);
+      _whatNext();
 
     } else if (input == "EXIT") {
       std::cout << RED << "EXIT command entered!" << RESET << std::endl;
