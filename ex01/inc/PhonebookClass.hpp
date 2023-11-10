@@ -12,6 +12,7 @@ class Phonebook {
   Contact _contactList[3];
 
   std::string _checkInput(std::string);
+  char _checkContactID(char);
   void _welcomeMessage(void);
   void _withPrintOption(void);
   void _options(void);
