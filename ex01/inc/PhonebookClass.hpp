@@ -26,8 +26,7 @@ public:
   Phonebook(void);
   void runProgram(void);
   void addContact(int);
-  // void printContact(char, int);
-  void printContact(std::string, int);
+  void printContact(char, int);
   void printContactList(int);
   ~Phonebook(void);
 };
