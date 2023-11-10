@@ -30,16 +30,14 @@ int Phonebook::addContact(int index) {
 void Phonebook::printContact(char contactID, int index) {
   std::cout << std::endl;
   for (int i = 0; i < index; ++i) {
-    if ((contactID - '0') - 1 == i) {
+    if ((int)(contactID - '0') - 1 == i) {
       std::cout << contactID << " | " << _contactList[i].getFirstName() << " | "
                 << _contactList[i].getLastName() << " | "
                 << _contactList[i].getNickname() << " | "
                 << _contactList[i].getPhoneNumber() << " | "
                 << _contactList[i].getDarkestSecret() << std::endl;
     }
-    ++i;
   }
-  // _whatNext();
   return;
 }
 
