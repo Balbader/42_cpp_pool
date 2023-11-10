@@ -34,6 +34,9 @@ public:
 
   std::string getInput(std::string, std::string, std::string, std::string);
 
+  int checkNumber(std::string input);
+  std::string getNumber(std::string, std::string, std::string, std::string);
+
   void getContactInfo(void);
 
   void printContactInfo(Contact, int);
