@@ -1,5 +1,6 @@
 #include "PhonebookClass.hpp"
 #include "define.hpp"
+#include <cstdlib>
 #include <ctype.h>
 #include <iomanip>
 #include <iostream>
@@ -21,10 +22,11 @@ void Phonebook::addContact(int index) {
 }
 
 // ---------------------------------------------------> Print Specific Contact
-void Phonebook::printContact(char contactID, int index) {
+// void Phonebook::printContact(char contactID, int index) {
+void Phonebook::printContact(std::string contactID, int index) {
   std::cout << std::endl;
   for (int i = 0; i < index; ++i) {
-    if ((int)(contactID - '0') - 1 == i) {
+    if (atoi(contactID) - 1 == i) {
       std::cout << "Search result :" << std::endl;
       std::cout << std::setw(10) << contactID << "|" << std::setw(10)
                 << _contactList[i].getFirstName() << "|" << std::setw(10)
@@ -54,12 +56,14 @@ void Phonebook::printContactList(int index) {
 void Phonebook::runProgram(void) {
   Phonebook newBook;
   std::string input;
-  char contactID;
+  std::string contactID;
   int index = 0;
 
   _welcomeMessage();
   _options();
   while (true) {
+    if (input == "1")
+      std::cout << "Farine" << std::endl;
     std::getline(std::cin, input);
     if (std::cin.eof()) {
       std::cout << std::endl
@@ -67,7 +71,8 @@ void Phonebook::runProgram(void) {
                 << std::endl;
       break;
     }
-    // _checkInput(input); // NOTE: turn _checkInput() to a bool ???
+    if (_checkInput(input) == 1) // NOTE: turn _checkInput() to a bool ???
+      continue;
     if (input == "ADD") {
       if (index > 2)
         index = 0;
@@ -80,13 +85,14 @@ void Phonebook::runProgram(void) {
       _searchMessage();
 
       // FIX: handle case if "contactID" is out of range / non existant
-      std::cin >> contactID;
+      // std::cin >> contactID;
+      std::getline(std::cin, contactID);
       // contactID = _checkContactID(contactID);
 
       // FIX: make sure that after printing the contact, "_whatNext()" is
       // displayed and not "_checkInput()" message
       newBook.printContact(contactID, index);
-      _whatNext();
+      // _whatNext();
 
     } else if (input == "EXIT") {
       std::cout << RED << "EXIT command entered!" << RESET << std::endl;
