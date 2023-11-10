@@ -11,7 +11,8 @@ class Phonebook {
   // TODO: change index limit from 3 to 8
   Contact _contactList[3];
 
-  std::string _checkInput(std::string);
+  // std::string _checkInput(std::string);
+  int _checkInput(std::string);
   char _checkContactID(char);
   void _welcomeMessage(void);
   void _withPrintOption(void);
@@ -25,7 +26,8 @@ public:
   Phonebook(void);
   void runProgram(void);
   void addContact(int);
-  void printContact(char, int);
+  // void printContact(char, int);
+  void printContact(std::string, int);
   void printContactList(int);
   ~Phonebook(void);
 };
