@@ -8,7 +8,8 @@
 #define RESET "\033[0;0m"
 
 // Error Messages
-#define EMPTY "Field is empty!\nPlease make sure to add the contact's "
+#define EMPTY "Field is empty!"
+#define PLEASE "\nPlease make sure to add the contact's "
 #define ENTER "Enter New Contact's "
 #define FIRST "first name."
 #define LAST "last name."
