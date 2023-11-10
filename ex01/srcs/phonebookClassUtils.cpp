@@ -81,7 +81,7 @@ int Phonebook::_checkInput(std::string input) {
   // return input;
   std::cout << "input :" << input << std::endl;
   if (input != "ADD" && input != "SEARCH" && input != "EXIT" &&
-      input != "PRINT") {
+      input != "PRINT" && input != "") {
     std::cout << RED
               << "Wrong input !\nPlease enter one of the following commands : "
               << std::endl;
