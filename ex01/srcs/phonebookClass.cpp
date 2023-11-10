@@ -67,6 +67,7 @@ void Phonebook::runProgram(void) {
                 << std::endl;
       break;
     }
+    std::cout << "input : " << input << std::endl;
     if (_checkInput(input) == 1) // NOTE: turn _checkInput() to a bool ???
       continue;
     if (input == "ADD") {
