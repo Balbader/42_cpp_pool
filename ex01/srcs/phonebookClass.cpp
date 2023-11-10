@@ -1,6 +1,5 @@
 #include "PhonebookClass.hpp"
 #include "define.hpp"
-#include <cstdlib>
 #include <ctype.h>
 #include <iomanip>
 #include <iostream>
@@ -22,11 +21,10 @@ void Phonebook::addContact(int index) {
 }
 
 // ---------------------------------------------------> Print Specific Contact
-// void Phonebook::printContact(char contactID, int index) {
-void Phonebook::printContact(std::string contactID, int index) {
+void Phonebook::printContact(char contactID, int index) {
   std::cout << std::endl;
   for (int i = 0; i < index; ++i) {
-    if (atoi(contactID) - 1 == i) {
+    if ((contactID - '0') - 1 == i) {
       std::cout << "Search result :" << std::endl;
       std::cout << std::setw(10) << contactID << "|" << std::setw(10)
                 << _contactList[i].getFirstName() << "|" << std::setw(10)
@@ -56,14 +54,12 @@ void Phonebook::printContactList(int index) {
 void Phonebook::runProgram(void) {
   Phonebook newBook;
   std::string input;
-  std::string contactID;
+  char contactID;
   int index = 0;
 
   _welcomeMessage();
   _options();
   while (true) {
-    if (input == "1")
-      std::cout << "Farine" << std::endl;
     std::getline(std::cin, input);
     if (std::cin.eof()) {
       std::cout << std::endl
@@ -80,13 +76,13 @@ void Phonebook::runProgram(void) {
       ++index;
       _contactAdded();
     } else if (input == "SEARCH") {
+
       // FIX: if _contactList is empty display error message
       newBook.printContactList(index);
       _searchMessage();
 
       // FIX: handle case if "contactID" is out of range / non existant
-      // std::cin >> contactID;
-      std::getline(std::cin, contactID);
+      std::cin >> contactID;
       // contactID = _checkContactID(contactID);
 
       // FIX: make sure that after printing the contact, "_whatNext()" is
