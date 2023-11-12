@@ -16,15 +16,12 @@ void Phonebook::_options(void) {
             << RESET << std::endl;
   std::cout << "3. Quit the program : " << GREEN << "EXIT" << RESET
             << std::endl;
-  std::cout << std::endl;
-  std::cout << "Please type in the appropriate command:" << std::endl;
   return;
 }
 
 void Phonebook::_printOption(void) {
   std::cout << "4. Print Phonebook ! " << GREEN << "PRINT" << RESET
             << std::endl;
-  std::cout << std::endl;
   return;
 }
 
@@ -33,6 +30,8 @@ void Phonebook::_whatNext(void) {
   std::cout << GREEN << "What next ?" << RESET << std::endl;
   _options();
   _printOption();
+  std::cout << std::endl;
+  std::cout << "Please type in the appropriate command:" << std::endl;
   return;
 }
 
@@ -61,7 +60,7 @@ std::string Phonebook::_checkInput(std::string input) {
       input == "PRINT")
     return input;
   else if (input != "ADD" && input != "SEARCH" && input != "EXIT" &&
-           input != "PRINT") {
+           input != "PRINT" && input != "") {
     while (input != "ADD" && input != "SEARCH" && input != "EXIT") {
       std::cout << RED << "Wrong input !\nPlease enter one of the following commands :" << RESET << std::endl;
       std::cout << BLUE << "1. ADD" << RESET << std::endl;
