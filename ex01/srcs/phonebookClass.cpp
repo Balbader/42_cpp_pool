@@ -84,7 +84,7 @@ void Phonebook::runProgram(void) {
       // FIX: handle case if "contactID" is out of range / non existant
 
       std::cin >> contactID;
-      contactID = _checkContactID(contactID);
+      // contactID = _checkContactID(contactID);
 
       // FIX: make sure that after printing the contact, "_whatNext()" is
       // displayed and not "_checkInput()" message
