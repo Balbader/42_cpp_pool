@@ -56,18 +56,14 @@ char Phonebook::_checkContactID(char contactID) {
 }
 
 //============================================================ Check Input
-// std::string Phonebook::_checkInput(std::string input) {
-int Phonebook::_checkInput(std::string input) {
+std::string Phonebook::_checkInput(std::string input) {
   if (input == "ADD" || input == "SEARCH" || input == "EXIT" ||
       input == "PRINT")
     return input;
   else if (input != "ADD" && input != "SEARCH" && input != "EXIT" &&
-           input != "PRINT" && input != "") {
-    while (input != "ADD" || input != "SEARCH" || input != "EXIT" || input != "") {
-      std::cout << RED
-                << "Wrong input !\nPlease enter one of the following commands
-                :"
-                << std::endl;
+           input != "PRINT") {
+    while (input != "ADD" && input != "SEARCH" && input != "EXIT") {
+      std::cout << RED << "Wrong input !\nPlease enter one of the following commands :" << RESET << std::endl;
       std::cout << BLUE << "1. ADD" << RESET << std::endl;
       std::cout << BLUE << "2. SEARCH" << RESET << std::endl;
       std::cout << BLUE << "3. EXIT" << RESET << std::endl;
@@ -79,12 +75,4 @@ int Phonebook::_checkInput(std::string input) {
     }
   }
   return input;
-  if (input != "ADD" && input != "SEARCH" && input != "EXIT" &&
-      input != "PRINT" && input != "") {
-    std::cout << RED
-              << "Wrong input !\nPlease enter one of the following commands : "
-              << std::endl;
-    return 1;
-  }
-  return 0;
 }
