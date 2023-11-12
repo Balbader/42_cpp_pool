@@ -77,18 +77,15 @@ void Phonebook::runProgram(void) {
     } else if (input == "SEARCH") {
 
       // FIX: if _contactList is empty display error message
-
       newBook.printContactList(index);
       _searchMessage();
 
       // FIX: handle case if "contactID" is out of range / non existant
-
       std::cin >> contactID;
       // contactID = _checkContactID(contactID);
 
       // FIX: make sure that after printing the contact, "_whatNext()" is
       // displayed and not "_checkInput()" message
-
       newBook.printContact(contactID, index);
       _whatNext();
 
