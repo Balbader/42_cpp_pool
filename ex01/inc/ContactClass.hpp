@@ -12,12 +12,14 @@ public:
   Contact(void);
   ~Contact(void);
 
-  void getContactInfo(void);
-  void printContactInfo(Contact, int);
-  void printExit(void);
   std::string getInput(std::string, std::string, std::string, std::string);
   int checkNumber(std::string input);
   std::string getNumber(std::string, std::string, std::string, std::string);
+  void getContactInfo(void);
+  void printContactInfo(Contact, int);
+  void printExit(void);
+  void printDigitErrorMessage(void);
+  void printCharErrorMessage(void);
 
   void setFirstName(std::string);
   void setLastName(std::string);
