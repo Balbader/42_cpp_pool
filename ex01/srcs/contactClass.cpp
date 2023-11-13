@@ -38,6 +38,12 @@ std::string Contact::getNumber(std::string enter, std::string attr,
       std::cout << std::endl;
       std::cout << BLUE << enter << attr << RESET << std::endl;
       std::getline(std::cin, input);
+      if (std::cin.eof()) {
+        std::cout << std::endl
+                  << "Exiting the phonebook. All contacts are lost forever."
+                  << std::endl;
+        break;
+      }
     } else if (input.length() > 10) {
       std::cout << std::endl;
       std::cout << RED << "Error encountered!\n" << RESET << std::endl;
@@ -45,7 +51,12 @@ std::string Contact::getNumber(std::string enter, std::string attr,
                 << " 10 digits" << RESET << "!" << BLUE
                 << "\nPlease enter valid number:" << RESET << std::endl;
       std::getline(std::cin, input);
-
+      if (std::cin.eof()) {
+        std::cout << std::endl
+                  << "Exiting the phonebook. All contacts are lost forever."
+                  << std::endl;
+        break;
+      }
     } else if (checkNumber(input) == 1) {
       std::cout << std::endl;
       std::cout << RED << "Error encountered!\n" << RESET << std::endl;
@@ -53,6 +64,12 @@ std::string Contact::getNumber(std::string enter, std::string attr,
                 << " digits" << RESET << "!" << BLUE
                 << "\nPlease enter valid number:" << RESET << std::endl;
       std::getline(std::cin, input);
+      if (std::cin.eof()) {
+        std::cout << std::endl
+                  << "Exiting the phonebook. All contacts are lost forever."
+                  << std::endl;
+        break;
+      }
     }
   }
   return input;
