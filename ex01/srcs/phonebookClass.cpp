@@ -80,17 +80,20 @@ void Phonebook::runProgram(void) {
       ++index;
       _contactAdded();
     } else if (input == "SEARCH") {
-      if (contactLen == 0)
-        _checkIfEmpty(contactLen);
-      else if (contactLen > index)
+      if (contactLen == 0) {
+        std::cout << std::endl;
+        std::cout << RED << "Phonebook is empty.\n"
+                  << RESET << "Enter 'ADD' to create a new contact."
+                  << std::endl;
+      } else if (contactLen > index) {
         newBook.printContactList(contactLen);
-      else
+        _searchMessage();
+      } else {
         newBook.printContactList(index);
-      _searchMessage();
-
+        _searchMessage();
+      }
       std::cin >> contactID;
       contactID = _checkContactID(contactID);
-
       newBook.printContact(contactID, index);
       _whatNext();
 
