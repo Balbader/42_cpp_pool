@@ -19,10 +19,10 @@ public:
   void printContact(int, int);
   void printContactList(int);
   void printField(std::string);
+  void runAdd(int *, int *, Phonebook *);
 
 private:
-  // TODO: change index limit from 3 to 8
-  Contact _contactList[3];
+  Contact _contactList[8];
 
   std::string _checkInput(std::string);
   int _checkContactID(int);
@@ -34,6 +34,7 @@ private:
   void _contactAdded(void);
   void _printSearchMessage(void);
   void _printExitMessage(void);
+  void _printCheckIdErrMessage(int);
 };
 
 #endif // !PHONEBOOKCLASS_H
