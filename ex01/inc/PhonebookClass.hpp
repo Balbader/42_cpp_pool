@@ -23,6 +23,7 @@ private:
   Contact _contactList[3];
   std::string _checkInput(std::string);
   int _checkContactID(int);
+  void _checkIfEmpty(int);
   void _welcomeMessage(void);
   void _withPrintOption(void);
   void _options(void);
