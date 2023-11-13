@@ -1,6 +1,6 @@
 #include "PhonebookClass.hpp"
 
-//============================================================ Display Messages
+//-----------------------------------------------------------> Display Messages
 void Phonebook::_printWelcomeMessage(void) {
   std::cout << "Welcome to your new Phonebook !\n" << std::endl;
 }
@@ -33,25 +33,14 @@ void Phonebook::_printSearchMessage(void) {
 
 void Phonebook::_printExitMessage(void) {
   std::cout << std::endl
-            << "Exiting the phonebook. All contacts are lost forever."
-            << std::endl;
+            << RED << "Exiting the phonebook. All contacts are lost forever."
+            << RESET << std::endl;
 }
 
-//============================================================ Check ContactID
-// TODO: change the check values from 3 && 4 to 8 && 9
-int Phonebook::_checkContactID(int contactID) {
-  while (contactID < 1 || contactID > 3) {
-    if (contactID > 0 && contactID < 4) {
-      break;
-      return contactID;
-    }
-    std::cout << RED << "Contat ID out of range.\n"
-              << RESET << "Contact ID must be between 1 and 8: " << contactID
-              << std::endl;
-    std::cin >> contactID;
-    std::cin.get();
-  }
-  return contactID;
+void Phonebook::_printCheckIdErrMessage(int contactID) {
+  std::cout << RED << "Contat ID out of range.\n"
+            << RESET << "Contact ID must be between 1 and 8: " << contactID
+            << std::endl;
 }
 
 void Phonebook::_isEmpty() {
@@ -60,7 +49,24 @@ void Phonebook::_isEmpty() {
             << RESET << "Enter 'ADD' to create a new contact." << std::endl;
 }
 
-//============================================================ Check Input
+//------------------------------------------------------------> Check ContactID
+int Phonebook::_checkContactID(int contactID) {
+  while (contactID < 1 || contactID > 8) {
+    if (contactID > 0 && contactID < 9) {
+      break;
+      return contactID;
+    }
+    _printCheckIdErrMessage(contactID);
+    std::cin >> contactID;
+    std::cin.get();
+    if (std::cin.eof()) {
+      break;
+    }
+  }
+  return contactID;
+}
+
+//----------------------------------------------------------------> Check Input
 std::string Phonebook::_checkInput(std::string input) {
   if (input == "ADD" || input == "SEARCH" || input == "EXIT" ||
       input == "PRINT")
@@ -76,6 +82,9 @@ std::string Phonebook::_checkInput(std::string input) {
       std::cout << BLUE << "3. EXIT" << RESET << std::endl;
       std::cout << BLUE << "4. PRINT" << RESET << std::endl;
       std::getline(std::cin, input);
+      if (std::cin.eof()) {
+        break;
+      }
       if (input == "ADD" || input == "SEARCH" || input == "EXIT" ||
           input == "PRINT")
         break;
