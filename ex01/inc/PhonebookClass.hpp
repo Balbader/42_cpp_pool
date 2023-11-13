@@ -8,9 +8,17 @@
 
 class Phonebook {
 
+public:
+  Phonebook(void);
+  void runProgram(void);
+  void addContact(int);
+  void printContact(char, int);
+  void printContactList(int);
+  ~Phonebook(void);
+
+private:
   // TODO: change index limit from 3 to 8
   Contact _contactList[3];
-
   std::string _checkInput(std::string);
   char _checkContactID(char);
   void _welcomeMessage(void);
@@ -20,14 +28,6 @@ class Phonebook {
   void _whatNext(void);
   void _contactAdded(void);
   void _searchMessage(void);
-
-public:
-  Phonebook(void);
-  void runProgram(void);
-  void addContact(int);
-  void printContact(char, int);
-  void printContactList(int);
-  ~Phonebook(void);
 };
 
 #endif // !PHONEBOOKCLASS_H
