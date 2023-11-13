@@ -96,7 +96,6 @@ void Phonebook::runProgram(void) {
       contactID = _checkContactID(contactID);
       newBook.printContact(contactID, index);
       _whatNext();
-
     } else if (input == "EXIT") {
       std::cout << RED << "EXIT command entered!" << RESET << std::endl;
       break;
