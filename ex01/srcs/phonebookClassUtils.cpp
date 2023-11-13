@@ -45,9 +45,11 @@ void Phonebook::_searchMessage(void) {
 }
 
 //============================================================ Check ContactID
+// FIX: entering infinite loop
+// TODO: change the check values from 3 && 4 to 8 && 9
 int Phonebook::_checkContactID(int contactID) {
-  while (contactID < 1 || contactID > 8) {
-    if (contactID > 0 && contactID < 9) {
+  while (contactID < 1 || contactID > 3) {
+    if (contactID > 0 && contactID < 4) {
       break;
       return contactID;
     }
