@@ -7,12 +7,6 @@
 #include <string>
 
 class Contact {
-  std::string _firstName;
-  std::string _lastName;
-  std::string _nickname;
-  std::string _phoneNumber;
-  std::string _darkestSecret;
-  std::string _index;
 
 public:
   Contact(void);
@@ -42,6 +36,14 @@ public:
   void printContactInfo(Contact, int);
 
   ~Contact(void);
+
+private:
+  std::string _firstName;
+  std::string _lastName;
+  std::string _nickname;
+  std::string _phoneNumber;
+  std::string _darkestSecret;
+  std::string _index;
 };
 
 #endif // !CONTACTCLASS_H
