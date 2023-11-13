@@ -5,10 +5,10 @@
 #include <iostream>
 
 // ---------------------------------------------------> Constructor
-Phonebook::Phonebook(void) { return; };
+Phonebook::Phonebook(void){};
 
 // ---------------------------------------------------> Destructor
-Phonebook::~Phonebook(void) { return; };
+Phonebook::~Phonebook(void){};
 
 // ---------------------------------------------------> Add Contact
 void Phonebook::addContact(int index) {
@@ -17,7 +17,6 @@ void Phonebook::addContact(int index) {
   std::cout << std::endl;
   newContact.getContactInfo();
   _contactList[index] = newContact;
-  return;
 }
 
 // ---------------------------------------------------> Print Specific Contact
@@ -34,7 +33,6 @@ void Phonebook::printContact(int contactID, int index) {
                 << _contactList[i].getDarkestSecret() << "|" << std::endl;
     }
   }
-  return;
 }
 
 // ---------------------------------------------------> Print Contact List
@@ -47,14 +45,12 @@ void Phonebook::printContactList(int index) {
               << _contactList[i].getLastName() << "|" << std::setw(10)
               << _contactList[i].getNickname() << "|" << std::endl;
   }
-  return;
 }
 
 // ---------------------------------------------------> Run Program
 void Phonebook::runProgram(void) {
   Phonebook newBook;
   std::string input;
-  int contactID;
   int index = 0;
   int contactLen = 0;
   int totCount = 0;
@@ -85,16 +81,14 @@ void Phonebook::runProgram(void) {
         std::cout << RED << "Phonebook is empty.\n"
                   << RESET << "Enter 'ADD' to create a new contact."
                   << std::endl;
-      } else if (contactLen > index) {
-        newBook.printContactList(contactLen);
-        _searchMessage();
       } else {
-        newBook.printContactList(index);
+        int contactID = 0;
+        newBook.printContactList((contactLen > index) ? contactLen : index);
         _searchMessage();
+        std::cin >> contactID;
+        contactID = _checkContactID(contactID);
+        newBook.printContact(contactID, index);
       }
-      std::cin >> contactID;
-      contactID = _checkContactID(contactID);
-      newBook.printContact(contactID, index);
       _whatNext();
     } else if (input == "EXIT") {
       std::cout << RED << "EXIT command entered!" << RESET << std::endl;
@@ -104,5 +98,4 @@ void Phonebook::runProgram(void) {
       _whatNext();
     }
   }
-  return;
 }
