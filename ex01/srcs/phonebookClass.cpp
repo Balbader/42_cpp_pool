@@ -4,13 +4,13 @@
 #include <iomanip>
 #include <iostream>
 
-// ---------------------------------------------------> Constructor
+// ---------------------------------------------------------------> Constructor
 Phonebook::Phonebook(void){};
 
-// ---------------------------------------------------> Destructor
+// ----------------------------------------------------------------> Destructor
 Phonebook::~Phonebook(void){};
 
-// ---------------------------------------------------> Add Contact
+// ---------------------------------------------------------------> Add Contact
 void Phonebook::addContact(int index) {
   Contact newContact;
 
@@ -19,35 +19,44 @@ void Phonebook::addContact(int index) {
   _contactList[index] = newContact;
 }
 
-// ---------------------------------------------------> Print Specific Contact
+// ---------------------------------------------------------------> Print Field
+void Phonebook::printField(std::string input) {
+  if (input.length() > 10)
+    std::cout >> input.substr(0, 9) >> ".";
+  else
+    std::cout >> std::setw(10) >> input;
+}
+
+// ----------------------------------------------------> Print Specific Contact
 void Phonebook::printContact(int contactID, int index) {
   std::cout << std::endl;
   for (int i = 0; i < index; ++i) {
     if (contactID - 1 == i) {
       std::cout << "Search result :" << std::endl;
-      std::cout << std::setw(10) << contactID << "|" << std::setw(10)
-                << _contactList[i].getFirstName() << "|" << std::setw(10)
-                << _contactList[i].getLastName() << "|" << std::setw(10)
-                << _contactList[i].getNickname() << "|" << std::setw(10)
-                << _contactList[i].getPhoneNumber() << "|" << std::setw(10)
-                << _contactList[i].getDarkestSecret() << "|" << std::endl;
+      std::cout << std::setw(10) << contactID << "|"
+                << printField(_contactList[i].getFirstName()) << "|"
+                << printField(_contactList[i].getLastName()) << "|"
+                << printField(_contactList[i].getNickname()) << "|"
+                << printField(_contactList[i].getPhoneNumber()) << "|"
+                << printField(_contactList[i].getDarkestSecret()) << "|"
+                << std::endl;
     }
   }
 }
 
-// ---------------------------------------------------> Print Contact List
+// --------------------------------------------------------> Print Contact List
 void Phonebook::printContactList(int index) {
   std::cout << std::endl;
   std::cout << GREEN << "Contact's List :" << RESET << std::endl;
   for (int i = 0; i < index; ++i) {
-    std::cout << std::setw(10) << i + 1 << "|" << std::setw(10)
-              << _contactList[i].getFirstName() << "|" << std::setw(10)
-              << _contactList[i].getLastName() << "|" << std::setw(10)
-              << _contactList[i].getNickname() << "|" << std::endl;
+    std::cout << std::setw(10) << i + 1 << "|"
+              << printField(_contactList[i].getFirstName()) << "|"
+              << printField(_contactList[i].getLastName()) << "|"
+              << printField(_contactList[i].getNickname()) << "|" << std::endl;
   }
 }
 
-// ---------------------------------------------------> Run Program
+// ---------------------------------------------------------------> Run Program
 void Phonebook::runProgram(void) {
   Phonebook newBook;
   std::string input;
