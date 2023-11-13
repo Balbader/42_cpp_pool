@@ -21,6 +21,7 @@ public:
 private:
   // TODO: change index limit from 3 to 8
   Contact _contactList[3];
+
   std::string _checkInput(std::string);
   int _checkContactID(int);
   void _checkIfEmpty(int);
