@@ -59,6 +59,14 @@ int Phonebook::_checkContactID(int contactID) {
   return contactID;
 }
 
+void Phonebook::_checkIfEmpty(int contactLen) {
+  if (contactLen == 0) {
+    std::cout << std::endl;
+    std::cout << RED << "Phonebook is empty.\n"
+              << RESET << "Enter 'ADD' to create a new contact." << std::endl;
+  }
+}
+
 //============================================================ Check Input
 std::string Phonebook::_checkInput(std::string input) {
   if (input == "ADD" || input == "SEARCH" || input == "EXIT" ||
