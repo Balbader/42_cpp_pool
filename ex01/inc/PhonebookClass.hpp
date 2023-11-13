@@ -18,6 +18,7 @@ public:
   void addContact(int);
   void printContact(int, int);
   void printContactList(int);
+  void printField(std::string);
 
 private:
   // TODO: change index limit from 3 to 8
