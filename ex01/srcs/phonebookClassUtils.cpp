@@ -2,9 +2,7 @@
 
 //============================================================ Display Messages
 void Phonebook::_welcomeMessage(void) {
-  // std::cout << std::endl;
   std::cout << "Welcome to your new Phonebook !\n" << std::endl;
-  // std::cout << std::endl;
   return;
 }
 
@@ -54,6 +52,7 @@ int Phonebook::_checkContactID(int contactID) {
     std::cin >> contactID;
     if (contactID > 0 && contactID < 9) {
       break;
+      return contactID;
     }
   }
   return contactID;
