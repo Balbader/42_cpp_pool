@@ -47,10 +47,15 @@ void Phonebook::_searchMessage(void) {
 }
 
 //============================================================ Check ContactID
-char Phonebook::_checkContactID(char contactID) {
-  if ((contactID - '0') < 0 || (int)contactID > 9)
-    std::cout << RED << "Wrong input.\n"
-              << RESET << "Contact ID must be between 1 and 8" << std::endl;
+int Phonebook::_checkContactID(int contactID) {
+  while (contactID < 1 || contactID > 8) {
+    std::cout << RED << "Contat ID out of range.\n"
+              << RESET << "Contact ID must be between 1 and 8." << std::endl;
+    std::cin >> contactID;
+    if (contactID > 0 && contactID < 9) {
+      break;
+    }
+  }
   return contactID;
 }
 
@@ -62,7 +67,9 @@ std::string Phonebook::_checkInput(std::string input) {
   else if (input != "ADD" && input != "SEARCH" && input != "EXIT" &&
            input != "PRINT" && input != "") {
     while (input != "ADD" && input != "SEARCH" && input != "EXIT") {
-      std::cout << RED << "Wrong input !\nPlease enter one of the following commands :" << RESET << std::endl;
+      std::cout << RED
+                << "Wrong input !\nPlease enter one of the following commands :"
+                << RESET << std::endl;
       std::cout << BLUE << "1. ADD" << RESET << std::endl;
       std::cout << BLUE << "2. SEARCH" << RESET << std::endl;
       std::cout << BLUE << "3. EXIT" << RESET << std::endl;
