@@ -12,11 +12,12 @@ class Phonebook {
 
 public:
   Phonebook(void);
+  ~Phonebook(void);
+
   void runProgram(void);
   void addContact(int);
   void printContact(int, int);
   void printContactList(int);
-  ~Phonebook(void);
 
 private:
   // TODO: change index limit from 3 to 8
