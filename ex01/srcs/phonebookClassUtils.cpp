@@ -3,7 +3,6 @@
 //============================================================ Display Messages
 void Phonebook::_welcomeMessage(void) {
   std::cout << "Welcome to your new Phonebook !\n" << std::endl;
-  return;
 }
 
 void Phonebook::_options(void) {
@@ -14,13 +13,11 @@ void Phonebook::_options(void) {
             << RESET << std::endl;
   std::cout << "3. Quit the program : " << GREEN << "EXIT" << RESET
             << std::endl;
-  return;
 }
 
 void Phonebook::_printOption(void) {
   std::cout << "4. Print Phonebook ! " << GREEN << "PRINT" << RESET
             << std::endl;
-  return;
 }
 
 void Phonebook::_whatNext(void) {
@@ -30,13 +27,11 @@ void Phonebook::_whatNext(void) {
   _printOption();
   std::cout << std::endl;
   std::cout << "Please type in the appropriate command:" << std::endl;
-  return;
 }
 
 void Phonebook::_contactAdded(void) {
   std::cout << GREEN << "Contat added !" << RESET << std::endl;
   _whatNext();
-  return;
 }
 
 void Phonebook::_searchMessage(void) {
@@ -54,8 +49,10 @@ int Phonebook::_checkContactID(int contactID) {
       return contactID;
     }
     std::cout << RED << "Contat ID out of range.\n"
-              << RESET << "Contact ID must be between 1 and 8." << std::endl;
+              << RESET << "Contact ID must be between 1 and 8: " << contactID
+              << std::endl;
     std::cin >> contactID;
+    std::cin.get();
   }
   return contactID;
 }
