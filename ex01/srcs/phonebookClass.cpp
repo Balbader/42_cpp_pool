@@ -80,8 +80,9 @@ void Phonebook::runProgram(void) {
       ++index;
       _contactAdded();
     } else if (input == "SEARCH") {
-      _checkIfEmpty(contactLen);
-      if (contactLen > index)
+      if (contactLen == 0)
+        _checkIfEmpty(contactLen);
+      else if (contactLen > index)
         newBook.printContactList(contactLen);
       else
         newBook.printContactList(index);
