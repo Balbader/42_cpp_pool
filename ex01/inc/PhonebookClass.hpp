@@ -26,13 +26,13 @@ private:
   std::string _checkInput(std::string);
   int _checkContactID(int);
   void _isEmpty(void);
-  void _welcomeMessage(void);
+  void _printWelcomeMessage(void);
   void _withPrintOption(void);
-  void _options(void);
-  void _printOption(void);
+  void _printOptions(void);
   void _whatNext(void);
   void _contactAdded(void);
-  void _searchMessage(void);
+  void _printSearchMessage(void);
+  void _printExitMessage(void);
 };
 
 #endif // !PHONEBOOKCLASS_H
