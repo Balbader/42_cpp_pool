@@ -21,10 +21,10 @@ void Phonebook::addContact(int index) {
 }
 
 // ---------------------------------------------------> Print Specific Contact
-void Phonebook::printContact(char contactID, int index) {
+void Phonebook::printContact(int contactID, int index) {
   std::cout << std::endl;
   for (int i = 0; i < index; ++i) {
-    if ((contactID - '0') - 1 == i) {
+    if (contactID - 1 == i) {
       std::cout << "Search result :" << std::endl;
       std::cout << std::setw(10) << contactID << "|" << std::setw(10)
                 << _contactList[i].getFirstName() << "|" << std::setw(10)
@@ -54,9 +54,10 @@ void Phonebook::printContactList(int index) {
 void Phonebook::runProgram(void) {
   Phonebook newBook;
   std::string input;
-  char contactID;
+  int contactID;
   int index = 0;
   int contactLen = 0;
+  int totCount = 0;
 
   _welcomeMessage();
   _options();
@@ -71,6 +72,8 @@ void Phonebook::runProgram(void) {
     input = _checkInput(input);
     if (input == "ADD") {
       ++contactLen;
+      if (contactLen > 3)
+        contactLen = 3;
       if (index > 2)
         index = 0;
       newBook.addContact(index);
@@ -82,17 +85,16 @@ void Phonebook::runProgram(void) {
         std::cout << RED << "Phonebook is empty.\n"
                   << RESET << "Enter 'ADD' to create a new contact."
                   << std::endl;
-
       } else {
-        newBook.printContactList(index);
+        if (contactLen > index)
+          newBook.printContactList(contactLen);
+        else
+          newBook.printContactList(index);
         _searchMessage();
 
-        // FIX: handle case if "contactID" is out of range / non existant
         std::cin >> contactID;
-        // contactID = _checkContactID(contactID);
+        contactID = _checkContactID(contactID);
 
-        // FIX: make sure that after printing the contact, "_whatNext()" is
-        // displayed and not "_checkInput()" message
         newBook.printContact(contactID, index);
         _whatNext();
       }
