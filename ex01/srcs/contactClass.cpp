@@ -1,8 +1,16 @@
 #include "ContactClass.hpp"
+#include "PhonebookClass.hpp"
 
 Contact::Contact(void) { return; }
 
 Contact::~Contact(void) { return; }
+
+//============================================================ Exit message
+void Contact::printExit(void) {
+  std::cout << std::endl
+            << "Exiting the phonebook. All contacts are lost forever."
+            << std::endl;
+}
 
 //============================================================ Get Input
 std::string Contact::getInput(std::string enter, std::string attr,
@@ -34,26 +42,22 @@ std::string Contact::getNumber(std::string enter, std::string attr,
          checkNumber(input) == 1) {
     if (input.length() == 0) {
       std::cout << RED << empty << RESET << attr << std::endl;
-      std::cout << std::endl;
-      std::cout << BLUE << enter << attr << RESET << std::endl;
+      std::cout << std::endl << BLUE << enter << attr << RESET << std::endl;
       std::getline(std::cin, input);
       if (std::cin.eof()) {
-        std::cout << std::endl
-                  << "Exiting the phonebook. All contacts are lost forever."
-                  << std::endl;
+        printExit();
         break;
       }
     } else if (input.length() > 10) {
-      std::cout << std::endl;
-      std::cout << RED << "Error encountered!\n" << RESET << std::endl;
+      std::cout << std::endl
+                << RED << "Error encountered!\n"
+                << RESET << std::endl;
       std::cout << "Wrong data format. Phone number must contain" << RED
                 << " 10 digits" << RESET << "!" << BLUE
                 << "\nPlease enter valid number:" << RESET << std::endl;
       std::getline(std::cin, input);
       if (std::cin.eof()) {
-        std::cout << std::endl
-                  << "Exiting the phonebook. All contacts are lost forever."
-                  << std::endl;
+        printExit();
         break;
       }
     } else if (checkNumber(input) == 1) {
@@ -64,9 +68,7 @@ std::string Contact::getNumber(std::string enter, std::string attr,
                 << "\nPlease enter valid number:" << RESET << std::endl;
       std::getline(std::cin, input);
       if (std::cin.eof()) {
-        std::cout << std::endl
-                  << "Exiting the phonebook. All contacts are lost forever."
-                  << std::endl;
+        printExit();
         break;
       }
     }
@@ -118,8 +120,8 @@ void Contact::getContactInfo(void) {
 }
 
 void Contact::printContactInfo(Contact newContact, int index) {
-  std::cout << std::endl;
-  std::cout << std::setw(10) << index << " | " << std::setw(10)
+  std::cout << std::endl
+            << std::setw(10) << index << " | " << std::setw(10)
             << newContact.getFirstName() << " | " << std::setw(10)
             << newContact.getLastName() << " | " << std::setw(10)
             << newContact.getNickname() << std::endl;
