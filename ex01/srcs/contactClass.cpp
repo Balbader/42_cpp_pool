@@ -41,7 +41,7 @@ std::string Contact::getNumber(std::string enter, std::string attr,
     } else if (input.length() > 10) {
       std::cout << std::endl;
       std::cout << RED << "Error encountered!\n" << RESET << std::endl;
-      std::cout << "Wrong data format. Phone number can only contain" << RED
+      std::cout << "Wrong data format. Phone number must contain" << RED
                 << " 10 digits" << RESET << "!" << BLUE
                 << "\nPlease enter valid number:" << RESET << std::endl;
       std::getline(std::cin, input);
