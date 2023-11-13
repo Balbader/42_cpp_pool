@@ -3,8 +3,10 @@
 
 #include "ContactClass.hpp"
 #include "define.hpp"
+#include <cstdlib>
 #include <iomanip>
 #include <iostream>
+#include <stdlib.h>
 
 class Phonebook {
 
@@ -12,7 +14,7 @@ public:
   Phonebook(void);
   void runProgram(void);
   void addContact(int);
-  void printContact(char, int);
+  void printContact(int, int);
   void printContactList(int);
   ~Phonebook(void);
 
@@ -20,7 +22,7 @@ private:
   // TODO: change index limit from 3 to 8
   Contact _contactList[3];
   std::string _checkInput(std::string);
-  char _checkContactID(char);
+  int _checkContactID(int);
   void _welcomeMessage(void);
   void _withPrintOption(void);
   void _options(void);
