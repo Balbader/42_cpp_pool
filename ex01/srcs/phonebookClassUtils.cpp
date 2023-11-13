@@ -40,7 +40,6 @@ void Phonebook::_searchMessage(void) {
 }
 
 //============================================================ Check ContactID
-// FIX: entering infinite loop
 // TODO: change the check values from 3 && 4 to 8 && 9
 int Phonebook::_checkContactID(int contactID) {
   while (contactID < 1 || contactID > 3) {
@@ -57,12 +56,10 @@ int Phonebook::_checkContactID(int contactID) {
   return contactID;
 }
 
-void Phonebook::_checkIfEmpty(int contactLen) {
-  if (contactLen == 0) {
-    std::cout << std::endl;
-    std::cout << RED << "Phonebook is empty.\n"
-              << RESET << "Enter 'ADD' to create a new contact." << std::endl;
-  }
+void Phonebook::_isEmpty() {
+  std::cout << std::endl;
+  std::cout << RED << "Phonebook is empty.\n"
+            << RESET << "Enter 'ADD' to create a new contact." << std::endl;
 }
 
 //============================================================ Check Input
