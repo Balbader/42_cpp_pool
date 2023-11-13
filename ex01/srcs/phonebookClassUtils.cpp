@@ -1,11 +1,11 @@
 #include "PhonebookClass.hpp"
 
 //============================================================ Display Messages
-void Phonebook::_welcomeMessage(void) {
+void Phonebook::_printWelcomeMessage(void) {
   std::cout << "Welcome to your new Phonebook !\n" << std::endl;
 }
 
-void Phonebook::_options(void) {
+void Phonebook::_printOptions(void) {
   std::cout << "Here are your options :" << std::endl;
   std::cout << "1. Add a new contact : " << GREEN << "ADD" << RESET
             << std::endl;
@@ -15,18 +15,11 @@ void Phonebook::_options(void) {
             << std::endl;
 }
 
-void Phonebook::_printOption(void) {
-  std::cout << "4. Print Phonebook ! " << GREEN << "PRINT" << RESET
-            << std::endl;
-}
-
 void Phonebook::_whatNext(void) {
-  std::cout << std::endl;
-  std::cout << GREEN << "What next ?" << RESET << std::endl;
-  _options();
-  _printOption();
-  std::cout << std::endl;
-  std::cout << "Please type in the appropriate command:" << std::endl;
+  std::cout << std::endl << GREEN << "What next ?" << RESET << std::endl;
+  _printOptions();
+  std::cout << std::endl
+            << "Please type in the appropriate command:" << std::endl;
 }
 
 void Phonebook::_contactAdded(void) {
@@ -34,9 +27,14 @@ void Phonebook::_contactAdded(void) {
   _whatNext();
 }
 
-void Phonebook::_searchMessage(void) {
-  std::cout << std::endl;
-  std::cout << "Please enter contact's id# :" << std::endl;
+void Phonebook::_printSearchMessage(void) {
+  std::cout << std::endl << "Please enter contact's id# :" << std::endl;
+}
+
+void Phonebook::_printExitMessage(void) {
+  std::cout << std::endl
+            << "Exiting the phonebook. All contacts are lost forever."
+            << std::endl;
 }
 
 //============================================================ Check ContactID
