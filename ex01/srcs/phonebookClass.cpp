@@ -55,14 +55,12 @@ void Phonebook::runProgram(void) {
   int contactLen = 0;
   int totCount = 0;
 
-  _welcomeMessage();
-  _options();
+  _printWelcomeMessage();
+  _printOptions();
   while (true) {
     std::getline(std::cin, input);
     if (std::cin.eof()) {
-      std::cout << std::endl
-                << "Exiting the phonebook. All contacts are lost forever."
-                << std::endl;
+      _printExitMessage();
       break;
     }
     input = _checkInput(input);
@@ -81,7 +79,7 @@ void Phonebook::runProgram(void) {
       } else {
         int contactID = 0;
         newBook.printContactList((contactLen > index) ? contactLen : index);
-        _searchMessage();
+        _printSearchMessage();
         std::cin >> contactID;
         contactID = _checkContactID(contactID);
         newBook.printContact(contactID, index);
