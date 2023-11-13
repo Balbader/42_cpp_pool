@@ -47,13 +47,13 @@ void Phonebook::_searchMessage(void) {
 //============================================================ Check ContactID
 int Phonebook::_checkContactID(int contactID) {
   while (contactID < 1 || contactID > 8) {
-    std::cout << RED << "Contat ID out of range.\n"
-              << RESET << "Contact ID must be between 1 and 8." << std::endl;
-    std::cin >> contactID;
     if (contactID > 0 && contactID < 9) {
       break;
       return contactID;
     }
+    std::cout << RED << "Contat ID out of range.\n"
+              << RESET << "Contact ID must be between 1 and 8." << std::endl;
+    std::cin >> contactID;
   }
   return contactID;
 }
