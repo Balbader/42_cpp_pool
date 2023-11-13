@@ -10,6 +10,11 @@ class Contact {
 
 public:
   Contact(void);
+  ~Contact(void);
+
+  void getContactInfo(void);
+
+  void printContactInfo(Contact, int);
 
   void setFirstName(std::string);
   std::string getFirstName(void) const;
@@ -30,12 +35,6 @@ public:
 
   int checkNumber(std::string input);
   std::string getNumber(std::string, std::string, std::string, std::string);
-
-  void getContactInfo(void);
-
-  void printContactInfo(Contact, int);
-
-  ~Contact(void);
 
 private:
   std::string _firstName;
