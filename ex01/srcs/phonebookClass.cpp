@@ -6,8 +6,6 @@
 
 // ---------------------------------------------------------------> Constructor
 Phonebook::Phonebook(void){};
-
-// ----------------------------------------------------------------> Destructor
 Phonebook::~Phonebook(void){};
 
 // ---------------------------------------------------------------> Add Contact
@@ -19,12 +17,24 @@ void Phonebook::addContact(int index) {
   _contactList[index] = newContact;
 }
 
+// FIX: How can i use this in runProgram ?
+void Phonebook::runAdd(int *index, int *contactLen, Phonebook *newBook) {
+  ++contactLen;
+  if (*contactLen > 3)
+    *contactLen = 3;
+  if (*index > 2)
+    *index = 0;
+  *newBook->addContact(index);
+  ++index;
+  _contactAdded();
+}
+
 // ---------------------------------------------------------------> Print Field
 void Phonebook::printField(std::string input) {
   if (input.length() > 10)
-    std::cout >> input.substr(0, 9) >> ".";
+    std::cout << input.substr(0, 9) << ".|";
   else
-    std::cout >> std::setw(10) >> input;
+    std::cout << std::setw(10) << input << "|";
 }
 
 // ----------------------------------------------------> Print Specific Contact
@@ -33,13 +43,13 @@ void Phonebook::printContact(int contactID, int index) {
   for (int i = 0; i < index; ++i) {
     if (contactID - 1 == i) {
       std::cout << "Search result :" << std::endl;
-      std::cout << std::setw(10) << contactID << "|"
-                << printField(_contactList[i].getFirstName()) << "|"
-                << printField(_contactList[i].getLastName()) << "|"
-                << printField(_contactList[i].getNickname()) << "|"
-                << printField(_contactList[i].getPhoneNumber()) << "|"
-                << printField(_contactList[i].getDarkestSecret()) << "|"
-                << std::endl;
+      std::cout << std::setw(10) << contactID << "|";
+      printField(_contactList[i].getFirstName());
+      printField(_contactList[i].getLastName());
+      printField(_contactList[i].getNickname());
+      printField(_contactList[i].getPhoneNumber());
+      printField(_contactList[i].getDarkestSecret());
+      std::cout << std::endl;
     }
   }
 }
@@ -49,10 +59,11 @@ void Phonebook::printContactList(int index) {
   std::cout << std::endl;
   std::cout << GREEN << "Contact's List :" << RESET << std::endl;
   for (int i = 0; i < index; ++i) {
-    std::cout << std::setw(10) << i + 1 << "|"
-              << printField(_contactList[i].getFirstName()) << "|"
-              << printField(_contactList[i].getLastName()) << "|"
-              << printField(_contactList[i].getNickname()) << "|" << std::endl;
+    std::cout << std::setw(10) << i + 1 << "|";
+    printField(_contactList[i].getFirstName());
+    printField(_contactList[i].getLastName());
+    printField(_contactList[i].getNickname());
+    std::cout << std::endl;
   }
 }
 
@@ -74,14 +85,7 @@ void Phonebook::runProgram(void) {
     }
     input = _checkInput(input);
     if (input == "ADD") {
-      ++contactLen;
-      if (contactLen > 3)
-        contactLen = 3;
-      if (index > 2)
-        index = 0;
-      newBook.addContact(index);
-      ++index;
-      _contactAdded();
+      runAdd(&index, &contactLen, &newBook);
     } else if (input == "SEARCH") {
       if (contactLen == 0) {
         _isEmpty();
