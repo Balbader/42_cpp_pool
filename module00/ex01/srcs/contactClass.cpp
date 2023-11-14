@@ -128,6 +128,7 @@ void Contact::getContactInfo(void)
     setDarkestSecret(input);
 }
 
+// NOTE: check if printContactInfo is needed
 void Contact::printContactInfo(Contact newContact, int index)
 {
     std::cout << std::endl << std::setw(10) << index << " | "
