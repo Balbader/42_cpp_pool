@@ -15,13 +15,15 @@ void Contact::printExit(void)
 void Contact::printDigitErrorMessage(void)
 {
     std::cout << std::endl << RED << "Error encountered!\n" << RESET << std::endl;
-    std::cout << "Wrong data format. Phone number must contain" << RED << " 10 digits" << RESET << "!" << BLUE << "\nPlease enter valid number:" << RESET << std::endl;
+    std::cout << "Wrong data format. Phone number must contain" << RED << " 10 digits" << RESET << "!" << std::endl;
+    std::cout << BLUE << "Please enter valid number:" << RESET << std::endl;
 }
 
 void Contact::printCharErrorMessage(void)
 {
     std::cout << std::endl << RED << "Error encountered!\n" << RESET << std::endl;
-    std::cout << "Wrong data format. Phone number can only contain" << RED << " digits" << RESET << "!" << BLUE << "\nPlease enter valid number:" << RESET << std::endl;
+    std::cout << "Wrong data format. Phone number can only contain" << RED << " digits" << RESET << "!" << std::endl;
+    std::cout << BLUE << "Please enter valid number:" << RESET << std::endl;
 }
 
 
