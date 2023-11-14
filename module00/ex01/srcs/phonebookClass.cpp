@@ -97,12 +97,17 @@ void Phonebook::runProgram(void)
         if (input == "ADD")
         {
             ++contactLen;
+
             if (contactLen > 8)
                 contactLen = 8;
+
             if (index > 7)
                 index = 0;
+
             newBook.addContact(index);
+
             ++index;
+
             _contactAdded();
         }
 
@@ -114,8 +119,11 @@ void Phonebook::runProgram(void)
             else
             {
                 std::string contactID;
+
                 newBook.printContactList((contactLen > index) ? contactLen : index);
+
                 _printSearchMessage();
+
                 std::getline(std::cin, contactID);
                 // FIX: infinite loop when wrong input is enterd
                 contactID = _checkContactID(contactID);
