@@ -11,10 +11,10 @@
 #define EMPTY "Field is empty!"
 #define PLEASE "\nPlease make sure to add the contact's "
 #define ENTER "Enter New Contact's "
-#define FIRST "first name."
-#define LAST "last name."
-#define NICK "nickname."
-#define PHONE "phone number."
-#define SECRET "darkest secret."
+#define FIRST "first name:"
+#define LAST "last name:"
+#define NICK "nickname:"
+#define PHONE "phone number:"
+#define SECRET "darkest secret:"
 
 #endif // !DEFINE_HPP
