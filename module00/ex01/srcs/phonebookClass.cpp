@@ -166,7 +166,6 @@ void Phonebook::runProgram(void)
         else if (input == "PRINT")
         {
             newBook.printContactList(8);
-
             _whatNext();
         }
     }
