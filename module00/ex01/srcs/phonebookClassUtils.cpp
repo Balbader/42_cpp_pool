@@ -18,13 +18,16 @@ void Phonebook::_printOptions(void)
 void Phonebook::_whatNext(void)
 {
     std::cout << std::endl << GREEN << "What next ?" << RESET << std::endl;
+
     _printOptions();
+
     std::cout << std::endl << "Please type in the appropriate command:" << std::endl;
 }
 
 void Phonebook::_contactAdded(void)
 {
     std::cout << GREEN << "Contat added !" << RESET << std::endl;
+
     _whatNext();
 }
 
@@ -48,6 +51,7 @@ void Phonebook::_isEmpty()
     std::cout << std::endl << RED << "Phonebook is empty.\n" << RESET << "Enter 'ADD' to create a new contact." << std::endl;
 }
 
+
 //------------------------------------------------------------> Check ContactID
 // FIX: infinite loop when wrong input is enterd
 //
@@ -63,10 +67,13 @@ int Phonebook::_checkContactID(std::string contactID)
         while (!std::isdigit(contactID) || contactID < 1 || contactID > 8)
         {
             _printCheckIdErrMessage(contactID);
+
             std::cin.get();
             std::cin >> contactID;
+
             if (std::cin.eof())
                 break;
+
             if (contactID > 0 && contactID < 9)
             {
                 break;
@@ -82,6 +89,7 @@ std::string Phonebook::_checkInput(std::string input)
 {
     if (input == "ADD" || input == "SEARCH" || input == "EXIT" || input == "PRINT")
         return input;
+
     else if (input != "ADD" && input != "SEARCH" && input != "EXIT" && input != "PRINT" && input != "")
     {
         while (input != "ADD" && input != "SEARCH" && input != "EXIT")
@@ -91,12 +99,15 @@ std::string Phonebook::_checkInput(std::string input)
             std::cout << BLUE << "2. SEARCH" << RESET << std::endl;
             std::cout << BLUE << "3. EXIT" << RESET << std::endl;
             std::cout << BLUE << "4. PRINT" << RESET << std::endl;
+
             std::getline(std::cin, input);
+
             if (std::cin.eof())
                 break;
+
             if (input == "ADD" || input == "SEARCH" || input == "EXIT" || input == "PRINT")
                 break;
         }
     }
-     return input;
+    return input;
 }
