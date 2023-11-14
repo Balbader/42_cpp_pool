@@ -86,6 +86,7 @@ void Phonebook::runProgram(void)
     while (true)
     {
         std::getline(std::cin, input);
+
         if (std::cin.eof())
         {
             _printExitMessage();
