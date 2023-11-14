@@ -78,7 +78,9 @@ void Phonebook::runProgram(void)
     int totCount = 0;
 
     _printWelcomeMessage();
+
     _printOptions();
+
     while (true)
     {
         std::getline(std::cin, input);
