@@ -39,7 +39,7 @@ class Phonebook
 
         std::string _checkInput(std::string);
 
-        int _checkContactID(std::string);
+        int _checkContactID(char);
 
         void _isEmpty(void);
         void _printWelcomeMessage(void);
