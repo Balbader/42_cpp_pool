@@ -26,10 +26,10 @@ void Phonebook::printField(std::string input) {
 }
 
 // ----------------------------------------------------> Print Specific Contact
-void Phonebook::printContact(int contactID, int index) {
+void Phonebook::printContact(char contactID, int index) {
   std::cout << std::endl;
   for (int i = 0; i < index; ++i) {
-    if (contactID - 1 == i) {
+    if ((contactID - '0') - 1 == i) {
       std::cout << GREEN << "Search result :" << RESET << std::endl;
       std::cout << std::setw(10) << contactID << "|";
       printField(_contactList[i].getFirstName());
@@ -81,24 +81,34 @@ void Phonebook::runProgram(void) {
       newBook.addContact(index);
       ++index;
       _contactAdded();
+
     } else if (input == "SEARCH") {
+
       if (contactLen == 0) {
         _isEmpty();
+
       } else {
-        int contactID = 0;
+
+        std::string contactID;
         newBook.printContactList((contactLen > index) ? contactLen : index);
         _printSearchMessage();
-        std::cin >> contactID;
+        std::getline(std::cin, contactID);
         // FIX: infinite loop when wrong input is enterd
         contactID = _checkContactID(contactID);
 
-        newBook.printContact(contactID, index);
+        char id;
+        id = (char)contactID;
+        newBook.printContact(id, index);
       }
       _whatNext();
+
     } else if (input == "EXIT") {
+
       std::cout << RED << "EXIT command entered!" << RESET << std::endl;
       break;
+
     } else if (input == "PRINT") {
+
       newBook.printContactList(8);
       _whatNext();
     }
