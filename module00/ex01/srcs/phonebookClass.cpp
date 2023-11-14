@@ -37,17 +37,21 @@ void Phonebook::printField(std::string input)
 void Phonebook::printContact(char contactID, int index)
 {
     std::cout << std::endl;
+
     for (int i = 0; i < index; ++i)
     {
         if ((contactID - '0') - 1 == i)
         {
             std::cout << GREEN << "Search result :" << RESET << std::endl;
+
             std::cout << std::setw(10) << contactID << "|";
+
             printField(_contactList[i].getFirstName());
             printField(_contactList[i].getLastName());
             printField(_contactList[i].getNickname());
             printField(_contactList[i].getPhoneNumber());
             printField(_contactList[i].getDarkestSecret());
+
             std::cout << std::endl;
         }
     }
@@ -62,9 +66,11 @@ void Phonebook::printContactList(int index)
     for (int i = 0; i < index; ++i)
     {
         std::cout << std::setw(10) << i + 1 << "|";
+
         printField(_contactList[i].getFirstName());
         printField(_contactList[i].getLastName());
         printField(_contactList[i].getNickname());
+
         std::cout << std::endl;
     }
 }
