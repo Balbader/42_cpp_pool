@@ -12,6 +12,7 @@
 
 #include "ContactClass.hpp"
 
+
 //----------------------------------------------------------------> Constructor
 Contact::Contact(void) {}
 
