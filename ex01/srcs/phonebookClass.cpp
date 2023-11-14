@@ -17,18 +17,6 @@ void Phonebook::addContact(int index) {
   _contactList[index] = newContact;
 }
 
-// FIX: How can i use this in runProgram ?
-void Phonebook::runAdd(int *index, int *contactLen, Phonebook *newBook) {
-  ++contactLen;
-  if (*contactLen > 3)
-    *contactLen = 3;
-  if (*index > 2)
-    *index = 0;
-  *newBook->addContact(index);
-  ++index;
-  _contactAdded();
-}
-
 // ---------------------------------------------------------------> Print Field
 void Phonebook::printField(std::string input) {
   if (input.length() > 10)
@@ -42,7 +30,7 @@ void Phonebook::printContact(int contactID, int index) {
   std::cout << std::endl;
   for (int i = 0; i < index; ++i) {
     if (contactID - 1 == i) {
-      std::cout << "Search result :" << std::endl;
+      std::cout << GREEN << "Search result :" << RESET << std::endl;
       std::cout << std::setw(10) << contactID << "|";
       printField(_contactList[i].getFirstName());
       printField(_contactList[i].getLastName());
@@ -85,7 +73,14 @@ void Phonebook::runProgram(void) {
     }
     input = _checkInput(input);
     if (input == "ADD") {
-      runAdd(&index, &contactLen, &newBook);
+      ++contactLen;
+      if (contactLen > 8)
+        contactLen = 8;
+      if (index > 7)
+        index = 0;
+      newBook.addContact(index);
+      ++index;
+      _contactAdded();
     } else if (input == "SEARCH") {
       if (contactLen == 0) {
         _isEmpty();
@@ -102,7 +97,7 @@ void Phonebook::runProgram(void) {
       std::cout << RED << "EXIT command entered!" << RESET << std::endl;
       break;
     } else if (input == "PRINT") {
-      newBook.printContactList(3);
+      newBook.printContactList(8);
       _whatNext();
     }
   }
