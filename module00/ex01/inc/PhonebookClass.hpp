@@ -8,32 +8,37 @@
 #include <iostream>
 #include <stdlib.h>
 
-class Phonebook {
+class Phonebook
+{
 
-public:
-  Phonebook(void);
-  ~Phonebook(void);
+    public:
 
-  void runProgram(void);
-  void addContact(int);
-  void printContact(char, int);
-  void printContactList(int);
-  void printField(std::string);
+        Phonebook(void);
+        ~Phonebook(void);
 
-private:
-  Contact _contactList[8];
+        void runProgram(void);
+        void addContact(int);
+        void printContact(char, int);
+        void printContactList(int);
+        void printField(std::string);
 
-  std::string _checkInput(std::string);
-  int _checkContactID(std::string);
-  void _isEmpty(void);
-  void _printWelcomeMessage(void);
-  void _withPrintOption(void);
-  void _printOptions(void);
-  void _whatNext(void);
-  void _contactAdded(void);
-  void _printSearchMessage(void);
-  void _printExitMessage(void);
-  void _printCheckIdErrMessage(int);
+    private:
+
+        Contact _contactList[8];
+
+        std::string _checkInput(std::string);
+
+        int _checkContactID(std::string);
+
+        void _isEmpty(void);
+        void _printWelcomeMessage(void);
+        void _withPrintOption(void);
+        void _printOptions(void);
+        void _whatNext(void);
+        void _contactAdded(void);
+        void _printSearchMessage(void);
+        void _printExitMessage(void);
+        void _printCheckIdErrMessage(int);
 };
 
 #endif // !PHONEBOOKCLASS_H
