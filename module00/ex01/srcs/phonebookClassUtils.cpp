@@ -72,27 +72,28 @@ void Phonebook::_isEmpty()
 //        . check if contactID is numeric
 //
 // int Phonebook::_checkContactID(int contactID)
-int Phonebook::_checkContactID(std::string contactID)
+int Phonebook::_checkContactID(char contactID)
 {
-    if (!isdigit(contactID) || contactID < 1 || contactID > 8)
-    {
-        while (!std::isdigit(contactID) || contactID < 1 || contactID > 8)
+    // if (!isdigit(contactID) || contactID < '1' || contactID > '8')
+    // {
+    //     _printCheckIdErrMessage(contactID);
+
+        _printCheckIdErrMessage((int)contactID);
+        while (!std::isdigit(contactID) || (contactID < '1' || contactID > '8'))
         {
-            _printCheckIdErrMessage(contactID);
-
-            std::cin.get();
             std::cin >> contactID;
-
+            std::cin.get();
             if (std::cin.eof())
                 break;
 
-            if (contactID > 0 && contactID < 9)
+            if (contactID > '0' && contactID < '9')
             {
                 break;
                 return contactID;
             }
+            _printCheckIdErrMessage((int)contactID);
         }
-    }
+    // }
 
     return contactID;
 }
@@ -114,7 +115,6 @@ std::string Phonebook::_checkInput(std::string input)
             std::cout << BLUE << "4. PRINT" << RESET << std::endl;
 
             std::getline(std::cin, input);
-
             if (std::cin.eof())
                 break;
 
