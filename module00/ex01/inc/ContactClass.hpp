@@ -8,7 +8,6 @@
 
 class Contact
 {
-
     public:
 
         Contact(void);
