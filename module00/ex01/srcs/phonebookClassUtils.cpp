@@ -81,6 +81,7 @@ int Phonebook::_checkContactID(std::string contactID)
             }
         }
     }
+
     return contactID;
 }
 
@@ -109,5 +110,6 @@ std::string Phonebook::_checkInput(std::string input)
                 break;
         }
     }
+
     return input;
 }
