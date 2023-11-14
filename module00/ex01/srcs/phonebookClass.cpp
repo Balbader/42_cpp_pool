@@ -108,6 +108,7 @@ void Phonebook::runProgram(void)
         {
             if (contactLen == 0)
                 _isEmpty();
+
             else
             {
                 std::string contactID;
@@ -118,9 +119,11 @@ void Phonebook::runProgram(void)
                 contactID = _checkContactID(contactID);
 
                 char id;
+                // FIX: how to cast a std::string to a char ???
                 id = (char)contactID;
                 newBook.printContact(id, index);
             }
+
             _whatNext();
         }
 
