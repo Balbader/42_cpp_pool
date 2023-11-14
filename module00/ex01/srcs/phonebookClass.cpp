@@ -9,6 +9,7 @@ Phonebook::Phonebook(void){};
 
 Phonebook::~Phonebook(void){};
 
+
 // ---------------------------------------------------------------> Add Contact
 void Phonebook::addContact(int index)
 {
@@ -19,6 +20,7 @@ void Phonebook::addContact(int index)
     _contactList[index] = newContact;
 }
 
+
 // ---------------------------------------------------------------> Print Field
 void Phonebook::printField(std::string input)
 {
@@ -27,6 +29,7 @@ void Phonebook::printField(std::string input)
     else
         std::cout << std::setw(10) << input << "|";
 }
+
 
 // ----------------------------------------------------> Print Specific Contact
 void Phonebook::printContact(char contactID, int index)
@@ -48,11 +51,12 @@ void Phonebook::printContact(char contactID, int index)
     }
 }
 
+
 // --------------------------------------------------------> Print Contact List
 void Phonebook::printContactList(int index)
 {
-    std::cout << std::endl;
-    std::cout << GREEN << "Contact's List :" << RESET << std::endl;
+    std::cout << std::endl << GREEN << "Contact's List :" << RESET << std::endl;
+
     for (int i = 0; i < index; ++i)
     {
         std::cout << std::setw(10) << i + 1 << "|";
@@ -62,6 +66,7 @@ void Phonebook::printContactList(int index)
         std::cout << std::endl;
     }
 }
+
 
 // ---------------------------------------------------------------> Run Program
 void Phonebook::runProgram(void)
