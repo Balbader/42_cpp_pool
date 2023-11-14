@@ -39,6 +39,7 @@ std::string Contact::getInput(std::string enter, std::string attr, std::string e
         std::cout << RED << "Error encountered!\n" << RESET << std::endl;
         std::cout << empty << PLEASE << attr << std::endl;
         std::cout << BLUE << enter << attr << RESET << std::endl;
+
         std::getline(std::cin, input);
     }
 
@@ -72,7 +73,9 @@ std::string Contact::getNumber(std::string enter, std::string attr, std::string 
         {
             std::cout << RED << empty << RESET << attr << std::endl;
             std::cout << std::endl << BLUE << enter << attr << RESET << std::endl;
+
             std::getline(std::cin, input);
+
             if (std::cin.eof())
             {
                 printExit();
@@ -83,7 +86,9 @@ std::string Contact::getNumber(std::string enter, std::string attr, std::string 
         if (input.length() > 10)
         {
             printDigitErrorMessage();
+
             std::getline(std::cin, input);
+
             if (std::cin.eof())
             {
                 printExit();
@@ -94,7 +99,9 @@ std::string Contact::getNumber(std::string enter, std::string attr, std::string 
         if (checkNumber(input) == 1)
         {
             printCharErrorMessage();
+
             std::getline(std::cin, input);
+
             if (std::cin.eof())
             {
                 printExit();
