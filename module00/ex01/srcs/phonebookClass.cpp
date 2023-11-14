@@ -16,7 +16,9 @@ void Phonebook::addContact(int index)
     Contact newContact;
 
     std::cout << std::endl;
+
     newContact.getContactInfo();
+
     _contactList[index] = newContact;
 }
 
