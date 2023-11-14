@@ -19,7 +19,6 @@ public:
   void printContact(int, int);
   void printContactList(int);
   void printField(std::string);
-  void runAdd(int *, int *, Phonebook *);
 
 private:
   Contact _contactList[8];
