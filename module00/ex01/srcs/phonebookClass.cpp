@@ -138,9 +138,7 @@ void Phonebook::runProgram(void)
 
                 // FIX: how to cast a std::string to a char ???
                 char id;
-
                 id = (char)contactID;
-
                 newBook.printContact(id, index);
             }
 
