@@ -56,7 +56,8 @@ void Phonebook::_isEmpty() {
 //        . check if the length of the string is over 1
 //        . check if contactID is numeric
 //
-int Phonebook::_checkContactID(int contactID) {
+// int Phonebook::_checkContactID(int contactID) {
+int Phonebook::_checkContactID(std::string contactID) {
   if (!isdigit(contactID) || contactID < 1 || contactID > 8) {
     while (!std::isdigit(contactID) || contactID < 1 || contactID > 8) {
       _printCheckIdErrMessage(contactID);
