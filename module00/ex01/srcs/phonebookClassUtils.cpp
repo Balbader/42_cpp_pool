@@ -12,6 +12,7 @@ void Phonebook::_printOptions(void)
       std::cout << "1. Add a new contact : " << GREEN << "ADD" << RESET << std::endl;
       std::cout << "2. Search for an existing contact : " << GREEN << "SEARCH" << RESET << std::endl;
       std::cout << "3. Quit the program : " << GREEN << "EXIT" << RESET << std::endl;
+      std::cout << "4. Print Phonebook : " << GREEN << "PRINT" << RESET << std::endl;
 }
 
 void Phonebook::_whatNext(void)
@@ -93,8 +94,8 @@ std::string Phonebook::_checkInput(std::string input)
             std::getline(std::cin, input);
             if (std::cin.eof())
                 break;
-        if (input == "ADD" || input == "SEARCH" || input == "EXIT" || input == "PRINT")
-            break;
+            if (input == "ADD" || input == "SEARCH" || input == "EXIT" || input == "PRINT")
+                break;
         }
     }
      return input;
