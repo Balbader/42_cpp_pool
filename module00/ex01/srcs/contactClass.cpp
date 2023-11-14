@@ -47,10 +47,7 @@ std::string Contact::getInput(std::string enter, std::string attr, std::string e
 
     std::getline(std::cin, input);
     if (std::cin.eof())
-    {
         printExit();
-        break;
-    }
 
     while (input.length() == 0)
     {
@@ -84,10 +81,7 @@ std::string Contact::getNumber(std::string enter, std::string attr, std::string 
 
     std::getline(std::cin, input);
     if (std::cin.eof())
-    {
         printExit();
-        break;
-    }
 
     // NOTE: can probably right a function for the 3 if statements that would take (input, errMessage) and that would return input
     while (input.length() == 0 || input.length() > 10 || checkNumber(input) == 1)
