@@ -132,12 +132,15 @@ void Phonebook::runProgram(void)
                 _printSearchMessage();
 
                 std::getline(std::cin, contactID);
+
                 // FIX: infinite loop when wrong input is enterd
                 contactID = _checkContactID(contactID);
 
-                char id;
                 // FIX: how to cast a std::string to a char ???
+                char id;
+
                 id = (char)contactID;
+
                 newBook.printContact(id, index);
             }
 
