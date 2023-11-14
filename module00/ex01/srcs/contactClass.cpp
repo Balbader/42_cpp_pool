@@ -87,7 +87,6 @@ std::string Contact::getNumber(std::string enter, std::string attr, std::string 
             std::cout << std::endl << BLUE << enter << attr << RESET << std::endl;
 
             std::getline(std::cin, input);
-
             if (std::cin.eof())
             {
                 printExit();
@@ -100,7 +99,6 @@ std::string Contact::getNumber(std::string enter, std::string attr, std::string 
             printDigitErrorMessage();
 
             std::getline(std::cin, input);
-
             if (std::cin.eof())
             {
                 printExit();
@@ -113,7 +111,6 @@ std::string Contact::getNumber(std::string enter, std::string attr, std::string 
             printCharErrorMessage();
 
             std::getline(std::cin, input);
-
             if (std::cin.eof())
             {
                 printExit();
