@@ -30,7 +30,6 @@ void Phonebook::addContact(int index)
     std::cout << std::endl;
 
     newContact.getContactInfo();
-
     _contactList[index] = newContact;
 }
 
@@ -55,7 +54,6 @@ void Phonebook::printContact(char contactID, int index)
         if ((contactID - '0') - 1 == i)
         {
             std::cout << GREEN << "Search result :" << RESET << std::endl;
-
             std::cout << std::setw(10) << contactID << "|";
 
             printField(_contactList[i].getFirstName());
@@ -136,8 +134,9 @@ void Phonebook::runProgram(void)
                 char contactID;
 
                 newBook.printContactList((contactLen > index) ? contactLen : index);
-
                 _printSearchMessage();
+
+                // BUG: delete line
                 std::cout << RED << "contactID: " << RESET << contactID << std::endl;
 
                 std::cin.get();
