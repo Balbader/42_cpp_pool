@@ -121,6 +121,7 @@ std::string Contact::getNumber(std::string enter, std::string attr, std::string 
             }
         }
     }
+
     return input;
 }
 
