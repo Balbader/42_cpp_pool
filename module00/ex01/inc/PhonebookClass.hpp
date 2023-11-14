@@ -16,7 +16,7 @@ public:
 
   void runProgram(void);
   void addContact(int);
-  void printContact(int, int);
+  void printContact(char, int);
   void printContactList(int);
   void printField(std::string);
 
@@ -24,7 +24,7 @@ private:
   Contact _contactList[8];
 
   std::string _checkInput(std::string);
-  int _checkContactID(int);
+  int _checkContactID(std::string);
   void _isEmpty(void);
   void _printWelcomeMessage(void);
   void _withPrintOption(void);
