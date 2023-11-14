@@ -150,7 +150,6 @@ void Phonebook::runProgram(void)
         else if (input == "EXIT")
         {
             std::cout << RED << "EXIT command entered!" << RESET << std::endl;
-
             break;
         }
 
