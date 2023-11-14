@@ -89,7 +89,9 @@ void Phonebook::runProgram(void) {
         newBook.printContactList((contactLen > index) ? contactLen : index);
         _printSearchMessage();
         std::cin >> contactID;
+        // FIX: infinite loop when wrong input is enterd
         contactID = _checkContactID(contactID);
+
         newBook.printContact(contactID, index);
       }
       _whatNext();
