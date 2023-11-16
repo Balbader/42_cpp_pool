@@ -22,33 +22,33 @@
 
 class Phonebook
 {
-    public:
+public:
 
-        Phonebook(void);
-        ~Phonebook(void);
+    Phonebook(void);
+    ~Phonebook(void);
 
-        void runProgram(void);
-        void addContact(int);
-        void printContact(std::string);
-        void printContactList(int);
-        void printField(std::string);
+    void runProgram(void);
+    void addContact(int);
+    void printContact(std::string);
+    void printContactList(int);
+    void printField(std::string);
 
-    private:
+private:
 
-        Contact _contactList[8];
+    Contact _contactList[8];
 
-        std::string _checkInput(std::string);
-        std::string _checkContactID(std::string);
+    std::string _checkInput(std::string);
+    std::string _checkContactID(std::string);
 
-        void _isEmpty(void);
-        void _printWelcomeMessage(void);
-        void _withPrintOption(void);
-        void _printOptions(void);
-        void _whatNext(void);
-        void _contactAdded(void);
-        void _printSearchMessage(void);
-        void _printExitMessage(void);
-        void _printCheckIdErrMessage(void);
+    void _isEmpty(void);
+    void _printWelcomeMessage(void);
+    void _withPrintOption(void);
+    void _printOptions(void);
+    void _whatNext(void);
+    void _contactAdded(void);
+    void _printSearchMessage(void);
+    void _printExitMessage(void);
+    void _printCheckIdErrMessage(void);
 };
 
 #endif // !PHONEBOOKCLASS_H
