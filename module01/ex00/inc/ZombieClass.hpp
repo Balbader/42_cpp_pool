@@ -20,7 +20,7 @@ class ZOMBIE
 
 public:
 		void announce(void);
-		
+		std::string getName(void);
 
 private:
 		std::string _name;
