@@ -83,7 +83,6 @@ std::string Contact::getNumber(std::string enter, std::string attr, std::string 
     if (std::cin.eof())
         printExit();
 
-    // NOTE: can probably right a function for the 3 if statements that would take (input, errMessage) and that would return input
     while (input.length() == 0 || input.length() > 10 || checkNumber(input) == 1)
     {
 
