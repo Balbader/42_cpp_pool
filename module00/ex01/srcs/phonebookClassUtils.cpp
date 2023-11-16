@@ -74,13 +74,11 @@ std::string Phonebook::_checkContactID(std::string contactID)
             return contactID;
         }
 
-        if (!(contactID[0] >= '1' && contactID[0] <= '8') && contactID.length() != 1)
+        if (!(contactID[0] >= '1' && contactID[0] <= '8') || contactID.length() != 1)
         {
             _printCheckIdErrMessage();
 
-            // std::cout << GREEN << "contactID.length() :" << contactID.length() << RESET << std::endl;
-
-            while (!(contactID[0] >= '1' && contactID[0] <= '8'))
+            while (!(contactID[0] >= '1' && contactID[0] <= '8') || contactID.length() != 1)
             {
                 std::getline(std::cin, contactID);
                 if (std::cin.eof())
@@ -94,8 +92,6 @@ std::string Phonebook::_checkContactID(std::string contactID)
                     {
                         _printCheckIdErrMessage();
 
-                        std::cout << GREEN << "contactID.length() :" << contactID.length() << RESET << std::endl;
-
                         std::getline(std::cin, contactID);
                         if (std::cin.eof())
                             break;
@@ -103,7 +99,6 @@ std::string Phonebook::_checkContactID(std::string contactID)
 
                     else
                     {
-                        std::cout << GREEN << "ContactID : " << contactID << RESET << std::endl;
                         break;
                         return contactID;
                     }
