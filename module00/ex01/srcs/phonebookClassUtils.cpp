@@ -30,7 +30,7 @@ void Phonebook::_printOptions(void)
 
 void Phonebook::_whatNext(void)
 {
-    std::cout << std::endl << GREEN << "What next ?" << RESET << std::endl;
+    std::cout << std::endl << GREEN << "WHAT NEXT ?" << RESET << std::endl;
 
     _printOptions();
 
@@ -69,10 +69,7 @@ void Phonebook::_isEmpty()
 std::string Phonebook::_checkContactID(std::string contactID)
 {
         if ((contactID[0] >= '1' && contactID[0] <= '8') && contactID.length() == 1)
-        {
-            std::cout << GREEN << "ContactID : " << contactID << RESET << std::endl;
             return contactID;
-        }
 
         if (!(contactID[0] >= '1' && contactID[0] <= '8') || contactID.length() != 1)
         {
@@ -99,7 +96,6 @@ std::string Phonebook::_checkContactID(std::string contactID)
                                 break;
                         }
                     }
-
                     else
                     {
                         break;
