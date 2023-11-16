@@ -135,15 +135,11 @@ void Phonebook::runProgram(void)
 
             else
             {
-                // NOTE: delete
-                // char contactID;
                 std::string contactID;
 
                 newBook.printContactList((contactLen > index) ? contactLen : index);
                 _printSearchMessage();
 
-                // NOTE: delete
-                // std::cin >> contactID;
                 std::getline(std::cin, contactID);
                 if (std::cin.eof())
                 {
@@ -151,7 +147,8 @@ void Phonebook::runProgram(void)
                     break;
                 }
 
-                _checkContactID(contactID);
+                contactID = _checkContactID(contactID);
+
                 newBook.printContact(contactID, index);
             }
 
