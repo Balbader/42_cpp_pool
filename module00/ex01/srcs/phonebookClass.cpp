@@ -49,6 +49,8 @@ void Phonebook::printField(std::string input)
 // ----------------------------------------------------> Print Specific Contact
 void Phonebook::printContact(std::string contactID, int index)
 {
+    std::cout << RED << "contactID : " << contactID << RESET << std::endl;
+    std::cout << RED << "index : " << index << RESET << std::endl;
     const char *id = contactID.c_str();
 
     std::cout << std::endl;
