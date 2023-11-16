@@ -47,6 +47,9 @@ void Phonebook::printField(std::string input)
 
 
 // ----------------------------------------------------> Print Specific Contact
+
+// FIX: once I add new round, index not updating correctly.
+
 void Phonebook::printContact(std::string contactID, int index)
 {
     std::cout << RED << "contactID : " << contactID << RESET << std::endl;
@@ -124,6 +127,9 @@ void Phonebook::runProgram(void)
 
             if (index > 7)
                 index = 0;
+
+            std::cout << RED << "index : " << index << RESET << std::endl;
+
             newBook.addContact(index);
             ++index;
 
