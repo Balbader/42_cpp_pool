@@ -151,7 +151,7 @@ void Phonebook::runProgram(void)
                     break;
                 }
 
-                contactID = _checkContactID(contactID);
+                _checkContactID(contactID);
                 newBook.printContact(contactID, index);
             }
 
