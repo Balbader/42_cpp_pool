@@ -68,24 +68,47 @@ void Phonebook::_isEmpty()
 //------------------------------------------------------------> Check ContactID
 std::string Phonebook::_checkContactID(std::string contactID)
 {
-        _printCheckIdErrMessage();
-
-        while (contactID.length() > 1 || !std::isdigit(contactID[0]) || (contactID[0] < '1' && contactID[0] > '8'))
+        if ((contactID[0] >= '1' && contactID[0] <= '8') && contactID.length() == 1)
         {
-            std::getline(std::cin, contactID);
-            if (std::cin.eof())
-                break;
+            std::cout << GREEN << "ContactID : " << contactID << RESET << std::endl;
+            return contactID;
+        }
 
-            // NOTE: Delete
-            std::cout << GREEN << "contactID.length() :" << contactID.length() << RESET << std::endl;
-
-            if (contactID[0] >= '1' && contactID[0] <= '8')
-            {
-                break;
-                return contactID;
-            }
-
+        if (!(contactID[0] >= '1' && contactID[0] <= '8') && contactID.length() != 1)
+        {
             _printCheckIdErrMessage();
+
+            // std::cout << GREEN << "contactID.length() :" << contactID.length() << RESET << std::endl;
+
+            while (!(contactID[0] >= '1' && contactID[0] <= '8'))
+            {
+                std::getline(std::cin, contactID);
+                if (std::cin.eof())
+                    break;
+
+                _printCheckIdErrMessage();
+
+                if (contactID[0] >= '1' && contactID[0] <= '8')
+                {
+                    if (contactID.length() != 1)
+                    {
+                        _printCheckIdErrMessage();
+
+                        std::cout << GREEN << "contactID.length() :" << contactID.length() << RESET << std::endl;
+
+                        std::getline(std::cin, contactID);
+                        if (std::cin.eof())
+                            break;
+                    }
+
+                    else
+                    {
+                        std::cout << GREEN << "ContactID : " << contactID << RESET << std::endl;
+                        break;
+                        return contactID;
+                    }
+                }
+            }
         }
 
     return contactID;
