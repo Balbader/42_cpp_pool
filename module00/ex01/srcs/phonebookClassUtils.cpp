@@ -66,21 +66,18 @@ void Phonebook::_isEmpty()
 
 
 //------------------------------------------------------------> Check ContactID
-// FIX: infinite loop when wrong input is enterd
-//
-// TODO:  . change contactID from int to std::string || char
-//        . check if the length of the string is over 1
-//        . check if contactID is numeric
 std::string Phonebook::_checkContactID(std::string contactID)
 {
         _printCheckIdErrMessage();
 
-        while (!std::isdigit(contactID[0]) || (contactID < "1" && contactID > "8") || contactID.length() > 1)
+        while (contactID.length() > 1 || !std::isdigit(contactID[0]) || (contactID[0] < '1' && contactID[0] > '8'))
         {
-            std::cout << GREEN << "contactID.length() :" << contactID.length() << RESET << std::endl;
             std::getline(std::cin, contactID);
             if (std::cin.eof())
                 break;
+
+            // NOTE: Delete
+            std::cout << GREEN << "contactID.length() :" << contactID.length() << RESET << std::endl;
 
             if (contactID[0] >= '1' && contactID[0] <= '8')
             {
