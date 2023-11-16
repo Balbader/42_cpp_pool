@@ -15,6 +15,8 @@
 #include <ctype.h>
 #include <iomanip>
 #include <iostream>
+#include <cstdlib>
+#include <string>
 
 // ---------------------------------------------------------------> Constructor
 Phonebook::Phonebook(void){};
@@ -45,13 +47,15 @@ void Phonebook::printField(std::string input)
 
 
 // ----------------------------------------------------> Print Specific Contact
-void Phonebook::printContact(char contactID, int index)
+void Phonebook::printContact(std::string contactID, int index)
 {
+    const char *id = contactID.c_str();
+
     std::cout << std::endl;
 
     for (int i = 0; i < index; ++i)
     {
-        if ((contactID - '0') - 1 == i)
+        if (atoi(id) - 1 == i)
         {
             std::cout << GREEN << "Search result :" << RESET << std::endl;
             std::cout << std::setw(10) << contactID << "|";
@@ -131,12 +135,16 @@ void Phonebook::runProgram(void)
 
             else
             {
-                char contactID;
+                // NOTE: delete
+                // char contactID;
+                std::string contactID;
 
                 newBook.printContactList((contactLen > index) ? contactLen : index);
                 _printSearchMessage();
 
-                std::cin >> contactID;
+                // NOTE: delete
+                // std::cin >> contactID;
+                std::getline(std::cin, contactID);
                 if (std::cin.eof())
                 {
                     _printExitMessage();
