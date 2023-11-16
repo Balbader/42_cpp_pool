@@ -85,7 +85,6 @@ std::string Contact::getNumber(std::string enter, std::string attr, std::string 
 
     while (input.length() == 0 || input.length() > 10 || checkNumber(input) == 1)
     {
-
         if (input.length() == 0)
         {
             std::cout << RED << empty << RESET << attr << std::endl;
