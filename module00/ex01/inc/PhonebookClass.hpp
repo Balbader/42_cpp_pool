@@ -29,7 +29,7 @@ class Phonebook
 
         void runProgram(void);
         void addContact(int);
-        void printContact(std::string, int);
+        void printContact(std::string);
         void printContactList(int);
         void printField(std::string);
 
