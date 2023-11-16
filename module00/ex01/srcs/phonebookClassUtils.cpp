@@ -68,42 +68,42 @@ void Phonebook::_isEmpty()
 //------------------------------------------------------------> Check ContactID
 std::string Phonebook::_checkContactID(std::string contactID)
 {
-        if ((contactID[0] >= '1' && contactID[0] <= '8') && contactID.length() == 1)
-            return contactID;
+    if ((contactID[0] >= '1' && contactID[0] <= '8') && contactID.length() == 1)
+        return contactID;
 
-        if (!(contactID[0] >= '1' && contactID[0] <= '8') || contactID.length() != 1)
+    if (!(contactID[0] >= '1' && contactID[0] <= '8') || contactID.length() != 1)
+    {
+        _printCheckIdErrMessage();
+
+        while (!(contactID[0] >= '1' && contactID[0] <= '8') || contactID.length() != 1)
         {
+            std::getline(std::cin, contactID);
+            if (std::cin.eof())
+                break;
+
             _printCheckIdErrMessage();
 
-            while (!(contactID[0] >= '1' && contactID[0] <= '8') || contactID.length() != 1)
+            if (contactID[0] >= '1' && contactID[0] <= '8')
             {
-                std::getline(std::cin, contactID);
-                if (std::cin.eof())
-                    break;
-
-                _printCheckIdErrMessage();
-
-                if (contactID[0] >= '1' && contactID[0] <= '8')
+                if (contactID.length() != 1)
                 {
-                    if (contactID.length() != 1)
+                    while (contactID.length() != 1)
                     {
-                        while (contactID.length() != 1)
-                        {
-                            _printCheckIdErrMessage();
+                        _printCheckIdErrMessage();
 
-                            std::getline(std::cin, contactID);
-                            if (std::cin.eof())
-                                break;
-                        }
+                        std::getline(std::cin, contactID);
+                        if (std::cin.eof())
+                            break;
                     }
-                    else
-                    {
-                        break;
-                        return contactID;
-                    }
+                }
+                else
+                {
+                    break;
+                    return contactID;
                 }
             }
         }
+    }
 
     return contactID;
 }
