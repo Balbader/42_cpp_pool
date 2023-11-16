@@ -146,6 +146,7 @@ void Phonebook::runProgram(void)
                 std::string contactID;
 
                 newBook.printContactList((contactLen > index) ? contactLen : index);
+
                 _printSearchMessage();
 
                 std::getline(std::cin, contactID);
