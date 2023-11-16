@@ -131,7 +131,6 @@ std::string Contact::getNumber(std::string enter, std::string attr, std::string 
 //---------------------------------------------------------------> Contact Info
 void Contact::getContactInfo(void)
 {
-
     std::string input = "";
 
     std::cout << GREEN << "New Contact Information:" << std::endl;
