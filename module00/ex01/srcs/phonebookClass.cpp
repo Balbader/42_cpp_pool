@@ -136,10 +136,6 @@ void Phonebook::runProgram(void)
                 newBook.printContactList((contactLen > index) ? contactLen : index);
                 _printSearchMessage();
 
-                // BUG: delete line
-                std::cout << RED << "contactID: " << RESET << contactID << std::endl;
-
-                std::cin.get();
                 std::cin >> contactID;
                 if (std::cin.eof())
                 {
@@ -147,10 +143,7 @@ void Phonebook::runProgram(void)
                     break;
                 }
 
-                // FIX: infinite loop when wrong input is enterd
                 contactID = _checkContactID(contactID);
-
-                // FIX: how to cast a std::string to a char ???
                 newBook.printContact(contactID, index);
             }
 
