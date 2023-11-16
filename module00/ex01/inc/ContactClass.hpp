@@ -31,7 +31,6 @@ class Contact
         int checkNumber(std::string input);
 
         void getContactInfo(void);
-        void printContactInfo(Contact, int);
         void printExit(void);
         void printDigitErrorMessage(void);
         void printCharErrorMessage(void);
