@@ -11,3 +11,13 @@
 /* ************************************************************************** */
 
 #include "ZombieClass.hpp"
+
+std::string ZOMBIE::getName(void) const
+{
+	return _name;
+}
+
+void ZOMBIE::announce(void)
+{
+
+}
