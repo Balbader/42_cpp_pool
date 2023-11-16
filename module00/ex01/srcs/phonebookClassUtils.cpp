@@ -85,6 +85,7 @@ std::string Phonebook::_checkContactID(std::string contactID)
 
             if (contactID[0] >= '1' && contactID[0] <= '8')
             {
+
                 if (contactID.length() != 1)
                 {
                     while (contactID.length() != 1)
@@ -96,6 +97,7 @@ std::string Phonebook::_checkContactID(std::string contactID)
                             break;
                     }
                 }
+
                 else
                 {
                     break;
