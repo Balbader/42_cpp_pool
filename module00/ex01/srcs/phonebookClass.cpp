@@ -130,7 +130,6 @@ void Phonebook::runProgram(void)
             if (index > 7)
                 index = 0;
 
-
             newBook.addContact(index);
             ++index;
 
