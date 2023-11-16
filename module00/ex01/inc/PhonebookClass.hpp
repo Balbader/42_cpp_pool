@@ -29,7 +29,7 @@ class Phonebook
 
         void runProgram(void);
         void addContact(int);
-        void printContact(char, int);
+        void printContact(std::string, int);
         void printContactList(int);
         void printField(std::string);
 
@@ -39,7 +39,8 @@ class Phonebook
 
         std::string _checkInput(std::string);
 
-        int _checkContactID(char);
+        // int _checkContactID(char);
+        std::string _checkContactID(std::string);
 
         void _isEmpty(void);
         void _printWelcomeMessage(void);
@@ -49,7 +50,7 @@ class Phonebook
         void _contactAdded(void);
         void _printSearchMessage(void);
         void _printExitMessage(void);
-        void _printCheckIdErrMessage(int);
+        void _printCheckIdErrMessage(void);
 };
 
 #endif // !PHONEBOOKCLASS_H
