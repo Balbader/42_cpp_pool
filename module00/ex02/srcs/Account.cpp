@@ -1,5 +1,6 @@
 #include "Account.hpp"
 #include <iostream>
+#include <ctime>
 
 static int	getNbAccounts( void );
 static int	getTotalAmount( void );
