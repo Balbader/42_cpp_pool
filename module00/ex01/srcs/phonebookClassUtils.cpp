@@ -90,11 +90,14 @@ std::string Phonebook::_checkContactID(std::string contactID)
                 {
                     if (contactID.length() != 1)
                     {
-                        _printCheckIdErrMessage();
+                        while (contactID.length() != 1)
+                        {
+                            _printCheckIdErrMessage();
 
-                        std::getline(std::cin, contactID);
-                        if (std::cin.eof())
-                            break;
+                            std::getline(std::cin, contactID);
+                            if (std::cin.eof())
+                                break;
+                        }
                     }
 
                     else
