@@ -38,8 +38,6 @@ class Phonebook
         Contact _contactList[8];
 
         std::string _checkInput(std::string);
-
-        // int _checkContactID(char);
         std::string _checkContactID(std::string);
 
         void _isEmpty(void);
