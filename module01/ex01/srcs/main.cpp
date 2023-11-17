@@ -10,4 +10,20 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ZombieClass.hpp"
 
+int main(void)
+{
+    Zombie *newHorde;
+
+    newHorde = zombieHorde(5, "Zombie");
+
+    for (int i = 0; i < 5; ++i)
+    {
+        newHorde[i].announce();
+    }
+
+    delete[] newHorde;
+
+    return 0;
+}
