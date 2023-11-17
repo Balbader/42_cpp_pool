@@ -22,14 +22,14 @@ DIR_DUP     = mkdir -p $(@D)
 all: $(NAME)
 
 $(NAME): 
-	@ $(CC) $(FLAGS) main.cpp -o $(NAME)
+	$(CC) $(FLAGS) main.cpp -o $(NAME)
 	$(info $(NAME) created.)
 
 clean:
-	@$(RM) $(NAME)
+	$(RM) $(NAME)
 
 fclean:
-	@$(RM) $(NAME)
+	$(RM) $(NAME)
 
 re: clean all
 
