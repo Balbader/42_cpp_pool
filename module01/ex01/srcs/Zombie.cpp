@@ -15,20 +15,22 @@
 // ---------------------------------------------------------------> Constructor
 Zombie::Zombie() : _name("No Name")
 {
+    this->_name = "Horde";
+
     if (DEBUG)
-        std::cout << YELLOW << "Zombie Constructor Called : " << _name << RESET << std::endl;
+        std::cout << YELLOW << _name << " created." << RESET << std::endl;
 }
 
 Zombie::Zombie(std::string name) : _name(name)
 {
     if (DEBUG)
-        std::cout << LGREEN << "Zombie Constructor Called : " << name << RESET << std::endl;
+        std::cout << LGREEN << name <<  "'s Constructor called." << RESET << std::endl;
 }
 
 Zombie::~Zombie()
 {
     if (DEBUG)
-        std::cout << RED << "Zombie Deconstructor Called : " << _name << RESET << std::endl;
+        std::cout << RED << _name << "'s Deconstructor Called." << RESET << std::endl;
 }
 
 
@@ -36,4 +38,14 @@ Zombie::~Zombie()
 void Zombie::announce(void)
 {
 	std::cout << getName() << ": BraiiiiiiinnnzzzZ..." << std::endl;
+}
+
+void Zombie::setZombieName(std::string zombieName)
+{
+    _name = zombieName;
+}
+
+std::string Zombie::getName(void) const
+{
+    return _name;
 }
