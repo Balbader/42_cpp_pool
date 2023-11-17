@@ -20,7 +20,6 @@
 
 class Zombie
 {
-
 public:
 
     Zombie();
@@ -35,9 +34,7 @@ public:
     std::string getName(void) const;
 
 private:
-
     std::string _name;
-
 };
 
 #endif // !ZOMBIECLASS_HPP
