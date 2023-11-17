@@ -19,11 +19,11 @@ class ZOMBIE
 {
 
 public:
-		void announce(void);
-		std::string getName(void);
+	void announce(void);
+	std::string getName(void);
 
 private:
-		std::string _name;
+	std::string _name;
 
 };
 
