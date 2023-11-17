@@ -18,19 +18,26 @@
 
 #define DEBUG 1
 
-class ZombieClass
+class Zombie
 {
+
 public:
-    Zombie() {}
-    Zombie(std::string) {}
-    ~Zombie() {}
+
+    Zombie();
+    Zombie(std::string);
+    ~Zombie();
 
     void announce(void);
     void randomChump(std::string);
-    Zombie *newZombie(std::strin);
+    Zombie *newZombie(std::string);
+
+    void setZombieName(std::string);
+    std::string getName(void) const;
 
 private:
+
     std::string _name;
+
 };
 
 #endif // !ZOMBIECLASS_HPP
