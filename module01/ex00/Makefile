@@ -24,6 +24,7 @@ SRCS_DIR		:=	./srcs
 SRCS			:=	\
 					newZombie.cpp \
 					randomChump.cpp \
+					Zombie.cpp \
 					main.cpp
 SRCS			:=	$(SRCS:%=$(SRCS_DIR)/%)
 
