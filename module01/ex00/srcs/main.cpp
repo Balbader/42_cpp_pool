@@ -14,8 +14,15 @@
 
 int main(void)
 {
-	ZOMBIE newZombie;
+	Zombie newZombie("Malcolm");
+    Zombie randomZombie;
 
 	newZombie.announce();
+    newZombie.setZombieName("Lisa");
+	newZombie.announce();
+    newZombie.setZombieName("Basil");
+	newZombie.announce();
+
+    randomZombie.randomChump("Marc");
 	return 0;
 }
