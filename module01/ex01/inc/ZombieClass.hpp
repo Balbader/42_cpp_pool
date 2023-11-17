@@ -28,8 +28,6 @@ public:
     ~Zombie();
 
     void announce(void);
-    void randomChump(std::string);
-    Zombie *newZombie(std::string);
 
     void setZombieName(std::string);
     std::string getName(void) const;
@@ -39,5 +37,7 @@ private:
     std::string _name;
 
 };
+
+Zombie *zombieHorde(int, std::string);
 
 #endif // !ZOMBIECLASS_HPP
