@@ -22,7 +22,6 @@ INC_DIR			:=	./inc
 
 SRCS_DIR		:=	./srcs
 SRCS			:=	\
-					main.cpp \
 					newZombie.cpp \
 					randomChump.cpp \
 					main.cpp
