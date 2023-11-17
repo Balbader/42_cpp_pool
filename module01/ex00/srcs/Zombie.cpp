@@ -19,5 +19,5 @@ std::string ZOMBIE::getName(void) const
 
 void ZOMBIE::announce(void)
 {
-
+	std::cout << getName() << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }
