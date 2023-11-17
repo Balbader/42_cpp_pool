@@ -14,9 +14,9 @@
 
 int main(void)
 {
-    std::string str = "HI THIS IS BRAIN";
-    std::string *ptr = &str;
-    std::string &ref = ptr;
+    char str[] = "HI THIS IS BRAIN";
+    char *ptr = str;
+    char &ref = *ptr;
 
     std::cout << "str : " << str << std::endl;
     std::cout << "ptr : " <<  ptr << std::endl;
