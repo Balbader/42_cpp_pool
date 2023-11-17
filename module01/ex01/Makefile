@@ -22,7 +22,6 @@ INC_DIR			:=	./inc
 
 SRCS_DIR		:=	./srcs
 SRCS			:=	\
-					newZombie.cpp \
 					zombieHorde.cpp \
 					Zombie.cpp \
 					main.cpp
