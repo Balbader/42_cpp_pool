@@ -12,12 +12,28 @@
 
 #include "ZombieClass.hpp"
 
-std::string ZOMBIE::getName(void) const
+// ---------------------------------------------------------------> Constructor
+Zombie::Zombie() : _name("No Name")
 {
-	return _name;
+    if (DEBUG)
+        std::cout << YELLOW << "Zombie Constructor Called : " << _name << RESET << std::endl;
 }
 
-void ZOMBIE::announce(void)
+Zombie::Zombie(std::string name) : _name(name)
+{
+    if (DEBUG)
+        std::cout << LGREEN << "Zombie Constructor Called : " << name << RESET << std::endl;
+}
+
+Zombie::~Zombie()
+{
+    if (DEBUG)
+        std::cout << RED << "Zombie Deconstructor Called : " << _name << RESET << std::endl;
+}
+
+
+// ------------------------------------------------------------------> Announce
+void Zombie::announce(void)
 {
 	std::cout << getName() << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }
