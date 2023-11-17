@@ -13,17 +13,30 @@
 #ifndef ZOMBIECLASS_HPP
 #define ZOMBIECLASS_HPP
 
+#include "colors.hpp"
 #include <iostream>
 
-class ZOMBIE
+#define DEBUG 1
+
+class Zombie
 {
 
 public:
-	void announce(void);
-	std::string getName(void);
+
+    Zombie();
+    Zombie(std::string);
+    ~Zombie();
+
+    void announce(void);
+    void randomChump(std::string);
+    Zombie *newZombie(std::string);
+
+    void setZombieName(std::string);
+    std::string getName(void) const;
 
 private:
-	std::string _name;
+
+    std::string _name;
 
 };
 
