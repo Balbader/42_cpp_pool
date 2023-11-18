@@ -17,18 +17,21 @@
 #include "HumanA.hpp"
 #include "HumanB.hpp"
 
-class Weapon {
+class Weapon
+{
 
 public:
+
     Weapon();
     ~Weapon();
 
-    void setType(std:string);
+    void setType(std::string);
     std::string getType(void) const;
 
 private:
+
     std::string type;
     
 };
 
-#define WEAPON_HPP
+#endif // !WEAPON_HPP
