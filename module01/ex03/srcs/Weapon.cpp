@@ -20,5 +20,5 @@ Weapon::~Weapon() {
 }
 
 // -----------------------------------------------------------> Setter & Getter
-void setType(std:string);
-std::string getType(void) const;
+// void setType(std::string);
+// std::string getType(void) const;
