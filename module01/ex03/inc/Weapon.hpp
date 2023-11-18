@@ -17,12 +17,15 @@
 #include "HumanA.hpp"
 #include "HumanB.hpp"
 
+#define DEBUG 0
+
 class Weapon
 {
 
 public:
 
     Weapon();
+    Weapon(std::string);
     ~Weapon();
 
     void setType(std::string);
@@ -30,7 +33,7 @@ public:
 
 private:
 
-    std::string type;
+    std::string _type;
     
 };
 
