@@ -12,8 +12,13 @@
 
 #include "Weapon.hpp"
 
+// ---------------------------------------------------------------> Constructor
 Weapon::Weapon() {
 }
 
 Weapon::~Weapon() {
 }
+
+// -----------------------------------------------------------> Setter & Getter
+void setType(std:string);
+std::string getType(void) const;
