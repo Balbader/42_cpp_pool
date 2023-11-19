@@ -17,7 +17,7 @@
 #include "HumanA.hpp"
 #include "HumanB.hpp"
 
-#define DEBUG 0
+#define DEBUG 1
 
 class Weapon
 {
