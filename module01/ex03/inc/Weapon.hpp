@@ -16,6 +16,7 @@
 #include <iostream>
 #include "HumanA.hpp"
 #include "HumanB.hpp"
+#include "colors.hpp"
 
 #define DEBUG 0
 // #define DEBUG 1
@@ -25,7 +26,6 @@ class Weapon
 
 public:
 
-    Weapon();
     Weapon(std::string);
     ~Weapon();
 
@@ -35,7 +35,7 @@ public:
 private:
 
     std::string _type;
-    
+
 };
 
 #endif // !WEAPON_HPP
