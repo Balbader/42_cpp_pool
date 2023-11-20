@@ -13,11 +13,13 @@
 #include "Weapon.hpp"
 #include "HumanA.hpp"
 #include "HumanB.hpp"
+#include "colors.hpp"
 
 int main(void)
 {
     {
         Weapon club = Weapon("crude spiked club");
+        std::cout << "Weapon type : " << GREEN << club.getType() << RESET << std::endl;
 
         // HumanA bob("Bob", club);
         // bob.attack();
