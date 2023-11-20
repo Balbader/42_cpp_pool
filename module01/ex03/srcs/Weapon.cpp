@@ -13,7 +13,7 @@
 #include "Weapon.hpp"
 #include "colors.hpp"
 
-// ---------------------------------------------------------------> Constructor
+// Constructor
 Weapon::Weapon()
 {
     if (DEBUG)
@@ -27,7 +27,7 @@ Weapon::Weapon(std::string weaponType)
 }
 
 
-// ---------------------------------------------------------------> Destructor
+// Destructor
 Weapon::~Weapon()
 {
     if (DEBUG)
@@ -35,7 +35,7 @@ Weapon::~Weapon()
 }
 
 
-// -----------------------------------------------------------> Setter & Getter
+// Setter & Getter
 void Weapon::setType(std::string weaponType)
 {
     _type = weaponType;
