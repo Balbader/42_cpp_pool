@@ -24,6 +24,8 @@ Weapon::Weapon(std::string weaponType)
 {
     if (DEBUG)
         std::cout << GREEN << "Weapon instance created." << RESET << std::endl;
+
+    this->_type = weaponType;
 }
 
 
