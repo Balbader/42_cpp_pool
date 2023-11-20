@@ -21,9 +21,9 @@ int main(void)
         Weapon club = Weapon("crude spiked club");
         std::cout << "Weapon type : " << GREEN << club.getType() << RESET << std::endl;
 
-        Weapon newWeapon;
-        newWeapon.setType("Knife");
-        std::cout << "newWeapon type : " << GREEN << newWeapon.getType() << RESET << std::endl;
+        // Weapon newWeapon;
+        // newWeapon.setType("Knife");
+        // std::cout << "newWeapon type : " << GREEN << newWeapon.getType() << RESET << std::endl;
 
 
 

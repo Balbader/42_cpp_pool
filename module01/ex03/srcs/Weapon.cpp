@@ -11,10 +11,9 @@
 /* ************************************************************************** */
 
 #include "Weapon.hpp"
-#include "colors.hpp"
 
 // Constructor
-Weapon::Weapon()
+Weapon::Weapon() : _type("")
 {
     if (DEBUG)
         std::cout << GREEN << "Weapon instance created." << RESET << std::endl;
@@ -23,7 +22,7 @@ Weapon::Weapon()
 Weapon::Weapon(std::string weaponType) : _type(weaponType)
 {
     if (DEBUG)
-        std::cout << GREEN << "Weapon instance created." << RESET << std::endl;
+        std::cout << GREEN << "Weapon/weaponType instance created." << RESET << std::endl;
 }
 
 
@@ -41,7 +40,7 @@ void Weapon::setType(std::string weaponType)
     this->_type = weaponType;
 }
 
-std::string Weapon::getType(void) const
+std::string Weapon::getType(void) const 
 {
     return _type;
 }
