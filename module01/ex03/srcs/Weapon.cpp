@@ -20,12 +20,10 @@ Weapon::Weapon()
         std::cout << GREEN << "Weapon instance created." << RESET << std::endl;
 }
 
-Weapon::Weapon(std::string weaponType)
+Weapon::Weapon(std::string weaponType) : _type(weaponType)
 {
     if (DEBUG)
         std::cout << GREEN << "Weapon instance created." << RESET << std::endl;
-
-    this->_type = weaponType;
 }
 
 
@@ -40,7 +38,7 @@ Weapon::~Weapon()
 // Setter & Getter
 void Weapon::setType(std::string weaponType)
 {
-    _type = weaponType;
+    this->_type = weaponType;
 }
 
 std::string Weapon::getType(void) const
