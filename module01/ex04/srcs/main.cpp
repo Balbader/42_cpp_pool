@@ -18,7 +18,6 @@ int main(int ac, char **av)
 
         if (ifs.is_open())
         {
-
             while (std::getline(ifs, line))
             {
                 if (line.compare(av[1]) == 0)
