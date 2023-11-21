@@ -23,16 +23,15 @@ public:
     HumanA(std::string, Weapon);
     ~HumanA();
 
-    void setName(std::string);
-    std::string getName(void) const;
+    void attack(std::string, std::string);
 
-    void setWeaponA(std::string);
+    std::string getName(void) const;
     std::string getWeaponA(void) const;
 
 private:
 
     std::string _name;
-    Weapon weaponA;
+    Weapon _weaponA;
 
 };
 
