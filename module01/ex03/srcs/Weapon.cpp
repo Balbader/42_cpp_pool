@@ -11,9 +11,11 @@
 /* ************************************************************************** */
 
 #include "Weapon.hpp"
+#include "HumanA.hpp"
+#include "HumanB.hpp"
 
 // Constructor
-Weapon::Weapon() : _type("")
+Weapon::Weapon()
 {
     if (DEBUG)
         std::cout << GREEN << "Weapon instance created." << RESET << std::endl;
