@@ -2,34 +2,32 @@
 #include <fstream>
 #include <string>
 
+/*
+ * compare function : str1.compare(str2)
+*/
+
 int main(int ac, char **av)
 {
+    std::string line;
+    std::ifstream ifs;
 
-    std::ifstream ifs("numbers");
-    unsigned int dst = 1;
-    unsigned int dst2 = 2;
+    ifs.open("test.txt");
 
-    ifs >> dst >> dst2;
+    if (ifs.is_open())
+    {
 
-    std::cout << dst << " " << dst2 << std::endl;
+        while (std::getline(ifs, line))
+        {
+            std::cout << line << std::endl;
+        }
 
-    ifs.close();
+        ifs.close();
+    }
+
+    // std::ofstream ofs("test.replace");
+
+    // ofs << "Hello world" << std::endl;
+    // ofs.close();
 
     return 0;
 }
-
-/*
-
-std::ifstream ifs("numbers");
-unsigned int dst = 1;
-unsigned int dst2 = 2;
-
-ifs >> dst >> dst2;
-std::cout << dst << " " << dst2 << std::endl;
-ifs.close();
-
-std::ofstream ofs("test.out");
-ofs << "Hello World" << std::endl;
-ofs.close();
-
-*/
