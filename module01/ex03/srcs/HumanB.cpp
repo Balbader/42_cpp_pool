@@ -16,7 +16,7 @@
 HumanB::HumanB(std::string name) : _name(name), _weaponB(NULL)
 {
     if (DEBUG)
-        std::cout << std::endl << YELLOW << "HumanB instance " << this->_name << " created." << RESET << std::endl;
+        std::cout << std::endl << YELLOW << "HumanB instance " << getName() << " created." << RESET << std::endl;
 }
 
 
@@ -24,7 +24,7 @@ HumanB::HumanB(std::string name) : _name(name), _weaponB(NULL)
 HumanB::~HumanB()
 {
     if (DEBUG)
-        std::cout << ORANGE << "HumanB instance " << this->_name << " destroyed." << std::endl << std::endl;
+        std::cout << ORANGE << "HumanB instance " << getName() << " destroyed." << std::endl << std::endl;
 }
 
 
