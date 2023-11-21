@@ -13,7 +13,7 @@
 #include "HumanB.hpp"
 
 // Constructor
-HumanB::HumanB(std::string name) : _name(name)
+HumanB::HumanB(std::string name) : _name(name), _weaponB(NULL)
 {
     if (DEBUG)
         std::cout << std::endl << YELLOW << "HumanB instance " << this->_name << " created." << RESET << std::endl;
@@ -29,17 +29,24 @@ HumanB::~HumanB()
 // Set Weapon B
 void HumanB::setWeapon(Weapon& newWeapon)
 {
-    this->_weaponB = newWeapon;
+    this->_weaponB = &newWeapon;
 }
 
 // Get Weapon B
 std::string HumanB::getWeapon()
 {
-    return this->_weaponB.getType();
+    return this->_weaponB->getType();
 }
 
+std::string HumanB::getName() const
+{
+    return this->_name;
+}
 // Attack B
 void HumanB::attack()
 {
-    std::cout << this->_name << " attacks with their " << getWeapon() << std::endl;
+    if (_weaponB == NULL)
+        std::cout << getName() << " is weaponless :( " << std::endl;
+    else
+        std::cout << getName() << " attacks with " << getWeapon() << std::endl;
 }
