@@ -13,14 +13,10 @@
 #include "HumanA.hpp"
 
 // Constructor
-HumanA::HumanA(std::string name, Weapon newWeapon)
+HumanA::HumanA(std::string name, Weapon& newWeapon) : _name(name), _weaponA(newWeapon)
 {
-    this->_name = name;
-
-    this->_weaponA = newWeapon;
-
     if (DEBUG)
-        std::cout << "Human A " << GREEN << this->_name << RESET << " created." << std::endl;
+        std::cout << GREEN << "Human A instance " << this->_name  << " created." << RESET << std::endl << std::endl;
 }
 
 
@@ -28,7 +24,7 @@ HumanA::HumanA(std::string name, Weapon newWeapon)
 HumanA::~HumanA()
 {
     if (DEBUG)
-        std::cout << "Human A " << RED << this->_name << RESET << " destroyed." << std::endl;
+        std::cout << std::endl << RED << "Human A instance " << this->_name << " destroyed." << RESET << std::endl;
 }
 
 
@@ -47,7 +43,7 @@ std::string HumanA::getWeaponA() const
 
 
 // attack
-void HumanA::attack(std::string name, std::string weapon)
+void HumanA::attack()
 {
-    std::cout << name << " attacks with their " << weapon << std::endl;
+    std::cout << this->_name << " attacks with their " << this->_weaponA.getType() << std::endl;
 }
