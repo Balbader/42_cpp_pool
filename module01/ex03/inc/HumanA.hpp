@@ -20,10 +20,10 @@ class HumanA
 
 public:
 
-    HumanA(std::string, Weapon);
+    HumanA(std::string, Weapon&);
     ~HumanA();
 
-    void attack(std::string, std::string);
+    void attack();
 
     std::string getName(void) const;
     std::string getWeaponA(void) const;
@@ -31,7 +31,7 @@ public:
 private:
 
     std::string _name;
-    Weapon _weaponA;
+    Weapon& _weaponA;
 
 };
 
