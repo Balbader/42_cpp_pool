@@ -15,23 +15,26 @@ int main(int ac, char **av)
         std::ofstream ofs;
 
         ifs.open("test.txt");
+        ofs.open("test.replace");
 
         if (ifs.is_open())
         {
             while (std::getline(ifs, line))
             {
-                if (line.compare(av[1]) == 0)
+               if (ofs.is_open())
                 {
-                    ofs.open("test.replace");
-                    ofs << line << std::endl;
-                }
-                else
-                {
-                    ofs.open("test.replace");
-                    ofs << line << std::endl;
+                    if (line.compare(av[1]) == 0)
+                    {
+                        std::cout << "Line :" <<  line << std::endl;
+                        ofs << line << std::endl;
+                        ofs << line << std::endl;
+                    }
+                    // else
+                    // {
+                    //     ofs << line << std::endl;
+                    // }
                 }
             }
-
             ifs.close();
             ofs.close();
         }
