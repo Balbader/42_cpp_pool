@@ -18,13 +18,13 @@
 Weapon::Weapon()
 {
     if (DEBUG)
-        std::cout << GREEN << "Weapon instance created." << RESET << std::endl;
+        std::cout << GREEN << "Weapon instance created." << RESET << std::endl << std::endl;
 }
 
 Weapon::Weapon(std::string weaponType) : _type(weaponType)
 {
     if (DEBUG)
-        std::cout << GREEN << "Weapon/weaponType instance created." << RESET << std::endl;
+        std::cout << GREEN << "Weapon/weaponType instance created." << RESET << std::endl << std::endl;
 }
 
 
@@ -32,7 +32,7 @@ Weapon::Weapon(std::string weaponType) : _type(weaponType)
 Weapon::~Weapon()
 {
     if (DEBUG)
-        std::cout << RED << "Weapon instance destroyed." << RESET << std::endl;
+        std::cout << std::endl << RED << "Weapon instance destroyed." << RESET << std::endl;
 }
 
 
