@@ -16,7 +16,7 @@
 HumanA::HumanA(std::string name, Weapon& newWeapon) : _name(name), _weaponA(newWeapon)
 {
     if (DEBUG)
-        std::cout << std::endl << YELLOW << "Human A instance " << this->_name  << " created." << RESET << std::endl;
+        std::cout << std::endl << YELLOW << "Human A instance " << getName()  << " created." << RESET << std::endl;
 }
 
 
@@ -24,7 +24,7 @@ HumanA::HumanA(std::string name, Weapon& newWeapon) : _name(name), _weaponA(newW
 HumanA::~HumanA()
 {
     if (DEBUG)
-        std::cout << ORANGE << "Human A instance " << this->_name << " destroyed." << RESET << std::endl << std::endl;
+        std::cout << ORANGE << "Human A instance " << getName() << " destroyed." << RESET << std::endl << std::endl;
 }
 
 
