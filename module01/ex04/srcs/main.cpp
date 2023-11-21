@@ -1,12 +1,19 @@
 #include <iostream>
 #include <fstream>
+#include <string>
 
 int main(int ac, char **av)
 {
-    if (ac == 3)
-    {
 
-    }
+    std::ifstream ifs("numbers");
+    unsigned int dst = 1;
+    unsigned int dst2 = 2;
+
+    ifs >> dst >> dst2;
+
+    std::cout << dst << " " << dst2 << std::endl;
+
+    ifs.close();
 
     return 0;
 }
