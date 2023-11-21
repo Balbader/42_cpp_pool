@@ -26,10 +26,11 @@ public:
     void setWeapon(Weapon&);
 
     std::string getWeapon(void);
+    std::string getName(void) const;
 
 private:
     std::string _name;
-    Weapon _weaponB;
+    Weapon *_weaponB;
 
 };
 
