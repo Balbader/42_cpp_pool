@@ -17,13 +17,15 @@
 
 class HumanB
 {
-    public:
-        HumanB();
-        ~HumanB();
 
-    private:
-        std::string _name;
-        // Weapon _weapon;
+public:
+    HumanB();
+    ~HumanB();
+
+private:
+    std::string _name;
+    // Weapon _weapon;
+
 };
 
 #endif // !HUMANB_HPP
