@@ -8,21 +8,37 @@
 
 int main(int ac, char **av)
 {
-    std::string line;
-    std::ifstream ifs;
-
-    ifs.open("test.txt");
-
-    if (ifs.is_open())
+    if (ac == 2)
     {
+        std::string line;
+        std::ifstream ifs;
+        std::ofstream ofs;
 
-        while (std::getline(ifs, line))
+        ifs.open("test.txt");
+
+        if (ifs.is_open())
         {
-            std::cout << line << std::endl;
-        }
 
-        ifs.close();
+            while (std::getline(ifs, line))
+            {
+                if (line.compare(av[1]) == 0)
+                {
+                    ofs.open("test.replace");
+                    ofs << line << std::endl;
+                }
+                else
+                {
+                    ofs.open("test.replace");
+                    ofs << line << std::endl;
+                }
+            }
+
+            ifs.close();
+            ofs.close();
+        }
     }
+    else 
+        std::cout << "You Fucked" << std::endl;
 
     // std::ofstream ofs("test.replace");
 
