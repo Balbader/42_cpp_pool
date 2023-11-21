@@ -17,31 +17,34 @@
 
 int main(void)
 {
+
     {
         Weapon club = Weapon("crude spiked club");
         std::cout << "Weapon type : " << GREEN << club.getType() << RESET << std::endl;
 
-        // Weapon newWeapon;
-        // newWeapon.setType("Knife");
-        // std::cout << "newWeapon type : " << GREEN << newWeapon.getType() << RESET << std::endl;
+        HumanA bob("Bob", club);
+        std::cout << "HumanA's name : " << GREEN << bob.getName() << RESET << std::endl;
 
+        bob.attack();
 
+        club.setType("some other type of club");
 
-
-
-
-        // HumanA bob("Bob", club);
-        // bob.attack();
-        // club.setType("some other type of club");
-        // bob.attack();
+        bob.attack();
     }
-    // {
-    //     Weapon club = Weapon("crude spiked club");
 
-    //     HumanB jim("Jim");
-    //     jim.setWeapon(club);
-    //     club.setType("some other type of club");
-    //     jim.attack();
-    // }
+    {
+        Weapon club = Weapon("crude spiked club");
+        std::cout << "Weapon type : " << YELLOW << club.getType() << RESET << std::endl;
+
+        HumanB jim("Jim");
+        std::cout << "HumanB's name : " << GREEN << jim.getName() << RESET << std::endl;
+
+        jim.setWeapon(club);
+
+        club.setType("some other type of club");
+
+        jim.attack();
+    }
+
     return 0;
 }
