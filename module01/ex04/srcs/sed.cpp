@@ -4,12 +4,9 @@ int checkAC(int ac)
 {
     if (ac != 4)
     {
-        std::cout << std::endl << RED << "Wrong Input!" << RESET << std::endl;
+        std::cout << std::endl << RED << BOLD << "WRONG INPUT!" << RESET << std::endl;
         std::cout << std::endl << "Please make sure to provide 3 arguments for program execution." << std::endl;
-        std::cout << "1. File Name" << std::endl;
-        std::cout << "2. String #1" << std::endl;
-        std::cout << "3. String #2" << std::endl;
-        std::cout << std::endl << YELLOW << "Ex: ./sed file.txt \"Search\" \"Replace\"" << RESET << std::endl;
+        std::cout << std::endl << "Ex: " << GREEN << BOLD << "./sed file.txt \"Search\" \"Replace\"" << RESET << std::endl;
 
         return 1;
     }
