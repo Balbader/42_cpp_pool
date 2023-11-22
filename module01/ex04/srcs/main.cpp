@@ -29,10 +29,6 @@ int main(int ac, char **av)
                         ofs << line << std::endl;
                         ofs << line << std::endl;
                     }
-                    // else
-                    // {
-                    //     ofs << line << std::endl;
-                    // }
                 }
             }
             ifs.close();
