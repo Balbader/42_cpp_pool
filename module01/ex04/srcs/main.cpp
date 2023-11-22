@@ -2,34 +2,42 @@
 #include <fstream>
 #include <string>
 
-/*
- * compare function : str1.compare(str2)
-*/
+std::string checkWords(std::string line, std::string wordToCheck)
+{
+    std::string word;
+    int i = 0;
+    while (line[i] != ' ')
+    {
+        std::getline(std::cin, word);
+        ++i;
+    }
+    return word;
+}
 
 int main(int ac, char **av)
 {
-    if (ac == 2)
+    if (ac == 3)
     {
+        std::string wordToCheck;
         std::string line;
         std::ifstream ifs;
         std::ofstream ofs;
 
+        // ifs.open("hello.txt");
         ifs.open("test.txt");
-        ofs.open("test.replace");
+        // ofs.open("test.replace");
 
         if (ifs.is_open())
         {
             while (std::getline(ifs, line))
             {
-               if (ofs.is_open())
-                {
-                    if (line.compare(av[1]) == 0)
-                    {
-                        std::cout << "Line :" <<  line << std::endl;
-                        ofs << line << std::endl;
-                        ofs << line << std::endl;
-                    }
-                }
+               // if (ofs.is_open())
+               //  {
+               //      if (line.compare(av[1]) == 0)
+               //      {
+               //          ofs << av[2] << std::endl;
+               //      }
+               //  }
             }
             ifs.close();
             ofs.close();
