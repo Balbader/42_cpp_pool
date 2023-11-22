@@ -9,3 +9,8 @@ Toutes les fonctions membres de la classe std::string sont autorisées sauf repl
 
 Bien entendu, vous devez gérer les entrées inattendues et les erreurs possibles. Créez
 et rendez vos propres tests afin de prouver que votre programme fonctionne.
+
+### To check ###
+.find()
+.erase()
+.insert()
