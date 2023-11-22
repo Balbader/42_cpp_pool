@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <cstring>
 #include "../inc/colors.hpp"
 
 int checkAC(int ac)
@@ -20,86 +21,62 @@ int checkAC(int ac)
     return 0;
 }
 
+std::string sed(std::string line, std::string OldWord, std::string NewWord)
+{
+	size_t			i = 0;
+	size_t			pos = 0;
+	int				len_Old_Word = OldWord.length();
+
+	while (i < line.length())
+	{
+		pos = line.find(OldWord, i);
+		if (pos != std::string::npos)
+		{
+			line.erase(pos, len_Old_Word);
+			line.insert(pos, NewWord);
+			i += pos + len_Old_Word;
+		}
+		i++;
+	}
+	return (line);
+}
+
+
 int main(int ac, char **av)
 {
-    if (!checkAC(ac))
-        return -1;
+    if (checkAC(ac))
+        return 0;
 
-    else if (ac == 4)
+    std::string		filename = av[1];
+    std::string		line;
+    std::ifstream	infile;
+
+    std::cout << BLUE << filename << RESET << std::endl;
+    infile.open(av[1]);
+
+    if (!infile.is_open() || infile.fail())
     {
-        std::string line;
-        std::ifstream ifs(av[1], std::ios::in);
-
-        if (ifs.is_open())
-        {
-            while (!ifs.eof())
-                line.push_back(ifs.get());
-            line.pop_back();
-        }
-
-        else
-        {
-            std::cout << RED << "File can't be opened : " << RESET <<  av[1] << std::endl;
-            return (1);
-        }
-
-        // Find and replace
-        std::string toFind(av[2]);
-        std::string replace(av[3]);
-        int pos;
-
-        while ((pos = line.find(toFind)) != std::string::npos)
-        {
-            line.erase(pos, toFind.length());
-            line.insert(pos, replace);
-        }
-
-        // create and write in file.replace
-        std::string replaceFile(av[1]);
-        replaceFile.insert(replaceFile.length(), ".replace");
-
-        std::ofstream ofs(replaceFile);
-
-        if (ofs.is_open())
-            ofs << line;
-
-        else
-        {
-            std::cout << "Unable to create " << av[1] << std::endl;
-            return (1);
-        }
-        
-        ifs.close();
-        ofs.close();
+        std::cerr << RED << "Error: " << RESET <<  "Can't open file " << av[1] << "." << std::endl;
+        return (0);
     }
+
+    std::ofstream	outfile(filename.append(".replace").c_str());
+
+    if (!outfile.is_open() || outfile.fail())
+    {
+        std::cerr << "Error: open outfile failed." << std::endl;
+        return (0);
+    }
+
+    while (std::getline(infile, line))
+    {	
+        if (av[2][0])
+            line = sed(line, av[2], av[3]);
+        outfile << line << std::endl;
+    }
+
+    infile.close();
+    outfile.close();
 
     return 0;
 }
-
-/*
-            std::string wordToCheck;
-            std::string line;
-            std::ifstream ifs;
-            std::ofstream ofs;
-
-            ifs.open("hello.txt");
-            // ifs.open("test.txt");
-            ofs.open("test.replace");
-
-            if (ifs.is_open())
-            {
-                while (std::getline(ifs, line))
-                {
-                    std::cout << line << std::endl;
-                    std::cout << wordToCheck << std::endl;
-                    wordToCheck = checkWords(line, wordToCheck);
-                   if (ofs.is_open())
-                    {
-                        if (line.compare(av[1]) == 0)
-                            ofs << av[2] << std::endl;
-                    }
-                }
-                ifs.close();
-                ofs.close();
-            }
-*/
