@@ -9,7 +9,9 @@ NAME			:=	sed
 INC_DIR			:=	./inc
 
 SRCS_DIR		:=	./srcs
-SRCS			:=	main.cpp
+SRCS			:=	\
+					sed.cpp \
+					main.cpp
 SRCS			:=	$(SRCS:%=$(SRCS_DIR)/%)
 
 BUILD_DIR		:=	.build
