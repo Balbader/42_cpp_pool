@@ -11,6 +11,8 @@ Bien entendu, vous devez gérer les entrées inattendues et les erreurs possible
 et rendez vos propres tests afin de prouver que votre programme fonctionne.
 
 ### To check ###
-.find()
+.find() : retruns the position of the first character of the word to find
 .erase()
 .insert()
+.append()
+.c_str()
