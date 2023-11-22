@@ -1,7 +1,6 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include <cstring>
 #include "../inc/colors.hpp"
 
 int checkAC(int ac)
@@ -21,10 +20,6 @@ int checkAC(int ac)
     return 0;
 }
 
-// std::string findAndReplace(std::string line, std::string toFind, std::string replaceWith)
-// {
-// }
-
 int main(int ac, char **av)
 {
     if (!checkAC(ac))
@@ -33,42 +28,37 @@ int main(int ac, char **av)
     else if (ac == 4)
     {
         std::string line;
-        std::ifstream ifs;
-
-        ifs.open(av[1]);
+        std::ifstream ifs(av[1], std::ios::in);
 
         if (ifs.is_open())
         {
             while (!ifs.eof())
                 line.push_back(ifs.get());
             line.pop_back();
-            std::cout << GREEN << line << RESET << std::endl; // to delete
         }
 
         else
         {
             std::cout << RED << "File can't be opened : " << RESET <<  av[1] << std::endl;
-            return (-1);
+            return (1);
         }
-        ifs.close();
 
         // Find and replace
-        std::string find(av[2]);
+        std::string toFind(av[2]);
         std::string replace(av[3]);
         int pos;
 
-        while ((pos = line.find(find)) != std::string::npos)
+        while ((pos = line.find(toFind)) != std::string::npos)
         {
-            line.erase(pos, find.length());
+            line.erase(pos, toFind.length());
             line.insert(pos, replace);
         }
 
         // create and write in file.replace
-        std::string replaceFile (av[1]);
+        std::string replaceFile(av[1]);
         replaceFile.insert(replaceFile.length(), ".replace");
 
-        std::ofstream ofs(replace);
-
+        std::ofstream ofs(replaceFile);
 
         if (ofs.is_open())
             ofs << line;
@@ -79,8 +69,9 @@ int main(int ac, char **av)
             return (1);
         }
         
-        std::cout << "\e[38;5;118mEnd of mySed, search and replace program\e[0m" << std::endl;
-        }
+        ifs.close();
+        ofs.close();
+    }
 
     return 0;
 }
