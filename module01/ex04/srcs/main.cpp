@@ -21,23 +21,26 @@ int checkAC(int ac)
     return 0;
 }
 
-std::string sed(std::string line, std::string OldWord, std::string NewWord)
+std::string sed(std::string line, std::string toFind, std::string replace)
 {
-	size_t			i = 0;
-	size_t			pos = 0;
-	int				len_Old_Word = OldWord.length();
+	size_t i = 0;
+	size_t pos = 0;
+	int	toFindLen = toFind.length();
 
 	while (i < line.length())
 	{
-		pos = line.find(OldWord, i);
+		pos = line.find(toFind, i);
+
 		if (pos != std::string::npos)
 		{
-			line.erase(pos, len_Old_Word);
-			line.insert(pos, NewWord);
-			i += pos + len_Old_Word;
+			line.erase(pos, toFindLen);
+			line.insert(pos, replace);
+			i += pos + toFindLen;
 		}
-		i++;
+
+		++i;
 	}
+
 	return (line);
 }
 
@@ -47,36 +50,35 @@ int main(int ac, char **av)
     if (checkAC(ac))
         return 0;
 
-    std::string		filename = av[1];
-    std::string		line;
-    std::ifstream	infile;
+    std::string file = av[1];
+    std::string line;
+    std::ifstream ifs;
+    std::ofstream ofs;
 
-    std::cout << BLUE << filename << RESET << std::endl;
-    infile.open(av[1]);
+    ifs.open(av[1]);
+    ofs.open((file.append(".replace").c_str()));
 
-    if (!infile.is_open() || infile.fail())
+    if (!ifs.is_open() || ifs.fail())
     {
         std::cerr << RED << "Error: " << RESET <<  "Can't open file " << av[1] << "." << std::endl;
-        return (0);
+        return (-1);
     }
 
-    std::ofstream	outfile(filename.append(".replace").c_str());
-
-    if (!outfile.is_open() || outfile.fail())
+    if (!ofs.is_open() || ofs.fail())
     {
-        std::cerr << "Error: open outfile failed." << std::endl;
-        return (0);
+        std::cerr << RED << "Error: open outfile failed." << RESET << std::endl;
+        return (-1);
     }
 
-    while (std::getline(infile, line))
+    while (std::getline(ifs, line))
     {	
         if (av[2][0])
             line = sed(line, av[2], av[3]);
-        outfile << line << std::endl;
+        ofs << line << std::endl;
     }
 
-    infile.close();
-    outfile.close();
+    ifs.close();
+    ofs.close();
 
     return 0;
 }
