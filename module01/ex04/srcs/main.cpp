@@ -1,8 +1,4 @@
-#include <iostream>
-#include <fstream>
-#include <string>
-#include <cstring>
-#include "../inc/colors.hpp"
+#include "sed.hpp"
 
 int checkAC(int ac)
 {
