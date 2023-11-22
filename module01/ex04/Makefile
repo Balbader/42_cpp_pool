@@ -1,7 +1,7 @@
 ########
 # NAME #
 ########
-NAME			:=	violence
+NAME			:=	sed
 
 ###############
 # INGREDIENTS #
@@ -9,11 +9,7 @@ NAME			:=	violence
 INC_DIR			:=	./inc
 
 SRCS_DIR		:=	./srcs
-SRCS			:=	\
-					HumanA.cpp \
-					HumanB.cpp \
-					Weapon.cpp \
-					main.cpp
+SRCS			:=	main.cpp
 SRCS			:=	$(SRCS:%=$(SRCS_DIR)/%)
 
 BUILD_DIR		:=	.build
