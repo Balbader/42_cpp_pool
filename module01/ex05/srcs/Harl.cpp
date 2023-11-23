@@ -21,7 +21,7 @@ void Harl::complain(std::string level)
 
     temp = this->_checkComplain(level);
     std::cout << std::endl;
-    std::cout << "Level : " << GREEN << temp << RESET << " - " << GREEN << (level == "" ? level = "..." : level = level) << RESET << std::endl;
+    std::cout << "Level : " << temp << " - " << (level == "" ? level = "..." : level = level) << std::endl;
 
     switch (temp)
     {
