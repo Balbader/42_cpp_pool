@@ -25,7 +25,6 @@ void Harl::complain(std::string level)
 
     switch (temp)
     {
-
         case 1:
             (this->*ptr[0])();
             break;
