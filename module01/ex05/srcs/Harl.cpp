@@ -4,12 +4,12 @@
 Harl::Harl()
 {
     if (TOGGLE)
-        std::cout << std::endl << LYELLOW << "Harl instance created" << RESET << std::endl;
+        std::cout << std::endl << GREEN << "Harl instance created" << RESET << std::endl;
 }
 Harl::~Harl()
 {
     if (TOGGLE)
-        std::cout << LRED << "Harl instance destroyed" << RESET << std::endl;
+        std::cout << RED << "Harl instance destroyed" << RESET << std::endl;
 }
 
 
@@ -42,7 +42,7 @@ void Harl::complain(std::string level)
             break;
 
         default:
-            std::cout << GREEN << "No complaining going on!" << RESET << std::endl;
+            std::cout << "No complaining going on!" << std::endl;
             break;
     }
 }
@@ -69,27 +69,27 @@ int Harl::_checkComplain(std::string level)
 
 void Harl::_debug(void)
 {
-    std::cout << CYAN << "I love having extra bacon for my 7XL-double-cheese-triple-pickle-special-ketchup burger. I really do!" << RESET << std::endl;
+    std::cout << LCYAN << "I love having extra bacon for my 7XL-double-cheese-triple-pickle-special-ketchup burger. I really do!" << RESET << std::endl;
     std::cout << std::endl;
 }
 
 
 void Harl::_info(void)
 {
-    std::cout << MAGENTA << "I cannot believe adding extra bacon costs more money. You didn't put enough bacon in my burger! If you did, I wouldn't be asking for more!" << RESET << std::endl;
+    std::cout << LMAGENTA << "I cannot believe adding extra bacon costs more money. You didn't put enough bacon in my burger! If you did, I wouldn't be asking for more!" << RESET << std::endl;
     std::cout << std::endl;
 }
 
 
 void Harl::_warning(void)
 {
-    std::cout << ORANGE << "I think I deserve to have some extra bacon for free. I've been coming for years whereas you started working here since last month." << RESET << std::endl;
+    std::cout << LYELLOW << "I think I deserve to have some extra bacon for free. I've been coming for years whereas you started working here since last month." << RESET << std::endl;
     std::cout << std::endl;
 }
 
 
 void Harl::_error(void)
 {
-    std::cout << RED << "This is unacceptable! I want to speak to the manager now." << RESET << std::endl;
+    std::cout << LRED << "This is unacceptable! I want to speak to the manager now." << RESET << std::endl;
     std::cout << std::endl;
 }
