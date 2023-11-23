@@ -19,11 +19,13 @@ public:
 
 private:
 
+    int _checkComplain(std::string);
+    void _printLevel(std::string);
+
     void _debug(void);
     void _info(void);
     void _warning(void);
     void _error(void);
-    int _checkComplain(std::string);
 
 };
 
