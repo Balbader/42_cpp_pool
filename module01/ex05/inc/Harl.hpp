@@ -10,20 +10,20 @@
 class Harl
 {
 
-    public:
+public:
 
-        Harl();
-        ~Harl();
+    Harl();
+    ~Harl();
 
-        void complain(std::string);
+    void complain(std::string);
 
-    private:
+private:
 
-        void _debug(void);
-        void _info(void);
-        void _warning(void);
-        void _error(void);
-        int _checkComplain(std::string);
+    void _debug(void);
+    void _info(void);
+    void _warning(void);
+    void _error(void);
+    int _checkComplain(std::string);
 
 };
 
