@@ -23,6 +23,7 @@ void Harl::complain(std::string type)
 
     switch (temp)
     {
+
         case 1:
             newComplain._debug();
             break;
@@ -52,20 +53,24 @@ void Harl::_debug(void)
     std::cout << CYAN << "I love having extra bacon for my 7XL-double-cheese-triple-pickle-special-ketchup burger. I really do!" << RESET << std::endl;
 }
 
+
 void Harl::_info(void)
 {
     std::cout << MAGENTA << "I cannot believe adding extra bacon costs more money. You didn't put enough bacon in my burger! If you did, I wouldn't be asking for more!" << RESET << std::endl;
 }
+
 
 void Harl::_warning(void)
 {
     std::cout << ORANGE << "I think I deserve to have some extra bacon for free. I've been coming for years whereas you started working here since last month." << RESET << std::endl;
 }
 
+
 void Harl::_error(void)
 {
     std::cout << RED << "This is unacceptable! I want to speak to the manager now." << RESET << std::endl;
 }
+
 
 int Harl::_checkComplain(std::string complain)
 {
