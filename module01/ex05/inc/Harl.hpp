@@ -19,14 +19,12 @@ class Harl
 
     private:
 
-        std::string _complain;
-
         void _debug(void);
         void _info(void);
         void _warning(void);
         void _error(void);
         int _checkComplain(std::string);
 
-
 };
+
 #endif // !HARL_HPP
