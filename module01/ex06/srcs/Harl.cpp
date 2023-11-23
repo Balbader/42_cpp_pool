@@ -4,12 +4,12 @@
 Harl::Harl()
 {
     if (TOGGLE)
-        std::cout << std::endl << LYELLOW << "Harl instance created" << RESET << std::endl;
+        std::cout << std::endl << LGREEN << "Harl instance created" << RESET << std::endl;
 }
 Harl::~Harl()
 {
     if (TOGGLE)
-        std::cout << std::endl << LRED << "Harl instance destroyed" << RESET << std::endl;
+        std::cout << std::endl << RED << "Harl instance destroyed" << RESET << std::endl;
 }
 
 
@@ -21,35 +21,42 @@ void Harl::complain(std::string level)
 
     temp = this->_checkComplain(level);
 
-    std::cout << std::endl;
-    std::cout << "Level : " << GREEN << temp << RESET << " - " << GREEN << (level == "" ? level = "..." : level = level) << RESET << std::endl;
-
     switch (temp)
     {
         case 1:
+            this->_printLevel("DEBUG");
             (this->*ptr[0])();
+            this->_printLevel("INFO");
             (this->*ptr[1])();
+            this->_printLevel("WARNING");
             (this->*ptr[2])();
+            this->_printLevel("ERROR");
             (this->*ptr[3])();
             break;
 
         case 2:
+            this->_printLevel("INFO");
             (this->*ptr[1])();
+            this->_printLevel("WARNING");
             (this->*ptr[2])();
+            this->_printLevel("ERROR");
             (this->*ptr[3])();
             break;
 
         case 3:
+            this->_printLevel("WARNING");
             (this->*ptr[2])();
+            this->_printLevel("ERROR");
             (this->*ptr[3])();
             break;
 
         case 4:
+            this->_printLevel("ERROR");
             (this->*ptr[3])();
             break;
 
         default:
-            std::cout << GREEN << "No complaining going on!" << RESET << std::endl;
+            std::cout << std::endl << "[ " << "Probably complaining about insignificant problems" << " ]" << std::endl;
             break;
     }
 }
@@ -60,9 +67,7 @@ int Harl::_checkComplain(std::string level)
 {
     int type = 0;
 
-    if (level == "")
-        type = 0;
-    else if (level == "DEBUG" || level == "debug")
+    if (level == "DEBUG" || level == "debug")
         type = 1;
     else if (level == "INFO" || level == "info")
         type = 2;
@@ -72,6 +77,34 @@ int Harl::_checkComplain(std::string level)
         type = 4;
 
     return type;
+}
+
+void Harl::_printLevel(std::string level)
+{
+    int colorNumber = _checkComplain(level);
+
+    switch (colorNumber)
+    {
+        case 1:
+            std::cout << std::endl << LCYAN << "[ " << (level == "" ? level = "..." : level = level) << " ]" << RESET <<std::endl;
+            break;
+
+        case 2:
+            std::cout << std::endl << LMAGENTA << "[ " << (level == "" ? level = "..." : level = level) << " ]" << RESET <<std::endl;
+            break;
+
+        case 3:
+            std::cout << std::endl << LYELLOW << "[ " << (level == "" ? level = "..." : level = level) << " ]" << RESET <<std::endl;
+            break;
+
+        case 4:
+            std::cout << std::endl << LRED << "[ " << (level == "" ? level = "..." : level = level) << " ]" << RESET <<std::endl;
+            break;
+
+        default:
+            std::cout << std::endl << "[ " << "Probably complaining about insignificant problems" << " ]" << std::endl;
+            break;
+    }
 }
 
 void Harl::_debug(void)
@@ -88,11 +121,11 @@ void Harl::_info(void)
 
 void Harl::_warning(void)
 {
-    std::cout << ORANGE << "I think I deserve to have some extra bacon for free. I've been coming for years whereas you started working here since last month." << RESET << std::endl;
+    std::cout << LYELLOW << "I think I deserve to have some extra bacon for free. I've been coming for years whereas you started working here since last month." << RESET << std::endl;
 }
 
 
 void Harl::_error(void)
 {
-    std::cout << RED << "This is unacceptable! I want to speak to the manager now." << RESET << std::endl;
+    std::cout << LRED << "This is unacceptable! I want to speak to the manager now." << RESET << std::endl;
 }
