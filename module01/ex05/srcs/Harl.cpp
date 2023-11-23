@@ -13,31 +13,48 @@ Harl::~Harl()
 }
 
 
-// Public Member Functions
-void Harl::complain(std::string type)
+int Harl::_checkComplain(std::string complain)
 {
-    Harl newComplain;
+    int type = 0;
+
+    if (complain == "")
+        type = 0;
+    if (complain == "DEBUG" || complain == "debug")
+        type = 1;
+    if (complain == "INFO" || complain == "info")
+        type = 2;
+    if (complain == "WARNING" || complain == "warning")
+        type = 3;
+    if (complain == "ERROR" || complain == "error")
+        type = 4;
+
+    return type;
+}
+
+// Public Member Functions
+void Harl::complain(std::string level)
+{
     int temp = 0;
 
-    temp = _checkComplain(type);
+    temp = _checkComplain(level);
 
     switch (temp)
     {
 
         case 1:
-            newComplain._debug();
+            _debug();
             break;
 
         case 2:
-            newComplain._info();
+            _info();
             break;
 
         case 3:
-            newComplain._warning();
+            _warning();
             break;
 
         case 4:
-            newComplain._error();
+            _error();
             break;
 
         default:
@@ -69,23 +86,4 @@ void Harl::_warning(void)
 void Harl::_error(void)
 {
     std::cout << RED << "This is unacceptable! I want to speak to the manager now." << RESET << std::endl;
-}
-
-
-int Harl::_checkComplain(std::string complain)
-{
-    int type = 0;
-
-    if (complain == "")
-        type = 0;
-    if (complain == "DEBUG" || complain == "debug")
-        type = 1;
-    if (complain == "INFO" || complain == "info")
-        type = 2;
-    if (complain == "WARNING" || complain == "warning")
-        type = 3;
-    if (complain == "ERROR" || complain == "error")
-        type = 4;
-
-    return type;
 }
