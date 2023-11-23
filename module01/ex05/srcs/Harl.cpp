@@ -13,19 +13,19 @@ Harl::~Harl()
 }
 
 
-int Harl::_checkComplain(std::string complain)
+int Harl::_checkComplain(std::string level)
 {
     int type = 0;
 
-    if (complain == "")
+    if (level == "")
         type = 0;
-    if (complain == "DEBUG" || complain == "debug")
+    if (level == "DEBUG" || level == "debug")
         type = 1;
-    if (complain == "INFO" || complain == "info")
+    if (level == "INFO" || level == "info")
         type = 2;
-    if (complain == "WARNING" || complain == "warning")
+    if (level == "WARNING" || level == "warning")
         type = 3;
-    if (complain == "ERROR" || complain == "error")
+    if (level == "ERROR" || level == "error")
         type = 4;
 
     return type;
@@ -36,25 +36,26 @@ void Harl::complain(std::string level)
 {
     int temp = 0;
 
-    temp = _checkComplain(level);
+    temp = this->_checkComplain(level);
+    std::cout << YELLOW << "Level : " << temp << std::endl;
 
     switch (temp)
     {
 
         case 1:
-            _debug();
+            this->_debug();
             break;
 
         case 2:
-            _info();
+            this->_info();
             break;
 
         case 3:
-            _warning();
+            this->_warning();
             break;
 
         case 4:
-            _error();
+            this->_error();
             break;
 
         default:
