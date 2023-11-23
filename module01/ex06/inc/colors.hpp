@@ -10,8 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef COLOR_HPP
-#define COLOR_HPP
+#ifndef COLORS_HPP
+#define COLORS_HPP
+
 
 // COLOR 
 #define BLACK "\033[30m"
