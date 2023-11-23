@@ -5,9 +5,11 @@ int main(void)
     Harl newComplain;
 
     newComplain.complain("");
-    newComplain.complain("debug");
-    newComplain.complain("info");
-    newComplain.complain("warning");
-    newComplain.complain("error");
+    newComplain.complain("DEBUG");
+    newComplain.complain("INFO");
+    newComplain.complain("WARNING");
+    newComplain.complain("ERROR");
+
+    // newComplain.complain("basil");
     return 0;
 }
