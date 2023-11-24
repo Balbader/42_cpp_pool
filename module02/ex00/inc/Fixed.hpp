@@ -7,7 +7,8 @@
 
 #define DEBUG 1
 
-class Fixed {
+class Fixed
+{
 
 public:
 
