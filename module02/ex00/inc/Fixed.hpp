@@ -1,24 +1,34 @@
 #ifndef FIXED_HPP
 #define FIXED_HPP
 
+#include "colors.hpp"
 #include <iostream>
+#include <string>
 
-class Fixed
-{
+#define DEBUG 1
 
-    public:
+class Fixed {
 
-      Fixed();
-      Fixed(const Fixed &) = default;
-      Fixed &operator=(const Fixed &) = default;
-      ~Fixed();
+public:
 
-    private:
+    Fixed();
+
+    Fixed(std::string);
+    Fixed(int);
+    Fixed(float);
+
+    Fixed(const Fixed &);
+
+    Fixed &operator=(const Fixed &);
+
+    ~Fixed();
+
+private:
+
+    int _nb;
+    float _floatNb;
+    std::string _name;
 
 };
-
-Fixed ::Fixed() {}
-
-Fixed ::~Fixed() {}
 
 #endif // !FIXED_HPP
