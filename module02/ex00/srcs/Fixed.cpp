@@ -35,6 +35,20 @@ Fixed ::Fixed(float fnb) {
     std::cout << YELLOW << this->_floatNb << RESET << std::endl;
 }
 
+Fixed::Fixed(const Fixed &original) {
+    if (DEBUG) {
+        std::cout << CYAN << "Fixed - copy original Constructor Called" << RESET << std::endl;
+    }
+
+    std::string nameCopy = original._name;
+    int nbCopy = original._nb;
+    float fNbCopy = original._floatNb;
+
+    std::cout << nameCopy << std::endl;
+    std::cout << nbCopy << std::endl;
+    std::cout << fNbCopy << std::endl;
+}
+
 Fixed ::~Fixed() {
     if (DEBUG) {
         std::cout << RED << "Fixed Constructor Destroyed" << RESET << std::endl;
