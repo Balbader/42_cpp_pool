@@ -1,36 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   HumanA.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: baalbade <baalbade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/21 17:06:19 by baalbade          #+#    #+#             */
-/*   Updated: 2023/10/21 17:06:35 by baalbade         ###   ########.fr       */
+/*   Created: 2023/11/17 21:07:26 by baalbade          #+#    #+#             */
+/*   Updated: 2023/11/17 21:07:27 by baalbade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#ifndef HUMANA_HPP
+#define HUMANA_HPP
 
-int main(int ac, char **av)
+#include "Weapon.hpp"
+
+class HumanA
 {
-	if (ac == 1)
-    {
-        std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
-		return (0);
-	}
 
-	for (int j = 1; j < ac; ++j)
-    {
-        std::string input = av[j];
+public:
 
-		for (int i = 0; input[i]; ++i)
-        {
-			input[i] = toupper(input[i]);
-		}
-        std::cout << input;
-	}
+    HumanA(std::string, Weapon&);
+    ~HumanA();
 
-    std::cout << std::endl;
-	return (0);
-}
+    void attack();
+
+    std::string getName(void) const;
+    std::string getWeaponA(void) const;
+
+private:
+
+    std::string _name;
+    Weapon& _weaponA;
+
+};
+
+#endif // !HUMANA_HPP

@@ -47,10 +47,7 @@ std::string Contact::getInput(std::string enter, std::string attr, std::string e
 
     std::getline(std::cin, input);
     if (std::cin.eof())
-    {
         printExit();
-        break;
-    }
 
     while (input.length() == 0)
     {
@@ -84,15 +81,10 @@ std::string Contact::getNumber(std::string enter, std::string attr, std::string 
 
     std::getline(std::cin, input);
     if (std::cin.eof())
-    {
         printExit();
-        break;
-    }
 
-    // NOTE: can probably right a function for the 3 if statements that would take (input, errMessage) and that would return input
     while (input.length() == 0 || input.length() > 10 || checkNumber(input) == 1)
     {
-
         if (input.length() == 0)
         {
             std::cout << RED << empty << RESET << attr << std::endl;
@@ -138,7 +130,6 @@ std::string Contact::getNumber(std::string enter, std::string attr, std::string 
 //---------------------------------------------------------------> Contact Info
 void Contact::getContactInfo(void)
 {
-
     std::string input = "";
 
     std::cout << GREEN << "New Contact Information:" << std::endl;
@@ -148,16 +139,6 @@ void Contact::getContactInfo(void)
     setNickname(input);
     setPhoneNumber(input);
     setDarkestSecret(input);
-}
-
-// NOTE: check if printContactInfo is needed
-void Contact::printContactInfo(Contact newContact, int index)
-{
-    std::cout << std::endl << std::setw(10) << index << " | "
-              << std::setw(10) << newContact.getFirstName() << " | "
-              << std::setw(10) << newContact.getLastName() << " | " 
-              << std::setw(10) << newContact.getNickname()
-              << std::endl;
 }
 
 

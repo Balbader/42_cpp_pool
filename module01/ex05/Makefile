@@ -1,19 +1,7 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: baalbade <marvin@42.fr>                    +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/11/14 13:11:18 by baalbade          #+#    #+#              #
-#    Updated: 2023/11/14 13:11:19 by baalbade         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 ########
 # NAME #
 ########
-NAME			:=	phonebook
+NAME			:=	harl
 
 ###############
 # INGREDIENTS #
@@ -22,9 +10,7 @@ INC_DIR			:=	./inc
 
 SRCS_DIR		:=	./srcs
 SRCS			:=	\
-					contactClass.cpp \
-					phonebookClass.cpp \
-					phonebookClassUtils.cpp \
+					Harl.cpp \
 					main.cpp
 SRCS			:=	$(SRCS:%=$(SRCS_DIR)/%)
 
@@ -35,6 +21,7 @@ DEPS			:=	$(OBJS:.o=.d)
 CC				:=	c++ -o
 CFLAGS			:=	-Wall -Wextra -Werror -std=c++98
 IFLAGS			:=	$(addprefix -I, $(INC_DIR))
+MAKEFLAGS		+=	--no-print-directory
 
 RM				:=	rm -rf
 DIR_DUP			=	mkdir -p $(dir $@)

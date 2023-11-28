@@ -15,6 +15,8 @@
 #include <ctype.h>
 #include <iomanip>
 #include <iostream>
+#include <cstdlib>
+#include <string>
 
 // ---------------------------------------------------------------> Constructor
 Phonebook::Phonebook(void){};
@@ -45,24 +47,33 @@ void Phonebook::printField(std::string input)
 
 
 // ----------------------------------------------------> Print Specific Contact
-void Phonebook::printContact(char contactID, int index)
+
+void Phonebook::printContact(std::string contactID)
 {
+    const char *id = contactID.c_str();
+
     std::cout << std::endl;
 
-    for (int i = 0; i < index; ++i)
+    if (_contactList[atoi(id) - 1].getFirstName() == "")
+        std::cout << RED << "Contact doesn't exist!" << RESET << std::endl;
+
+    else
     {
-        if ((contactID - '0') - 1 == i)
+        for (int i = 0; i < 8; ++i)
         {
-            std::cout << GREEN << "Search result :" << RESET << std::endl;
-            std::cout << std::setw(10) << contactID << "|";
+            if (atoi(id) - 1 == i)
+            {
+                std::cout << GREEN << "Search result :" << RESET << std::endl;
+                std::cout << std::setw(10) << contactID << "|";
 
-            printField(_contactList[i].getFirstName());
-            printField(_contactList[i].getLastName());
-            printField(_contactList[i].getNickname());
-            printField(_contactList[i].getPhoneNumber());
-            printField(_contactList[i].getDarkestSecret());
+                printField(_contactList[i].getFirstName());
+                printField(_contactList[i].getLastName());
+                printField(_contactList[i].getNickname());
+                printField(_contactList[i].getPhoneNumber());
+                printField(_contactList[i].getDarkestSecret());
 
-            std::cout << std::endl;
+                std::cout << std::endl;
+            }
         }
     }
 }
@@ -118,6 +129,7 @@ void Phonebook::runProgram(void)
 
             if (index > 7)
                 index = 0;
+
             newBook.addContact(index);
             ++index;
 
@@ -131,27 +143,22 @@ void Phonebook::runProgram(void)
 
             else
             {
-                char contactID;
+                std::string contactID;
 
                 newBook.printContactList((contactLen > index) ? contactLen : index);
+
                 _printSearchMessage();
 
-                // BUG: delete line
-                std::cout << RED << "contactID: " << RESET << contactID << std::endl;
-
-                std::cin.get();
-                std::cin >> contactID;
+                std::getline(std::cin, contactID);
                 if (std::cin.eof())
                 {
                     _printExitMessage();
                     break;
                 }
 
-                // FIX: infinite loop when wrong input is enterd
                 contactID = _checkContactID(contactID);
 
-                // FIX: how to cast a std::string to a char ???
-                newBook.printContact(contactID, index);
+                newBook.printContact(contactID);
             }
 
             _whatNext();

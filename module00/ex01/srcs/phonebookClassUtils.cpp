@@ -30,7 +30,7 @@ void Phonebook::_printOptions(void)
 
 void Phonebook::_whatNext(void)
 {
-    std::cout << std::endl << GREEN << "What next ?" << RESET << std::endl;
+    std::cout << std::endl << GREEN << "WHAT NEXT ?" << RESET << std::endl;
 
     _printOptions();
 
@@ -54,9 +54,9 @@ void Phonebook::_printExitMessage(void)
     std::cout << std::endl << RED << "Exiting the phonebook. All contacts are lost forever." << RESET << std::endl;
 }
 
-void Phonebook::_printCheckIdErrMessage(int contactID)
+void Phonebook::_printCheckIdErrMessage(void)
 {
-    std::cout << RED << "Contat ID out of range.\n" << RESET << "Contact ID must be between 1 and 8: " << contactID << std::endl;
+    std::cout << RED << "Wrong input!\n" << RESET << "Contact ID must be between 1 and 8: " << std::endl;
 }
 
 void Phonebook::_isEmpty()
@@ -66,35 +66,46 @@ void Phonebook::_isEmpty()
 
 
 //------------------------------------------------------------> Check ContactID
-// FIX: infinite loop when wrong input is enterd
-//
-// TODO:  . change contactID from int to std::string || char
-//        . check if the length of the string is over 1
-//        . check if contactID is numeric
-//
-// int Phonebook::_checkContactID(int contactID)
-int Phonebook::_checkContactID(char contactID)
+std::string Phonebook::_checkContactID(std::string contactID)
 {
-    // if (!isdigit(contactID) || contactID < '1' || contactID > '8')
-    // {
-    //     _printCheckIdErrMessage(contactID);
+    if ((contactID[0] >= '1' && contactID[0] <= '8') && contactID.length() == 1)
+        return contactID;
 
-        _printCheckIdErrMessage((int)contactID);
-        while (!std::isdigit(contactID) || (contactID < '1' || contactID > '8'))
+    if (!(contactID[0] >= '1' && contactID[0] <= '8') || contactID.length() != 1)
+    {
+        _printCheckIdErrMessage();
+
+        while (!(contactID[0] >= '1' && contactID[0] <= '8') || contactID.length() != 1)
         {
-            std::cin >> contactID;
-            std::cin.get();
+            std::getline(std::cin, contactID);
             if (std::cin.eof())
                 break;
 
-            if (contactID > '0' && contactID < '9')
+            _printCheckIdErrMessage();
+
+            if (contactID[0] >= '1' && contactID[0] <= '8')
             {
-                break;
-                return contactID;
+
+                if (contactID.length() != 1)
+                {
+                    while (contactID.length() != 1)
+                    {
+                        _printCheckIdErrMessage();
+
+                        std::getline(std::cin, contactID);
+                        if (std::cin.eof())
+                            break;
+                    }
+                }
+
+                else
+                {
+                    break;
+                    return contactID;
+                }
             }
-            _printCheckIdErrMessage((int)contactID);
         }
-    // }
+    }
 
     return contactID;
 }

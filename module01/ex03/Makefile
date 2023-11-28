@@ -3,47 +3,50 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: baalbade <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: baalbade <baalbade@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/11/16 15:03:22 by baalbade          #+#    #+#              #
-#    Updated: 2023/11/16 15:03:24 by baalbade         ###   ########.fr        #
+#    Created: 2023/11/17 21:07:18 by baalbade          #+#    #+#              #
+#    Updated: 2023/11/17 21:07:20 by baalbade         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 ########
 # NAME #
 ########
-NAME		:=	account
+NAME			:=	violence
 
 ###############
 # INGREDIENTS #
 ###############
-INC_DIR		:=	./inc
+INC_DIR			:=	./inc
 
-SRCS_DIR	:=	./srcs
-SRCS		:=	\
-				Account.cpp \
-				tests.cpp
-SRCS		:=	$(SRCS:%=$(SRCS_DIR)/%)
+SRCS_DIR		:=	./srcs
+SRCS			:=	\
+					HumanA.cpp \
+					HumanB.cpp \
+					Weapon.cpp \
+					main.cpp
+SRCS			:=	$(SRCS:%=$(SRCS_DIR)/%)
 
-BUILD_DIR	:=	.build
-OBJS		:=	$(SRCS:$(SRCS_DIR)/%.cpp=$(BUILD_DIR)/%.o)
-DEPS		:=	$(OBJS:.o=.d)
+BUILD_DIR		:=	.build
+OBJS			:=	$(SRCS:$(SRCS_DIR)/%.cpp=$(BUILD_DIR)/%.o)
+DEPS			:=	$(OBJS:.o=.d)
 
-CC			:=	c++ -o
-CFLAGS		:=	-Wall -Wextra -Werror -std=c++98
-IFLAGS		:=	$(addprefix -I, $(INC_DIR))
+CC				:=	c++ -o
+CFLAGS			:=	-Wall -Wextra -Werror -std=c++98
+IFLAGS			:=	$(addprefix -I, $(INC_DIR))
+MAKEFLAGS		+=	--no-print-directory
 
-RM			:=	rm -rf
-DIR_DUP		=	mkdir -p $(dir $@)
+RM				:=	rm -rf
+DIR_DUP			=	mkdir -p $(dir $@)
 
 ##########
 # COLORS #
 ##########
-RED			:=	\033[0;31m
-GREEN		:=	\033[0;32m
-YELLOW		:=	\033[0;33m
-RESET		:=	\033[0;0m
+RED				:=	\033[0;31m
+GREEN			:=	\033[0;32m
+YELLOW			:=	\033[0;33m
+RESET			:=	\033[0;0m
 
 ###########
 # RECIPES #
