@@ -22,10 +22,10 @@ INC_DIR		:=	./inc
 
 SRCS_DIR	:=	./srcs
 SRCS			:=	\
-							contactClass.cpp \
-							phonebookClass.cpp \
-							phonebookClassUtils.cpp \
-							main.cpp
+					contactClass.cpp \
+					phonebookClass.cpp \
+					phonebookClassUtils.cpp \
+					main.cpp
 SRCS			:=	$(SRCS:%=$(SRCS_DIR)/%)
 
 BUILD_DIR	:=	.build
