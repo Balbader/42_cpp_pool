@@ -1,6 +1,6 @@
 #include "Fixed.hpp"
 
-// int const Fixed::_bits(8);
+int const Fixed::_bits(8);
 
 // Constructor
 Fixed::Fixed()
