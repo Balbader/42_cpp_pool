@@ -7,6 +7,7 @@ Fixed::Fixed()
 {
     if (DEBUG)
         std::cout << LGREEN << "Default constructor called" << RESET << std::endl;
+
 	this->_value = 0;
 }
 
@@ -24,6 +25,7 @@ Fixed::Fixed(const Fixed & original)
 {
     if (DEBUG)
         std::cout << ORANGE << "Copy constructor called" << RESET << std::endl;
+
 	this->_value = original.getRawBits();
 }
 
