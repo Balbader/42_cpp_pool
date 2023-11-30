@@ -1,6 +1,6 @@
 #include "Fixed.hpp"
 
-int const Fixed::_bits(8);
+// int const Fixed::_bits(8);
 
 // Constructor
 Fixed::Fixed()
@@ -23,7 +23,7 @@ Fixed ::~Fixed()
 Fixed::Fixed(const Fixed & original)
 {
     if (DEBUG)
-        std::cout << CYAN << "Copy constructor called" << RESET << std::endl;
+        std::cout << ORANGE << "Copy constructor called" << RESET << std::endl;
 	this->_value = original.getRawBits();
 }
 
@@ -45,7 +45,7 @@ Fixed & Fixed::operator=(Fixed const & rhs)
 void Fixed::setRawBits(int const bit)
 {
 	if (DEBUG)
-		std::cout << LBLUE << "setRawBits() member function called" << RESET << std::endl;
+		std::cout << WHITE << "setRawBits() member function called" << RESET << std::endl;
 
 	this->_value = bit;
 }
