@@ -26,7 +26,7 @@ Fixed::Fixed(int const original)
 	if (DEBUG)
 		std::cout << CYAN << "Int constructor called" << RESET << std::endl;
 
-	this->_value = original << _bits;
+	this->_value = original * 256;
 }
 
 
@@ -35,7 +35,7 @@ Fixed::Fixed(float const original)
 	if (DEBUG)
 		std::cout << CYAN << "Float constructor called" << RESET << std::endl;
 
-	this->_value = roundf(original * (1 << _bits));
+	this->_value = roundf(original * (1 * 256));
 }
 
 
@@ -70,12 +70,12 @@ std::ostream &operator<<(std::ostream &lhs, Fixed const &rhs)
 // ------------------------------------------------------------------ Functions
 int Fixed::toInt(void) const
 {
-	return (this->_value >> _bits);
+	return (this->_value / 256);
 }
 
 float Fixed::toFloat(void) const
 {
-	return ((float)this->_value / (1 << _bits));
+	return ((float)this->_value / (1 * 256));
 }
 
 
