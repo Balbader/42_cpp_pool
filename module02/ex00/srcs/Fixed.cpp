@@ -2,19 +2,12 @@
 
 int const Fixed::_bits(8);
 
-// Constructor - Copy Constructor
+// Constructor
 Fixed::Fixed()
 {
     if (DEBUG)
-        std::cout << LGREEN << "Fixed Constructor Called" << RESET << std::endl;
+        std::cout << LGREEN << "Default constructor called" << RESET << std::endl;
 	this->_value = 0;
-}
-
-Fixed::Fixed(const Fixed & original)
-{
-    if (DEBUG)
-        std::cout << CYAN << "Fixed - Copy  Constructor Called" << RESET << std::endl;
-	this->_value = original.getRawBits();
 }
 
 
@@ -22,7 +15,16 @@ Fixed::Fixed(const Fixed & original)
 Fixed ::~Fixed()
 {
     if (DEBUG)
-        std::cout << RED << "Fixed Constructor Destroyed" << RESET << std::endl;
+        std::cout << RED << "Destructor called" << RESET << std::endl;
+}
+
+
+// Copy Constructor
+Fixed::Fixed(const Fixed & original)
+{
+    if (DEBUG)
+        std::cout << CYAN << "Copy constructor called" << RESET << std::endl;
+	this->_value = original.getRawBits();
 }
 
 
@@ -30,12 +32,10 @@ Fixed ::~Fixed()
 Fixed & Fixed::operator=(Fixed const & rhs)
 {
 	if (DEBUG)
-		std::cout << YELLOW << "Fixed Copy Assignment Operator Called" << RESET << std::endl;
+		std::cout << YELLOW << "Copy assignment operator called" << RESET << std::endl;
 
 	if (this != &rhs)
-	{
 		this->_value = rhs.getRawBits();
-	}
 
 	return *this;
 }
@@ -45,7 +45,7 @@ Fixed & Fixed::operator=(Fixed const & rhs)
 void Fixed::setRawBits(int const bit)
 {
 	if (DEBUG)
-		std::cout << LBLUE << "Fixed - setRawBits() Method Called" << RESET << std::endl;
+		std::cout << LBLUE << "setRawBits() member function called" << RESET << std::endl;
 
 	this->_value = bit;
 }
@@ -53,7 +53,7 @@ void Fixed::setRawBits(int const bit)
 int Fixed::getRawBits(void) const
 {
 	if (DEBUG)
-		std::cout << BLUE << "Fixed - getRawBits() Method Called" << RESET << std::endl;
+		std::cout << BLUE << "getRawBits member function called" << RESET << std::endl;
 
 	return this->_value;
 }
