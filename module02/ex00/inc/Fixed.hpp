@@ -10,25 +10,20 @@
 class Fixed
 {
 
-public:
+	public:
 
-    Fixed();
+		Fixed();
+		Fixed(const Fixed &);
+		Fixed &operator=(const Fixed & rhs);
+		~Fixed();
 
-    Fixed(std::string);
-    Fixed(int);
-    Fixed(float);
+		void setRawBits(int const);
+		int getRawBits(void) const;
 
-    Fixed(const Fixed &);
+	private:
 
-    Fixed &operator=(const Fixed &);
-
-    ~Fixed();
-
-private:
-
-    int _nb;
-    float _floatNb;
-    std::string _name;
+		int _value;
+		static int const _bits;
 
 };
 
