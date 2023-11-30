@@ -8,7 +8,6 @@ Fixed ::Fixed() {
 }
 
 Fixed ::Fixed(std::string name) {
-
     if (DEBUG) {
         std::cout << ORANGE << "Fixed - Char Constructor Called" << RESET << std::endl;
     }
