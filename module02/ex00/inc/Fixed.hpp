@@ -13,7 +13,7 @@ class Fixed
 	public:
 
 		Fixed();
-		Fixed(const Fixed &);
+		Fixed(const Fixed & original);
 		Fixed &operator=(const Fixed & rhs);
 		~Fixed();
 
