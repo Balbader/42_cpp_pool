@@ -10,20 +10,20 @@
 class Fixed
 {
 
-	public:
+public:
 
-		Fixed();
-		Fixed(const Fixed & original);
-		Fixed &operator=(const Fixed & rhs);
-		~Fixed();
+	Fixed();
+	Fixed(const Fixed & original);
+	Fixed &operator=(const Fixed & rhs);
+	~Fixed();
 
-		void setRawBits(int const);
-		int getRawBits(void) const;
+	void setRawBits(int const);
+	int getRawBits(void) const;
 
-	private:
+private:
 
-		int _value;
-		static int const _bits;
+	int _value;
+	static int const _bits;
 
 };
 
