@@ -11,6 +11,7 @@ INC_DIR			:=	./inc
 SRCS_DIR		:=	./srcs
 SRCS			:=	\
 					Fixed.cpp \
+					operators.cpp \
 					main.cpp
 SRCS			:=	$(SRCS:%=$(SRCS_DIR)/%)
 
