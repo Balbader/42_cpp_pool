@@ -6,7 +6,8 @@
 #include <cmath>
 #include <string>
 
-#define DEBUG 1
+#define DEBUG 0
+// #define DEBUG 1
 
 class Fixed
 {
@@ -27,6 +28,32 @@ class Fixed
 
 		void setRawBits(int const);
 		int getRawBits(void) const;
+
+		static Fixed & min(Fixed &, Fixed &);
+		static Fixed & max(Fixed &, Fixed &);
+
+		static const Fixed & min(Fixed const &, Fixed const &);
+		static const Fixed & max(Fixed const &, Fixed const &);
+
+		// Comparaison
+		bool operator>(Fixed const &) const;
+		bool operator<(Fixed const &) const;
+		bool operator>=(Fixed const &) const;
+		bool operator<=(Fixed const &) const;
+		bool operator==(Fixed const &) const;
+		bool operator!=(Fixed const &) const;
+
+		// Arithmetic
+		Fixed &operator+(const Fixed &);
+		Fixed &operator-(const Fixed &);
+		Fixed &operator*(const Fixed &);
+		Fixed &operator/(const Fixed &);
+
+		// Increment/Decrement
+		Fixed &operator++();
+		Fixed &operator--();
+		Fixed operator++(int);
+		Fixed operator--(int);
 
 	private:
 
