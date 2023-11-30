@@ -1,13 +1,29 @@
 #ifndef FIXED_HPP
 #define FIXED_HP
 
-#include <iostream>
 #include "colors.hpp"
+#include <iostream>
+
+#define DEBUG 1
 
 class Fixed
 {
-	public:
-	private:
+
+public:
+
+	Fixed();
+	~Fixed();
+	Fixed(const Fixed & original);
+	Fixed &operator=(const Fixed & rhs);
+
+	void setRawBits(int const);
+	int getRawBits(void) const;
+
+private:
+
+	int _value;
+	static int const _bits;
+
 };
 
 #endif // !FIXED_HPP
