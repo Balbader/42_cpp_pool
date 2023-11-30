@@ -3,27 +3,39 @@
 
 #include "colors.hpp"
 #include <iostream>
+#include <cmath>
+#include <string>
 
 #define DEBUG 1
 
 class Fixed
 {
 
-public:
+	public:
 
-	Fixed();
-	~Fixed();
-	Fixed(const Fixed & original);
-	Fixed &operator=(const Fixed & rhs);
+		Fixed();
 
-	void setRawBits(int const);
-	int getRawBits(void) const;
+		Fixed(int const);
+		Fixed(float const);
 
-private:
+		Fixed(const Fixed &);
+		Fixed &operator=(const Fixed &);
 
-	int _value;
-	static int const _bits;
+		~Fixed();
+
+		int toInt(void) const;
+		float toFloat(void) const;
+
+		void setRawBits(int const);
+		int getRawBits(void) const;
+
+	private:
+
+		int _value;
+		static int const _bits;
 
 };
+
+std::ostream & operator<<(std::ostream & lhs, Fixed const & rhs);
 
 #endif // !FIXED_HPP
