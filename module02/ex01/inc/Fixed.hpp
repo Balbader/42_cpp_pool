@@ -14,14 +14,13 @@ class Fixed
 	public:
 
 		Fixed();
+		~Fixed();
 
 		Fixed(int const);
 		Fixed(float const);
 
 		Fixed(const Fixed &);
 		Fixed &operator=(const Fixed &);
-
-		~Fixed();
 
 		int toInt(void) const;
 		float toFloat(void) const;
