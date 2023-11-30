@@ -3,16 +3,14 @@
 // Constructor - Copy Constructor - Destructors
 Fixed::Fixed()
 {
-    if (DEBUG) {
+    if (DEBUG)
         std::cout << LGREEN << "Fixed Constructor Called" << RESET << std::endl;
-    }
 }
 
 Fixed::Fixed(std::string name)
 {
-    if (DEBUG) {
+    if (DEBUG)
         std::cout << ORANGE << "Fixed - Char Constructor Called" << RESET << std::endl;
-    }
 
     this->_name = name;
     std::cout << ORANGE << this->_name << RESET << std::endl;
@@ -21,9 +19,8 @@ Fixed::Fixed(std::string name)
 Fixed::Fixed(int nb)
 {
 
-    if (DEBUG) {
+    if (DEBUG)
         std::cout << LBLUE << "Fixed - Int Constructor Called" << RESET << std::endl;
-    }
 
     this->_nb = nb;
     std::cout << LBLUE << this->_nb << RESET << std::endl;
@@ -31,9 +28,8 @@ Fixed::Fixed(int nb)
 
 Fixed::Fixed(float fnb)
 {
-    if (DEBUG) {
+    if (DEBUG)
         std::cout << YELLOW << "Fixed - Float Constructor Called" << RESET << std::endl;
-    }
 
     this->_floatNb = fnb;
     std::cout << YELLOW << this->_floatNb << RESET << std::endl;
@@ -46,9 +42,8 @@ Fixed::Fixed(const Fixed& original)
 
 Fixed &Fixed::orperator(const Fixed &original)
 {
-    if (DEBUG) {
+    if (DEBUG)
         std::cout << CYAN << "Fixed - copy original Constructor Called" << RESET << std::endl;
-    }
 
     std::string nameCopy = original._name;
     int nbCopy = original._nb;
@@ -61,7 +56,6 @@ Fixed &Fixed::orperator(const Fixed &original)
 
 Fixed ::~Fixed()
 {
-    if (DEBUG) {
+    if (DEBUG)
         std::cout << RED << "Fixed Constructor Destroyed" << RESET << std::endl;
-    }
 }
