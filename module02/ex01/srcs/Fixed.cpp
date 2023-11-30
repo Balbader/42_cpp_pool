@@ -75,7 +75,7 @@ int Fixed::toInt(void) const
 
 float Fixed::toFloat(void) const
 {
-	return ((float)this->_value / (1 * 256));
+	return ((float)this->_value / 256);
 }
 
 
