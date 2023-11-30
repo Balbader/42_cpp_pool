@@ -13,6 +13,7 @@ public:
 
 	Fixed();
 	~Fixed();
+
 	Fixed(const Fixed & original);
 	Fixed &operator=(const Fixed & rhs);
 
