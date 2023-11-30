@@ -1,61 +1,59 @@
 #include "Fixed.hpp"
 
-// Constructor - Copy Constructor - Destructors
+int const Fixed::_bits(8);
+
+// Constructor - Copy Constructor
 Fixed::Fixed()
 {
     if (DEBUG)
         std::cout << LGREEN << "Fixed Constructor Called" << RESET << std::endl;
+	this->_value = 0;
 }
 
-Fixed::Fixed(std::string name)
+Fixed::Fixed(const Fixed & original)
 {
     if (DEBUG)
-        std::cout << ORANGE << "Fixed - Char Constructor Called" << RESET << std::endl;
-
-    this->_name = name;
-    std::cout << ORANGE << this->_name << RESET << std::endl;
+        std::cout << CYAN << "Fixed - Copy  Constructor Called" << RESET << std::endl;
+	this->_value = original.getRawBits();
 }
 
-Fixed::Fixed(int nb)
-{
 
-    if (DEBUG)
-        std::cout << LBLUE << "Fixed - Int Constructor Called" << RESET << std::endl;
-
-    this->_nb = nb;
-    std::cout << LBLUE << this->_nb << RESET << std::endl;
-}
-
-Fixed::Fixed(float fnb)
-{
-    if (DEBUG)
-        std::cout << YELLOW << "Fixed - Float Constructor Called" << RESET << std::endl;
-
-    this->_floatNb = fnb;
-    std::cout << YELLOW << this->_floatNb << RESET << std::endl;
-}
-
-Fixed::Fixed(const Fixed& original)
-{
-	*this = original;
-}
-
-Fixed &Fixed::orperator(const Fixed &original)
-{
-    if (DEBUG)
-        std::cout << CYAN << "Fixed - copy original Constructor Called" << RESET << std::endl;
-
-    std::string nameCopy = original._name;
-    int nbCopy = original._nb;
-    float fNbCopy = original._floatNb;
-
-    std::cout << nameCopy << std::endl;
-    std::cout << nbCopy << std::endl;
-    std::cout << fNbCopy << std::endl;
-}
-
+// Destructor
 Fixed ::~Fixed()
 {
     if (DEBUG)
         std::cout << RED << "Fixed Constructor Destroyed" << RESET << std::endl;
+}
+
+
+// Overload
+Fixed & Fixed::operator=(Fixed const & rhs)
+{
+	if (DEBUG)
+		std::cout << YELLOW << "Fixed Copy Assignment Operator Called" << RESET << std::endl;
+
+	if (this != &rhs)
+	{
+		this->_value = rhs.getRawBits();
+	}
+
+	return *this;
+}
+
+
+// Setter & Getter
+void Fixed::setRawBits(int const bit)
+{
+	if (DEBUG)
+		std::cout << LBLUE << "Fixed - setRawBits() Method Called" << RESET << std::endl;
+
+	this->_value = bit;
+}
+
+int Fixed::getRawBits(void) const
+{
+	if (DEBUG)
+		std::cout << BLUE << "Fixed - getRawBits() Method Called" << RESET << std::endl;
+
+	return this->_value;
 }
