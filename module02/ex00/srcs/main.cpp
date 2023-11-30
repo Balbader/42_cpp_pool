@@ -1,12 +1,14 @@
 #include <Fixed.hpp>
 
-int main(void)
-{
-    Fixed FixedPointNumber;
-    Fixed Integer(42);
-    Fixed NewFloat(42.42f);
-    Fixed Name("Basil");
+int main(void) {
+  Fixed a;
+  Fixed b(a);
+  Fixed c;
 
-    FixedPointNumber = Integer;
-    return 0;
+  c = b;
+
+  std::cout << a.getRawBits() << std::endl;
+  std::cout << b.getRawBits() << std::endl;
+  std::cout << c.getRawBits() << std::endl;
+  return 0;
 }
