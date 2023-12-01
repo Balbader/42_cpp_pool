@@ -1,7 +1,6 @@
 #ifndef FIXED_HPP
 #define FIXED_HP
 
-#include "Point.hpp"
 #include "colors.hpp"
 #include <iostream>
 #include <cmath>
@@ -58,8 +57,8 @@ class Fixed
 
 	private:
 
-		int _value;
-		static int const _bits;
+		int _fixedPointValue;
+		static int const _nFractBits;
 
 };
 

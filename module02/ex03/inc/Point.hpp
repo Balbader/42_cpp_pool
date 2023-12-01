@@ -1,25 +1,24 @@
 #ifndef POINT_HPP
 #define POINT_HPP
 
-#include <iostream>
-#include <cmath>
+#include "Fixed.hpp"
 
 class Point {
 public:
     // Default constructor
     Point();
 
-    // Constructor with parameters
-    Point(double x, double y);
-
-    // Copy constructor
-    Point(const Point& other);
-
-    // Copy assignment operator
-    Point& operator=(const Point& other);
-
     // Destructor (not explicitly needed in this case)
 	~Point();
+
+    // Constructor with parameters
+    Point(double, double);
+
+    // Copy constructor
+    Point(const Point&);
+
+    // Copy assignment operator
+    Point& operator=(const Point& rhs);
 
     // Getter functions
     double getX() const;
@@ -29,6 +28,11 @@ private:
     const double _x;
     const double _y;
 
+	Fixed const x;
+	Fixed const y;
+
 };
+
+bool bsp(const Point& a, const Point& b, const Point& c, const Point& point);
 
 #endif // !POINT_HPP

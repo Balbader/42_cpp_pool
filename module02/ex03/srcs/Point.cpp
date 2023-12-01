@@ -1,4 +1,4 @@
-#include "Fixed.hpp"
+#include "Point.hpp"
 
 // -------------------------------------------------------- Default constructor
 Point::Point() : _x(0), _y(0) {
@@ -22,7 +22,7 @@ Point::Point(double x, double y) : _x(x), _y(y) {
 
 
 // ----------------------------------------------------------- Copy constructor
-Point::Point(const Point& other) : _x(other._x), _y(other._y) {
+Point::Point(const Point& original) : _x(original._x), _y(original._y) {
 	if (DEBUG)
 		std::cout << ORANGE << "Copy constructor called" << RESET << std::endl;
 
@@ -30,12 +30,12 @@ Point::Point(const Point& other) : _x(other._x), _y(other._y) {
 
 
 // --------------------------------------------------- Copy assignment operator
-Point& Point::operator=(const Point& other) {
+Point& Point::operator=(const Point& rhs) {
 
 	if (DEBUG)
 		std::cout << YELLOW << "Copy assignment constructor called" << RESET << std::endl;
 
-	if (this != &other) {
+	if (this != &rhs) {
 		// Perform copy assignment
 		// Note: Since x and y are const, we don't need to copy them explicitly
 	}
