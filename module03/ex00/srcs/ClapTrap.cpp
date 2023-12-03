@@ -50,11 +50,9 @@ ClapTrap::~ClapTrap()
 		std::cout << RED << "Destructor called" << RESET << std::endl;
 }
 
-
 // Methods
 void ClapTrap::attack(const std::string &target)
 {
-
 }
 
 void ClapTrap::takeDamage(unsigned int amount)
@@ -67,8 +65,11 @@ void ClapTrap::beRepaired(unsigned int amount)
 
 }
 
+// Setters
+void ClapTrap::setName(std::string name) { this->_name = name; }
+
 // Getters
-std::string ClapTrap::getName() { return this->_name; }
-int ClapTrap::getPoints() { return this->_points; }
-int ClapTrap::getEnergyPoints() { return this->_energyPoints; }
-int ClapTrap::getAttackDamage() { return this->_attackDamage; }
+std::string ClapTrap::getName() const { return this->_name; }
+int ClapTrap::getPoints() const { return this->_points; }
+int ClapTrap::getEnergyPoints() const { return this->_energyPoints; }
+int ClapTrap::getAttackDamage() const { return this->_attackDamage; }
