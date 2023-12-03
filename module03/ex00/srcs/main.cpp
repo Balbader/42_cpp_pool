@@ -7,7 +7,7 @@ int main(void)
 	ClapTrap OldClap;
 
 	std::cout << "Name: " << OldClap.getName() << std::endl;
-	std::cout << "Points: " << OldClap.getPoints() << std::endl;
+	std::cout << "Hit Points: " << OldClap.getHitPoints() << std::endl;
 	std::cout << "Energy Points: " <<  OldClap.getEnergyPoints() << std::endl;
 	std::cout << std::endl;
 
@@ -19,7 +19,7 @@ int main(void)
 	ClapTrap NewClap("Basil");
 
 	std::cout << "Name: " << NewClap.getName() << std::endl;
-	std::cout << "Points: " << NewClap.getPoints() << std::endl;
+	std::cout << "Hit Points: " << NewClap.getHitPoints() << std::endl;
 	std::cout << "Energy Points: " <<  NewClap.getEnergyPoints() << std::endl;
 
 	std::cout << std::endl;
