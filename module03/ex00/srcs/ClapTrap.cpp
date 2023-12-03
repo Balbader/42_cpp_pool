@@ -26,7 +26,14 @@ ClapTrap::ClapTrap(const ClapTrap &rhs)
 	this->_attackDamage = rhs._attackDamage;
 }
 
-// Operator Assignment
+// Destructor
+ClapTrap::~ClapTrap()
+{
+	if (DEBUG)
+		std::cout << RED << "Destructor called" << RESET << std::endl;
+}
+
+// Overlaud
 ClapTrap & ClapTrap::operator=(const ClapTrap &rhs)
 {
 	if (DEBUG)
@@ -43,16 +50,23 @@ ClapTrap & ClapTrap::operator=(const ClapTrap &rhs)
 	return *this;
 }
 
-// Destructor
-ClapTrap::~ClapTrap()
+std::ostream & operator<<(std::ostream & lhs, ClapTrap const & rhs)
 {
-	if (DEBUG)
-		std::cout << RED << "Destructor called" << RESET << std::endl;
+	lhs << "ClapTrap " << rhs.getName() << " has " << rhs.getAttackDamage() << " attack damage, " << rhs.getEnergyPoints() << " energy points and " << rhs.getPoints() << " hit points." << std::endl;;
+
+	return (lhs);
 }
 
 // Methods
 void ClapTrap::attack(const std::string &target)
 {
+	if (this->_points == 0 || this->_energyPoints == 0)
+		std::cout << "ClapTrap " << this->_name << " has no points at all." << std::endl;
+	else
+	{
+		std::cout << "ClapTrap " << this->_name << " attacks " << target << ", causing " << this->_attackDamage << " points of damage !" << std::endl;
+		this->_energyPoints -= 1;
+	}
 }
 
 void ClapTrap::takeDamage(unsigned int amount)
@@ -67,9 +81,12 @@ void ClapTrap::beRepaired(unsigned int amount)
 
 // Setters
 void ClapTrap::setName(std::string name) { this->_name = name; }
+void ClapTrap::setPoints(unsigned int points) { this->_points = points; }
+void ClapTrap::setEnergyPoints(unsigned int energyPoints) { this->_energyPoints = energyPoints; }
+void ClapTrap::induceDamage(unsigned int bleed) { this->_points -= bleed; }
 
 // Getters
 std::string ClapTrap::getName() const { return this->_name; }
-int ClapTrap::getPoints() const { return this->_points; }
-int ClapTrap::getEnergyPoints() const { return this->_energyPoints; }
-int ClapTrap::getAttackDamage() const { return this->_attackDamage; }
+unsigned int ClapTrap::getPoints() const { return this->_points; }
+unsigned int ClapTrap::getEnergyPoints() const { return this->_energyPoints; }
+unsigned int ClapTrap::getAttackDamage() const { return this->_attackDamage; }
