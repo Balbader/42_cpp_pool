@@ -20,14 +20,16 @@ public:
 	ClapTrap(const ClapTrap &);
 	ClapTrap &operator=(const ClapTrap &);
 
-	void attack(const std::string &target);
-	void takeDamage(unsigned int amount);
-	void beRepaired(unsigned int amount);
+	void attack(const std::string &);
+	void takeDamage(unsigned int);
+	void beRepaired(unsigned int);
 
-	std::string getName();
-	int getPoints();
-	int getEnergyPoints();
-	int getAttackDamage();
+	void setName(std::string);
+
+	std::string getName() const;
+	int getPoints() const;
+	int getEnergyPoints() const;
+	int getAttackDamage() const;
 
 private:
 	std::string _name;
@@ -36,5 +38,7 @@ private:
 	int _attackDamage;
 	
 };
+
+std::ostream& operator<<(std::ostream & lhs, ClapTrap const & rhs);
 
 #endif // !CLAPTRAP_HPP
