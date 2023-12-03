@@ -1,2 +1,3 @@
-
-+ Create a point() function
+. Copy constructor
+. Copy assignment operator
+. inheritance
