@@ -25,18 +25,18 @@ public:
 	void beRepaired(unsigned int);
 
 	void setName(std::string);
-	void setPoints(unsigned int);
+	void setHitPoints(unsigned int);
 	void setEnergyPoints(unsigned int);
 	void induceDamage(unsigned int);
 
 	std::string getName() const;
-	unsigned int getPoints() const;
+	unsigned int getHitPoints() const;
 	unsigned int getEnergyPoints() const;
 	unsigned int getAttackDamage() const;
 
 private:
 	std::string _name;
-	unsigned int _points;
+	unsigned int _hitPoints;
 	unsigned int _energyPoints;
 	unsigned int _attackDamage;
 	
