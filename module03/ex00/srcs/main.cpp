@@ -12,9 +12,7 @@ int main(void)
 	std::cout << std::endl;
 
 	OldClap.setName("Mimi");
-	std::cout << "Name: " << OldClap.getName() << std::endl;
-	std::cout << "Points: " << OldClap.getPoints() << std::endl;
-	std::cout << "Energy Points: " <<  OldClap.getEnergyPoints() << std::endl;
+	std::cout << "setName(\"Mimi\"): " << OldClap.getName() << std::endl;
 
 	std::cout << std::endl;
 
