@@ -27,7 +27,6 @@ public:
 	void setName(std::string);
 	void setHitPoints(unsigned int);
 	void setEnergyPoints(unsigned int);
-	void induceDamage(unsigned int);
 
 	std::string getName() const;
 	unsigned int getHitPoints() const;
