@@ -4,7 +4,8 @@ int main(void)
 {
 	std::cout << std::endl;
 
-	ClapTrap OldClap;
+	// ClapTrap OldClap;
+	ClapTrap OldClap("Harold");
 
 	std::cout << "Name: " << OldClap.getName() << std::endl;
 	std::cout << "Hit Points: " << OldClap.getHitPoints() << std::endl;
