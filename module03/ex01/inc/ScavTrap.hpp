@@ -9,6 +9,8 @@ public:
 	ScavTrap();
 	~ScavTrap();
 
+	ScavTrap(std::string);
+
 	ScavTrap(const ScavTrap &);
 	ScavTrap &operator=(const ScavTrap &);
 
