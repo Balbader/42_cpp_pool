@@ -41,6 +41,6 @@ private:
 	
 };
 
-std::ostream& operator<<(std::ostream & lhs, ClapTrap const & rhs);
+std::ostream & operator<<(std::ostream & lhs, ClapTrap const & rhs);
 
 #endif // !CLAPTRAP_HPP
