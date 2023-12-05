@@ -1,8 +1,7 @@
 #include "ClapTrap.hpp"
 
-// ----------------------------------------------------------------------------
 // --------------------------------------------------------------- Constructors
-// ----------------------------------------------------------------------------
+
 ClapTrap::ClapTrap() : _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
 	if (DEBUG)
@@ -16,9 +15,8 @@ ClapTrap::ClapTrap(std::string name) : _name(name), _hitPoints(10), _energyPoint
 }
 
 
-// ----------------------------------------------------------------------------
 // ----------------------------------------------------------- Copy Constructor
-// ----------------------------------------------------------------------------
+
 ClapTrap::ClapTrap(const ClapTrap &rhs)
 {
 	if (DEBUG)
@@ -31,9 +29,8 @@ ClapTrap::ClapTrap(const ClapTrap &rhs)
 }
 
 
-// ----------------------------------------------------------------------------
 // ----------------------------------------------------------------- Destructor
-// ----------------------------------------------------------------------------
+
 ClapTrap::~ClapTrap()
 {
 	if (DEBUG)
@@ -41,9 +38,8 @@ ClapTrap::~ClapTrap()
 }
 
 
-// ----------------------------------------------------------------------------
 // ------------------------------------------------------------------- Overload
-// ----------------------------------------------------------------------------
+
 ClapTrap & ClapTrap::operator=(const ClapTrap &rhs)
 {
 	if (DEBUG)
@@ -68,9 +64,8 @@ std::ostream & operator<<(std::ostream & lhs, ClapTrap const & rhs)
 }
 
 
-// ----------------------------------------------------------------------------
 // -------------------------------------------------------------------- Methods
-// ----------------------------------------------------------------------------
+
 void ClapTrap::attack(const std::string &target)
 {
 	if (this->_hitPoints == 0 || this->_energyPoints == 0)
@@ -117,17 +112,12 @@ void ClapTrap::beRepaired(unsigned int amount)
 }
 
 
-// ----------------------------------------------------------------------------
-// -------------------------------------------------------------------- Setters
-// ----------------------------------------------------------------------------
+// ---------------------------------------------------------- Setters & Getters
+
 void ClapTrap::setName(std::string name) { this->_name = name; }
 void ClapTrap::setHitPoints(unsigned int points) { this->_hitPoints = points; }
 void ClapTrap::setEnergyPoints(unsigned int energyPoints) { this->_energyPoints = energyPoints; }
 
-
-// ----------------------------------------------------------------------------
-// -------------------------------------------------------------------- Getters
-// ----------------------------------------------------------------------------
 std::string ClapTrap::getName() const { return this->_name; }
 unsigned int ClapTrap::getHitPoints() const { return this->_hitPoints; }
 unsigned int ClapTrap::getEnergyPoints() const { return this->_energyPoints; }
