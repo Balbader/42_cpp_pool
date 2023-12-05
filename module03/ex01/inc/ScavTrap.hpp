@@ -9,6 +9,9 @@ public:
 	ScavTrap();
 	~ScavTrap();
 
+	ScavTrap(const ScavTrap &);
+	ScavTrap &operator=(const ScavTrap &);
+
 	void guardGate(void);
 
 private:
