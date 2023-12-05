@@ -1,7 +1,7 @@
 ########
 # NAME #
 ########
-NAME			:=	claptrap
+NAME			:=	ScavTrap
 
 ###############
 # INGREDIENTS #
