@@ -11,6 +11,7 @@ INC_DIR			:=	./inc
 SRCS_DIR		:=	./srcs
 SRCS			:=	\
 					ClapTrap.cpp \
+					ScavTrap.cpp \
 					main.cpp
 SRCS			:=	$(SRCS:%=$(SRCS_DIR)/%)
 
