@@ -4,6 +4,7 @@
 int main(void)
 {
 	ClapTrap a("Basil");
+
 	ClapTrap b(a);
 
 	ScavTrap c;
@@ -13,21 +14,27 @@ int main(void)
 
 	std::cout << std::endl;
 
-	std::cout << a;
-	std::cout << b;
-	std::cout << c;
-	std::cout << "d.getName() : " << d.getName() << std::endl;
+	std::cout << LRED << a << RESET << std::endl;
+	std::cout << LGREEN << b<< RESET << std::endl;
+	std::cout << LBLUE << c << RESET << std::endl;
+	std::cout << LYELLOW << d << RESET << std::endl;
 
 	std::cout << std::endl;
 
 	a.attack("Bob");
-	std::cout << a << std::endl;
+	// std::cout << LRED << a << RESET << std::endl;
+	std::cout << a;
+
+	d.attack(b.getName());
+	std::cout << LGREEN << d << RESET << std::endl;
 
 	a.takeDamage(4);
-	std::cout << a << std::endl;
+	// std::cout << LRED << a << RESET << std::endl;
+	std::cout << a;
 
 	a.beRepaired(2);
-	std::cout << a << std::endl;
+	// std::cout << LRED << a << RESET << std::endl;
+	std::cout << a;
 
 	return 0;
 }

@@ -59,7 +59,6 @@ ClapTrap & ClapTrap::operator=(const ClapTrap &rhs)
 std::ostream & operator<<(std::ostream & lhs, ClapTrap const & rhs)
 {
 	lhs << "ClapTrap " << rhs.getName() << " has " << rhs.getAttackDamage() << " attack damage, " << rhs.getEnergyPoints() << " energy points and " << rhs.getHitPoints() << " hit points." << std::endl;
-
 	return (lhs);
 }
 
@@ -117,6 +116,7 @@ void ClapTrap::beRepaired(unsigned int amount)
 void ClapTrap::setName(std::string name) { this->_name = name; }
 void ClapTrap::setHitPoints(unsigned int points) { this->_hitPoints = points; }
 void ClapTrap::setEnergyPoints(unsigned int energyPoints) { this->_energyPoints = energyPoints; }
+void ClapTrap::setAttackPoints(unsigned int damagePoints) { this->_attackDamage = damagePoints; }
 
 std::string ClapTrap::getName() const { return this->_name; }
 unsigned int ClapTrap::getHitPoints() const { return this->_hitPoints; }
