@@ -8,6 +8,12 @@ ScavTrap::ScavTrap()
 		std::cout << std::endl << GREEN << "Derived constructor called" << RESET << std::endl;
 }
 
+ScavTrap::ScavTrap(std::string name)
+{
+	if (DEBUG)
+		std::cout << std::endl << GREEN << "Derived Name constructor called" << RESET << std::endl;
+}
+
 // ----------------------------------------------------------------- Destructor
 ScavTrap::~ScavTrap()
 {
