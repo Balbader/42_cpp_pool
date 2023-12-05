@@ -7,6 +7,7 @@ int main(void)
 	ClapTrap b(a);
 
 	ScavTrap c;
+	ScavTrap d("Faten");
 
 	c.setName("Mimi");
 
@@ -15,6 +16,7 @@ int main(void)
 	std::cout << a;
 	std::cout << b;
 	std::cout << c;
+	std::cout << "d.getName() : " << d.getName() << std::endl;
 
 	std::cout << std::endl;
 
