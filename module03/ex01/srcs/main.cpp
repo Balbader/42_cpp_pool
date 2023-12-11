@@ -7,16 +7,14 @@ int main(void)
 
 	ClapTrap b(a);
 
-	ScavTrap c;
+	ScavTrap c("Mimi");
 	ScavTrap d("Faten");
-
-	c.setName("Mimi");
 
 	std::cout << std::endl;
 
 	std::cout << LRED << a << RESET << std::endl;
 	std::cout << LGREEN << b << RESET << std::endl;
-	std::cout << LBLUE << c << RESET << std::endl;
+	// std::cout << LBLUE << c << RESET << std::endl;
 	std::cout << LYELLOW << d << RESET << std::endl;
 
 	std::cout << std::endl;
