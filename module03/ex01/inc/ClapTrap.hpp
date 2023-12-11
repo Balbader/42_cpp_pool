@@ -5,16 +5,14 @@
 #include <iostream>
 #include <string>
 
-#define DEBUG 0
-// #define DEBUG 1
+// #define DEBUG 0
+#define DEBUG 1
 
 class ClapTrap {
 
 public:
-	ClapTrap();
-	~ClapTrap();
-
 	ClapTrap(std::string);
+	~ClapTrap();
 
 	ClapTrap(const ClapTrap&);
 	ClapTrap& operator=(const ClapTrap&);
@@ -34,6 +32,8 @@ public:
 	unsigned int getAttackDamage() const;
 
 protected:
+	ClapTrap();
+
 	std::string _name;
 	unsigned int _hitPoints;
 	unsigned int _energyPoints;
