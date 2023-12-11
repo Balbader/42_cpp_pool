@@ -17,4 +17,6 @@ public:
 	void guardGate(void);
 };
 
+std::ostream & operator<<(std::ostream & lhs, ClapTrap const & rhs);
+
 #endif // !SCAVTRAP_HPP
