@@ -22,19 +22,18 @@ int main(void)
 	std::cout << std::endl;
 
 	a.attack("Bob");
-	// std::cout << LRED << a << RESET << std::endl;
-	std::cout << a;
+	std::cout << BLUE << a << RESET;
 
 	d.attack(b.getName());
 	std::cout << LGREEN << d << RESET << std::endl;
 
 	a.takeDamage(4);
 	// std::cout << LRED << a << RESET << std::endl;
-	std::cout << a;
+	std::cout << BLUE << a << RESET;
 
 	a.beRepaired(2);
 	// std::cout << LRED << a << RESET << std::endl;
-	std::cout << a;
+	std::cout << BLUE << a << RESET;
 
 	return 0;
 }
