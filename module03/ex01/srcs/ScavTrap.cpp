@@ -56,6 +56,12 @@ void ScavTrap::guardGate()
 		std::cout << std::endl << "ScavTrap " << this->_name << " is out of energy." << std::endl;
 }
 
+std::ostream & operator<<(std::ostream & lhs, ScavTrap const & rhs)
+{
+	lhs << "ScavTrap " << rhs.getName() << " has " << rhs.getAttackDamage() << " attack points, " << rhs.getEnergyPoints() << " energy points and " << rhs.getHitPoints() << " hit points." << std::endl;
+	return (lhs);
+}
+
 // ----------------------------------------------------------------- Destructor
 ScavTrap::~ScavTrap()
 {
