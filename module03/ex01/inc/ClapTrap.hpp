@@ -2,7 +2,6 @@
 #define CLAPTRAP_HPP
 
 #include "colors.hpp"
-
 #include <iostream>
 #include <string>
 
