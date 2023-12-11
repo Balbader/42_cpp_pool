@@ -42,6 +42,20 @@ void ScavTrap::attack(const std::string& target)
 
 }
 
+void ScavTrap::guardGate()
+{
+	if (this->_hitPoints <= 0)
+	{
+		std::cout << std::endl << MAGENTA << this->_name << " is already dead." << RESET << std::endl;
+		return;
+	}
+
+	if (this->_energyPoints > 0)
+		std::cout << std::endl << "ScavTrap " << this->_name << " is in 'Gate Keeper Mode'" << std::endl;
+	else
+		std::cout << std::endl << "ScavTrap " << this->_name << " is out of energy." << std::endl;
+}
+
 // ----------------------------------------------------------------- Destructor
 ScavTrap::~ScavTrap()
 {
