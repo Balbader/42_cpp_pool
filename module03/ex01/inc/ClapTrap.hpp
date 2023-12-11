@@ -36,8 +36,6 @@ public:
 
 protected:
 	std::string _name;
-
-private:
 	unsigned int _hitPoints;
 	unsigned int _energyPoints;
 	unsigned int _attackDamage;
