@@ -78,7 +78,7 @@ void ClapTrap::attack(const std::string &target)
 		std::cout << std::endl << "ClapTrap " << this->_name << " has no points at all." << std::endl;
 	else
 	{
-		std::cout << std::endl << "ClapTrap " << this->_name << " attacks " << target << ", causing " << this->_attackDamage << " points of damage !" << std::endl;
+		std::cout << std::endl << "ClapTrap " << this->_name << " attacks " << target << ", causing " << getAttackDamage() << " points of damage !" << std::endl;
 
 		this->_energyPoints -= 1;
 	}
