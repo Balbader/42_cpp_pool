@@ -66,7 +66,7 @@ ClapTrap & ClapTrap::operator=(const ClapTrap &rhs)
 
 std::ostream & operator<<(std::ostream & lhs, ClapTrap const & rhs)
 {
-	lhs << "ClapTrap " << rhs.getName() << " has " << rhs.getAttackDamage() << " attack damage, " << rhs.getEnergyPoints() << " energy points and " << rhs.getHitPoints() << " hit points." << std::endl;
+	lhs << "ClapTrap " << rhs.getName() << " has " << rhs.getAttackDamage() << " attack points, " << rhs.getEnergyPoints() << " energy points and " << rhs.getHitPoints() << " hit points." << std::endl;
 	return (lhs);
 }
 
