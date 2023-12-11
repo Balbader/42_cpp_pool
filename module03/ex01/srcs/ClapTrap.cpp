@@ -4,13 +4,19 @@
 ClapTrap::ClapTrap() : _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
 	if (DEBUG)
-		std::cout << GREEN << "Base constructor called" << RESET << std::endl;
+		std::cout << GREEN << "ClapTrap Base constructor called" << RESET << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name) : _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
 	if (DEBUG)
-		std::cout << LGREEN << "Base Name constructor called" << RESET << std::endl;
+		std::cout << LGREEN << "ClapTrap Base Name constructor called" << RESET << std::endl;
+
+	std::cout << "ClapTrap Name : "	<< GREEN << getName() << RESET << std::endl;
+	std::cout << "ClapTrap Hit Points : " << GREEN << getHitPoints() << RESET << std::endl;
+	std::cout << "ClapTrap Energy Points : " << GREEN << getEnergyPoints() << RESET << std::endl;
+	std::cout << "ClapTrap Attack Points : "<< GREEN << getAttackDamage() << RESET << std::endl;
+	std::cout << std::endl;
 }
 
 
@@ -18,12 +24,18 @@ ClapTrap::ClapTrap(std::string name) : _name(name), _hitPoints(10), _energyPoint
 ClapTrap::ClapTrap(const ClapTrap &rhs)
 {
 	if (DEBUG)
-		std::cout << ORANGE << "Base Copy constructor called" << RESET << std::endl;
+		std::cout << ORANGE << "ClapTrap Base Copy constructor called" << RESET << std::endl;
 
 	this->_name = rhs._name;
 	this->_hitPoints = rhs._hitPoints;
 	this->_energyPoints = rhs._energyPoints;
 	this->_attackDamage = rhs._attackDamage;
+
+	std::cout << "ClapTrap Name : "	<< GREEN << getName() << RESET << std::endl;
+	std::cout << "ClapTrap Hit Points : " << GREEN << getHitPoints() << RESET << std::endl;
+	std::cout << "ClapTrap Energy Points : " << GREEN << getEnergyPoints() << RESET << std::endl;
+	std::cout << "ClapTrap Attack Points : "<< GREEN << getAttackDamage() << RESET << std::endl;
+	std::cout << std::endl;
 }
 
 
