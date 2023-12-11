@@ -4,18 +4,24 @@
 ScavTrap::ScavTrap()
 {
 	if (DEBUG)
-		std::cout << std::endl << YELLOW << "Derived constructor called" << RESET << std::endl;
+		std::cout << YELLOW << "ScavTrap Derived constructor called" << RESET << std::endl;
 }
 
 ScavTrap::ScavTrap(std::string name)
 {
 	if (DEBUG)
-		std::cout << std::endl << YELLOW << "Derived Name constructor called" << RESET << std::endl;
+		std::cout << YELLOW << "ScavTrap Derived Name constructor called" << RESET << std::endl;
 
 	this->_name = name;
 	this->setHitPoints(100);
 	this->setEnergyPoints(50);
 	this->setAttackPoints(20);
+
+	std::cout << "ScavTrap Name : "	<< GREEN << getName() << RESET << std::endl;
+	std::cout << "ScavTrap Hit Points : " << GREEN << getHitPoints() << RESET << std::endl;
+	std::cout << "ScavTrap Energy Points : " << GREEN << getEnergyPoints() << RESET << std::endl;
+	std::cout << "ScavTrap Attack Points : "<< GREEN << getAttackDamage() << RESET << std::endl;
+	std::cout << std::endl;
 }
 
 void ScavTrap::attack(const std::string& target)
