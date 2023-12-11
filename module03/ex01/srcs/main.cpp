@@ -3,12 +3,12 @@
 
 int main(void)
 {
-	ClapTrap a("Basil");
+	ClapTrap a("RIRI");
 
 	ClapTrap b(a);
 
-	ScavTrap c("Mimi");
-	ScavTrap d("Faten");
+	ScavTrap c("FIFI");
+	ScavTrap d("LOULOU");
 
 	std::cout << std::endl;
 
@@ -19,19 +19,17 @@ int main(void)
 
 	std::cout << std::endl;
 
-	a.attack("Bob");
+	a.attack(c.getName());
 	std::cout << BLUE << a << RESET;
 
 	d.attack(b.getName());
 	std::cout << LGREEN << d << RESET << std::endl;
 
 	a.takeDamage(4);
-	// std::cout << LRED << a << RESET << std::endl;
-	std::cout << BLUE << a << RESET;
+	std::cout << BLUE << a << RESET << std::endl;
 
 	a.beRepaired(2);
-	// std::cout << LRED << a << RESET << std::endl;
-	std::cout << BLUE << a << RESET;
+	std::cout << BLUE << a << RESET << std::endl;
 
 	return 0;
 }
