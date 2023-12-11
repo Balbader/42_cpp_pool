@@ -18,12 +18,23 @@ ScavTrap::ScavTrap(std::string name)
 	this->setAttackPoints(20);
 }
 
-// ------------------------------------------------------------------- Overload
-// std::ostream & operator<<(std::ostream & lhs, ClapTrap const & rhs)
-// {
-// 	lhs << "ClapTrap " << rhs.getName() << " has " << rhs.getAttackDamage() << " attack damage, " << rhs.getEnergyPoints() << " energy points and " << rhs.getHitPoints() << " hit points." << std::endl;
-// 	return (lhs);
-// }
+void ScavTrap::attack(const std::string& target)
+{
+	if (this->_hitPoints <= 0)
+	{
+		std::cout << MAGENTA << this->_name << " is already dead." << RESET << std::endl;
+		return;
+	}
+
+	if (this->_energyPoints > 0)
+	{
+		this->_energyPoints -= 1;
+		std::cout << "ScavTrap " << this->_name << " attacks " << target << ", causing " << getAttackDamage() << " points of damage!" << std::endl;
+	}
+	else
+		std::cout << "ScavTrap " << this->_name << " is out of energy." << std::endl;
+
+}
 
 // ----------------------------------------------------------------- Destructor
 ScavTrap::~ScavTrap()
