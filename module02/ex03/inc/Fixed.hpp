@@ -1,5 +1,5 @@
 #ifndef FIXED_HPP
-#define FIXED_HP
+#define FIXED_HPP
 
 #include "colors.hpp"
 #include <iostream>
