@@ -75,44 +75,28 @@ float Fixed::toFloat(void) const { return (float)this->_value / 256; }
 Fixed& Fixed::min(Fixed &a, Fixed &b)
 {
 	if (a.getRawBits() < b.getRawBits())
-	{
-		std::cout << "a: " << a << std::endl;
 		return a;
-	}
-	std::cout << "b: " << b << std::endl;
 	return b;
 }
 
 Fixed& Fixed::max(Fixed &a, Fixed &b)
 {
 	if (a.getRawBits() > b.getRawBits())
-	{
-		std::cout << "a: " << a << std::endl;
 		return a;
-	}
-	std::cout << "b: " << b << std::endl;
 	return b;
 }
 
 const Fixed& Fixed::min(Fixed const &a, Fixed const &b)
 {
 	if (a.getRawBits() < b.getRawBits())
-	{
-		std::cout << "a: " << a << std::endl;
 		return a;
-	}
-	std::cout << "b: " << b << std::endl;
 	return b;
 }
 
 const Fixed& Fixed::max(Fixed const &a, Fixed const &b)
 {
 	if (a.getRawBits() > b.getRawBits())
-	{
-		std::cout << "a: " << a << std::endl;
 		return a;
-	}
-	std::cout << "b: " << b << std::endl;
 	return b;
 }
 
