@@ -4,13 +4,13 @@
 ScavTrap::ScavTrap()
 {
 	if (DEBUG)
-		std::cout << YELLOW << "ScavTrap Derived constructor called" << RESET << std::endl;
+		std::cout << LBLUE << "ScavTrap Derived constructor called" << RESET << std::endl;
 }
 
 ScavTrap::ScavTrap(std::string name)
 {
 	if (DEBUG)
-		std::cout << YELLOW << "ScavTrap Derived Name constructor called" << RESET << std::endl;
+		std::cout << LBLUE << "ScavTrap Derived Name constructor called" << RESET << std::endl;
 
 	this->_name = name;
 	this->setHitPoints(100);
@@ -24,6 +24,16 @@ ScavTrap::ScavTrap(std::string name)
 	std::cout << std::endl;
 }
 
+
+// ----------------------------------------------------------------- Destructor
+ScavTrap::~ScavTrap()
+{
+	if (DEBUG)
+		std::cout << RED << "ScavTrap Derived Destructor called" << RESET << std::endl;
+}
+
+
+// --------------------------------------------------------------- Methods
 void ScavTrap::attack(const std::string& target)
 {
 	if (this->_hitPoints <= 0)
@@ -56,15 +66,10 @@ void ScavTrap::guardGate()
 		std::cout << "ScavTrap " << this->_name << " is out of energy." << std::endl;
 }
 
+
+// --------------------------------------------------------------- Overload
 std::ostream & operator<<(std::ostream & lhs, ScavTrap const & rhs)
 {
 	lhs << "ScavTrap " << rhs.getName() << " has " << rhs.getAttackDamage() << " attack points, " << rhs.getEnergyPoints() << " energy points and " << rhs.getHitPoints() << " hit points." << std::endl;
 	return (lhs);
-}
-
-// ----------------------------------------------------------------- Destructor
-ScavTrap::~ScavTrap()
-{
-	if (DEBUG)
-		std::cout << RED << "ScavTrap Derived Destructor called" << RESET << std::endl;
 }

@@ -1,10 +1,16 @@
 #include "FragTrap.hpp"
 
-// --------------------------------------------------------------- Constructors
+// --------------------------------------------------------------- Constructor
+FragTrap::FragTrap()
+{
+	if (DEBUG)
+		std::cout << LYELLOW << "FragTrap Derived constructor called" << RESET << std::endl;
+}
+
 FragTrap::FragTrap(std::string name)
 {
 	if (DEBUG)
-		std::cout << YELLOW << "FragTrap Derived Name constructor called" << RESET << std::endl;
+		std::cout << LYELLOW << "FragTrap Derived Name constructor called" << RESET << std::endl;
 
 	this->_name = name;
 	this->setHitPoints(100);
@@ -18,6 +24,7 @@ FragTrap::FragTrap(std::string name)
 	std::cout << std::endl;
 }
 
+// --------------------------------------------------------------- Destructor
 FragTrap::~FragTrap()
 {
 	if (DEBUG)
@@ -25,12 +32,14 @@ FragTrap::~FragTrap()
 }
 
 
+// --------------------------------------------------------------- Method
 void FragTrap::highFivesGuys()
 {
     std::cout << std::endl << GREEN << "FragTrap " << getName() << " wants to high 5 the ClapTrap and the ScavTrap crew !" << RESET << std::endl;
 }
 
 
+// --------------------------------------------------------------- Overload
 std::ostream & operator<<(std::ostream & lhs, FragTrap const & rhs)
 {
 	lhs << "FragTrap " << rhs.getName() << " has " << rhs.getAttackDamage() << " attack points, " << rhs.getEnergyPoints() << " energy points and " << rhs.getHitPoints() << " hit points." << std::endl;

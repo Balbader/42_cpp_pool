@@ -1,6 +1,7 @@
 #include "ScavTrap.hpp"
 #include "ClapTrap.hpp"
 #include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int main(void)
 {
@@ -11,10 +12,13 @@ int main(void)
 
     FragTrap d("LOULOU");
 
+    DiamondTrap e;
+
 	std::cout << LGREEN << a << RESET;
 	std::cout << YELLOW << b << RESET;
 	std::cout << LBLUE << c << RESET;
-	std::cout << LYELLOW << d << RESET << std::endl;
+	std::cout << LYELLOW << d << RESET;
+	std::cout << MAGENTA << d << RESET << std::endl;
 
 	a.attack(c.getName());
 

@@ -5,8 +5,10 @@
 
 class FragTrap : public ClapTrap {
 public:
-	FragTrap(std::string);
+	FragTrap();
 	~FragTrap();
+
+    FragTrap(std::string);
 
     void highFivesGuys(void);
 };
