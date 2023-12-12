@@ -4,7 +4,7 @@
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
 
-class DiamondTrap : public ScavTrap, FragTrap
+class DiamondTrap : public ScavTrap, public FragTrap
 {
 public:
     DiamondTrap();
@@ -15,7 +15,6 @@ public:
 
 private:
     std::string _name;
-    
 };
 
 std::ostream & operator<<(std::ostream & lhs, DiamondTrap const & rhs);
