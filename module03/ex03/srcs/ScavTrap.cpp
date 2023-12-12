@@ -28,17 +28,17 @@ void ScavTrap::attack(const std::string& target)
 {
 	if (this->_hitPoints <= 0)
 	{
-		std::cout << std::endl << MAGENTA << this->_name << " is already dead." << RESET << std::endl;
+		std::cout << MAGENTA << this->_name << " is already dead." << RESET << std::endl;
 		return;
 	}
 
 	if (this->_energyPoints > 0)
 	{
 		this->_energyPoints -= 1;
-		std::cout << std::endl << "ScavTrap " << this->_name << " attacks " << target << ", causing " << getAttackDamage() << " points of damage!" << std::endl;
+		std::cout << "ScavTrap " << this->_name << " attacks " << target << ", causing " << getAttackDamage() << " points of damage!" << std::endl;
 	}
 	else
-		std::cout << std::endl << "ScavTrap " << this->_name << " is out of energy." << std::endl;
+		std::cout << "ScavTrap " << this->_name << " is out of energy." << std::endl;
 
 }
 
@@ -46,14 +46,14 @@ void ScavTrap::guardGate()
 {
 	if (this->_hitPoints <= 0)
 	{
-		std::cout << std::endl << MAGENTA << this->_name << " is already dead." << RESET << std::endl;
+		std::cout << MAGENTA << this->_name << " is already dead." << RESET << std::endl;
 		return;
 	}
 
 	if (this->_energyPoints > 0)
-		std::cout << std::endl << "ScavTrap " << this->_name << " is in 'Gate Keeper Mode'" << std::endl;
+		std::cout << "ScavTrap " << this->_name << " is in 'Gate Keeper Mode'" << std::endl;
 	else
-		std::cout << std::endl << "ScavTrap " << this->_name << " is out of energy." << std::endl;
+		std::cout << "ScavTrap " << this->_name << " is out of energy." << std::endl;
 }
 
 std::ostream & operator<<(std::ostream & lhs, ScavTrap const & rhs)
