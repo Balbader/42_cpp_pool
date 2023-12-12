@@ -11,10 +11,9 @@ int main(void)
 
     FragTrap d("LOULOU");
 
-	std::cout << std::endl;
-	std::cout << LRED << a << RESET << std::endl;
-	std::cout << LGREEN << b << RESET << std::endl;
-	std::cout << LBLUE << c << RESET << std::endl;
+	std::cout << LGREEN << a << RESET;
+	std::cout << YELLOW << b << RESET;
+	std::cout << LBLUE << c << RESET;
 	std::cout << LYELLOW << d << RESET << std::endl;
 
 	a.attack(c.getName());

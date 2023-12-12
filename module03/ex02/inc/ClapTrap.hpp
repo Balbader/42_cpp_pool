@@ -9,7 +9,6 @@
 #define DEBUG 1
 
 class ClapTrap {
-
 public:
 	ClapTrap(std::string);
 	~ClapTrap();

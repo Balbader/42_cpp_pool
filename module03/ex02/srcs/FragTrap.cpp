@@ -4,7 +4,7 @@
 FragTrap::FragTrap(std::string name)
 {
 	if (DEBUG)
-		std::cout << YELLOW << "FragTrap Derived Name constructor called" << RESET << std::endl;
+		std::cout << LYELLOW << "FragTrap Derived Name constructor called" << RESET << std::endl;
 
 	this->_name = name;
 	this->setHitPoints(100);
@@ -30,3 +30,9 @@ void FragTrap::highFivesGuys()
     std::cout << std::endl << GREEN << "FragTrap " << getName() << " wants to high 5 the ClapTrap and the ScavTrap crew !" << RESET << std::endl;
 }
 
+
+std::ostream & operator<<(std::ostream & lhs, FragTrap const & rhs)
+{
+	lhs << "FragTrap " << rhs.getName() << " has " << rhs.getAttackDamage() << " attack points, " << rhs.getEnergyPoints() << " energy points and " << rhs.getHitPoints() << " hit points." << std::endl;
+	return (lhs);
+}

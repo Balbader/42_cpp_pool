@@ -4,13 +4,13 @@
 ScavTrap::ScavTrap()
 {
 	if (DEBUG)
-		std::cout << YELLOW << "ScavTrap Derived constructor called" << RESET << std::endl;
+		std::cout << LBLUE << "ScavTrap Derived constructor called" << RESET << std::endl;
 }
 
 ScavTrap::ScavTrap(std::string name)
 {
 	if (DEBUG)
-		std::cout << YELLOW << "ScavTrap Derived Name constructor called" << RESET << std::endl;
+		std::cout << LBLUE << "ScavTrap Derived Name constructor called" << RESET << std::endl;
 
 	this->_name = name;
 	this->setHitPoints(100);

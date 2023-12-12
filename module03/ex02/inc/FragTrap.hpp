@@ -11,4 +11,6 @@ public:
     void highFivesGuys(void);
 };
 
+std::ostream & operator<<(std::ostream & lhs, FragTrap const & rhs);
+
 #endif // !FRAGTRAP_HPP
