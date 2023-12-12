@@ -1,7 +1,7 @@
 ########
 # NAME #
 ########
-NAME			:=	FragTrap
+NAME			:=	DiamondTrap
 
 ###############
 # INGREDIENTS #
