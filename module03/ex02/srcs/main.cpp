@@ -17,16 +17,12 @@ int main(void)
 	std::cout << LYELLOW << d << RESET << std::endl;
 
 	a.attack(c.getName());
-	// std::cout << BLUE << a << RESET;
 
 	d.attack(b.getName());
-	// std::cout << LGREEN << d << RESET << std::endl;
 
 	a.takeDamage(4);
-	// std::cout << BLUE << a << RESET << std::endl;
 
 	a.beRepaired(2);
-	// std::cout << BLUE << a << RESET << std::endl;
 
     d.highFivesGuys();
 
