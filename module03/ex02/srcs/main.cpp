@@ -1,5 +1,6 @@
 #include "ScavTrap.hpp"
 #include "ClapTrap.hpp"
+#include "FragTrap.hpp"
 
 int main(void)
 {
@@ -10,12 +11,15 @@ int main(void)
 	ScavTrap c("FIFI");
 	ScavTrap d("LOULOU");
 
+    FragTrap e("Mimi");
+
 	std::cout << std::endl;
 
 	std::cout << LRED << a << RESET << std::endl;
 	std::cout << LGREEN << b << RESET << std::endl;
 	std::cout << LBLUE << c << RESET << std::endl;
 	std::cout << LYELLOW << d << RESET << std::endl;
+	std::cout << MAGENTA << e << RESET << std::endl;
 
 	std::cout << std::endl;
 
@@ -30,6 +34,8 @@ int main(void)
 
 	a.beRepaired(2);
 	std::cout << BLUE << a << RESET << std::endl;
+
+    e.highFivesGuys();
 
 	return 0;
 }
