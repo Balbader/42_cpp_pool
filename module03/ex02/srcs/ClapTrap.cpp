@@ -43,7 +43,7 @@ ClapTrap::ClapTrap(const ClapTrap &rhs)
 ClapTrap::~ClapTrap()
 {
 	if (DEBUG)
-		std::cout << RED << "Base Destructor called" << RESET << std::endl;
+		std::cout << RED << "Base Destructor called" << RESET << std::endl << std::endl;
 }
 
 

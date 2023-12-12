@@ -21,12 +21,12 @@ FragTrap::FragTrap(std::string name)
 FragTrap::~FragTrap()
 {
 	if (DEBUG)
-		std::cout << std::endl << RED << "FragTrap Derived Destructor called" << RESET << std::endl << std::endl;
+		std::cout << std::endl << RED << "FragTrap Derived Destructor called" << RESET << std::endl;
 }
 
 
 void FragTrap::highFivesGuys()
 {
-    std::cout << GREEN << "FragTrap " << getName() << " wants to high 5 the ClapTrap and the ScavTrap crew !" << RESET << std::endl;
+    std::cout << std::endl << GREEN << "FragTrap " << getName() << " wants to high 5 the ClapTrap and the ScavTrap crew !" << RESET << std::endl;
 }
 
