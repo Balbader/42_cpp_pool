@@ -34,7 +34,10 @@ Fixed& Fixed::operator-(Fixed const& rhs)
 Fixed& Fixed::operator*(Fixed const& rhs)
 {
 	if (this != &rhs)
-		this->_value *= rhs._value;
+    {
+        this->_value *= rhs._value;
+        this->_value >>= _bits;
+    }
 
 	return *this;
 }
@@ -42,7 +45,10 @@ Fixed& Fixed::operator*(Fixed const& rhs)
 Fixed& Fixed::operator/(Fixed const& rhs)
 {
 	if (this != &rhs)
-		this->_value /= rhs._value;
+    {
+        this->_value /= rhs._value;
+        this->_value <<= _bits;
+    }
 
 	return *this;
 }
