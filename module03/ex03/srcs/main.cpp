@@ -22,6 +22,8 @@ int main(void)
 
 	a.takeDamage(4);
 
+    c.guardGate();
+
 	a.beRepaired(2);
 
     d.highFivesGuys();
