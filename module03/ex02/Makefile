@@ -11,7 +11,6 @@ INC_DIR			:=	./inc
 SRCS_DIR		:=	./srcs
 SRCS			:=	\
 					ClapTrap.cpp \
-					DiamondTrap.cpp \
 					FragTrap.cpp \
 					ScavTrap.cpp \
 					main.cpp
