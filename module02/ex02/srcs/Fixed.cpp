@@ -27,6 +27,7 @@ Fixed::Fixed(int const original)
 		std::cout << CYAN << "Int constructor called" << RESET << std::endl;
 
 	this->_value = original * 256;
+    // std::cout << "Fixed int : " <<  this->_value << RESET << std::endl;
 }
 
 
@@ -35,7 +36,8 @@ Fixed::Fixed(float const original)
 	if (DEBUG)
 		std::cout << CYAN << "Float constructor called" << RESET << std::endl;
 
-	this->_value = roundf(original * (1 * 256));
+	this->_value = roundf(original * 256);
+    // std::cout << "Fixed Float : " <<  this->_value << RESET << std::endl;
 }
 
 
@@ -48,7 +50,7 @@ Fixed ::~Fixed()
 
 
 // ------------------------------------------------------------------- Overload
-Fixed & Fixed::operator=(Fixed const & rhs)
+Fixed& Fixed::operator=(Fixed const &rhs)
 {
 	if (DEBUG)
 		std::cout << YELLOW << "Copy assignment operator called" << RESET << std::endl;
