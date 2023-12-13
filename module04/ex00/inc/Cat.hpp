@@ -18,6 +18,6 @@ private:
 	
 };
 
-std::ostream & operator<<(std::ostream & lhs, Cat const & rhs);
+// std::ostream & operator<<(std::ostream & lhs, Cat const & rhs);
 
 #endif // !CAT_HPP

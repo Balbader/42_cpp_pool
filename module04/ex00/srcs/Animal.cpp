@@ -37,15 +37,15 @@ Animal& Animal::operator=(const Animal& rhs)
 	return *this;
 }
 
-std::ostream & operator<<(std::ostream & lhs, Animal const & rhs)
-{
-	lhs << LGREEN << "Animal " << rhs.getType() << " is here." << RESET << std::endl;
+// std::ostream & operator<<(std::ostream & lhs, Animal const & rhs)
+// {
+// 	lhs << LGREEN << "Animal " << rhs.getType() << " is here." << RESET << std::endl;
 
-	return (lhs);
-}
+// 	return (lhs);
+// }
 
 // -------------------------------------------------------------------- Methods
-void Animal::makeSound()
+void Animal::makeSound() const
 {
 	std::cout << "No sound is being emited by this Animal!" << std::endl;
 }

@@ -10,9 +10,10 @@
 class Animal {
 public:
 	Animal();
+	virtual ~Animal();
+
 	Animal(const Animal &);
 	Animal &operator=(const Animal &);
-	~Animal();
 
 	virtual void makeSound() const;
 	std::string getType() const;
@@ -24,6 +25,6 @@ private:
 	
 };
 
-std::ostream & operator<<(std::ostream & lhs, Animal const & rhs);
+// std::ostream & operator<<(std::ostream & lhs, Animal const & rhs);
 
 #endif // !ANIMAL_HPP

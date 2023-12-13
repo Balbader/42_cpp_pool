@@ -18,6 +18,6 @@ private:
 	
 };
 
-std::ostream & operator<<(std::ostream & lhs, Dog const & rhs);
+// std::ostream & operator<<(std::ostream & lhs, Dog const & rhs);
 
 #endif // !DOG_HPP
