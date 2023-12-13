@@ -12,7 +12,7 @@ int main(void)
     FragTrap d("LOULOU");
 
 	std::cout << LGREEN << a << RESET;
-	std::cout << YELLOW << b << RESET;
+	std::cout << ORANGE << b << RESET;
 	std::cout << LBLUE << c << RESET;
 	std::cout << LYELLOW << d << RESET << std::endl;
 
