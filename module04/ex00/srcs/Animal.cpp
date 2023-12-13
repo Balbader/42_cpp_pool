@@ -40,14 +40,15 @@ Animal& Animal::operator=(const Animal& rhs)
 std::ostream & operator<<(std::ostream & lhs, Animal const & rhs)
 {
 	lhs << LGREEN << "Animal " << rhs.getType() << " is here." << RESET << std::endl;
+
 	return (lhs);
 }
 
 // -------------------------------------------------------------------- Methods
-virtual void Animal::makeSound()
+void Animal::makeSound()
 {
 	std::cout << "No sound is being emited by this Animal!" << std::endl;
 }
 
 // -------------------------------------------------------------------- Getters
-std::string Animal::getType(void) { return this->_type; }
+std::string Animal::getType() const { return this->_type; }

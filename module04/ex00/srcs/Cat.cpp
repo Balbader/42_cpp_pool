@@ -39,9 +39,13 @@ Cat& Cat::operator=(const Cat& rhs)
 
 std::ostream & operator<<(std::ostream & lhs, Cat const & rhs)
 {
-	lhs << LGREEN << "This " << rhs.getType() << rhs.makeSound() << RESET << std::endl;
+	lhs << LYELLOW << "This " << rhs.getType() << rhs.makeSound() << RESET << std::endl;
+
 	return (lhs);
 }
 
 // -------------------------------------------------------------------- Methods
-void makeSoud(void) override;
+void makeSoud() override
+{
+	std::cout << "Meeeeooooowwww" << std::endl;
+}
