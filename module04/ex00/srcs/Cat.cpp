@@ -4,33 +4,44 @@
 Cat::Cat() : _type("Cat")
 {
 	if (DEBUG)
-		std::cout << LYELLOW << "Cat Base Default Constructor Called" << RESET << std::endl;
+		std::cout << LYELLOW << "Cat Derived Default Constructor Called" << RESET << std::endl;
 
 }
 
-// ---------------------------------------------------------------- Copy Constructor
+// ----------------------------------------------------------- Copy Constructor
 Cat::Cat(const Cat& rhs)
 {
 	if (DEBUG)
-		std::cout << LYELLOW << "Cat Base Copy Constructor Called" << RESET << std::endl;
+		std::cout << LYELLOW << "Cat Derived Copy Constructor Called" << RESET << std::endl;
 
+	this->_type = rhs._type;
 }
 
-// ---------------------------------------------------------------  Destructor
+// ----------------------------------------------------------------- Destructor
 Cat::~Cat()
 {
 	if (DEBUG)
-		std::cout << LYELLOW << "Cat Base Destructor Called" << RESET << std::endl;
+		std::cout << LYELLOW << "Cat Derived Destructor Called" << RESET << std::endl;
 
 }
 
-// ---------------------------------------------------------------  Overload
+// ------------------------------------------------------------------- Overload
 Cat& Cat::operator=(const Cat& rhs)
 {
 	if (DEBUG)
-		std::cout << LYELLOW << "Cat Base Destructor Called" << RESET << std::endl;
+		std::cout << LYELLOW << "Cat Derived Destructor Called" << RESET << std::endl;
+
+	if (this != &rhs)
+		this->_type = rhs._type;
 
 	return *this;
 }
 
-// ---------------------------------------------------------------  Overload
+std::ostream & operator<<(std::ostream & lhs, Cat const & rhs)
+{
+	lhs << LGREEN << "This " << rhs.getType() << rhs.makeSound() << RESET << std::endl;
+	return (lhs);
+}
+
+// -------------------------------------------------------------------- Methods
+void makeSoud(void) override;
