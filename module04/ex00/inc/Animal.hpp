@@ -1,6 +1,7 @@
 #ifndef ANIMAL_HPP
 #define ANIMAL_HPP
 
+#include "colors.hpp"
 #include <iostream>
 #include <string>
 
@@ -16,7 +17,7 @@ public:
 	virtual void makeSound(void);
 
 protected:
-	std::string type;
+	std::string _type;
 
 private:
 	
