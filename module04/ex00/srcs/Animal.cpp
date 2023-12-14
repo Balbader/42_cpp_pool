@@ -1,11 +1,10 @@
 #include "Animal.hpp"
 
 // ---------------------------------------------------------------- Constructor
-Animal::Animal() : _type("No Type Defined!")
+Animal::Animal() : _type("Animal")
 {
 	if (DEBUG)
-		std::cout << LGREEN << "Animal Base Default Constructor Called" << RESET << std::endl;
-
+		std::cout << std::endl << GREEN << "Animal Base Default Constructor Called" << RESET << std::endl;
 }
 
 
@@ -13,7 +12,7 @@ Animal::Animal() : _type("No Type Defined!")
 Animal::Animal(const Animal& rhs)
 {
 	if (DEBUG)
-		std::cout << LGREEN << "Animal Base Copy Constructor Called" << RESET << std::endl;
+		std::cout << GREEN << "Animal Base Copy Constructor Called" << RESET << std::endl;
 
 	this->_type = rhs._type;
 }
@@ -23,8 +22,7 @@ Animal::Animal(const Animal& rhs)
 Animal::~Animal()
 {
 	if (DEBUG)
-		std::cout << LGREEN << "Animal Base Destructor Called" << RESET << std::endl;
-
+		std::cout << GREEN << "Animal Base Destructor Called" << RESET << std::endl;
 }
 
 
@@ -32,7 +30,7 @@ Animal::~Animal()
 Animal& Animal::operator=(const Animal& rhs)
 {
 	if (DEBUG)
-		std::cout << LGREEN << "Animal Base Destructor Called" << RESET << std::endl;
+		std::cout << GREEN << "Animal Base Destructor Called" << RESET << std::endl;
 
 	if (this != &rhs)
 		this->_type = rhs._type;

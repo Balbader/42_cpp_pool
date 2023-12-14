@@ -23,7 +23,7 @@ Cat::Cat(const Cat& rhs) : Animal()
 Cat::~Cat()
 {
 	if (DEBUG)
-		std::cout << LYELLOW << "Cat Derived Destructor Called" << RESET << std::endl;
+		std::cout << LYELLOW << "Cat Derived Destructor Called" << RESET << std::endl << std::endl;
 
 }
 
