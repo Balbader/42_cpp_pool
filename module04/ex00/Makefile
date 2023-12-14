@@ -1,7 +1,7 @@
 ########
 # NAME #
 ########
-NAME			:=	animal
+NAME			:=	Animal
 
 ###############
 # INGREDIENTS #
