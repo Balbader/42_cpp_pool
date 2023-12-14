@@ -10,7 +10,7 @@ ClapTrap::ClapTrap() : _hitPoints(10), _energyPoints(10), _attackDamage(0)
 ClapTrap::ClapTrap(std::string name) : _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
 	if (DEBUG)
-		std::cout << LGREEN << "ClapTrap Base Name constructor called" << RESET << std::endl;
+		std::cout << GREEN << "ClapTrap Base Name constructor called" << RESET << std::endl;
 
 	std::cout << "ClapTrap Name : "	<< GREEN << getName() << RESET << std::endl;
 	std::cout << "ClapTrap Hit Points : " << GREEN << getHitPoints() << RESET << std::endl;
@@ -32,7 +32,7 @@ ClapTrap::~ClapTrap()
 ClapTrap::ClapTrap(const ClapTrap &rhs)
 {
 	if (DEBUG)
-		std::cout << ORANGE << "ClapTrap Base Copy constructor called" << RESET << std::endl;
+		std::cout << LYELLOW << "ClapTrap Base Copy constructor called" << RESET << std::endl;
 
 	this->_name = rhs._name;
 	this->_hitPoints = rhs._hitPoints;
