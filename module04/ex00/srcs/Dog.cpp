@@ -1,7 +1,7 @@
 #include "Dog.hpp"
 
 // ---------------------------------------------------------------- Constructor
-Dog::Dog()
+Dog::Dog() : Animal()
 {
 	if (DEBUG)
 		std::cout << ORANGE << "Dog Derived Default Constructor Called" << RESET << std::endl;
@@ -16,7 +16,7 @@ Dog::Dog(const Dog& rhs) : Animal()
 	if (DEBUG)
 		std::cout << ORANGE << "Dog Derived Copy Constructor Called" << RESET << std::endl;
 
-	this->_type = rhs._type;
+	*this = rhs;
 }
 
 
@@ -43,7 +43,7 @@ Dog& Dog::operator=(const Dog& rhs)
 
 
 // -------------------------------------------------------------------- Methods
-void Dog::makeSoud()
+void Dog::makeSoud() const
 {
-	std::cout << "Wouf Wouf" << std::endl;
+	std::cout << ORANGE << "Wouf Wouf" << RESET << std::endl;
 }

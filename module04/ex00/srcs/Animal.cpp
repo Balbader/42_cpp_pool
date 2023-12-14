@@ -14,7 +14,7 @@ Animal::Animal(const Animal& rhs)
 	if (DEBUG)
 		std::cout << GREEN << "Animal Base Copy Constructor Called" << RESET << std::endl;
 
-	this->_type = rhs._type;
+	*this = rhs;
 }
 
 
@@ -40,9 +40,9 @@ Animal& Animal::operator=(const Animal& rhs)
 
 
 // -------------------------------------------------------------------- Methods
-void Animal::makeSound()
+void Animal::makeSound() const
 {
-	std::cout << "No sound is being emited by this Animal!" << std::endl;
+	std::cout << GREEN << "Animal sound undefined!" << RESET << std::endl;
 }
 
 
