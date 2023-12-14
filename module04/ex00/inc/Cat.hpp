@@ -3,14 +3,15 @@
 
 #include "Animal.hpp"
 
-class Cat : public Animal{
+class Cat : public Animal
+{
 public:
 	Cat();
 	Cat(const Cat &);
 	Cat &operator=(const Cat &);
 	~Cat();
 
-	void makeSoud(void) override;
+	virtual void makeSoud() const;
 
 protected:
 
