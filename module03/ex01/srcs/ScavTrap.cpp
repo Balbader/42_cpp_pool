@@ -24,11 +24,21 @@ ScavTrap::ScavTrap(std::string name)
 	std::cout << std::endl;
 }
 
+
+// ----------------------------------------------------------------- Destructor
+ScavTrap::~ScavTrap()
+{
+	if (DEBUG)
+		std::cout << std::endl << YELLOW << "Derived Destructor called" << RESET << std::endl;
+}
+
+
+// --------------------------------------------------------------- Methods
 void ScavTrap::attack(const std::string& target)
 {
 	if (this->_hitPoints <= 0)
 	{
-		std::cout << std::endl << MAGENTA << this->_name << " is already dead." << RESET << std::endl;
+		std::cout << std::endl << YELLOW << this->_name << " is already dead." << RESET << std::endl;
 		return;
 	}
 
@@ -46,12 +56,12 @@ void ScavTrap::guardGate()
 {
 	if (this->_hitPoints <= 0)
 	{
-		std::cout << std::endl << MAGENTA << this->_name << " is already dead." << RESET << std::endl;
+		std::cout << std::endl << YELLOW << this->_name << " is already dead." << RESET << std::endl;
 		return;
 	}
 
 	if (this->_energyPoints > 0)
-		std::cout << std::endl << "ScavTrap " << this->_name << " is in 'Gate Keeper Mode'" << std::endl;
+		std::cout << std::endl << "ScavTrap " << this->_name << " is in 'Gate Keeper Mode'" << std::endl << std::endl;
 	else
 		std::cout << std::endl << "ScavTrap " << this->_name << " is out of energy." << std::endl;
 }
@@ -62,9 +72,3 @@ std::ostream & operator<<(std::ostream & lhs, ScavTrap const & rhs)
 	return (lhs);
 }
 
-// ----------------------------------------------------------------- Destructor
-ScavTrap::~ScavTrap()
-{
-	if (DEBUG)
-		std::cout << std::endl << RED << "Derived Destructor called" << RESET << std::endl << std::endl;
-}

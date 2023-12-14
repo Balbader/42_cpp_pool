@@ -20,6 +20,14 @@ ClapTrap::ClapTrap(std::string name) : _name(name), _hitPoints(10), _energyPoint
 }
 
 
+// ----------------------------------------------------------------- Destructor
+ClapTrap::~ClapTrap()
+{
+	if (DEBUG)
+		std::cout << GREEN << "Base Destructor called" << RESET << std::endl;
+}
+
+
 // ----------------------------------------------------------- Copy Constructor
 ClapTrap::ClapTrap(const ClapTrap &rhs)
 {
@@ -36,14 +44,6 @@ ClapTrap::ClapTrap(const ClapTrap &rhs)
 	std::cout << "ClapTrap Energy Points : " << GREEN << getEnergyPoints() << RESET << std::endl;
 	std::cout << "ClapTrap Attack Points : "<< GREEN << getAttackDamage() << RESET << std::endl;
 	std::cout << std::endl;
-}
-
-
-// ----------------------------------------------------------------- Destructor
-ClapTrap::~ClapTrap()
-{
-	if (DEBUG)
-		std::cout << RED << "Base Destructor called" << RESET << std::endl;
 }
 
 
@@ -90,7 +90,7 @@ void ClapTrap::takeDamage(unsigned int amount)
 		std::cout << std::endl << "ClapTrap " << this->_name << " has no points at all." << std::endl;
 	else
 	{
-		std::cout << std::endl << "ClapTrap " << this->_name << " has been attacked !" << std::endl << this->_name << " lost a total of "<< amount << " points !" << std::endl;
+		std::cout << std::endl << "ClapTrap " << this->_name << " has been attacked and lost a total of "<< amount << " points !" << std::endl;
 
 		if (this->_hitPoints < amount)
 			this->_hitPoints = 0;
@@ -105,7 +105,7 @@ void ClapTrap::beRepaired(unsigned int amount)
 		std::cout << "ClapTrap " << this->_name << " has no points at all." << std::endl;
 	else
 	{
-		std::cout << "ClapTrap " << this->_name << " is under repair." << std::endl << this->_name << " will receive a total of "<< amount << " points." << std::endl;
+		std::cout << "ClapTrap " << this->_name << " is under repair and will receive a total of "<< amount << " points." << std::endl;
 
 		if (this->_hitPoints < amount)
 			this->_hitPoints = 0;
