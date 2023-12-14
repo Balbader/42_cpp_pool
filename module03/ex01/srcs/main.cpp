@@ -12,7 +12,7 @@ int main(void)
 	std::cout << LRED << a << RESET;
 	std::cout << LGREEN << b << RESET;
 	std::cout << LBLUE << c << RESET;
-	std::cout << YELLOW << d << RESET;
+	std::cout << YELLOW << d << RESET << std::endl;
 
 	a.attack(c.getName());
 
