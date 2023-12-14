@@ -4,7 +4,7 @@
 ClapTrap::ClapTrap() : _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
 	if (DEBUG)
-		std::cout << GREEN << "ClapTrap Base constructor called" << RESET << std::endl;
+		std::cout << LGREEN << "ClapTrap Base constructor called" << RESET << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name) : _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0)
@@ -43,7 +43,7 @@ ClapTrap::ClapTrap(const ClapTrap &rhs)
 ClapTrap::~ClapTrap()
 {
 	if (DEBUG)
-		std::cout << RED << "Base Destructor called" << RESET << std::endl << std::endl;
+		std::cout << LGREEN << "ClapTrap Base Destructor called" << RESET << std::endl << std::endl;
 }
 
 
@@ -51,7 +51,7 @@ ClapTrap::~ClapTrap()
 ClapTrap & ClapTrap::operator=(const ClapTrap &rhs)
 {
 	if (DEBUG)
-		std::cout << YELLOW << "Base Assignment operator called" << RESET << std::endl;
+		std::cout << LGREEN << "ClapTrap Base Assignment operator called" << RESET << std::endl;
 
 	if (this != &rhs)
 	{

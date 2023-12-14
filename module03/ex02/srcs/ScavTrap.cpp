@@ -66,5 +66,5 @@ std::ostream & operator<<(std::ostream & lhs, ScavTrap const & rhs)
 ScavTrap::~ScavTrap()
 {
 	if (DEBUG)
-		std::cout << RED << "ScavTrap Derived Destructor called" << RESET << std::endl;
+		std::cout << LBLUE << "ScavTrap Derived Destructor called" << RESET << std::endl;
 }
