@@ -8,6 +8,7 @@ Animal::Animal() : _type("No Type Defined!")
 
 }
 
+
 // ----------------------------------------------------------- Copy Constructor
 Animal::Animal(const Animal& rhs)
 {
@@ -17,6 +18,7 @@ Animal::Animal(const Animal& rhs)
 	this->_type = rhs._type;
 }
 
+
 // ----------------------------------------------------------------- Destructor
 Animal::~Animal()
 {
@@ -24,6 +26,7 @@ Animal::~Animal()
 		std::cout << LGREEN << "Animal Base Destructor Called" << RESET << std::endl;
 
 }
+
 
 // ------------------------------------------------------------------- Overload
 Animal& Animal::operator=(const Animal& rhs)
@@ -37,18 +40,13 @@ Animal& Animal::operator=(const Animal& rhs)
 	return *this;
 }
 
-// std::ostream & operator<<(std::ostream & lhs, Animal const & rhs)
-// {
-// 	lhs << LGREEN << "Animal " << rhs.getType() << " is here." << RESET << std::endl;
-
-// 	return (lhs);
-// }
 
 // -------------------------------------------------------------------- Methods
 void Animal::makeSound() const
 {
 	std::cout << "No sound is being emited by this Animal!" << std::endl;
 }
+
 
 // -------------------------------------------------------------------- Getters
 std::string Animal::getType() const { return this->_type; }
