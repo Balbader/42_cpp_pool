@@ -7,6 +7,7 @@ Dog::Dog() : Animal()
 		std::cout << LBLUE << "Dog Derived Default Constructor Called" << RESET << std::endl;
 
 	this->_type = "Dog";
+    this->brain = new Brain();
 }
 
 
