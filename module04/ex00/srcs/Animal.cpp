@@ -4,7 +4,7 @@
 Animal::Animal() : _type("Animal")
 {
 	if (DEBUG)
-		std::cout << std::endl << GREEN << "Animal Base Default Constructor Called" << RESET << std::endl;
+		std::cout << std::endl << GRAY << "Animal Base Default Constructor Called" << RESET << std::endl;
 }
 
 
@@ -12,7 +12,7 @@ Animal::Animal() : _type("Animal")
 Animal::Animal(const Animal& rhs)
 {
 	if (DEBUG)
-		std::cout << GREEN << "Animal Base Copy Constructor Called" << RESET << std::endl;
+		std::cout << GRAY << "Animal Base Copy Constructor Called" << RESET << std::endl;
 
 	*this = rhs;
 }
@@ -22,7 +22,7 @@ Animal::Animal(const Animal& rhs)
 Animal::~Animal()
 {
 	if (DEBUG)
-		std::cout << GREEN << "Animal Base Destructor Called" << RESET << std::endl;
+		std::cout << GRAY << "Animal Base Destructor Called" << RESET << std::endl;
 }
 
 
@@ -30,7 +30,7 @@ Animal::~Animal()
 Animal& Animal::operator=(const Animal& rhs)
 {
 	if (DEBUG)
-		std::cout << GREEN << "Animal Base Destructor Called" << RESET << std::endl;
+		std::cout << GRAY << "Animal Base Destructor Called" << RESET << std::endl;
 
 	if (this != &rhs)
 		this->_type = rhs._type;
@@ -42,7 +42,7 @@ Animal& Animal::operator=(const Animal& rhs)
 // -------------------------------------------------------------------- Methods
 void Animal::makeSound() const
 {
-	std::cout << GREEN << "Animal sound undefined!" << RESET << std::endl;
+	std::cout << GRAY << "Animal sound undefined!" << RESET << std::endl;
 }
 
 

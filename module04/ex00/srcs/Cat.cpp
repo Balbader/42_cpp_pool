@@ -4,7 +4,7 @@
 Cat::Cat() : Animal()
 {
 	if (DEBUG)
-		std::cout << LYELLOW << "Cat Derived Default Constructor Called" << RESET << std::endl;
+		std::cout << GREEN << "Cat Derived Default Constructor Called" << RESET << std::endl;
 
 	this->_type = "Cat";
 }
@@ -14,7 +14,7 @@ Cat::Cat() : Animal()
 Cat::Cat(const Cat& rhs) : Animal()
 {
 	if (DEBUG)
-		std::cout << LYELLOW << "Cat Derived Copy Constructor Called" << RESET << std::endl;
+		std::cout << GREEN << "Cat Derived Copy Constructor Called" << RESET << std::endl;
 
 	*this = rhs;
 }
@@ -24,7 +24,7 @@ Cat::Cat(const Cat& rhs) : Animal()
 Cat::~Cat()
 {
 	if (DEBUG)
-		std::cout << LYELLOW << "Cat Derived Destructor Called" << RESET << std::endl << std::endl;
+		std::cout << GREEN << "Cat Derived Destructor Called" << RESET << std::endl << std::endl;
 }
 
 
@@ -32,7 +32,7 @@ Cat::~Cat()
 Cat& Cat::operator=(const Cat& rhs)
 {
 	if (DEBUG)
-		std::cout << LYELLOW << "Cat Derived Destructor Called" << RESET << std::endl;
+		std::cout << GREEN << "Cat Derived Destructor Called" << RESET << std::endl;
 
 	if (this != &rhs)
 		this->_type = rhs._type;
@@ -42,7 +42,7 @@ Cat& Cat::operator=(const Cat& rhs)
 
 
 // -------------------------------------------------------------------- Methods
-void Cat::makeSoud() const 
+void Cat::makeSound() const 
 {
-	std::cout << LYELLOW << "Meeeeooooowwww" << RESET << std::endl;
+	std::cout << GREEN << "Meeeeooooowwww" << RESET << std::endl;
 }
