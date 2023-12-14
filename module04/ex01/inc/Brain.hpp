@@ -12,6 +12,8 @@ public:
 	Brain(const Brain &);
 	Brain &operator=(const Brain &);
 
+    const char *ideas[100];
+
 private:
 	
 };
