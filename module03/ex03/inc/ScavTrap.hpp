@@ -15,6 +15,7 @@ public:
 
 	void attack(const std::string&);
 	void guardGate(void);
+    void whoAmI(void);
 };
 
 std::ostream & operator<<(std::ostream & lhs, ScavTrap const & rhs);

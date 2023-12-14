@@ -10,8 +10,8 @@ public:
     DiamondTrap();
     ~DiamondTrap();
 
-    // DiamondTrap(const DiamondTrap &);
-    // DiamondTrap &operator=(const DiamondTrap &);
+    DiamondTrap(const DiamondTrap &);
+    DiamondTrap &operator=(const DiamondTrap &);
 
 private:
     std::string _name;

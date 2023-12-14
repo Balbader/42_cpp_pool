@@ -1,11 +1,10 @@
 #include "DiamondTrap.hpp"
 #include "ClapTrap.hpp"
 
-DiamondTrap::DiamondTrap() : _name(ClapTrap::_name)
+DiamondTrap::DiamondTrap()
 {
     if (DEBUG)
         std::cout << MAGENTA << "DiamondTrap Derived name constructor called" << RESET << std::endl;
-
 }
 
 DiamondTrap::~DiamondTrap()

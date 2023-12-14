@@ -22,7 +22,7 @@ OBJS			:=	$(SRCS:$(SRCS_DIR)/%.cpp=$(BUILD_DIR)/%.o)
 DEPS			:=	$(OBJS:.o=.d)
 
 CC				:=	c++ -o
-CFLAGS			:=	-Wall -Wextra -Werror -std=c++98
+CFLAGS			:=	-Wall -Wextra -Werror -Wshadow -std=c++98
 IFLAGS			:=	$(addprefix -I, $(INC_DIR))
 MAKEFLAGS		+=	--no-print-directory
 
