@@ -8,6 +8,7 @@
 #define DEBUG 1
 
 class Animal {
+
 public:
 	Animal();
 	virtual ~Animal();
@@ -15,7 +16,7 @@ public:
 	Animal(const Animal&);
 	Animal &operator=(const Animal&);
 
-	virtual void makeSound();
+	virtual void makeSound() const;
 	std::string getType() const;
 
 protected:

@@ -10,7 +10,7 @@ public:
 	Dog &operator=(const Dog &);
 	~Dog();
 
-	virtual void makeSoud();
+	void makeSoud() const;
 
 protected:
 
