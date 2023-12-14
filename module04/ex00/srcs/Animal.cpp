@@ -8,6 +8,14 @@ Animal::Animal() : _type("Animal")
 }
 
 
+// ----------------------------------------------------------------- Destructor
+Animal::~Animal()
+{
+	if (DEBUG)
+		std::cout << GRAY << "Animal Base Destructor Called" << RESET << std::endl;
+}
+
+
 // ----------------------------------------------------------- Copy Constructor
 Animal::Animal(const Animal& rhs)
 {
@@ -17,13 +25,6 @@ Animal::Animal(const Animal& rhs)
 	*this = rhs;
 }
 
-
-// ----------------------------------------------------------------- Destructor
-Animal::~Animal()
-{
-	if (DEBUG)
-		std::cout << GRAY << "Animal Base Destructor Called" << RESET << std::endl;
-}
 
 
 // ------------------------------------------------------------------- Overload

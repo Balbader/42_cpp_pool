@@ -10,6 +10,14 @@ WrongAnimal::WrongAnimal()
 }
 
 
+// ----------------------------------------------------------------- Destructor
+WrongAnimal::~WrongAnimal()
+{
+	if (DEBUG)
+		std::cout << LGRAY << "WrongAnimal Base Destructor Called" << RESET << std::endl;
+}
+
+
 // ----------------------------------------------------------- Copy Constructor
 WrongAnimal::WrongAnimal(const WrongAnimal& rhs) : Animal()
 {
@@ -17,14 +25,6 @@ WrongAnimal::WrongAnimal(const WrongAnimal& rhs) : Animal()
 		std::cout << LGRAY << "WrongAnimal Base Copy Constructor Called" << RESET << std::endl;
 
 	*this = rhs;
-}
-
-
-// ----------------------------------------------------------------- Destructor
-WrongAnimal::~WrongAnimal()
-{
-	if (DEBUG)
-		std::cout << LGRAY << "WrongAnimal Base Destructor Called" << RESET << std::endl;
 }
 
 

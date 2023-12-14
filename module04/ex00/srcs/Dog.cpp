@@ -10,6 +10,15 @@ Dog::Dog() : Animal()
 }
 
 
+// ----------------------------------------------------------------- Destructor
+Dog::~Dog()
+{
+	if (DEBUG)
+		std::cout << LBLUE << "Dog Derived Destructor Called" << RESET << std::endl << std::endl;
+
+}
+
+
 // ----------------------------------------------------------- Copy Constructor
 Dog::Dog(const Dog& rhs) : Animal()
 {
@@ -17,15 +26,6 @@ Dog::Dog(const Dog& rhs) : Animal()
 		std::cout << LBLUE << "Dog Derived Copy Constructor Called" << RESET << std::endl;
 
 	*this = rhs;
-}
-
-
-// ----------------------------------------------------------------- Destructor
-Dog::~Dog()
-{
-	if (DEBUG)
-		std::cout << LBLUE << "Dog Derived Destructor Called" << RESET << std::endl << std::endl;
-
 }
 
 

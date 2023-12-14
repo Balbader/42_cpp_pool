@@ -10,6 +10,14 @@ WrongCat::WrongCat() : WrongAnimal()
 }
 
 
+// ----------------------------------------------------------------- Destructor
+WrongCat::~WrongCat()
+{
+	if (DEBUG)
+		std::cout << YELLOW << "WrongCat Derived Destructor Called" << RESET << std::endl << std::endl;
+}
+
+
 // ----------------------------------------------------------- Copy Constructor
 WrongCat::WrongCat(const WrongCat& rhs) : WrongAnimal()
 {
@@ -19,13 +27,6 @@ WrongCat::WrongCat(const WrongCat& rhs) : WrongAnimal()
 	*this = rhs;
 }
 
-
-// ----------------------------------------------------------------- Destructor
-WrongCat::~WrongCat()
-{
-	if (DEBUG)
-		std::cout << YELLOW << "WrongCat Derived Destructor Called" << RESET << std::endl << std::endl;
-}
 
 
 // ------------------------------------------------------------------- Overload
