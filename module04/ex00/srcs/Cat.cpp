@@ -42,7 +42,7 @@ Cat& Cat::operator=(const Cat& rhs)
 
 
 // -------------------------------------------------------------------- Methods
-void Cat::makeSoud() const
+void Cat::makeSoud()
 {
 	std::cout << "Meeeeooooowwww" << std::endl;
 }

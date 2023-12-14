@@ -40,7 +40,7 @@ Animal& Animal::operator=(const Animal& rhs)
 
 
 // -------------------------------------------------------------------- Methods
-void Animal::makeSound() const
+void Animal::makeSound()
 {
 	std::cout << "No sound is being emited by this Animal!" << std::endl;
 }

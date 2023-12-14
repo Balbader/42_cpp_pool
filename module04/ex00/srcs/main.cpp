@@ -18,8 +18,8 @@ int main(void)
 	// std::cout << p->getType() << " " << std::endl;
 	std::cout << std::endl;
 
-	i->makeSound(); //will output the cat sound!
 	j->makeSound();
+	i->makeSound(); //will output the cat sound!
 	meta->makeSound();
 	// k->makeSound();
 	// p->makeSound();

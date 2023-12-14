@@ -43,7 +43,7 @@ Dog& Dog::operator=(const Dog& rhs)
 
 
 // -------------------------------------------------------------------- Methods
-void Dog::makeSoud() const
+void Dog::makeSoud()
 {
 	std::cout << "Wouf Wouf" << std::endl;
 }
