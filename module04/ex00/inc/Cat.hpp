@@ -10,7 +10,7 @@ public:
 	Cat &operator=(const Cat &);
 	~Cat();
 
-	void makeSoud();
+	virtual void makeSoud();
 
 protected:
 
