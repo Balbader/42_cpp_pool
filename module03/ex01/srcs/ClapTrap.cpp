@@ -75,10 +75,10 @@ std::ostream & operator<<(std::ostream & lhs, ClapTrap const & rhs)
 void ClapTrap::attack(const std::string &target)
 {
 	if (this->_hitPoints == 0 || this->_energyPoints == 0)
-		std::cout << std::endl << "ClapTrap " << this->_name << " has no points at all." << std::endl;
+		std::cout<< "ClapTrap " << this->_name << " has no points at all." << std::endl;
 	else
 	{
-		std::cout << std::endl << "ClapTrap " << this->_name << " attacks " << target << ", causing " << getAttackDamage() << " points of damage !" << std::endl;
+		std::cout << "ClapTrap " << this->_name << " attacks " << target << ", causing " << getAttackDamage() << " points of damage !" << std::endl;
 
 		this->_energyPoints -= 1;
 	}
@@ -87,10 +87,10 @@ void ClapTrap::attack(const std::string &target)
 void ClapTrap::takeDamage(unsigned int amount)
 {
 	if (this->_hitPoints == 0 || this->_energyPoints == 0)
-		std::cout << std::endl << "ClapTrap " << this->_name << " has no points at all." << std::endl;
+		std::cout << "ClapTrap " << this->_name << " has no points at all." << std::endl;
 	else
 	{
-		std::cout << std::endl << "ClapTrap " << this->_name << " has been attacked and lost a total of "<< amount << " points !" << std::endl;
+		std::cout << "ClapTrap " << this->_name << " has been attacked and lost a total of "<< amount << " points !" << std::endl;
 
 		if (this->_hitPoints < amount)
 			this->_hitPoints = 0;
