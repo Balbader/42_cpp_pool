@@ -1,8 +1,6 @@
-#include "Dog.hpp"
-#include "Cat.hpp"
-#include "WrongCat.hpp"
+#include "AMateria.hpp"
 
-int main(void)
+int main()
 {
-	return 0;
+    return 0;
 }
