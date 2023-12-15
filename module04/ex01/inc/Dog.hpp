@@ -18,10 +18,8 @@ public:
 protected:
 
 private:
-    Brain*;
+    Brain* _brain;
 	
 };
-
-// std::ostream & operator<<(std::ostream & lhs, Dog const & rhs);
 
 #endif // !DOG_HPP
