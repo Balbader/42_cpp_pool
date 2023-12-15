@@ -6,40 +6,35 @@ int main(void)
 {
 	Animal* array[10];
 
-	for (int i = 0; i < 5; i++)
+	for (int i = 0; i < 10; i++)
 	{
-		array[i] = new Dog();
-		array[i]->makeSound();
-		// std::cout << array[i]->getBrain() << std::endl;
+        if (i >= 0 && i <= 4)
+        {
+            std::cout << "======================= " << i;
+            array[i] = new Dog();
+            array[i]->makeSound();
+            std::cout << std::endl;
+        }
+        else
+        {
+            std::cout << "======================= " << i;
+            array[i] = new Cat();
+            array[i]->makeSound();
+            std::cout << std::endl;
+        }
 	}
 
-	for (int i = 5; i < 10; i++)
-		array[i] = new Cat();
+	for (int i = 9; i >= 0; --i)
+    {
+        if (i > 4)
+            std::cout << "======================= " << i << std::endl;
+        else
+            std::cout << "======================= " << i << std::endl;
 
-	for (int i = 0; i < 5; i++)
-		delete array[i];
-
-	for (int i = 5; i < 10; i++)
-		delete array[i];
-
-	// const Animal* j = new Dog();
-	// const Animal* i = new Cat();
-
-	Cat *test1;
-	test1 = new Cat();
-	Cat test3 = *test1;
-	// Cat test3(*test1);
-
-	// Cat test3;
-	// test3 = *test1;
-	delete test1;
-	std::cout << "test////" << test3.getBrain()->getIdea(0) << std::endl;
-
-	// std::cout << "test" <<test1.getBrain() << std::endl;
-	// std::cout << "test" <<test3.getBrain() << std::endl;
-
-	// delete j;
-	// delete i;
+        delete array[i];
+        
+        std::cout << std::endl;
+    }
 
 	return 0;
 }

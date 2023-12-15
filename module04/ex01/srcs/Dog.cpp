@@ -4,7 +4,7 @@
 Dog::Dog() : Animal()
 {
 	if (DEBUG)
-		std::cout << LBLUE << "Dog Derived Default Constructor Called" << RESET << std::endl;
+		std::cout << LYELLOW << "Dog Derived Default Constructor Called" << RESET << std::endl;
 
 	this->_type = "Dog";
     this->_brain = new Brain();
@@ -14,10 +14,10 @@ Dog::Dog() : Animal()
 // ----------------------------------------------------------------- Destructor
 Dog::~Dog()
 {
-	if (DEBUG)
-		std::cout << LBLUE << "Dog Derived Destructor Called" << RESET << std::endl;
-
     delete _brain;
+
+	if (DEBUG)
+		std::cout << LYELLOW << "Dog Derived Destructor Called" << RESET << std::endl;
 }
 
 
@@ -25,7 +25,7 @@ Dog::~Dog()
 Dog::Dog(const Dog& rhs) : Animal()
 {
 	if (DEBUG)
-        std::cout << LBLUE << "Dog Derived Copy Constructor Called" << RESET << std::endl;
+        std::cout << LYELLOW << "Dog Derived Copy Constructor Called" << RESET << std::endl;
 
     _brain = new Brain();
 	*this = rhs;
@@ -36,7 +36,7 @@ Dog::Dog(const Dog& rhs) : Animal()
 Dog& Dog::operator=(const Dog& rhs)
 {
 	if (DEBUG)
-		std::cout << LBLUE << "Dog Derived Destructor Called" << RESET << std::endl;
+		std::cout << LYELLOW << "Dog Derived Destructor Called" << RESET << std::endl;
 
 	if (this != &rhs)
 	{
@@ -54,7 +54,7 @@ Dog& Dog::operator=(const Dog& rhs)
 // -------------------------------------------------------------------- Methods
 void Dog::makeSound() const
 {
-    std::cout << LBLUE << "Wouf Wouf" << RESET << std::endl;
+    std::cout << std::endl << "Wouf Wouf" << std::endl;
 }
 
 

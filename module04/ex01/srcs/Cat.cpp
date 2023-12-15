@@ -1,10 +1,12 @@
 #include "Cat.hpp"
+#include <sstream>
+#include <string>
 
 // ---------------------------------------------------------------- Constructor
 Cat::Cat() : Animal()
 {
 	if (DEBUG)
-		std::cout << GREEN << "Cat Derived Default Constructor Called" << RESET << std::endl;
+		std::cout << CYAN << "Cat Derived Default Constructor Called" << RESET << std::endl;
 
 	this->_type = "Cat";
     this->_brain = new Brain();
@@ -14,10 +16,10 @@ Cat::Cat() : Animal()
 // ----------------------------------------------------------------- Destructor
 Cat::~Cat()
 {
-	if (DEBUG)
-		std::cout << GREEN << "Cat Derived Destructor Called" << RESET << std::endl << std::endl;
-
     delete _brain;
+
+	if (DEBUG)
+		std::cout << CYAN << "Cat Derived Destructor Called" << RESET << std::endl;
 }
 
 
@@ -25,7 +27,7 @@ Cat::~Cat()
 Cat::Cat(const Cat& rhs) : Animal()
 {
 	if (DEBUG)
-		std::cout << GREEN << "Cat Derived Copy Constructor Called" << RESET << std::endl;
+		std::cout << CYAN << "Cat Derived Copy Constructor Called" << RESET << std::endl;
 
     _brain = new Brain();
 	*this = rhs;
@@ -36,13 +38,16 @@ Cat::Cat(const Cat& rhs) : Animal()
 Cat& Cat::operator=(const Cat& rhs)
 {
 	if (DEBUG)
-		std::cout << GREEN << "Cat Derived Destructor Called" << RESET << std::endl;
+		std::cout << CYAN << "Cat Derived Destructor Called" << RESET << std::endl;
 
 	if (this != &rhs)
 	{
 		this->_type = rhs._type;
+
 		delete this->_brain;
+
 		this->_brain = new Brain;
+
 		for (int i = 0; i < 100; i++)
 			this->_brain->getIdea(i) = rhs._brain->getIdea(i);
 	}
@@ -54,7 +59,7 @@ Cat& Cat::operator=(const Cat& rhs)
 // -------------------------------------------------------------------- Methods
 void Cat::makeSound() const 
 {
-	std::cout << GREEN << "Meeeeooooowwww" << RESET << std::endl;
+	std::cout << std::endl << "Meeeeooooowwww" << std::endl;
 }
 
 Brain* Cat::getBrain() { return _brain; }
