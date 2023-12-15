@@ -10,6 +10,7 @@ INC_DIR			:=	./inc
 
 SRCS_DIR		:=	./srcs
 SRCS			:=	\
+					AMateria.cpp \
 					main.cpp
 SRCS			:=	$(SRCS:%=$(SRCS_DIR)/%)
 
