@@ -1,7 +1,7 @@
 ########
 # NAME #
 ########
-NAME			:=	Brain
+NAME			:=	AAnimal
 
 ###############
 # INGREDIENTS #
