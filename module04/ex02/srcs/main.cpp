@@ -4,8 +4,8 @@
 
 int main(void)
 {
-	Animal* array[10];
-    // Animal h;
+	AAnimal* array[10];
+    // AAnimal h;
 
 	for (size_t i = 0; i < 10; i++)
 	{

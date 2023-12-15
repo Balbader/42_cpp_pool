@@ -3,7 +3,7 @@
 #include <string>
 
 // ---------------------------------------------------------------- Constructor
-Cat::Cat() : Animal()
+Cat::Cat() : AAnimal()
 {
 	if (DEBUG)
 		std::cout << LBLUE << "Cat Derived Default Constructor Called" << RESET << std::endl;
@@ -24,7 +24,7 @@ Cat::~Cat()
 
 
 // ----------------------------------------------------------- Copy Constructor
-Cat::Cat(const Cat& rhs) : Animal()
+Cat::Cat(const Cat& rhs) : AAnimal()
 {
 	if (DEBUG)
 		std::cout << LBLUE << "Cat Derived Copy Constructor Called" << RESET << std::endl;

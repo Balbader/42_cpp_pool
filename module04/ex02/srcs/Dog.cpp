@@ -1,7 +1,7 @@
 #include "Dog.hpp"
 
 // ---------------------------------------------------------------- Constructor
-Dog::Dog() : Animal()
+Dog::Dog() : AAnimal()
 {
 	if (DEBUG)
 		std::cout << LYELLOW << "Dog Derived Default Constructor Called" << RESET << std::endl;
@@ -22,7 +22,7 @@ Dog::~Dog()
 
 
 // ----------------------------------------------------------- Copy Constructor
-Dog::Dog(const Dog& rhs) : Animal()
+Dog::Dog(const Dog& rhs) : AAnimal()
 {
 	if (DEBUG)
         std::cout << LYELLOW << "Dog Derived Copy Constructor Called" << RESET << std::endl;
