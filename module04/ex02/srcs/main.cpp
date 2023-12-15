@@ -5,6 +5,7 @@
 int main(void)
 {
 	Animal* array[10];
+    // Animal h;
 
 	for (size_t i = 0; i < 10; i++)
 	{
