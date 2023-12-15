@@ -1,7 +1,7 @@
 #include "Brain.hpp"
 
 // ---------------------------------------------------------------- Constructor
-Brain::Brain() : Animal()
+Brain::Brain()
 {
 	if (DEBUG)
 		std::cout << GREEN << "Brain Derived Default Constructor Called" << RESET << std::endl;
@@ -19,7 +19,7 @@ Brain::~Brain()
 
 
 // ----------------------------------------------------------- Copy Constructor
-Brain::Brain(const Brain& rhs) : Animal()
+Brain::Brain(const Brain& rhs)
 {
 	if (DEBUG)
 		std::cout << GREEN << "Brain Derived Copy Constructor Called" << RESET << std::endl;
