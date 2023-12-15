@@ -6,7 +6,7 @@
 Cat::Cat() : Animal()
 {
 	if (DEBUG)
-		std::cout << CYAN << "Cat Derived Default Constructor Called" << RESET << std::endl;
+		std::cout << LBLUE << "Cat Derived Default Constructor Called" << RESET << std::endl;
 
 	this->_type = "Cat";
     this->_brain = new Brain();
@@ -19,7 +19,7 @@ Cat::~Cat()
     delete _brain;
 
 	if (DEBUG)
-		std::cout << CYAN << "Cat Derived Destructor Called" << RESET << std::endl;
+		std::cout << LBLUE << "Cat Derived Destructor Called" << RESET << std::endl;
 }
 
 
@@ -27,7 +27,7 @@ Cat::~Cat()
 Cat::Cat(const Cat& rhs) : Animal()
 {
 	if (DEBUG)
-		std::cout << CYAN << "Cat Derived Copy Constructor Called" << RESET << std::endl;
+		std::cout << LBLUE << "Cat Derived Copy Constructor Called" << RESET << std::endl;
 
     _brain = new Brain();
 	*this = rhs;
@@ -38,7 +38,7 @@ Cat::Cat(const Cat& rhs) : Animal()
 Cat& Cat::operator=(const Cat& rhs)
 {
 	if (DEBUG)
-		std::cout << CYAN << "Cat Derived Destructor Called" << RESET << std::endl;
+		std::cout << LBLUE << "Cat Derived Destructor Called" << RESET << std::endl;
 
 	if (this != &rhs)
 	{
