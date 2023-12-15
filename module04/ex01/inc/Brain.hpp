@@ -12,7 +12,7 @@ public:
 	Brain(const Brain &);
 	Brain &operator=(const Brain &);
 
-    std::string getIdea(int);
+    std::string getIdea(int) const;
 
 protected:
     std::string ideas[100];
