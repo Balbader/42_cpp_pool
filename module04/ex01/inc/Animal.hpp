@@ -26,6 +26,4 @@ private:
 	
 };
 
-// std::ostream & operator<<(std::ostream & lhs, Animal const & rhs);
-
 #endif // !ANIMAL_HPP
