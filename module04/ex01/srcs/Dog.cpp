@@ -7,7 +7,7 @@ Dog::Dog() : Animal()
 		std::cout << LBLUE << "Dog Derived Default Constructor Called" << RESET << std::endl;
 
 	this->_type = "Dog";
-    this->brain = new Brain();
+    this->_brain = new Brain();
 }
 
 
@@ -15,7 +15,7 @@ Dog::Dog() : Animal()
 Dog::~Dog()
 {
 	if (DEBUG)
-		std::cout << LBLUE << "Dog Derived Destructor Called" << RESET << std::endl << std::endl;
+		std::cout << LBLUE << "Dog Derived Destructor Called" << RESET << std::endl;
 
 }
 

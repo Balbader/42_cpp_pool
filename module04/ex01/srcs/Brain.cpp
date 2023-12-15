@@ -5,8 +5,6 @@ Brain::Brain()
 {
 	if (DEBUG)
 		std::cout << GREEN << "Brain Derived Default Constructor Called" << RESET << std::endl;
-
-	this->_type = "Brain";
 }
 
 
@@ -35,14 +33,14 @@ Brain& Brain::operator=(const Brain& rhs)
 		std::cout << GREEN << "Brain Derived Destructor Called" << RESET << std::endl;
 
 	if (this != &rhs)
-		this->_type = rhs._type;
+	{
+		for (int i = 0; i < 100; i++)
+			this->ideas[i] = rhs.ideas[i];	
+	}
 
 	return *this;
 }
 
 
 // -------------------------------------------------------------------- Methods
-void Brain::makeSound() const 
-{
-	std::cout << GREEN << "Meeeeooooowwww" << RESET << std::endl;
-}
+std::string Brain::getIdea(int i) const { return ideas[i]; }
