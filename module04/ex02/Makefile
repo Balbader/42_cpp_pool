@@ -11,6 +11,7 @@ INC_DIR			:=	./inc
 SRCS_DIR		:=	./srcs
 SRCS			:=	\
 					Animal.cpp \
+					AAnimal.cpp \
 					Brain.cpp \
 					Cat.cpp \
 					Dog.cpp \
