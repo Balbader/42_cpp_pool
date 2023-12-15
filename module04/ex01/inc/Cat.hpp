@@ -17,9 +17,8 @@ public:
 protected:
 
 private:
+    Brain* _brain;
 	
 };
-
-// std::ostream & operator<<(std::ostream & lhs, Cat const & rhs);
 
 #endif // !CAT_HPP
