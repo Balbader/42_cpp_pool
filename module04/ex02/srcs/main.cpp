@@ -11,7 +11,7 @@ int main(void)
 	{
         std::cout << "======================= " << i;
 
-        if (i >= 0 && i <= 4)
+        if (i < 5)
             array[i] = new Dog();
         else
             array[i] = new Cat();
