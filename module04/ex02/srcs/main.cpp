@@ -9,7 +9,7 @@ int main(void)
 
 	for (size_t i = 0; i < 10; i++)
 	{
-        std::cout << "======================= " << i;
+        std::cout << "----------------------> " << i;
 
         if (i < 5)
             array[i] = new Dog();
@@ -23,7 +23,7 @@ int main(void)
 
 	for (size_t i = 0; i < 10; i++)
     {
-        std::cout << "======================= " << i << std::endl;
+        std::cout << "----------------------> " << i << std::endl;
 
         delete array[i];
 
