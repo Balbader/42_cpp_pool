@@ -3,12 +3,13 @@
 // ---------------------------------------------------------------- Constructor
 Cure::Cure() {
   if (DEBUG)
-    std::cout << YELLOW << "Cure Base Constructor Called" << RESET << std::endl;
+    std::cout << YELLOW << "Cure Derived Constructor Called" << RESET
+              << std::endl;
 }
 
 Cure::Cure(std::string type) {
   if (DEBUG)
-    std::cout << YELLOW << "Cure Base Name Constructor Called" << RESET
+    std::cout << YELLOW << "Cure Derived Name Constructor Called" << RESET
               << std::endl;
 
   this->type_ = type;
@@ -17,13 +18,14 @@ Cure::Cure(std::string type) {
 // ----------------------------------------------------------------- Destructor
 Cure::~Cure() {
   if (DEBUG)
-    std::cout << YELLOW << "Cure Base Destructor Called" << RESET << std::endl;
+    std::cout << YELLOW << "Cure Derived Destructor Called" << RESET
+              << std::endl;
 }
 
 // ----------------------------------------------------------- Copy Constructor
 // Cure::Cure(const Cure &rhs) {
 //   if (DEBUG)
-//     std::cout << YELLOW << "Cure Base Copy Constructor Called" << RESET
+//     std::cout << YELLOW << "Cure Derived Copy Constructor Called" << RESET
 //               << std::endl;
 
 //   *this = rhs;
@@ -32,7 +34,7 @@ Cure::~Cure() {
 // ------------------------------------------------------------------- Overload
 Cure &Cure::operator=(const Cure &rhs) {
   if (DEBUG)
-    std::cout << YELLOW << "Cure Base Assignment Operator Called" << RESET
+    std::cout << YELLOW << "Cure Derived Assignment Operator Called" << RESET
               << std::endl;
 
   if (this != &rhs)
