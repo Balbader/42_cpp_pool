@@ -6,23 +6,24 @@
 
 #define DEBUG 1
 
+class ICharacter;
+
 class AMateria {
 public:
-    AMateria();
-    ~AMateria();
+  AMateria(std::string const &);
+  virtual ~AMateria();
 
-    AMateria(std::string const &);
+  AMateria(const AMateria &);
+  AMateria &operator=(const AMateria &);
 
-    AMateria(const AMateria &);
-    AMateria &operator=(const AMateria &);
+  virtual AMateria* clone() const = 0;
+  virtual void use(ICharacter &);
 
-    std::string const& getType() const;
-
-    virtual AMateria* clone() const = 0;
-    // virtual void use(ICharacter &);
+  std::string const& getType() const;
 
 protected:
-    std::string type_;
+  AMateria();
+  std::string type_;
 
 private:
     
