@@ -15,15 +15,12 @@ int main(void) {
       array[i] = new Cat();
 
     array[i]->makeSound();
-
     std::cout << std::endl;
   }
 
   for (size_t i = 0; i < 10; i++) {
     std::cout << "----------------------> " << i << std::endl;
-
     delete array[i];
-
     std::cout << std::endl;
   }
 
