@@ -5,7 +5,7 @@
 // ---------------------------------------------------------------- Constructor
 Brain::Brain() {
   if (DEBUG)
-    std::cout << LRED << "Brain Derived Default Constructor Called" << RESET
+    std::cout << RED << "Brain Derived Default Constructor Called" << RESET
               << std::endl;
 
   for (int i = 0; i < 100; ++i) {
@@ -21,14 +21,13 @@ Brain::Brain() {
 // ----------------------------------------------------------------- Destructor
 Brain::~Brain() {
   if (DEBUG)
-    std::cout << LRED << "Brain Derived Destructor Called" << RESET
-              << std::endl;
+    std::cout << RED << "Brain Derived Destructor Called" << RESET << std::endl;
 }
 
 // ----------------------------------------------------------- Copy Constructor
 Brain::Brain(const Brain &rhs) {
   if (DEBUG)
-    std::cout << LRED << "Brain Derived Copy Constructor Called" << RESET
+    std::cout << RED << "Brain Derived Copy Constructor Called" << RESET
               << std::endl;
 
   *this = rhs;
@@ -37,8 +36,7 @@ Brain::Brain(const Brain &rhs) {
 // ------------------------------------------------------------------- Overload
 Brain &Brain::operator=(const Brain &rhs) {
   if (DEBUG)
-    std::cout << LRED << "Brain Derived Destructor Called" << RESET
-              << std::endl;
+    std::cout << RED << "Brain Derived Destructor Called" << RESET << std::endl;
 
   if (this != &rhs) {
     for (int i = 0; i < 10; i++)
