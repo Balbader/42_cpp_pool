@@ -8,7 +8,6 @@ Cure::Cure() : AMateria("cure") {
               << std::endl;
 }
 
-
 // ----------------------------------------------------------------- Destructor
 Cure::~Cure() {
   if (DEBUG)
@@ -16,16 +15,15 @@ Cure::~Cure() {
               << std::endl;
 }
 
-
 // ----------------------------------------------------------- Copy Constructor
-Cure::Cure(const Cure &rhs) { // FIX: add ': AMateria(rhs)' instead of *this = rhs ??
+Cure::Cure(const Cure &rhs)
+    : AMateria("cure") { // FIX: add ': AMateria(rhs)' instead of *this = rhs ??
   if (DEBUG)
     std::cout << YELLOW << "Cure Derived Copy Constructor Called" << RESET
               << std::endl;
 
   *this = rhs;
 }
-
 
 // ------------------------------------------------------------------- Overload
 Cure &Cure::operator=(const Cure &rhs) {
@@ -39,11 +37,8 @@ Cure &Cure::operator=(const Cure &rhs) {
   return *this;
 }
 
-
 // -------------------------------------------------------------------- Methods
-AMateria *Cure::clone() const {
-  return new Cure();
-}
+AMateria *Cure::clone() const { return new Cure(); }
 
 void Cure::use(ICharacter &target) {
   std::cout << "* heals" << target.getName() << "'s wounds *" << std::endl;
