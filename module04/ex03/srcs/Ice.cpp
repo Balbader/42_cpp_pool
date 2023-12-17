@@ -8,24 +8,21 @@ Ice::Ice() : AMateria("ice") {
               << std::endl;
 }
 
-
 // ----------------------------------------------------------------- Destructor
 Ice::~Ice() {
   if (DEBUG)
-    std::cout << LBLUE << "Ice Derived Destructor Called" << RESET
-              << std::endl;
+    std::cout << LBLUE << "Ice Derived Destructor Called" << RESET << std::endl;
 }
 
-
 // ----------------------------------------------------------- Copy Constructor
-Ice::Ice(const Ice &rhs) { // FIX: add ': AMateria(rhs)' instead of *this = rhs ??
+Ice::Ice(const Ice &rhs)
+    : AMateria(rhs) { // FIX: add ': AMateria(rhs)' instead of *this = rhs ??
   if (DEBUG)
     std::cout << LBLUE << "Ice Derived Copy Constructor Called" << RESET
               << std::endl;
 
-  *this = rhs;
+  // *this = rhs;
 }
-
 
 // ------------------------------------------------------------------- Overload
 Ice &Ice::operator=(const Ice &rhs) {
@@ -39,12 +36,10 @@ Ice &Ice::operator=(const Ice &rhs) {
   return *this;
 }
 
-
 // -------------------------------------------------------------------- Methods
-AMateria *Ice::clone() const {
-  return new Ice();
-}
+AMateria *Ice::clone() const { return new Ice(); }
 
 void Ice::use(ICharacter &target) {
-  std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
+  std::cout << "* shoots an ice bolt at " << target.getName() << " *"
+            << std::endl;
 }
