@@ -6,9 +6,7 @@
 
 #define DEBUG 1
 
-class AMateria
-{
-
+class AMateria {
 public:
     AMateria();
     ~AMateria();
