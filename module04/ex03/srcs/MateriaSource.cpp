@@ -24,7 +24,7 @@ MateriaSource::MateriaSource(const MateriaSource &rhs) {
 }
 
 // ------------------------------------------------------------------- Overload
-MateriaSource &MateriaSource::operator=(const MateriaSource *rhs) {
+MateriaSource &MateriaSource::operator=(const MateriaSource &rhs) {
   if (DEBUG)
     std::cout << MAGENTA << "MateriaSource Derived Assignment Operator Called" << RESET << std::endl;
 
@@ -50,4 +50,13 @@ void MateriaSource::learnMateria(AMateria *materia) {
       }
     }
   }
+}
+
+AMateria *MateriaSource::createMateria(const std::string &type) {
+  for (int i = 0; i < 4; ++i) {
+    if (inventory[i] != NULL)
+      if (inventory[i]->getType() == type)
+        return inventory[i]->clone();
+  }
+  return NULL;
 }
