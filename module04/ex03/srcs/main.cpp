@@ -12,27 +12,27 @@ int main() {
   src->learnMateria(new Ice());
   std::cout << std::endl;
 
-  // src->learnMateria(new Cure());
-  // std::cout << std::endl;
+  src->learnMateria(new Cure());
+  std::cout << std::endl;
 
-  // ICharacter *me = new Character("me");
-  // AMateria *tmp;
-  // tmp = src->createMateria("ice");
-  // std::cout << std::endl;
-  // me->equip(tmp);
-  // std::cout << std::endl;
-  // tmp = src->createMateria("cure");
-  // std::cout << std::endl;
-  // me->equip(tmp);
+  ICharacter *me = new Character("me");
+  AMateria *tmp;
+  tmp = src->createMateria("ice");
+  std::cout << std::endl;
+  me->equip(tmp);
+  tmp = src->createMateria("cure");
+  me->equip(tmp);
 
-  // ICharacter *bob = new Character("bob");
-  // std::cout << ORANGE << bob->getName() << RESET << " instance created." << std::endl;
-  // me->use(0, *bob);
-  // me->use(1, *bob);
+  ICharacter *bob = new Character("bob");
+  std::cout << ORANGE << bob->getName() << RESET << " instance created."
+            << std::endl;
+  me->use(0, *bob);
+  me->use(1, *bob);
 
-  // delete bob;
-  // delete me;
-  // std::cout << std::endl;
+  delete bob;
+  std::cout << std::endl;
+  delete me;
+  std::cout << std::endl;
   delete src;
 
   return 0;
