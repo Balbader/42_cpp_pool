@@ -45,7 +45,9 @@ AMateria &AMateria::operator=(const AMateria &rhs) {
 }
 
 // -------------------------------------------------------------------- Methods
-void AMateria::use(ICharacter &target) { std::cout << target.getName() << std::endl; }
+void AMateria::use(ICharacter &target) {
+  std::cout << target.getName() << std::endl;
+}
 
 // --------------------------------------------------------------------- Getter
 std::string const &AMateria::getType() const { return this->type_; }
