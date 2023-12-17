@@ -4,9 +4,9 @@
 #include "ICharacter.hpp"
 #include <iostream>
 
-class Character {
+class Character : public ICharacter {
 public:
-  Character(std::string);
+  Character(std::string const &);
   virtual ~Character();
 
   Character(const Character &);
