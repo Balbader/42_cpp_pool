@@ -1,4 +1,5 @@
 #include "Character.hpp"
+#include "ICharacter.hpp"
 
 // ---------------------------------------------------------------- Constructor
 Character::Character() {
@@ -34,8 +35,9 @@ Character::Character(const Character &rhs) {
   *this = rhs;
 }
 
-/
-
+// ------------------------------------------------------------------- Overload
+Character &Character::operator=(const Character &rhs) {
+  if (DEBUG)
     std::cout << ORANGE << "Character Derived Assignment Operator Called"
               << RESET << std::endl;
 
@@ -52,11 +54,11 @@ Character::Character(const Character &rhs) {
 }
 
 // -------------------------------------------------------------------- Methods
-/
+//
+void Character::equip(AMateria *m) {
 
   for (int i = 0; i < 4; ++i) {
-    if (inventory[i] == NULL &&
-        inventory[i] == m) // FIX: should this be || instead of && ?
+    if (inventory[i] == NULL && inventory[i] == m) // FIX: should this be || instead of && ?
       return;
   }
 
