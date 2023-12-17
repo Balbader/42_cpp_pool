@@ -5,7 +5,7 @@
 
 class ICharacter {
 public:
-  virtual ICharacter();
+  ICharacter();
   virtual ~ICharacter();
 
   virtual void equip(AMateria *) = 0;
