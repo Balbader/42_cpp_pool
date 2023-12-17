@@ -7,7 +7,7 @@ int main(void) {
   // AAnimal h;
 
   for (size_t i = 0; i < 10; i++) {
-    std::cout << "----------------------> " << i;
+    std::cout << "----------------------> " << CYAN << i << RESET;
 
     if (i < 5)
       array[i] = new Dog();
@@ -19,7 +19,7 @@ int main(void) {
   }
 
   for (size_t i = 0; i < 10; i++) {
-    std::cout << "----------------------> " << i << std::endl;
+    std::cout << "----------------------> " << CYAN << i << RESET << std::endl;
     delete array[i];
     std::cout << std::endl;
   }
