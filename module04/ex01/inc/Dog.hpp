@@ -5,20 +5,18 @@
 #include "Brain.hpp"
 
 class Dog : public Animal {
-
 public:
-	Dog();
-    ~Dog();
+  Dog();
+  ~Dog();
 
-	Dog(const Dog &);
-	Dog &operator=(const Dog &);
+  Dog(const Dog &);
+  Dog &operator=(const Dog &);
 
-	void makeSound() const;
-	Brain* getBrain(void);
+  void makeSound() const;
+  Brain *getBrain(void);
 
 private:
-    Brain* _brain;
-	
+  Brain *_brain;
 };
 
 #endif // !DOG_HPP

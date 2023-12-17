@@ -8,22 +8,18 @@
 #define DEBUG 1
 
 class Animal {
-
 public:
-	Animal();
-	virtual ~Animal();
+  Animal();
+  virtual ~Animal();
 
-	Animal(const Animal &);
-	Animal &operator=(const Animal &);
+  Animal(const Animal &);
+  Animal &operator=(const Animal &);
 
-	virtual void makeSound() const;
-	std::string getType() const;
+  virtual void makeSound() const;
+  std::string getType() const;
 
 protected:
-	std::string _type;
-
-private:
-	
+  std::string _type;
 };
 
 #endif // !ANIMAL_HPP

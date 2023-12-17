@@ -3,63 +3,55 @@
 #include <string>
 
 // ---------------------------------------------------------------- Constructor
-Cat::Cat() : Animal()
-{
-	if (DEBUG)
-		std::cout << LBLUE << "Cat Derived Default Constructor Called" << RESET << std::endl;
+Cat::Cat() : Animal() {
+  if (DEBUG)
+    std::cout << LBLUE << "Cat Derived Default Constructor Called" << RESET
+              << std::endl;
 
-	this->_type = "Cat";
-    this->_brain = new Brain();
+  this->_type = "Cat";
+  this->_brain = new Brain();
 }
-
 
 // ----------------------------------------------------------------- Destructor
-Cat::~Cat()
-{
-    delete _brain;
+Cat::~Cat() {
+  delete _brain;
 
-	if (DEBUG)
-		std::cout << LBLUE << "Cat Derived Destructor Called" << RESET << std::endl;
+  if (DEBUG)
+    std::cout << LBLUE << "Cat Derived Destructor Called" << RESET << std::endl;
 }
-
 
 // ----------------------------------------------------------- Copy Constructor
-Cat::Cat(const Cat& rhs) : Animal()
-{
-	if (DEBUG)
-		std::cout << LBLUE << "Cat Derived Copy Constructor Called" << RESET << std::endl;
+Cat::Cat(const Cat &rhs) : Animal() {
+  if (DEBUG)
+    std::cout << LBLUE << "Cat Derived Copy Constructor Called" << RESET
+              << std::endl;
 
-    _brain = new Brain();
-	*this = rhs;
+  _brain = new Brain();
+  *this = rhs;
 }
-
 
 // ------------------------------------------------------------------- Overload
-Cat& Cat::operator=(const Cat& rhs)
-{
-	if (DEBUG)
-		std::cout << LBLUE << "Cat Derived Destructor Called" << RESET << std::endl;
+Cat &Cat::operator=(const Cat &rhs) {
+  if (DEBUG)
+    std::cout << LBLUE << "Cat Derived Destructor Called" << RESET << std::endl;
 
-	if (this != &rhs)
-	{
-		this->_type = rhs._type;
+  if (this != &rhs) {
+    this->_type = rhs._type;
 
-		delete this->_brain;
+    delete this->_brain;
 
-		this->_brain = new Brain;
+    this->_brain = new Brain;
 
-		for (int i = 0; i < 100; i++)
-			this->_brain->getIdea(i) = rhs._brain->getIdea(i);
-	}
+    for (int i = 0; i < 100; i++)
+      this->_brain->getIdea(i) = rhs._brain->getIdea(i);
+  }
 
-	return *this;
+  return *this;
 }
-
 
 // -------------------------------------------------------------------- Methods
-void Cat::makeSound() const 
-{
-	std::cout << std::endl << "Meeeeooooowwww" << std::endl;
+void Cat::makeSound() const {
+  std::cout << std::endl << "Meeeeooooowwww" << std::endl;
 }
 
-Brain* Cat::getBrain() { return _brain; }
+Brain *Cat::getBrain() { return _brain; }

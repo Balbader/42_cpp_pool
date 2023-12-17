@@ -1,7 +1,7 @@
 #ifndef COLORS_HPP
 #define COLORS_HPP
 
-// COLOR 
+// COLOR
 #define BLACK "\033[30m"
 #define RED "\e[38;5;196m"
 #define GREEN "\033[32m"

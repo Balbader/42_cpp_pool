@@ -1,33 +1,28 @@
-#include "Dog.hpp"
 #include "Cat.hpp"
+#include "Dog.hpp"
 #include "WrongCat.hpp"
 
-int main(void)
-{
-	Animal* array[10];
+int main(void) {
 
-	for (size_t i = 0; i < 10; i++)
-	{
-        std::cout << "======================= " << i;
+  Animal *array[10];
 
-        if (i >= 0 && i <= 4)
-            array[i] = new Dog();
-        else
-            array[i] = new Cat();
+  for (size_t i = 0; i < 10; i++) {
+    std::cout << "======================= " << i;
 
-        array[i]->makeSound();
+    if (i <= 4)
+      array[i] = new Dog();
+    else
+      array[i] = new Cat();
 
-        std::cout << std::endl;
-	}
+    array[i]->makeSound();
+    std::cout << std::endl;
+  }
 
-	for (size_t i = 0; i < 10; i++)
-    {
-        std::cout << "======================= " << i << std::endl;
+  for (size_t i = 0; i < 10; i++) {
+    std::cout << "======================= " << i << std::endl;
+    delete array[i];
+    std::cout << std::endl;
+  }
 
-        delete array[i];
-
-        std::cout << std::endl;
-    }
-
-	return 0;
+  return 0;
 }
