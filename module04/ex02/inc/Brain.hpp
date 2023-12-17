@@ -4,21 +4,19 @@
 #include "AAnimal.hpp"
 
 class Brain {
-
 public:
-	Brain();
-	~Brain();
+  Brain();
+  ~Brain();
 
-	Brain(const Brain &);
-	Brain &operator=(const Brain &);
+  Brain(const Brain &);
+  Brain &operator=(const Brain &);
 
-    std::string getIdea(int) const;
+  std::string getIdea(int) const;
 
 protected:
-    std::string ideas[100];
+  std::string ideas[100];
 
 private:
-	
 };
 
 #endif // !BRAIN_HPP

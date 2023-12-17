@@ -1,42 +1,39 @@
 #include "WrongCat.hpp"
 
 // ---------------------------------------------------------------- Constructor
-WrongCat::WrongCat() : WrongAnimal()
-{
-	if (DEBUG)
-		std::cout << YELLOW << "WrongCat Derived Default Constructor Called" << RESET << std::endl;
+WrongCat::WrongCat() : WrongAnimal() {
+  if (DEBUG)
+    std::cout << YELLOW << "WrongCat Derived Default Constructor Called"
+              << RESET << std::endl;
 
-	this->_type = "WrongCat";
+  this->_type = "WrongCat";
 }
-
 
 // ----------------------------------------------------------------- Destructor
-WrongCat::~WrongCat()
-{
-	if (DEBUG)
-		std::cout << YELLOW << "WrongCat Derived Destructor Called" << RESET << std::endl << std::endl;
+WrongCat::~WrongCat() {
+  if (DEBUG)
+    std::cout << YELLOW << "WrongCat Derived Destructor Called" << RESET
+              << std::endl
+              << std::endl;
 }
-
 
 // ----------------------------------------------------------- Copy Constructor
-WrongCat::WrongCat(const WrongCat& rhs) : WrongAnimal()
-{
-	if (DEBUG)
-		std::cout << YELLOW << "WrongCat Derived Copy Constructor Called" << RESET << std::endl;
+WrongCat::WrongCat(const WrongCat &rhs) : WrongAnimal() {
+  if (DEBUG)
+    std::cout << YELLOW << "WrongCat Derived Copy Constructor Called" << RESET
+              << std::endl;
 
-	*this = rhs;
+  *this = rhs;
 }
 
-
-
 // ------------------------------------------------------------------- Overload
-WrongCat& WrongCat::operator=(const WrongCat& rhs)
-{
-	if (DEBUG)
-		std::cout << YELLOW << "WrongCat Derived Destructor Called" << RESET << std::endl;
+WrongCat &WrongCat::operator=(const WrongCat &rhs) {
+  if (DEBUG)
+    std::cout << YELLOW << "WrongCat Derived Destructor Called" << RESET
+              << std::endl;
 
-	if (this != &rhs)
-		this->_type = rhs._type;
+  if (this != &rhs)
+    this->_type = rhs._type;
 
-	return *this;
+  return *this;
 }

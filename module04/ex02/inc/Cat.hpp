@@ -5,21 +5,18 @@
 #include "Brain.hpp"
 
 class Cat : public AAnimal {
-
 public:
-	Cat();
-	Cat(const Cat &);
-	Cat &operator=(const Cat &);
-	~Cat();
+  Cat();
+  Cat(const Cat &);
+  Cat &operator=(const Cat &);
+  ~Cat();
 
-	void makeSound() const;
-	Brain* getBrain(void);
+  void makeSound() const;
+  Brain *getBrain(void);
 
 protected:
-
 private:
-    Brain* _brain;
-	
+  Brain *_brain;
 };
 
 #endif // !CAT_HPP

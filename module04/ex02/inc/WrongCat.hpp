@@ -4,16 +4,14 @@
 #include "WrongAnimal.hpp"
 
 class WrongCat : public WrongAnimal {
-
 public:
-	WrongCat();
-	~WrongCat();
+  WrongCat();
+  ~WrongCat();
 
-	WrongCat(const WrongCat &);
-	WrongCat &operator=(const WrongCat &);
+  WrongCat(const WrongCat &);
+  WrongCat &operator=(const WrongCat &);
 
 private:
-	
 };
 
 #endif // !WRONGCAT_HPP
