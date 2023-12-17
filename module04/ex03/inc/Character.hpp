@@ -6,7 +6,7 @@
 
 class Character {
 public:
-  Character();
+  Character(std::string);
   virtual ~Character();
 
   Character(const Character &);
@@ -17,6 +17,9 @@ public:
   virtual void use(int, ICharacter &);
 
   const std::string &getName() const;
+
+protected:
+  Character();
 
 private:
   std::string _name;
