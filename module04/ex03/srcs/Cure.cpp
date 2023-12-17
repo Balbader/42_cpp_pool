@@ -1,19 +1,13 @@
 #include "Cure.hpp"
+#include "ICharacter.hpp"
 
 // ---------------------------------------------------------------- Constructor
-Cure::Cure() {
+Cure::Cure() : AMateria("cure") {
   if (DEBUG)
     std::cout << YELLOW << "Cure Derived Constructor Called" << RESET
               << std::endl;
 }
 
-Cure::Cure(std::string type) {
-  if (DEBUG)
-    std::cout << YELLOW << "Cure Derived Name Constructor Called" << RESET
-              << std::endl;
-
-  this->type_ = type;
-}
 
 // ----------------------------------------------------------------- Destructor
 Cure::~Cure() {
@@ -22,14 +16,16 @@ Cure::~Cure() {
               << std::endl;
 }
 
-// ----------------------------------------------------------- Copy Constructor
-// Cure::Cure(const Cure &rhs) {
-//   if (DEBUG)
-//     std::cout << YELLOW << "Cure Derived Copy Constructor Called" << RESET
-//               << std::endl;
 
-//   *this = rhs;
-// }
+// ----------------------------------------------------------- Copy Constructor
+Cure::Cure(const Cure &rhs) { // FIX: add ': AMateria(rhs)' instead of *this = rhs ??
+  if (DEBUG)
+    std::cout << YELLOW << "Cure Derived Copy Constructor Called" << RESET
+              << std::endl;
+
+  *this = rhs;
+}
+
 
 // ------------------------------------------------------------------- Overload
 Cure &Cure::operator=(const Cure &rhs) {
@@ -43,5 +39,12 @@ Cure &Cure::operator=(const Cure &rhs) {
   return *this;
 }
 
-// --------------------------------------------------------------------- Getter
-// std::string const &Cure::getType() const { return this->type_; }
+
+// -------------------------------------------------------------------- Methods
+AMateria *Cure::clone() const {
+  return new Cure();
+}
+
+void Cure::use(ICharacter &target) {
+  std::cout << "* heals" << target.getName() << "'s wounds *" << std::endl;
+}

@@ -15,12 +15,17 @@ Character::Character(std::string const &name) {
   this->_name = name;
 }
 
+
 // ----------------------------------------------------------------- Destructor
 Character::~Character() {
   if (DEBUG)
     std::cout << ORANGE << "Character Derived Destructor Called" << RESET
               << std::endl;
+
+  for (int i = 0; i < 4; i++)
+    delete inventory[i];
 }
+
 
 // ----------------------------------------------------------- Copy Constructor
 Character::Character(const Character &rhs) {
@@ -31,6 +36,7 @@ Character::Character(const Character &rhs) {
   *this = rhs;
 }
 
+
 // ------------------------------------------------------------------- Overload
 Character &Character::operator=(const Character &rhs) {
   if (DEBUG)
@@ -38,6 +44,7 @@ Character &Character::operator=(const Character &rhs) {
               << RESET << std::endl;
 
   if (this != &rhs) {
+
     for (int i = 0; i < 4; i++)
       delete inventory[i];
 
@@ -48,11 +55,31 @@ Character &Character::operator=(const Character &rhs) {
   return *this;
 }
 
-// -------------------------------------------------------------------- Methods
-// virtual void use(ICharacter &)
-// {
 
-// }
+// -------------------------------------------------------------------- Methods
+// 
+void Character::equip(AMateria *m) {
+
+  for (int i = 0; i < 4; ++i) {
+    if (inventory[i] == NULL && inventory[i] == m) //FIX: should this be || instead of && ?
+      return;
+  }
+
+  for (int i = 0; i < 4; ++i) {
+    if (inventory[i] != NULL)
+      inventory[i] = m;
+  }
+}
+void Character::unequip(int index) {
+  if (inventory[index] != NULL)
+    inventory[index] = NULL;
+}
+
+void Character::use(int index, ICharacter &target) {
+  if (inventory[index] != NULL)
+    inventory[index]->use(target);
+}
+
 
 // --------------------------------------------------------------------- Getter
-std::string const &Character::getType() const { return this->type_; }
+std::string const &Character::getName() const { return this->_name; }
