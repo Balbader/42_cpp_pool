@@ -16,17 +16,14 @@ public:
   AMateria(const AMateria &);
   AMateria &operator=(const AMateria &);
 
-  virtual AMateria* clone() const = 0;
+  virtual AMateria *clone() const = 0;
   virtual void use(ICharacter &);
 
-  std::string const& getType() const;
+  std::string const &getType() const;
 
 protected:
   AMateria();
   std::string type_;
-
-private:
-    
 };
 
 #endif // !AMATERIA_HPP

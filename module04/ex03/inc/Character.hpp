@@ -2,6 +2,7 @@
 #define CHARACTER_HPP
 
 #include "ICharacter.hpp"
+#include <iostream>
 
 class Character {
 public:
@@ -11,9 +12,9 @@ public:
   Character(const Character &);
   Character &operator=(const Character &);
 
-  virtual void equip(AMateria*);
+  virtual void equip(AMateria *);
   virtual void unequip(int);
-  virtual void use(int, ICharacter&);
+  virtual void use(int, ICharacter &);
 
   const std::string &getName() const;
 
