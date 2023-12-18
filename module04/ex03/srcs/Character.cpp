@@ -12,8 +12,6 @@ Character::Character(std::string const &name) : _name(name) {
   if (DEBUG)
     std::cout << ORANGE << "Character Derived Name Constructor Called" << RESET
               << std::endl;
-
-  // this->_name = name;
 }
 
 // ----------------------------------------------------------------- Destructor
