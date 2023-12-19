@@ -48,7 +48,6 @@ Character &Character::operator=(const Character &rhs) {
   if (this != &rhs) {
 
     this->name_ = rhs.getName();
-    this->name_ = rhs.getName();
 
     for (int i = 0; i < 4; ++i)
       inventory_[i] = rhs.inventory_[i]->clone();
@@ -56,9 +55,7 @@ Character &Character::operator=(const Character &rhs) {
   return *this;
 }
 
-// --------------------------------------------------------------------
-// Methods
-//
+// ----------------------------------------------------------------- // Methods
 void Character::equip(AMateria *m) {
 
   for (int i = 0; i < 4; ++i) {
@@ -81,8 +78,7 @@ void Character::use(int i, ICharacter &target) {
     inventory_[i]->use(target);
 }
 
-// ---------------------------------------------------------------------
-// Getter
+// ------------------------------------------------------------------// Getter
 std::string const &Character::getName() const { return this->name_; }
 
 AMateria **Character::getInventory() const { return (AMateria **)inventory_; }

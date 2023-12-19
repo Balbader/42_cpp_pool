@@ -49,9 +49,9 @@ MateriaSource &MateriaSource::operator=(const MateriaSource &rhs) {
 // -------------------------------------------------------------------- Methods
 void MateriaSource::learnMateria(AMateria *inventory) {
   if (inventory) {
-    for (int i = 0; i < 4; i++) {
-      inventory_[i] = inventory->clone();
-    }
+    // for (int i = 0; i < 4; i++) {
+    inventory_[0] = inventory->clone();
+    // }
   }
 }
 
