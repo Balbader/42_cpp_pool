@@ -7,40 +7,47 @@
 int main() {
 
   IMateriaSource *src1 = new MateriaSource();
-  std::cout << std::endl;
-
   src1->learnMateria(new Ice());
   std::cout << std::endl;
 
   IMateriaSource *src2 = new MateriaSource();
-  std::cout << std::endl;
-
   src2->learnMateria(new Cure());
   std::cout << std::endl;
 
-  ICharacter *me = new Character("me");
+  AMateria *tmp1;
+  tmp1 = src1->createMateria("ice");
+  std::cout << "tmp type : " << LBLUE << tmp1->getType() << RESET << std::endl;
   std::cout << std::endl;
 
-  AMateria *tmp;
-  tmp = src1->createMateria("ice");
-  std::cout << "tmp type : " << LBLUE << tmp->getType() << RESET << std::endl;
-  me->equip(tmp);
+  AMateria *tmp2;
+  tmp2 = src2->createMateria("cure");
+  std::cout << "tmp type : " << ORANGE << tmp2->getType() << RESET << std::endl;
   std::cout << std::endl;
 
-  tmp = src2->createMateria("cure");
-  std::cout << "tmp type : " << ORANGE << tmp->getType() << RESET << std::endl;
-  me->equip(tmp);
-  std::cout << std::endl;
+  ICharacter *jim = new Character("Jim");
+  std::cout << CYAN << jim->getName() << RESET << " instance created."
+            << std::endl
+            << std::endl;
 
   ICharacter *bob = new Character("bob");
   std::cout << CYAN << bob->getName() << RESET << " instance created."
+            << std::endl
             << std::endl;
 
-  // me->use(0, *bob);
-  // me->use(1, *bob);
+  jim->equip(tmp1);
+  jim->use(0, *bob);
+
+  bob->equip(tmp2);
+  bob->use(1, *jim);
 
   delete bob;
-  delete me;
+  delete jim;
+  std::cout << std::endl;
+
+  delete tmp1;
+  std::cout << std::endl;
+  delete tmp2;
+
   delete src1;
   delete src2;
 

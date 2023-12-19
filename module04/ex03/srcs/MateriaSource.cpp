@@ -10,8 +10,8 @@ MateriaSource::MateriaSource() {
 // ----------------------------------------------------------------- Destructor
 MateriaSource::~MateriaSource() {
   if (DEBUG)
-    std::cout << MAGENTA << "MateriaSource Derived Destructor Called" << RESET
-              << std::endl
+    std::cout << std::endl
+              << MAGENTA << "MateriaSource Derived Destructor Called" << RESET
               << std::endl;
 
   for (int i = 0; i < 4; i++) {

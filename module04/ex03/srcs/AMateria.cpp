@@ -18,7 +18,6 @@ AMateria::AMateria(std::string const &type) : type_(type) {
 AMateria::~AMateria() {
   if (DEBUG)
     std::cout << LGREEN << "AMateria Base Destructor Called" << RESET
-              << std::endl
               << std::endl;
 }
 
@@ -45,7 +44,8 @@ AMateria &AMateria::operator=(const AMateria &rhs) {
 
 // -------------------------------------------------------------------- Methods
 void AMateria::use(ICharacter &target) {
-  std::cout << target.getName() << std::endl;
+  std::cout << RED << target.getName() << " is being used :(" << RESET
+            << std::endl;
 }
 
 // --------------------------------------------------------------------- Getter
