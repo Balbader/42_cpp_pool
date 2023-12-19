@@ -21,17 +21,12 @@ int main() {
   // ICharacter *me = new Character("me");
   // std::cout << std::endl;
 
-  // ICharacter *you = new Character("you");
-  // std::cout << std::endl;
-
   // AMateria *tmp;
   // tmp = src1->createMateria("ice");
   // std::cout << "tmp type : " << LBLUE << tmp->getType() << RESET <<
   // std::endl;
 
   // me->equip(tmp);
-
-  // me->use(20, *you);
 
   // std::cout << std::endl;
 
