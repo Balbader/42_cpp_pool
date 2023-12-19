@@ -8,6 +8,8 @@ public:
   Ice();
   virtual ~Ice();
 
+  Ice(std::string const &);
+
   Ice(const Ice &);
   Ice &operator=(const Ice &);
 
