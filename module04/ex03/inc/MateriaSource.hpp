@@ -15,7 +15,7 @@ public:
   virtual AMateria *createMateria(std::string const &type);
 
 private:
-  AMateria *inventory[4];
+  AMateria *inventory_[4];
 };
 
 #endif // !MATERIASOURCE_HPP
