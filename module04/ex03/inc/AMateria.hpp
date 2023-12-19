@@ -2,6 +2,8 @@
 #define AMATERIA_HPP
 
 #include "colors.hpp"
+
+#include <cstring>
 #include <iostream>
 
 #define DEBUG 1
