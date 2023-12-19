@@ -36,8 +36,8 @@ MateriaSource &MateriaSource::operator=(const MateriaSource &rhs) {
 
   if (this != &rhs) {
 
-    // for (int i = 0; i < 4; i++)
-    //   delete inventory_[i];
+    for (int i = 0; i < 4; i++)
+      delete inventory_[i];
 
     for (int i = 0; i < 4; i++)
       this->inventory_[i] = rhs.inventory_[i]->clone();
