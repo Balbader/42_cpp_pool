@@ -3,27 +3,26 @@
 
 #include "ICharacter.hpp"
 
-#include <cstring>
 #include <iostream>
+#include <string>
 
 class Character : public ICharacter {
 public:
   Character(std::string const &);
-  virtual ~Character();
+  ~Character();
 
   Character(const Character &);
   Character &operator=(const Character &);
 
-  virtual void equip(AMateria *);
-  virtual void unequip(int);
-  virtual void use(int, ICharacter &);
+  void equip(AMateria *);
+  void unequip(int);
+  void use(int, ICharacter &);
 
   const std::string &getName() const;
 
 protected:
   Character();
-
-private:
+  AMateria **getInventory() const;
   std::string name_;
   AMateria *inventory_[4];
 };

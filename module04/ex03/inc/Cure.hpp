@@ -6,13 +6,13 @@
 class Cure : public AMateria {
 public:
   Cure();
-  virtual ~Cure();
+  ~Cure();
 
   Cure(const Cure &);
   Cure &operator=(const Cure &);
 
-  virtual AMateria *clone() const;
-  virtual void use(ICharacter &);
+  AMateria *clone() const;
+  void use(ICharacter &);
 };
 
 #endif // !CURE_HPP

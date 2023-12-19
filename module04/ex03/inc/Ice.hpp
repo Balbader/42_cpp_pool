@@ -6,15 +6,15 @@
 class Ice : public AMateria {
 public:
   Ice();
-  virtual ~Ice();
+  ~Ice();
 
   Ice(std::string const &);
 
   Ice(const Ice &);
   Ice &operator=(const Ice &);
 
-  virtual AMateria *clone() const;
-  virtual void use(ICharacter &);
+  AMateria *clone() const;
+  void use(ICharacter &);
 };
 
 #endif // !ICE_HPP

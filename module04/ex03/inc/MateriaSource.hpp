@@ -11,8 +11,8 @@ public:
   MateriaSource(const MateriaSource &);
   MateriaSource &operator=(const MateriaSource &);
 
-  virtual void learnMateria(AMateria *materia);
-  virtual AMateria *createMateria(std::string const &type);
+  virtual void learnMateria(AMateria *);
+  virtual AMateria *createMateria(std::string const &);
 
 private:
   AMateria *inventory_[4];
