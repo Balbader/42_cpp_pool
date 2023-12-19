@@ -37,12 +37,9 @@ Cure &Cure::operator=(const Cure &rhs) {
 // -------------------------------------------------------------------- Methods
 AMateria *Cure::clone() const {
   if (DEBUG)
-    std::cout << YELLOW << "Cure clone initiated" << RESET << std::endl
-              << std::endl;
+    std::cout << YELLOW << "Cure clone initiated" << RESET << std::endl;
 
-  AMateria *cureClone = new Cure();
-  *cureClone = *this;
-  return cureClone;
+  return new Cure();
 }
 
 void Cure::use(ICharacter &target) {

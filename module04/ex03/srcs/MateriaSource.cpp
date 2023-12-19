@@ -47,19 +47,20 @@ MateriaSource &MateriaSource::operator=(const MateriaSource &rhs) {
 }
 
 // -------------------------------------------------------------------- Methods
-void MateriaSource::learnMateria(AMateria *materia) {
-  if (materia) {
+void MateriaSource::learnMateria(AMateria *inventory) {
+  if (inventory) {
     for (int i = 0; i < 4; i++) {
-      inventory_[i] = materia->clone();
+      inventory_[i] = inventory->clone();
     }
   }
 }
 
 AMateria *MateriaSource::createMateria(const std::string &type) {
   for (int i = 0; i < 4; i++) {
-    // if (inventory_[i] != NULL)
-    if (inventory_[i]->getType() == type)
-      return inventory_[i]->clone();
+    if (inventory_[i] != NULL) {
+      if (inventory_[i]->getType() == type)
+        return inventory_[i]->clone();
+    }
   }
   return NULL;
 }

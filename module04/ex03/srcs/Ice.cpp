@@ -36,12 +36,9 @@ Ice &Ice::operator=(const Ice &rhs) {
 // -------------------------------------------------------------------- Methods
 AMateria *Ice::clone() const {
   if (DEBUG)
-    std::cout << LBLUE << "Ice clone initiated" << RESET << std::endl
-              << std::endl;
+    std::cout << LBLUE << "Ice clone initiated" << RESET << std::endl;
 
-  AMateria *iceClone = new Ice();
-  *iceClone = *this;
-  return iceClone;
+  return new Ice();
 }
 
 void Ice::use(ICharacter &target) {
