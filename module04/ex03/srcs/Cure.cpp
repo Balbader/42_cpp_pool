@@ -16,8 +16,7 @@ Cure::~Cure() {
 }
 
 // ----------------------------------------------------------- Copy Constructor
-Cure::Cure(const Cure &rhs)
-    : AMateria("cure") { // FIX: add ': AMateria(rhs)' instead of *this = rhs ??
+Cure::Cure(const Cure &rhs) {
   if (DEBUG)
     std::cout << YELLOW << "Cure Derived Copy Constructor Called" << RESET
               << std::endl;
@@ -38,7 +37,15 @@ Cure &Cure::operator=(const Cure &rhs) {
 }
 
 // -------------------------------------------------------------------- Methods
-AMateria *Cure::clone() const { return new Cure(); }
+AMateria *Cure::clone() const {
+  if (DEBUG)
+    std::cout << YELLOW << "Cure clone initiated" << RESET << std::endl
+              << std::endl;
+
+  AMateria *cureClone = new Cure();
+  *cureClone = *this;
+  return cureClone;
+}
 
 void Cure::use(ICharacter &target) {
   std::cout << "* heals" << target.getName() << "'s wounds *" << std::endl;

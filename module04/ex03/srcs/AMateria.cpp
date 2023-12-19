@@ -20,6 +20,7 @@ AMateria::AMateria(std::string const &type) {
 AMateria::~AMateria() {
   if (DEBUG)
     std::cout << GREEN << "AMateria Base Destructor Called" << RESET
+              << std::endl
               << std::endl;
 }
 

@@ -4,13 +4,13 @@
 // ---------------------------------------------------------------- Constructor
 Character::Character() {
   if (DEBUG)
-    std::cout << ORANGE << "Character Derived Constructor Called" << RESET
+    std::cout << CYAN << "Character Derived Constructor Called" << RESET
               << std::endl;
 }
 
 Character::Character(std::string const &name) {
   if (DEBUG)
-    std::cout << ORANGE << "Character Derived Name Constructor Called" << RESET
+    std::cout << CYAN << "Character Derived Name Constructor Called" << RESET
               << std::endl;
 
   this->name_ = name;
@@ -19,7 +19,7 @@ Character::Character(std::string const &name) {
 // ----------------------------------------------------------------- Destructor
 Character::~Character() {
   if (DEBUG)
-    std::cout << ORANGE << "Character Derived Destructor Called" << RESET
+    std::cout << CYAN << "Character Derived Destructor Called" << RESET
               << std::endl;
 
   for (int i = 0; i < 4; i++)
@@ -29,7 +29,7 @@ Character::~Character() {
 // ----------------------------------------------------------- Copy Constructor
 Character::Character(const Character &rhs) {
   if (DEBUG)
-    std::cout << ORANGE << "Character Derived Copy Constructor Called" << RESET
+    std::cout << CYAN << "Character Derived Copy Constructor Called" << RESET
               << std::endl;
 
   *this = rhs;
@@ -38,8 +38,8 @@ Character::Character(const Character &rhs) {
 // ------------------------------------------------------------------- Overload
 Character &Character::operator=(const Character &rhs) {
   if (DEBUG)
-    std::cout << ORANGE << "Character Derived Assignment Operator Called"
-              << RESET << std::endl;
+    std::cout << CYAN << "Character Derived Assignment Operator Called" << RESET
+              << std::endl;
 
   if (this != &rhs) {
 

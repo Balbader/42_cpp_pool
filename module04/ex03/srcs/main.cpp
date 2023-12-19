@@ -6,42 +6,49 @@
 
 int main() {
 
-  IMateriaSource *src = new MateriaSource();
+  IMateriaSource *src1 = new MateriaSource();
   std::cout << std::endl;
 
-  src->learnMateria(new Ice());
+  src1->learnMateria(new Ice());
+  std::cout << std::endl;
   std::cout << std::endl;
 
-  src->learnMateria(new Cure());
+  IMateriaSource *src2 = new MateriaSource();
   std::cout << std::endl;
+  src2->learnMateria(new Cure());
+  // std::cout << std::endl;
 
   ICharacter *me = new Character("me");
+  std::cout << std::endl;
+
   AMateria *tmp;
-  tmp = src->createMateria("ice");
-  std::cout << LYELLOW << tmp->getType() << RESET << std::endl;
-  me->equip(tmp);
+  tmp = src1->createMateria("ice");
+  me->use("Basil");
 
-  std::cout << std::endl;
+  // std::cout << "tmp type : " << LBLUE << tmp->getType() << RESET <<
+  // std::endl;
+  // me->equip(tmp);
 
-  // std::cout << me->inventory[2] << std::endl;
-  tmp = src->createMateria("cure");
-  // std::cout << CYAN << tmp->getType() << RESET << std::endl;
-  me->equip(tmp);
+  // std::cout << std::endl;
 
-  ICharacter *bob = new Character("bob");
-  std::cout << ORANGE << bob->getName() << RESET << " instance created."
-            << std::endl;
+  // tmp = src->createMateria("cure");
+  // // std::cout << "tmp type : " << GREEN << tmp->getType() << RESET <<
+  // // std::endl;
+  // me->equip(tmp);
 
-  // std::cout << YELLOW << bob->getType() << RESET << std::endl;
+  // ICharacter *bob = new Character("bob");
+  // std::cout << ORANGE << bob->getName() << RESET << " instance created."
+  //           << std::endl;
 
-  me->use(0, *bob);
-  me->use(1, *bob);
+  // // std::cout << YELLOW << bob->getType() << RESET << std::endl;
 
-  delete bob;
-  std::cout << std::endl;
+  // me->use(0, *bob);
+  // me->use(1, *bob);
+
+  // delete bob;
   delete me;
-  std::cout << std::endl;
-  delete src;
+  delete src1;
+  delete src2;
 
   return 0;
 }
