@@ -2,6 +2,8 @@
 #define CHARACTER_HPP
 
 #include "ICharacter.hpp"
+
+#include <cstring>
 #include <iostream>
 
 class Character : public ICharacter {
@@ -22,8 +24,8 @@ protected:
   Character();
 
 private:
-  std::string _name;
-  AMateria *inventory[4];
+  std::string name_;
+  AMateria *inventory_[4];
 };
 
 #endif // !CHARACTER_HPP
