@@ -2,18 +2,22 @@
 #include "ICharacter.hpp"
 
 // ---------------------------------------------------------------- Constructor
-Character::Character() {
+Character::Character() : name_("Base Clone") {
   if (DEBUG)
     std::cout << CYAN << "Character Derived Constructor Called" << RESET
               << std::endl;
+
+  for (int i = 0; i < 4; ++i)
+    inventory_[i] = NULL;
 }
 
-Character::Character(std::string const &name) {
+Character::Character(std::string const &name) : name_(name) {
   if (DEBUG)
     std::cout << CYAN << "Character Derived Name Constructor Called" << RESET
               << std::endl;
 
-  this->name_ = name;
+  for (int i = 0; i < 4; ++i)
+    inventory_[i] = NULL;
 }
 
 // ----------------------------------------------------------------- Destructor
@@ -43,17 +47,17 @@ Character &Character::operator=(const Character &rhs) {
 
   if (this != &rhs) {
 
-    for (int i = 0; i < 4; i++)
-      delete inventory_[i];
+    this->name_ = rhs.getName();
+    this->name_ = rhs.getName();
 
-    for (int i = 0; i < 4; i++)
+    for (int i = 0; i < 4; ++i)
       inventory_[i] = rhs.inventory_[i]->clone();
   }
-
   return *this;
 }
 
-// -------------------------------------------------------------------- Methods
+// --------------------------------------------------------------------
+// Methods
 //
 void Character::equip(AMateria *m) {
 
@@ -63,10 +67,10 @@ void Character::equip(AMateria *m) {
   }
 
   for (int i = 0; i < 4; ++i) {
-    if (inventory_[i] != NULL)
-      inventory_[i] = m;
+    inventory_[i] = m;
   }
 }
+
 void Character::unequip(int i) {
   if (inventory_[i] != NULL)
     inventory_[i] = NULL;
@@ -77,5 +81,8 @@ void Character::use(int i, ICharacter &target) {
     inventory_[i]->use(target);
 }
 
-// --------------------------------------------------------------------- Getter
+// ---------------------------------------------------------------------
+// Getter
 std::string const &Character::getName() const { return this->name_; }
+
+AMateria **Character::getInventory() const { return (AMateria **)inventory_; }

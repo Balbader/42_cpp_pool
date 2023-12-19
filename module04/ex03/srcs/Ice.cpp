@@ -15,19 +15,14 @@ Ice::~Ice() {
 }
 
 // ----------------------------------------------------------- Copy Constructor
-// Ice::Ice(const Ice &rhs) : AMateria(rhs) {
-Ice::Ice(const Ice &rhs) {
-
+Ice::Ice(const Ice &rhs) : AMateria(rhs) {
   if (DEBUG)
     std::cout << LBLUE << "Ice Derived Copy Constructor Called" << RESET
               << std::endl;
-
-  *this = rhs;
 }
 
 // ------------------------------------------------------------------- Overload
 Ice &Ice::operator=(const Ice &rhs) {
-
   if (DEBUG)
     std::cout << LBLUE << "Ice Derived Assignment Operator Called" << RESET
               << std::endl;

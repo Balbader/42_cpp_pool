@@ -11,23 +11,27 @@ int main() {
 
   src1->learnMateria(new Ice());
   std::cout << std::endl;
-  std::cout << std::endl;
 
   IMateriaSource *src2 = new MateriaSource();
   std::cout << std::endl;
-  src2->learnMateria(new Cure());
-  // std::cout << std::endl;
 
-  ICharacter *me = new Character("me");
+  src2->learnMateria(new Cure());
   std::cout << std::endl;
 
-  AMateria *tmp;
-  tmp = src1->createMateria("ice");
-  me->use("Basil");
+  // ICharacter *me = new Character("me");
+  // std::cout << std::endl;
 
+  // ICharacter *you = new Character("you");
+  // std::cout << std::endl;
+
+  // AMateria *tmp;
+  // tmp = src1->createMateria("ice");
   // std::cout << "tmp type : " << LBLUE << tmp->getType() << RESET <<
   // std::endl;
+
   // me->equip(tmp);
+
+  // me->use(20, *you);
 
   // std::cout << std::endl;
 
@@ -46,7 +50,7 @@ int main() {
   // me->use(1, *bob);
 
   // delete bob;
-  delete me;
+  // delete me;
   delete src1;
   delete src2;
 

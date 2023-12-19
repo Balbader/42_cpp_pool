@@ -16,12 +16,10 @@ Cure::~Cure() {
 }
 
 // ----------------------------------------------------------- Copy Constructor
-Cure::Cure(const Cure &rhs) {
+Cure::Cure(const Cure &rhs) : AMateria(rhs) {
   if (DEBUG)
     std::cout << YELLOW << "Cure Derived Copy Constructor Called" << RESET
               << std::endl;
-
-  *this = rhs;
 }
 
 // ------------------------------------------------------------------- Overload
@@ -31,7 +29,7 @@ Cure &Cure::operator=(const Cure &rhs) {
               << std::endl;
 
   if (this != &rhs)
-    this->type_ = rhs.type_;
+    AMateria::operator=(rhs);
 
   return *this;
 }

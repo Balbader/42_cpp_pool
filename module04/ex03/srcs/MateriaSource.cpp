@@ -14,8 +14,9 @@ MateriaSource::~MateriaSource() {
               << std::endl
               << std::endl;
 
-  for (int i = 0; i < 4; ++i)
+  for (int i = 0; i < 4; i++) {
     delete inventory_[i];
+  }
 }
 
 // ----------------------------------------------------------- Copy Constructor
@@ -35,11 +36,11 @@ MateriaSource &MateriaSource::operator=(const MateriaSource &rhs) {
 
   if (this != &rhs) {
 
-    for (int i = 0; i < 4; ++i)
-      delete inventory_[i];
+    // for (int i = 0; i < 4; i++)
+    //   delete inventory_[i];
 
-    for (int i = 0; i < 4; ++i)
-      this->inventory_[i] = rhs.inventory_[i];
+    for (int i = 0; i < 4; i++)
+      this->inventory_[i] = rhs.inventory_[i]->clone();
   }
 
   return *this;
@@ -48,19 +49,17 @@ MateriaSource &MateriaSource::operator=(const MateriaSource &rhs) {
 // -------------------------------------------------------------------- Methods
 void MateriaSource::learnMateria(AMateria *materia) {
   if (materia) {
-    for (int i = 0; i < 4; ++i) {
-      if (inventory_[i] == NULL) {
-        inventory_[i] = materia->clone();
-      }
+    for (int i = 0; i < 4; i++) {
+      inventory_[i] = materia->clone();
     }
   }
 }
 
 AMateria *MateriaSource::createMateria(const std::string &type) {
-  for (int i = 0; i < 4; ++i) {
-    if (inventory_[i] != NULL)
-      if (inventory_[i]->getType() == type)
-        return inventory_[i]->clone();
+  for (int i = 0; i < 4; i++) {
+    // if (inventory_[i] != NULL)
+    if (inventory_[i]->getType() == type)
+      return inventory_[i]->clone();
   }
   return NULL;
 }
