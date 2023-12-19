@@ -8,10 +8,12 @@ Character::Character() {
               << std::endl;
 }
 
-Character::Character(std::string const &name) : _name(name) {
+Character::Character(std::string const &name) {
   if (DEBUG)
     std::cout << ORANGE << "Character Derived Name Constructor Called" << RESET
               << std::endl;
+
+  this->name_ = name;
 }
 
 // ----------------------------------------------------------------- Destructor
@@ -21,7 +23,7 @@ Character::~Character() {
               << std::endl;
 
   for (int i = 0; i < 4; i++)
-    delete inventory[i];
+    delete inventory_[i];
 }
 
 // ----------------------------------------------------------- Copy Constructor
@@ -42,10 +44,10 @@ Character &Character::operator=(const Character &rhs) {
   if (this != &rhs) {
 
     for (int i = 0; i < 4; i++)
-      delete inventory[i];
+      delete inventory_[i];
 
     for (int i = 0; i < 4; i++)
-      inventory[i] = rhs.inventory[i]->clone();
+      inventory_[i] = rhs.inventory_[i]->clone();
   }
 
   return *this;
@@ -56,24 +58,24 @@ Character &Character::operator=(const Character &rhs) {
 void Character::equip(AMateria *m) {
 
   for (int i = 0; i < 4; ++i) {
-    if (inventory[i] == NULL || inventory[i] == m)
+    if (inventory_[i] == NULL || inventory_[i] == m)
       return;
   }
 
   for (int i = 0; i < 4; ++i) {
-    if (inventory[i] != NULL)
-      inventory[i] = m;
+    if (inventory_[i] != NULL)
+      inventory_[i] = m;
   }
 }
-void Character::unequip(int index) {
-  if (inventory[index] != NULL)
-    inventory[index] = NULL;
+void Character::unequip(int i) {
+  if (inventory_[i] != NULL)
+    inventory_[i] = NULL;
 }
 
-void Character::use(int index, ICharacter &target) {
-  if (inventory[index] != NULL)
-    inventory[index]->use(target);
+void Character::use(int i, ICharacter &target) {
+  if (inventory_[i] != NULL)
+    inventory_[i]->use(target);
 }
 
 // --------------------------------------------------------------------- Getter
-std::string const &Character::getName() const { return this->_name; }
+std::string const &Character::getName() const { return this->name_; }
