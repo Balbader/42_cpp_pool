@@ -16,13 +16,13 @@ int main() {
 
   AMateria *tmp1;
   tmp1 = src1->createMateria("ice");
-  std::cout << "tmp type : " << LBLUE << tmp1->getType() << RESET << std::endl;
-  std::cout << std::endl;
+  std::cout << "tmp type : " << LBLUE << tmp1->getType() << RESET << std::endl
+            << std::endl;
 
   AMateria *tmp2;
   tmp2 = src2->createMateria("cure");
-  std::cout << "tmp type : " << ORANGE << tmp2->getType() << RESET << std::endl;
-  std::cout << std::endl;
+  std::cout << "tmp type : " << ORANGE << tmp2->getType() << RESET << std::endl
+            << std::endl;
 
   ICharacter *jim = new Character("Jim");
   std::cout << CYAN << jim->getName() << RESET << " instance created."

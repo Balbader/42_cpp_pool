@@ -34,12 +34,7 @@ Ice &Ice::operator=(const Ice &rhs) {
 }
 
 // -------------------------------------------------------------------- Methods
-AMateria *Ice::clone() const {
-  if (DEBUG)
-    std::cout << LBLUE << "Ice clone initiated" << RESET << std::endl;
-
-  return new Ice();
-}
+AMateria *Ice::clone() const { return new Ice(); }
 
 void Ice::use(ICharacter &target) {
   std::cout << "* shoots an ice bolt at " << target.getName() << " *"
