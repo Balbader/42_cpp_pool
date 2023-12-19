@@ -18,14 +18,22 @@ int main() {
   ICharacter *me = new Character("me");
   AMateria *tmp;
   tmp = src->createMateria("ice");
-  std::cout << std::endl;
+  std::cout << LYELLOW << tmp->getType() << RESET << std::endl;
   me->equip(tmp);
+
+  std::cout << std::endl;
+
+  // std::cout << me->inventory[2] << std::endl;
   tmp = src->createMateria("cure");
+  // std::cout << CYAN << tmp->getType() << RESET << std::endl;
   me->equip(tmp);
 
   ICharacter *bob = new Character("bob");
   std::cout << ORANGE << bob->getName() << RESET << " instance created."
             << std::endl;
+
+  // std::cout << YELLOW << bob->getType() << RESET << std::endl;
+
   me->use(0, *bob);
   me->use(1, *bob);
 
