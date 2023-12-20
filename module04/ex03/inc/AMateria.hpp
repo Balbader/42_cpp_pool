@@ -13,20 +13,21 @@ class ICharacter;
 
 class AMateria {
 public:
-  AMateria(std::string const &);
   virtual ~AMateria();
 
-  AMateria(const AMateria &);
   AMateria &operator=(const AMateria &);
 
   virtual AMateria *clone() const = 0;
-  virtual void use(ICharacter &);
+  virtual void use(ICharacter &) = 0;
 
   std::string const &getType() const;
 
 protected:
-  AMateria();
   std::string type_;
+
+  AMateria();
+  AMateria(std::string const &);
+  AMateria(const AMateria &);
 };
 
 #endif // !AMATERIA_HPP
