@@ -12,8 +12,8 @@ ICharacter::ICharacter() {
 ICharacter::ICharacter(const ICharacter &rhs) {
 
   if (DEBUG)
-    std::cout << LMAGENTA << "Ice Derived Copy Constructor Called" << RESET
-              << std::endl;
+    std::cout << LMAGENTA << "ICharacter Derived Copy Constructor Called"
+              << RESET << std::endl;
 
   *this = rhs;
 }
@@ -22,7 +22,7 @@ ICharacter::ICharacter(const ICharacter &rhs) {
 ICharacter &operator=(const ICharacter &rhs) {
 
   if (DEBUG)
-    std::cout << LMAGENTA << "Character Derived Assignment Operator Called"
+    std::cout << LMAGENTA << "ICharacter Derived Assignment Operator Called"
               << RESET << std::endl;
 
   if (this != &rhs) {
