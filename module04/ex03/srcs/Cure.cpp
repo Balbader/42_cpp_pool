@@ -5,6 +5,7 @@
 Cure::Cure() : AMateria("cure") {
   if (DEBUG)
     std::cout << YELLOW << "Cure Derived Constructor Called" << RESET
+              << std::endl
               << std::endl;
 }
 
@@ -12,6 +13,7 @@ Cure::Cure() : AMateria("cure") {
 Cure::~Cure() {
   if (DEBUG)
     std::cout << YELLOW << "Cure Derived Destructor Called" << RESET
+              << std::endl
               << std::endl;
 }
 
@@ -19,6 +21,7 @@ Cure::~Cure() {
 Cure::Cure(const Cure &rhs) : AMateria(rhs) {
   if (DEBUG)
     std::cout << YELLOW << "Cure Derived Copy Constructor Called" << RESET
+              << std::endl
               << std::endl;
 }
 
@@ -26,6 +29,7 @@ Cure::Cure(const Cure &rhs) : AMateria(rhs) {
 Cure &Cure::operator=(const Cure &rhs) {
   if (DEBUG)
     std::cout << YELLOW << "Cure Derived Assignment Operator Called" << RESET
+              << std::endl
               << std::endl;
 
   if (this != &rhs)
@@ -38,5 +42,6 @@ Cure &Cure::operator=(const Cure &rhs) {
 AMateria *Cure::clone() const { return new Cure(*this); }
 
 void Cure::use(ICharacter &target) {
-  std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
+  std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl
+            << std::endl;
 }

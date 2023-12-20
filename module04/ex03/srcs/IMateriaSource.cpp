@@ -4,6 +4,7 @@ IMateriaSource::IMateriaSource() {
 
   if (DEBUG)
     std::cout << LMAGENTA << "IMateriaSource Base Constructor called" << RESET
+              << std::endl
               << std::endl;
 }
 
@@ -12,7 +13,8 @@ IMateriaSource::IMateriaSource(const IMateriaSource &rhs) {
 
   if (DEBUG)
     std::cout << LMAGENTA << "IMateriaSource Derived Copy Constructor Called"
-              << RESET << std::endl;
+              << RESET << std::endl
+              << std::endl;
 
   *this = rhs;
 }
@@ -22,12 +24,11 @@ IMateriaSource &IMateriaSource::operator=(const IMateriaSource &rhs) {
 
   if (DEBUG)
     std::cout << LMAGENTA << "IMateriaSource Derived Assignment Operator Called"
-              << RESET << std::endl;
+              << RESET << std::endl
+              << std::endl;
 
-  if (this != &rhs) {
-    // this->name_ = rhs.getName();
+  if (this != &rhs)
     (void)rhs;
-  }
 
   return *this;
 }

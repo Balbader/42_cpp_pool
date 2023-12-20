@@ -4,14 +4,15 @@
 MateriaSource::MateriaSource() : learningInventory_() {
   if (DEBUG)
     std::cout << MAGENTA << "MateriaSource Derived Constructor Called" << RESET
+              << std::endl
               << std::endl;
 }
 
 // ----------------------------------------------------------------- Destructor
 MateriaSource::~MateriaSource() {
   if (DEBUG)
-    std::cout << std::endl
-              << MAGENTA << "MateriaSource Derived Destructor Called" << RESET
+    std::cout << MAGENTA << "MateriaSource Derived Destructor Called" << RESET
+              << std::endl
               << std::endl;
 
   for (int i = 0; i < 4; i++) {
@@ -25,7 +26,8 @@ MateriaSource::MateriaSource(const MateriaSource &rhs)
     : IMateriaSource(rhs), learningInventory_() {
   if (DEBUG)
     std::cout << MAGENTA << "MateriaSource Derived Copy Constructor Called"
-              << RESET << std::endl;
+              << RESET << std::endl
+              << std::endl;
 
   for (int i = 0; i < 4; ++i) {
     if (rhs.learningInventory_[i])
@@ -37,7 +39,8 @@ MateriaSource::MateriaSource(const MateriaSource &rhs)
 MateriaSource &MateriaSource::operator=(const MateriaSource &rhs) {
   if (DEBUG)
     std::cout << MAGENTA << "MateriaSource Derived Assignment Operator Called"
-              << RESET << std::endl;
+              << RESET << std::endl
+              << std::endl;
 
   if (this != &rhs) {
     (void)rhs;
@@ -57,17 +60,18 @@ void MateriaSource::learnMateria(AMateria *materia) {
       }
       if (DEBUG)
         std::cout << "Materia " << this->learningInventory_[i]->getType()
-                  << " has been added to inventory at index " << i << std::endl;
+                  << " has been added to inventory at index " << i << std::endl
+                  << std::endl;
       return;
     }
   }
 
   if (materia) {
     if (DEBUG)
-      std::cout << "Full Inventory. No add possible." << std::endl;
+      std::cout << "Full Inventory. No add possible." << std::endl << std::endl;
   } else {
     if (DEBUG)
-      std::cout << "Invalid Materia" << std::endl;
+      std::cout << "Invalid Materia" << std::endl << std::endl;
   }
 }
 
@@ -78,7 +82,8 @@ AMateria *MateriaSource::createMateria(const std::string &type) {
       return this->learningInventory_[i]->clone();
   }
   if (DEBUG)
-    std::cout << "No materia add due to invalid type." << std::endl;
+    std::cout << "No materia add due to invalid type." << std::endl
+              << std::endl;
   return 0;
 }
 
