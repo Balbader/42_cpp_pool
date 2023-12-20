@@ -139,12 +139,9 @@ void Character::use(int i, ICharacter &target) {
     this->inventory_[i]->use(target);
 
   } else if (i < 0 || i >= 4) {
-
     if (DEBUG)
       std::cout << "Invalid index: " << i << std::endl << std::endl;
-
   } else {
-
     if (DEBUG)
       std::cout << "No Materia to be equiped ! Index " << i << " is empty."
                 << std::endl
