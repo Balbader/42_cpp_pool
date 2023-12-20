@@ -71,14 +71,14 @@ Character &Character::operator=(const Character &rhs) {
 }
 
 // ----------------------------------------------------------------- // Methods
-void Character::equip(AMateria *m) {
+void Character::equip(AMateria *materia) {
 
   for (int i = 0; i < 4; ++i) {
-    if (m && this->inventory_[i] == NULL) {
-      if (this->inventory_(m))
-        this->inventory_[i] = m->clone();
+    if (materia && this->inventory_[i] == NULL) {
+      if (this->inventory_(materia))
+        this->inventory_[i] = materia->clone();
       else
-        this->inventory_[i] = m;
+        this->inventory_[i] = materia;
       std::cout << "Materia " << this->inventory_[i]->getType()
                 << " has been added to " << this->name_
                 << "'s inventory at index " << i << std::endl;
@@ -86,13 +86,13 @@ void Character::equip(AMateria *m) {
     }
   }
 
-  if (m)
+  if (materia)
     std::cout << this->name_ << "'s inventory is full" << std::endl;
   else
     std::cout << "Invalid Materia" << std::endl;
 
-  if (!this->std::inventory_(m))
-    delete m;
+  if (!this->inventory_(materia))
+    delete materia;
 }
 
 void Character::unequip(int i) {
@@ -120,10 +120,10 @@ void Character::use(int i, ICharacter &target) {
   }
 }
 
-int Character::inInventory(AMateria *m) {
+int Character::inInventory(AMateria *materia) {
 
   for (int i = 0; i < 4; ++i) {
-    if (this->inventory_[i] == m)
+    if (this->inventory_[i] == materia)
       return 1;
   }
   return 0;

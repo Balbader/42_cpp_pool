@@ -13,9 +13,10 @@ public:
 
   virtual void learnMateria(AMateria *);
   virtual AMateria *createMateria(std::string const &);
+  int inLearningInventory(AMateria *);
 
 private:
-  AMateria *inventory_[4];
+  AMateria *learningInventory_[4];
 };
 
 #endif // !MATERIASOURCE_HPP
