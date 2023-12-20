@@ -8,12 +8,10 @@ public:
   Ice();
   ~Ice();
 
-  Ice(std::string const &);
-
   Ice(const Ice &);
   Ice &operator=(const Ice &);
 
-  AMateria *clone() const;
+  virtual AMateria *clone() const;
   void use(ICharacter &);
 };
 
