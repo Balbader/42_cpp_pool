@@ -3,6 +3,7 @@
 
 // ---------------------------------------------------------------- Constructor
 Cure::Cure() : AMateria("cure") {
+
   if (DEBUG)
     std::cout << YELLOW << "Cure Derived Constructor Called" << RESET
               << std::endl
@@ -11,6 +12,7 @@ Cure::Cure() : AMateria("cure") {
 
 // ----------------------------------------------------------------- Destructor
 Cure::~Cure() {
+
   if (DEBUG)
     std::cout << YELLOW << "Cure Derived Destructor Called" << RESET
               << std::endl
@@ -19,6 +21,7 @@ Cure::~Cure() {
 
 // ----------------------------------------------------------- Copy Constructor
 Cure::Cure(const Cure &rhs) : AMateria(rhs) {
+
   if (DEBUG)
     std::cout << YELLOW << "Cure Derived Copy Constructor Called" << RESET
               << std::endl
@@ -27,6 +30,7 @@ Cure::Cure(const Cure &rhs) : AMateria(rhs) {
 
 // ------------------------------------------------------------------- Overload
 Cure &Cure::operator=(const Cure &rhs) {
+
   if (DEBUG)
     std::cout << YELLOW << "Cure Derived Assignment Operator Called" << RESET
               << std::endl

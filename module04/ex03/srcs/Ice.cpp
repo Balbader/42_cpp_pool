@@ -3,6 +3,7 @@
 
 // ---------------------------------------------------------------- Constructor
 Ice::Ice() : AMateria("ice") {
+
   if (DEBUG)
     std::cout << LBLUE << "Ice Derived Constructor Called" << RESET << std::endl
               << std::endl;
@@ -10,6 +11,7 @@ Ice::Ice() : AMateria("ice") {
 
 // ----------------------------------------------------------------- Destructor
 Ice::~Ice() {
+
   if (DEBUG)
     std::cout << LBLUE << "Ice Derived Destructor Called" << RESET << std::endl
               << std::endl;
@@ -17,6 +19,7 @@ Ice::~Ice() {
 
 // ----------------------------------------------------------- Copy Constructor
 Ice::Ice(const Ice &rhs) : AMateria(rhs) {
+
   if (DEBUG)
     std::cout << LBLUE << "Ice Derived Copy Constructor Called" << RESET
               << std::endl
@@ -25,6 +28,7 @@ Ice::Ice(const Ice &rhs) : AMateria(rhs) {
 
 // ------------------------------------------------------------------- Overload
 Ice &Ice::operator=(const Ice &rhs) {
+
   if (DEBUG)
     std::cout << LBLUE << "Ice Derived Assignment Operator Called" << RESET
               << std::endl
