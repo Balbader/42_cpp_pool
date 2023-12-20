@@ -2,7 +2,6 @@
 #include "ICharacter.hpp"
 
 // ---------------------------------------------------------------- Constructor
-// Character::Character() : name_("Base Clone"), inventory_() {
 Character::Character() : name_("Base Clone") {
 
   if (DEBUG)
@@ -13,7 +12,6 @@ Character::Character() : name_("Base Clone") {
     inventory_[i] = NULL;
 }
 
-// Character::Character(std::string const &name) : name_(name), inventory_() {
 Character::Character(std::string const &name) : name_(name) {
 
   if (DEBUG)
@@ -63,8 +61,8 @@ Character &Character::operator=(const Character &rhs) {
 
     this->name_ = rhs.getName();
 
-    // for (int i = 0; i < 4; ++i)
-    //   inventory_[i] = rhs.inventory_[i]->clone();
+    for (int i = 0; i < 4; ++i)
+      inventory_[i] = rhs.inventory_[i]->clone();
   }
 
   return *this;
@@ -79,17 +77,21 @@ void Character::equip(AMateria *materia) {
         this->inventory_[i] = materia->clone();
       else
         this->inventory_[i] = materia;
-      std::cout << "Materia " << this->inventory_[i]->getType()
-                << " has been added to " << this->name_
-                << "'s inventory at index " << i << std::endl;
+      if (DEBUG)
+        std::cout << "Materia " << this->inventory_[i]->getType()
+                  << " has been added to " << this->name_
+                  << "'s inventory at index " << i << std::endl;
       return;
     }
   }
 
-  if (materia)
-    std::cout << this->name_ << "'s inventory is full" << std::endl;
-  else
-    std::cout << "Invalid Materia" << std::endl;
+  if (materia) {
+    if (DEBUG)
+      std::cout << this->name_ << "'s inventory is full" << std::endl;
+  } else {
+    if (DEBUG)
+      std::cout << "Invalid Materia" << std::endl;
+  }
 
   // if (!this->inventory_ == materia)
   //   delete materia;
@@ -98,14 +100,17 @@ void Character::equip(AMateria *materia) {
 void Character::unequip(int i) {
 
   if (i >= 0 && i < 4 && this->inventory_[i]) {
-    std::cout << this->inventory_[i] << " has been removed at index " << i
-              << " from " << this->name_ << "'s inventory." << std::endl;
+    if (DEBUG)
+      std::cout << this->inventory_[i] << " has been removed at index " << i
+                << " from " << this->name_ << "'s inventory." << std::endl;
     this->inventory_[i] = NULL;
   } else if (i < 0 || i >= 4) {
-    std::cout << "Invalid index: " << i << std::endl;
+    if (DEBUG)
+      std::cout << "Invalid index: " << i << std::endl;
   } else {
-    std::cout << "No Materia to be equiped ! Index " << i << " is empty."
-              << std::endl;
+    if (DEBUG)
+      std::cout << "No Materia to be equiped ! Index " << i << " is empty."
+                << std::endl;
   }
 }
 
@@ -113,10 +118,12 @@ void Character::use(int i, ICharacter &target) {
   if (i >= 0 && i < 4 && this->inventory_[i]) {
     this->inventory_[i]->use(target);
   } else if (i < 0 || i >= 4) {
-    std::cout << "Invalid index: " << i << std::endl;
+    if (DEBUG)
+      std::cout << "Invalid index: " << i << std::endl;
   } else {
-    std::cout << "No Materia to be equiped ! Index " << i << " is empty."
-              << std::endl;
+    if (DEBUG)
+      std::cout << "No Materia to be equiped ! Index " << i << " is empty."
+                << std::endl;
   }
 }
 

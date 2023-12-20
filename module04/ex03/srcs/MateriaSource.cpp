@@ -55,19 +55,20 @@ void MateriaSource::learnMateria(AMateria *materia) {
       } else {
         this->learningInventory_[i] = materia;
       }
-      std::cout << "Materia " << this->learningInventory_[i]->getType()
-                << " has been added to inventory at index " << i << std::endl;
+      if (DEBUG)
+        std::cout << "Materia " << this->learningInventory_[i]->getType()
+                  << " has been added to inventory at index " << i << std::endl;
       return;
     }
   }
 
-  if (materia)
-    std::cout << "Full Inventory. No add possible." << std::endl;
-  else
-    std::cout << "Invalid Materia" << std::endl;
-
-  // if (!this->learningInventory_(materia))
-  //   delete materia;
+  if (materia) {
+    if (DEBUG)
+      std::cout << "Full Inventory. No add possible." << std::endl;
+  } else {
+    if (DEBUG)
+      std::cout << "Invalid Materia" << std::endl;
+  }
 }
 
 AMateria *MateriaSource::createMateria(const std::string &type) {
@@ -76,7 +77,8 @@ AMateria *MateriaSource::createMateria(const std::string &type) {
         this->learningInventory_[i]->getType() == type)
       return this->learningInventory_[i]->clone();
   }
-  std::cout << "No materia add due to invalid type." << std::endl;
+  if (DEBUG)
+    std::cout << "No materia add due to invalid type." << std::endl;
   return 0;
 }
 
