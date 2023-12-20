@@ -47,7 +47,7 @@ Character::Character(const Character &rhs) : ICharacter(rhs), inventory_() {
   this->name_ = rhs.getName();
 
   for (int i = 0; i < 4; ++i) {
-    if (rhs.inventory_9[i])
+    if (rhs.inventory_[i])
       this->inventory_[i] = rhs.inventory_[i];
   }
 }
@@ -75,7 +75,7 @@ void Character::equip(AMateria *materia) {
 
   for (int i = 0; i < 4; ++i) {
     if (materia && this->inventory_[i] == NULL) {
-      if (this->inventory_(materia))
+      if (this->inventory_[i])
         this->inventory_[i] = materia->clone();
       else
         this->inventory_[i] = materia;
@@ -91,8 +91,8 @@ void Character::equip(AMateria *materia) {
   else
     std::cout << "Invalid Materia" << std::endl;
 
-  if (!this->inventory_(materia))
-    delete materia;
+  // if (!this->inventory_ == materia)
+  //   delete materia;
 }
 
 void Character::unequip(int i) {

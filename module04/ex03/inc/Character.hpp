@@ -24,8 +24,10 @@ public:
   void setName(std::string const &);
   const std::string &getName() const;
 
-private:
+protected:
   std::string name_;
+
+private:
   AMateria *inventory_[4];
 };
 

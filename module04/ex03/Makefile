@@ -14,6 +14,8 @@ SRCS_DIR		:=	./srcs
 						Character.cpp \
 						Cure.cpp \
 						Ice.cpp \
+						ICharacter.cpp \
+						IMateriaSource.cpp \
 						MateriaSource.cpp \
 						main.cpp
 SRCS				:=	$(SRCS:%=$(SRCS_DIR)/%)
