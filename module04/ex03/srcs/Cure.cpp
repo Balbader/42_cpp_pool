@@ -29,13 +29,13 @@ Cure &Cure::operator=(const Cure &rhs) {
               << std::endl;
 
   if (this != &rhs)
-    AMateria::operator=(rhs);
+    this->type_ = rhs.type_;
 
   return *this;
 }
 
 // -------------------------------------------------------------------- Methods
-AMateria *Cure::clone() const { return new Cure(); }
+AMateria *Cure::clone() const { return new Cure(*this); }
 
 void Cure::use(ICharacter &target) {
   std::cout << "* heals" << target.getName() << "'s wounds *" << std::endl;
