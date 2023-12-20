@@ -19,7 +19,7 @@ ICharacter::ICharacter(const ICharacter &rhs) {
 }
 
 // ------------------------------------------------------------------- Overload
-ICharacter &operator=(const ICharacter &rhs) {
+ICharacter &ICharacter::operator=(const ICharacter &rhs) {
 
   if (DEBUG)
     std::cout << LMAGENTA << "ICharacter Derived Assignment Operator Called"

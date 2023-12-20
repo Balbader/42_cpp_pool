@@ -18,7 +18,7 @@ IMateriaSource::IMateriaSource(const IMateriaSource &rhs) {
 }
 
 // ------------------------------------------------------------------- Overload
-IMateriaSource &operator=(const IMateriaSource &rhs) {
+IMateriaSource &IMateriaSource::operator=(const IMateriaSource &rhs) {
 
   if (DEBUG)
     std::cout << LMAGENTA << "IMateriaSource Derived Assignment Operator Called"
