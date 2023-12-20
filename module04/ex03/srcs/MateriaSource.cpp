@@ -58,11 +58,13 @@ void MateriaSource::learnMateria(AMateria *materia) {
 
   for (int i = 0; i < 4; ++i) {
     if (materia && this->learningInventory_[i] == NULL) {
+
       if (this->inLearningInventory(materia)) {
         this->learningInventory_[i] = materia;
       } else {
         this->learningInventory_[i] = materia;
       }
+
       if (DEBUG)
         std::cout << "Materia " << this->learningInventory_[i]->getType()
                   << " has been added to inventory at index " << i << std::endl
@@ -78,6 +80,9 @@ void MateriaSource::learnMateria(AMateria *materia) {
     if (DEBUG)
       std::cout << "Invalid Materia" << std::endl << std::endl;
   }
+
+  if (!this->inLearningInventory(materia))
+    delete materia;
 }
 
 AMateria *MateriaSource::createMateria(const std::string &type) {
