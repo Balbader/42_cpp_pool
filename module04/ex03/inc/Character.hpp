@@ -8,8 +8,10 @@
 
 class Character : public ICharacter {
 public:
-  Character(std::string const &);
+  Character();
   ~Character();
+
+  Character(std::string const &);
 
   Character(const Character &);
   Character &operator=(const Character &);
@@ -17,12 +19,12 @@ public:
   void equip(AMateria *);
   void unequip(int);
   void use(int, ICharacter &);
+  int inInventory(AMateria *);
 
+  void setName(std::string const &);
   const std::string &getName() const;
 
-protected:
-  Character();
-  AMateria **getInventory() const;
+private:
   std::string name_;
   AMateria *inventory_[4];
 };
