@@ -104,6 +104,9 @@ void Character::equip(AMateria *materia) {
     if (DEBUG)
       std::cout << "Invalid Materia" << std::endl << std::endl;
   }
+
+  if (!this->inInventory(materia))
+    delete materia;
 }
 
 void Character::unequip(int i) {
