@@ -14,6 +14,7 @@ public:
 
   Bureaucrat(const Bureaucrat &);
   Bureaucrat &operator=(const Bureaucrat &);
+  // Bureaucrat &operator<<(const Bureaucrat &);
 
   void incrementGrade();
   void decrementGrade();
