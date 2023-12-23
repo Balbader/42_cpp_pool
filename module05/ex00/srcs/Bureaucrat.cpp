@@ -1,4 +1,5 @@
 #include "Bureaucrat.hpp"
+#include <exception>
 
 /*
  *  . Specificity: catch the most specific exception first, then more general
@@ -65,7 +66,7 @@ Bureaucrat::Bureaucrat(const Bureaucrat &rhs) {
 // Overload
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &rhs) {
   if (DEBUG)
-    std::cout << GRAY << "Bureaucrat Base Assignment Operator Called" << RESET
+    std::cout << GRAY << "Bureaucrat Base = Assignment Operator Called" << RESET
               << std::endl;
 
   if (this != &rhs) {
@@ -76,10 +77,16 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &rhs) {
   return *this;
 }
 
-// Methods
-void Bureaucrat::incrementGrade() { this->grade_ += 1; }
+// Bureaucrat &Bureaucrat::operator<<(const Bureaucrat &rhs) {
+//   if (DEBUG)
+//     std::cout << GRAY << "Bureaucrat Base << Assignment Operator Called"
+//               << RESET << std::endl;
+// }
 
-void Bureaucrat::decrementGrade() { this->grade_ -= 1; }
+// Methods
+void Bureaucrat::incrementGrade() { this->grade_ -= 1; }
+
+void Bureaucrat::decrementGrade() { this->grade_ += 1; }
 
 // Exceptions
 void Bureaucrat::GradeTooHighException() {
