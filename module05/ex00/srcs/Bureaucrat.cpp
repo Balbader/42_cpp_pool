@@ -1,5 +1,23 @@
 #include "Bureaucrat.hpp"
 
+/*
+ *  . Specificity: catch the most specific exception first, then more general
+ * ones.
+ *
+ *  . Re-throwing: Sometimes, you might want to handle an exception partisally
+ * and then re-throw it for further handling up the call stack.
+ *
+ *  . Custom Exceptions: For complex applications, you might want to define your
+ * own exception classes derived from std::exception. This allows for more
+ * specific error handling.
+ *
+ *  . Resource Management: Be mindful of resource management. Modern C++
+ * recommends using RAII (Resource Acquisition Is Initialization) patterns to
+ * ensure that resources (like memory, file handles, etc.) are properly released
+ * even when exceptions occur. Smart pointers ("std::unique_ptr",
+ * "std::shared_ptr") are often used int this context.
+ */
+
 // Constructor
 Bureaucrat::Bureaucrat() {
   if (DEBUG)
@@ -14,14 +32,18 @@ Bureaucrat::Bureaucrat(std::string name, int grade)
     std::cout << GREEN << "Bureaucrat Name Base Constructor called" << RESET
               << std::endl;
 
-  int err = -1;
-
   try {
     if (grade < 1 || grade > 150)
-      throw err;
-  } catch (err) {
-    std::cerr << RED << err << RESET << std::endl;
+      throw grade;
+  } catch (int grade) {
+    if (grade < 1)
+      GradeTooHighException();
+    else if (grade > 150)
+      GradeTooLowException();
   }
+
+  if (grade >= 1 && grade <= 150)
+    std::cout << "Grade valid: " << LGREEN << grade << RESET << std::endl;
 }
 
 // Destructor
@@ -52,6 +74,22 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &rhs) {
   }
 
   return *this;
+}
+
+// Methods
+void Bureaucrat::incrementGrade() { this->grade_ += 1; }
+
+void Bureaucrat::decrementGrade() { this->grade_ -= 1; }
+
+// Exceptions
+void Bureaucrat::GradeTooHighException() {
+  std::cerr << RED << "ERROR : " << RESET
+            << "Wrond Grade input. Grade too high.\n\n";
+}
+
+void Bureaucrat::GradeTooLowException() {
+  std::cerr << RED << "ERROR : " << RESET
+            << "Wrond Grade input. Grade too low.\n\n";
 }
 
 // Setters
