@@ -1,5 +1,4 @@
 #include "Bureaucrat.hpp"
-#include <exception>
 
 /*
  *  . Specificity: catch the most specific exception first, then more general
@@ -34,13 +33,16 @@ Bureaucrat::Bureaucrat(std::string name, int grade)
               << std::endl;
 
   try {
-    if (grade < 1 || grade > 150)
-      throw grade;
-  } catch (int grade) {
+    if (grade < 1) {
+      throw this->exceptions.GradeTooHighException();
+    } else if (grade > 150) {
+      throw this->exceptions.GradeTooLowException();
+    }
+  } catch (std::exception &e) {
     if (grade < 1)
-      GradeTooHighException();
+      this->exceptions.GradeTooHighException();
     else if (grade > 150)
-      GradeTooLowException();
+      this->exceptions.GradeTooLowException();
   }
 
   if (grade >= 1 && grade <= 150)
@@ -77,27 +79,15 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &rhs) {
   return *this;
 }
 
-// Bureaucrat &Bureaucrat::operator<<(const Bureaucrat &rhs) {
-//   if (DEBUG)
-//     std::cout << GRAY << "Bureaucrat Base << Assignment Operator Called"
-//               << RESET << std::endl;
-// }
+Bureaucrat &Bureaucrat::operator<<(const Bureaucrat &rhs) {
+  if (DEBUG)
+    std::cout << GRAY << "Bureaucrat Base << Assignment Operator Called"
+              << RESET << std::endl;
+}
 
 // Methods
 void Bureaucrat::incrementGrade() { this->grade_ -= 1; }
-
 void Bureaucrat::decrementGrade() { this->grade_ += 1; }
-
-// Exceptions
-void Bureaucrat::GradeTooHighException() {
-  std::cerr << RED << "ERROR : " << RESET
-            << "Wrond Grade input. Grade too high.\n\n";
-}
-
-void Bureaucrat::GradeTooLowException() {
-  std::cerr << RED << "ERROR : " << RESET
-            << "Wrond Grade input. Grade too low.\n\n";
-}
 
 // Setters
 void Bureaucrat::setName(std::string name) { this->name_ = name; }
