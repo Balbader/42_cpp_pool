@@ -15,6 +15,12 @@ public:
   Bureaucrat(const Bureaucrat &);
   Bureaucrat &operator=(const Bureaucrat &);
 
+  void incrementGrade();
+  void decrementGrade();
+
+  void GradeTooHighException();
+  void GradeTooLowException();
+
   void setName(std::string);
   void setGrade(int);
 
@@ -25,7 +31,6 @@ protected:
   Bureaucrat();
 
 private:
-  // const std::string name_;
   std::string name_;
   int grade_;
 };
