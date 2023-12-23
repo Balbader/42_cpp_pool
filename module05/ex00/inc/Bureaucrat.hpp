@@ -2,6 +2,7 @@
 #define BUREAUCRAT_HPP
 
 #include "colors.hpp"
+#include <exception>
 #include <iostream>
 #include <string>
 
@@ -14,13 +15,10 @@ public:
 
   Bureaucrat(const Bureaucrat &);
   Bureaucrat &operator=(const Bureaucrat &);
-  // Bureaucrat &operator<<(const Bureaucrat &);
+  Bureaucrat &operator<<(const Bureaucrat &);
 
   void incrementGrade();
   void decrementGrade();
-
-  void GradeTooHighException();
-  void GradeTooLowException();
 
   void setName(std::string);
   void setGrade(int);
@@ -30,6 +28,7 @@ public:
 
 protected:
   Bureaucrat();
+  Exceptions exceptions;
 
 private:
   std::string name_;
