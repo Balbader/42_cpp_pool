@@ -4,9 +4,17 @@ int main() {
   std::cout << std::endl;
 
   Bureaucrat basil("Basil", 333);
-  std::cout << std::endl;
-  std::cout << "Name : " << GREEN << basil.getName() << RESET << std::endl;
-  std::cout << "Grade : " << GREEN << basil.getGrade() << RESET << std::endl;
-  std::cout << std::endl;
+  Bureaucrat mimi("mimi", -22);
+  Bureaucrat faten("faten", 133);
+
+  faten.incrementGrade();
+  std::cout << "new grade after incrementGrade(1) : " << LGREEN
+            << faten.getGrade() << RESET << '\n';
+
+  faten.decrementGrade();
+  faten.decrementGrade();
+  std::cout << "new grade after decrementGrade(2) : " << ORANGE
+            << faten.getGrade() << RESET << "\n\n";
+
   return 0;
 }
