@@ -8,7 +8,10 @@ int main() {
   std::cout << "\n" << faten << "\n";
 
   faten.incrementGrade();
-  // faten.decrementGrade();
+  std::cout << "\n" << faten << "\n";
+
+  faten.decrementGrade();
+  std::cout << "\n" << faten << "\n";
 
   return 0;
 }
