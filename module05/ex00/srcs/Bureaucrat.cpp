@@ -18,7 +18,7 @@
  * "std::shared_ptr") are often used int this context.
  */
 
-// Constructor
+// ---------------------------------------------------------------- Constructor
 Bureaucrat::Bureaucrat() : name_("000"), grade_(0) {
   if (DEBUG)
     std::cout << GREEN << "Bureaucrat Base Constructor called" << RESET
@@ -32,18 +32,20 @@ Bureaucrat::Bureaucrat(std::string name, int grade)
     std::cout << GREEN << "Bureaucrat Name Base Constructor called" << RESET
               << std::endl;
 
-  if (grade >= 1 && grade <= 150)
-    std::cout << "\nGrade valid: " << LGREEN << grade << RESET << std::endl;
+  if (this->grade_ < 1)
+    throw GradeTooHighException();
+  else if (this->grade_ > 150)
+    throw GradeTooLowException();
 }
 
-// Destructor
+// ----------------------------------------------------------------- Destructor
 Bureaucrat::~Bureaucrat() {
   if (DEBUG)
     std::cout << RED << "Bureaucrat Base Destructor called" << RESET
               << std::endl;
 }
 
-// Copy Constructor
+// ----------------------------------------------------------- Copy Constructor
 Bureaucrat::Bureaucrat(const Bureaucrat &rhs)
     : name_(rhs.getName()), grade_(rhs.getGrade()) {
   if (DEBUG)
@@ -51,7 +53,7 @@ Bureaucrat::Bureaucrat(const Bureaucrat &rhs)
               << std::endl;
 }
 
-// Overload
+// ------------------------------------------------------------------- Overload
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &rhs) {
   if (DEBUG)
     std::cout << GRAY << "Bureaucrat Base = Assignment Operator Called" << RESET
@@ -70,19 +72,38 @@ std::ostream &operator<<(std::ostream &lhs, Bureaucrat const &rhs) {
     std::cout << GRAY << "Bureaucrat Base << Assignment Operator Called"
               << RESET << std::endl;
 
-  lhs << rhs.getName() << ", bureaucrat grade " << rhs.getGrade() << "\n";
+  lhs << rhs.getName() << ", bureaucrat grade " << LGREEN << rhs.getGrade()
+      << ".\n"
+      << RESET;
 
   return lhs;
 }
 
-// Methods
-void Bureaucrat::incrementGrade() { this->grade_ -= 1; }
-void Bureaucrat::decrementGrade() { this->grade_ += 1; }
+// -------------------------------------------------------------------- Methods
+void Bureaucrat::incrementGrade(int nb) {
+  if (nb < 0 || nb > INT_MAX)
+    std::cerr << "Error: Wrong input value\nInput Value out of range.\n";
 
-// Setters
+  if ((int)this->grade_ - nb < 1)
+    throw(GradeTooHighException());
+
+  this->grade_ -= nb;
+}
+
+void Bureaucrat::decrementGrade(int nb) {
+  if (nb < 0 || nb > INT_MAX)
+    std::cerr << "Error: Wrong input value\nInput Value out of range.\n";
+
+  if ((int)this->grade_ + nb < 1)
+    throw(GradeTooLowException());
+
+  this->grade_ += nb;
+}
+
+// -------------------------------------------------------------------- Setters
 void Bureaucrat::setName(std::string name) { this->name_ = name; }
 void Bureaucrat::setGrade(int grade) { this->grade_ = grade; }
 
-// Getters
+// -------------------------------------------------------------------- Getters
 const std::string &Bureaucrat::getName() const { return this->name_; }
 unsigned int const &Bureaucrat::getGrade() const { return this->grade_; }
