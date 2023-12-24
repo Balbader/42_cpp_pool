@@ -32,18 +32,11 @@ Bureaucrat::Bureaucrat(std::string name, int grade)
     std::cout << GREEN << "Bureaucrat Name Base Constructor called" << RESET
               << std::endl;
 
-  try {
-    if (this->grade_ < 1) {
-      throw GradeTooHighException();
-    } else if (this->grade_ > 150) {
-      throw GradeTooLowException();
-    }
-  } catch (const std::exception &e) {
-    if (this->grade_ < 1) {
-      throw GradeTooHighException();
-    } else if (this->grade_ > 150) {
-      throw GradeTooLowException();
-    }
+  if (this->gradeOutOfRange(grade)) {
+    if (grade < 1)
+      throw(GradeTooHighException());
+    else if (grade > 150)
+      throw(GradeTooLowException());
   }
 }
 
@@ -101,6 +94,10 @@ void Bureaucrat::decrementGrade() {
     throw(GradeTooLowException());
 
   this->grade_ += 1;
+}
+
+int Bureaucrat::gradeOutOfRange(int grade) {
+  return (grade < 1 || grade > 150);
 }
 
 // -------------------------------------------------------------------- Setters
