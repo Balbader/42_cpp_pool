@@ -10,25 +10,44 @@
 
 class Bureaucrat {
 public:
+  // Constructor & Destructor
   Bureaucrat(std::string, int);
   ~Bureaucrat();
 
+  // Copy constructor & Assignment operator
   Bureaucrat(const Bureaucrat &);
   Bureaucrat &operator=(const Bureaucrat &);
 
+  // Exceptions
+  class GradeTooHighException : public std::exception {
+    public:
+      virtual const char* what() const throw() {
+        return "Wrond Grade input. Grade too high.\n\n";
+      }
+  };
+
+  class GradeTooLowException : public std::exception {
+    public:
+      virtual const char* what() const throw() {
+        return "Wrond Grade input. Grade too low.\n\n";
+      }
+  };
+
+  // Methods
   void incrementGrade();
   void decrementGrade();
   void printGrade();
 
+  // Setters
   void setName(std::string);
   void setGrade(int);
 
-  const std::string getName() const;
-  int getGrade() const;
+  // Getters
+  const std::string &getName() const;
+  unsigned int const &getGrade() const;
 
 protected:
   Bureaucrat();
-  // Exceptions exceptions;
 
 private:
   std::string name_;
