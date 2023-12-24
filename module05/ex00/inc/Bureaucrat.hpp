@@ -15,10 +15,10 @@ public:
 
   Bureaucrat(const Bureaucrat &);
   Bureaucrat &operator=(const Bureaucrat &);
-  Bureaucrat &operator<<(const Bureaucrat &);
 
   void incrementGrade();
   void decrementGrade();
+  void printGrade();
 
   void setName(std::string);
   void setGrade(int);
@@ -28,11 +28,13 @@ public:
 
 protected:
   Bureaucrat();
-  Exceptions exceptions;
+  // Exceptions exceptions;
 
 private:
   std::string name_;
   int grade_;
 };
+
+std::ostream & operator<<(std::ostream & lhs, Bureaucrat const & rhs);
 
 #endif // !BUREAUCRAT_HPP
