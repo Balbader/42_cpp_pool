@@ -23,7 +23,7 @@ public:
   void setName(std::string);
   void setGrade(int);
 
-  std::string getName() const;
+  const std::string getName() const;
   int getGrade() const;
 
 protected:
@@ -32,7 +32,7 @@ protected:
 
 private:
   std::string name_;
-  int grade_;
+  unsigned int grade_;
 };
 
 std::ostream & operator<<(std::ostream & lhs, Bureaucrat const & rhs);
