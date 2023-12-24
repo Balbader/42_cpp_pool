@@ -1,23 +1,5 @@
 #include "Bureaucrat.hpp"
 
-/*
- *  . Specificity: catch the most specific exception first, then more general
- * ones.
- *
- *  . Re-throwing: Sometimes, you might want to handle an exception partisally
- * and then re-throw it for further handling up the call stack.
- *
- *  . Custom Exceptions: For complex applications, you might want to define your
- * own exception classes derived from std::exception. This allows for more
- * specific error handling.
- *
- *  . Resource Management: Be mindful of resource management. Modern C++
- * recommends using RAII (Resource Acquisition Is Initialization) patterns to
- * ensure that resources (like memory, file handles, etc.) are properly released
- * even when exceptions occur. Smart pointers ("std::unique_ptr",
- * "std::shared_ptr") are often used int this context.
- */
-
 // ---------------------------------------------------------------- Constructor
 Bureaucrat::Bureaucrat() : name_("000"), grade_(0) {
   if (DEBUG)
@@ -25,18 +7,21 @@ Bureaucrat::Bureaucrat() : name_("000"), grade_(0) {
               << std::endl;
 }
 
-Bureaucrat::Bureaucrat(std::string name, int grade)
-    : name_(name), grade_(grade) {
+Bureaucrat::Bureaucrat(std::string const name, int grade) {
+    // : name_(name), grade_(grade) {
 
   if (DEBUG)
-    std::cout << GREEN << "Bureaucrat Name Base Constructor called" << RESET
-              << std::endl;
+    std::cout << GREEN << "Bureaucrat Arguments Base Constructor called"
+              << RESET << std::endl;
 
-  if (this->gradeOutOfRange(grade)) {
-    if (grade < 1)
-      throw(GradeTooHighException());
-    else if (grade > 150)
-      throw(GradeTooLowException());
+  try {
+    unsigned int tmp = isGradeOutOfRange(grade);
+
+    this->name_= name;
+    this->grade_ = grade;
+  }
+  catch (const char& e) {
+    std::cerr << "Error: " << e << std::endl;
   }
 }
 
@@ -96,13 +81,23 @@ void Bureaucrat::decrementGrade() {
   this->grade_ += 1;
 }
 
-int Bureaucrat::gradeOutOfRange(int grade) {
-  return (grade < 1 || grade > 150);
+int Bureaucrat::isGradeOutOfRange(int grade) {
+  if (grade < 1)
+    throw GradeTooHighException();
+  if (grade > 150)
+    throw GradeTooLowException();
+  return grade;
 }
 
 // -------------------------------------------------------------------- Setters
 void Bureaucrat::setName(std::string name) { this->name_ = name; }
-void Bureaucrat::setGrade(int grade) { this->grade_ = grade; }
+
+void Bureaucrat::setGrade(int grade) {
+  if (grade < 1 || grade > 150)
+    std::cerr << "Error: Grade input out of range" << std::endl;
+
+  this->grade_ = grade;
+}
 
 // -------------------------------------------------------------------- Getters
 const std::string &Bureaucrat::getName() const { return this->name_; }
