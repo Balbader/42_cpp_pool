@@ -4,6 +4,7 @@
 #include "colors.hpp"
 #include <exception>
 #include <iostream>
+#include <limits.h>
 #include <string>
 
 #define DEBUG 1
@@ -20,22 +21,22 @@ public:
 
   // Exceptions
   class GradeTooHighException : public std::exception {
-    public:
-      virtual const char* what() const throw() {
-        return "Wrond Grade input. Grade too high.\n\n";
-      }
+  public:
+    virtual const char *what() const throw() {
+      return "Wrond Grade input. Grade too high.\n\n";
+    }
   };
 
   class GradeTooLowException : public std::exception {
-    public:
-      virtual const char* what() const throw() {
-        return "Wrond Grade input. Grade too low.\n\n";
-      }
+  public:
+    virtual const char *what() const throw() {
+      return "Wrond Grade input. Grade too low.\n\n";
+    }
   };
 
   // Methods
-  void incrementGrade();
-  void decrementGrade();
+  void incrementGrade(int);
+  void decrementGrade(int);
   void printGrade();
 
   // Setters
@@ -54,6 +55,6 @@ private:
   unsigned int grade_;
 };
 
-std::ostream & operator<<(std::ostream & lhs, Bureaucrat const & rhs);
+std::ostream &operator<<(std::ostream &lhs, Bureaucrat const &rhs);
 
 #endif // !BUREAUCRAT_HPP
