@@ -32,16 +32,17 @@ Bureaucrat::Bureaucrat(std::string name, int grade)
     std::cout << GREEN << "Bureaucrat Name Base Constructor called" << RESET
               << std::endl;
 
-  if (this->grade_ < 1)
+  if (this->grade_ < 1) {
     throw GradeTooHighException();
-  else if (this->grade_ > 150)
+  } else if (this->grade_ > 150) {
     throw GradeTooLowException();
+  }
 }
 
 // ----------------------------------------------------------------- Destructor
 Bureaucrat::~Bureaucrat() {
   if (DEBUG)
-    std::cout << RED << "Bureaucrat Base Destructor called" << RESET
+    std::cout << RED << "\nBureaucrat Base Destructor called" << RESET
               << std::endl;
 }
 
