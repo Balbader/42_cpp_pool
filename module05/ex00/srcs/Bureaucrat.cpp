@@ -32,21 +32,21 @@ Bureaucrat::Bureaucrat(std::string name, int grade)
     std::cout << GREEN << "Bureaucrat Name Base Constructor called" << RESET
               << std::endl;
 
-  try {
-    if (grade < 1) {
-      throw this->exceptions.GradeTooHighException();
-    } else if (grade > 150) {
-      throw this->exceptions.GradeTooLowException();
-    }
-  } catch (std::exception &e) {
-    if (grade < 1)
-      this->exceptions.GradeTooHighException();
-    else if (grade > 150)
-      this->exceptions.GradeTooLowException();
-  }
+  // try {
+  //   if (grade < 1) {
+  //     throw this->exceptions.GradeTooHighException();
+  //   } else if (grade > 150) {
+  //     throw this->exceptions.GradeTooLowException();
+  //   }
+  // } catch (std::exception &e) {
+  //   if (grade < 1)
+  //     this->exceptions.GradeTooHighException();
+  //   else if (grade > 150)
+  //     this->exceptions.GradeTooLowException();
+  // }
 
   if (grade >= 1 && grade <= 150)
-    std::cout << "Grade valid: " << LGREEN << grade << RESET << std::endl;
+    std::cout << "\nGrade valid: " << LGREEN << grade << RESET << std::endl;
 }
 
 // Destructor
@@ -79,10 +79,14 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &rhs) {
   return *this;
 }
 
-Bureaucrat &Bureaucrat::operator<<(const Bureaucrat &rhs) {
+std::ostream &operator<<(std::ostream &lhs, Bureaucrat const &rhs) {
   if (DEBUG)
     std::cout << GRAY << "Bureaucrat Base << Assignment Operator Called"
               << RESET << std::endl;
+
+  lhs << rhs.getName() << ", bureaucrat grade " << rhs.getGrade() << "\n";
+
+  return lhs;
 }
 
 // Methods
