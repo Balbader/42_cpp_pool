@@ -2,6 +2,7 @@
 #define BUREAUCRAT_HPP
 
 #include "colors.hpp"
+#include <cstdlib>
 #include <exception>
 #include <iostream>
 #include <limits.h>
@@ -10,16 +11,17 @@
 #define DEBUG 1
 
 class Bureaucrat {
+
 public:
-  // Constructor & Destructor
+  // ------------------------------------------------- Constructor & Destructor
   Bureaucrat(std::string, int);
   ~Bureaucrat();
 
-  // Copy constructor & Assignment operator
+  // ----------------------------------- Copy constructor & Assignment operator
   Bureaucrat(const Bureaucrat &);
   Bureaucrat &operator=(const Bureaucrat &);
 
-  // Exceptions
+  // --------------------------------------------------------------- Exceptions
   class GradeTooHighException : public std::exception {
   public:
     virtual const char *what() const throw() {
@@ -34,16 +36,16 @@ public:
     }
   };
 
-  // Methods
-  void incrementGrade(int);
-  void decrementGrade(int);
+  // ------------------------------------------------------------------ Methods
+  void incrementGrade();
+  void decrementGrade();
   void printGrade();
 
-  // Setters
+  // ------------------------------------------------------------------ Setters
   void setName(std::string);
   void setGrade(int);
 
-  // Getters
+  // ------------------------------------------------------------------ Getters
   const std::string &getName() const;
   unsigned int const &getGrade() const;
 
