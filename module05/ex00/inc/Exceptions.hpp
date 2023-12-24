@@ -4,7 +4,7 @@
 #include "Bureaucrat.hpp"
 #include <exception>
 
-class Exceptions {
+class Exceptions : public std::exception {
 public:
   Exceptions();
   ~Exceptions();
