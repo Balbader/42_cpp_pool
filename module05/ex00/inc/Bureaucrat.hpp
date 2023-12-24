@@ -40,7 +40,7 @@ public:
   void incrementGrade();
   void decrementGrade();
   void printGrade();
-  int gradeOutOfRange(int);
+  int isGradeOutOfRange(int);
 
   // ------------------------------------------------------------------ Setters
   void setName(std::string);
