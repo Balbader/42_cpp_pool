@@ -32,10 +32,19 @@ Bureaucrat::Bureaucrat(std::string name, int grade)
     std::cout << GREEN << "Bureaucrat Name Base Constructor called" << RESET
               << std::endl;
 
-  if (this->grade_ < 1) {
-    throw GradeTooHighException();
-  } else if (this->grade_ > 150) {
-    throw GradeTooLowException();
+  try {
+    if (this->grade_ < 1) {
+      throw GradeTooHighException();
+    } else if (this->grade_ > 150) {
+      throw GradeTooLowException();
+    }
+  }
+  catch (const std::exception& e) {
+    if (this->grade_ < 1) {
+      throw GradeTooHighException();
+    } else if (this->grade_ > 150) {
+      throw GradeTooLowException();
+    }
   }
 }
 
@@ -81,24 +90,18 @@ std::ostream &operator<<(std::ostream &lhs, Bureaucrat const &rhs) {
 }
 
 // -------------------------------------------------------------------- Methods
-void Bureaucrat::incrementGrade(int nb) {
-  if (nb < 0 || nb > INT_MAX)
-    std::cerr << "Error: Wrong input value\nInput Value out of range.\n";
-
-  if ((int)this->grade_ - nb < 1)
+void Bureaucrat::incrementGrade() {
+  if (this->grade_ < 1)
     throw(GradeTooHighException());
 
-  this->grade_ -= nb;
+  this->grade_ -= 1;
 }
 
-void Bureaucrat::decrementGrade(int nb) {
-  if (nb < 0 || nb > INT_MAX)
-    std::cerr << "Error: Wrong input value\nInput Value out of range.\n";
-
-  if ((int)this->grade_ + nb < 1)
+void Bureaucrat::decrementGrade() {
+  if (this->grade_ < 150)
     throw(GradeTooLowException());
 
-  this->grade_ += nb;
+  this->grade_ += 1;
 }
 
 // -------------------------------------------------------------------- Setters
