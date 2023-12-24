@@ -19,7 +19,7 @@
  */
 
 // Constructor
-Bureaucrat::Bureaucrat() : name_("000"), grade_("000") {
+Bureaucrat::Bureaucrat() : name_("000"), grade_(0) {
   if (DEBUG)
     std::cout << GREEN << "Bureaucrat Base Constructor called" << RESET
               << std::endl;
@@ -44,7 +44,8 @@ Bureaucrat::~Bureaucrat() {
 }
 
 // Copy Constructor
-Bureaucrat::Bureaucrat(const Bureaucrat &rhs) name_(rhs.getName()), grade_(rhs.getGrade()) {
+Bureaucrat::Bureaucrat(const Bureaucrat &rhs)
+    : name_(rhs.getName()), grade_(rhs.getGrade()) {
   if (DEBUG)
     std::cout << GRAY << "Bureaucrat Base Copy Constructor Called" << RESET
               << std::endl;
