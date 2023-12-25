@@ -32,6 +32,7 @@ Bureaucrat::Bureaucrat(const Bureaucrat &rhs)
               << std::endl;
 }
 
+
 // ------------------------------------------------------------------- Overload
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &rhs) {
   if (DEBUG)
@@ -93,24 +94,21 @@ void Bureaucrat::isGradeOutOfRange(int grade) {
       if (grade < 1) {
         // throw GradeTooHighException("Error: Wrong input. Grade too high.\n");
         this->GradeTooHighException("Error: Wrong input. Grade too high.\n");
-        return;
-      }
-      else if (grade > 150) {
+        // return;
+      } else if (grade > 150) {
         // throw GradeTooLowException("Error: Wrong input. Grade too low.\n");
         this->GradeTooLowException("Error: Wrong input. Grade too low.\n");
-        return;
+        // return;
       }
-    }
-    catch (const Bureaucrat& e) {
+    } catch (const Bureaucrat &e) {
       if (grade < 1) {
         // throw GradeTooHighException("Error: Wrong input. Grade too high.\n");
         this->GradeTooHighException("Error: Wrong input. Grade too high.\n");
-        return;
-      }
-      else if (grade < 150) {
+        // return;
+      } else if (grade < 150) {
         // throw GradeTooLowException("Error: Wrong input. Grade too low.\n");
         this->GradeTooLowException("Error: Wrong input. Grade too low.\n");
-        return;
+        // return;
       }
     }
   }
