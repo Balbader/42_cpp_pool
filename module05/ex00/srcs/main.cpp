@@ -14,7 +14,7 @@ int main() {
   std::cout << "\n" << faten;
 
   std::cout << "\n\n";
-  Bureaucrat mimi("mimi", 333);
+  Bureaucrat mimi("mimi", -33);
   std::cout << "\n" << mimi;
 
   return 0;
