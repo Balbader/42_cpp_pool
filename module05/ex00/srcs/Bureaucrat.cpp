@@ -7,22 +7,14 @@ Bureaucrat::Bureaucrat() : name_("000"), grade_(0) {
               << std::endl;
 }
 
-Bureaucrat::Bureaucrat(std::string const name, int grade) {
-    // : name_(name), grade_(grade) {
+Bureaucrat::Bureaucrat(std::string const name, int grade)
+    : name_(name), grade_(grade) {
 
   if (DEBUG)
     std::cout << GREEN << "Bureaucrat Arguments Base Constructor called"
               << RESET << std::endl;
 
-  try {
-    unsigned int tmp = isGradeOutOfRange(grade);
-
-    this->name_= name;
-    this->grade_ = grade;
-  }
-  catch (const char& e) {
-    std::cerr << "Error: " << e << std::endl;
-  }
+  isGradeOutOfRange(grade);
 }
 
 // ----------------------------------------------------------------- Destructor
@@ -69,24 +61,33 @@ std::ostream &operator<<(std::ostream &lhs, Bureaucrat const &rhs) {
 // -------------------------------------------------------------------- Methods
 void Bureaucrat::incrementGrade() {
   if (this->grade_ < 1)
-    throw(GradeTooHighException());
+    throw(GradeTooHighException("Error: Wrong input. Grade too high."));
 
   this->grade_ -= 1;
 }
 
 void Bureaucrat::decrementGrade() {
   if (this->grade_ > 150)
-    throw(GradeTooLowException());
+    throw(GradeTooLowException("Error: Wrong input. Grade too low."));
 
   this->grade_ += 1;
 }
 
-int Bureaucrat::isGradeOutOfRange(int grade) {
-  if (grade < 1)
-    throw GradeTooHighException();
-  if (grade > 150)
-    throw GradeTooLowException();
-  return grade;
+void Bureaucrat::isGradeOutOfRange(int grade) {
+  if (grade < 1 || grade > 150) {
+    try {
+      if (grade < 1)
+        throw GradeTooHighException("Error: Wrong input. Grade too high.");
+      else if (grade > 150)
+        throw GradeTooLowException("Error: Wrong input. Grade too low.");
+    }
+    catch (const Bureaucrat& e) {
+      if (grade < 1)
+        throw GradeTooHighException("Error: Wrong input. Grade too high.");
+      else if (grade < 150)
+        throw GradeTooLowException("Error: Wrong input. Grade too low.");
+    }
+  }
 }
 
 // -------------------------------------------------------------------- Setters
