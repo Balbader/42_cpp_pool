@@ -24,23 +24,32 @@ public:
   // --------------------------------------------------------------- Exceptions
   class GradeTooHighException : public std::exception {
   public:
-    virtual const char *what() const throw() {
-      return "Wrond Grade input. Grade too high.\n\n";
-    }
+    // Constructor to use to pass the error message
+    GradeTooHighException(const std::string &msg) : message_(msg) {}
+    // Overriding the what message to return a custom error message
+    virtual const char *what() const throw() { return message_.c_str(); }
+    // Destructor
+    virtual ~GradeTooHighException() throw() {}
+
+  private:
+    std::string message_;
   };
 
   class GradeTooLowException : public std::exception {
   public:
-    virtual const char *what() const throw() {
-      return "Wrond Grade input. Grade too low.\n\n";
-    }
+    GradeTooLowException(const std::string &msg) : message_(msg) {}
+    virtual const char *what() const throw() { return message_.c_str(); }
+    virtual ~GradeTooLowException() throw() {}
+
+  private:
+    std::string message_;
   };
 
   // ------------------------------------------------------------------ Methods
   void incrementGrade();
   void decrementGrade();
   void printGrade();
-  int isGradeOutOfRange(int);
+  void isGradeOutOfRange(int);
 
   // ------------------------------------------------------------------ Setters
   void setName(std::string);
