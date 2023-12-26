@@ -10,50 +10,14 @@
 
 #define DEBUG 1
 
-// --------------------------------------------------------------- Exceptions
-class GradeTooHighException : public std::exception {
-public:
-  GradeTooHighException(const std::string &msg, int grade)
-      : message_(msg), wrongGrade_(grade) {
-    try {
-      if (this->wrongGrade_ < 1)
-        throw std::exception();
-    } catch (const std::exception &e) {
-      std::cerr << e.what() << "\n";
-    }
-  }
-  virtual const char *what() const throw() { return message_.c_str(); }
-  virtual ~GradeTooHighException() throw() {}
-
-private:
-  std::string message_;
-  int wrongGrade_;
-};
-
-class GradeTooLowException : public std::exception {
-public:
-  GradeTooLowException(const std::string &msg, int grade)
-      : message_(msg), wrongGrade_(grade) {
-    try {
-      if (this->wrongGrade_ > 150)
-        throw std::exception();
-    } catch (const std::exception &e) {
-      std::cerr << e.what() << "\n";
-    }
-  }
-  virtual const char *what() const throw() { return message_.c_str(); }
-  virtual ~GradeTooLowException() throw() {}
-
-private:
-  std::string message_;
-  int wrongGrade_;
-};
-
+// ----------------------------------------------------------------- Bureaucrat
 class Bureaucrat {
 
 public:
-  Bureaucrat(std::string, int);
+  Bureaucrat();
   ~Bureaucrat();
+
+  Bureaucrat(std::string, int);
 
   Bureaucrat(const Bureaucrat &);
   Bureaucrat &operator=(const Bureaucrat &);
@@ -61,7 +25,7 @@ public:
   void incrementGrade();
   void decrementGrade();
   void printGrade();
-  void isGradeOutOfRange(int);
+  int isGradeOutOfRange(int);
 
   void setName(std::string);
   void setGrade(int);
@@ -70,7 +34,6 @@ public:
   unsigned int const &getGrade() const;
 
 protected:
-  Bureaucrat();
 
 private:
   std::string name_;
