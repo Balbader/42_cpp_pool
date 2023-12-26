@@ -35,8 +35,8 @@ Bureaucrat::Bureaucrat(const Bureaucrat &rhs)
 // ------------------------------------------------------------------- Overload
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &rhs) {
   if (DEBUG)
-    std::cout << GRAY << "Bureaucrat Base = Assignment Operator Called" << RESET
-              << std::endl;
+    std::cout << LYELLOW << "Bureaucrat Base = Assignment Operator Called"
+              << RESET << std::endl;
 
   if (this != &rhs) {
     this->name_ = rhs.getName();
@@ -48,7 +48,7 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &rhs) {
 
 std::ostream &operator<<(std::ostream &lhs, Bureaucrat const &rhs) {
   if (DEBUG)
-    std::cout << GRAY << "Bureaucrat Base << Assignment Operator Called"
+    std::cout << LYELLOW << "Bureaucrat Base << Assignment Operator Called"
               << RESET << std::endl;
 
   lhs << rhs.getName() << ", bureaucrat grade " << LGREEN << rhs.getGrade()
@@ -94,20 +94,17 @@ void Bureaucrat::isGradeOutOfRange(int grade) {
         // throw GradeTooHighException("Error: Wrong input. Grade too high.\n");
         this->GradeTooHighException("Error: Wrong input. Grade too high.\n");
         return;
-      }
-      else if (grade > 150) {
+      } else if (grade > 150) {
         // throw GradeTooLowException("Error: Wrong input. Grade too low.\n");
         this->GradeTooLowException("Error: Wrong input. Grade too low.\n");
         return;
       }
-    }
-    catch (const Bureaucrat& e) {
+    } catch (const Bureaucrat &e) {
       if (grade < 1) {
         // throw GradeTooHighException("Error: Wrong input. Grade too high.\n");
         this->GradeTooHighException("Error: Wrong input. Grade too high.\n");
         return;
-      }
-      else if (grade < 150) {
+      } else if (grade < 150) {
         // throw GradeTooLowException("Error: Wrong input. Grade too low.\n");
         this->GradeTooLowException("Error: Wrong input. Grade too low.\n");
         return;
