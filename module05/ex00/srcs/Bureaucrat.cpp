@@ -59,18 +59,29 @@ std::ostream &operator<<(std::ostream &lhs, Bureaucrat const &rhs) {
 }
 
 // -------------------------------------------------------------------- Methods
-void Bureaucrat::GradeTooHighException(std::string const err) {
-  std::cerr << err;
+void Bureaucrat::GradeTooHighException(std::string const errMsg) {
+  try {
+    if (this->grade_ < 1)
+      throw std::exception();
+  }
+  catch (const std::exception err) {
+    std::cerr << errMsg << "\n";
+  }
 }
 
-void Bureaucrat::GradeTooLowException(std::string const err) {
-  std::cerr << err;
+void Bureaucrat::GradeTooLowException() {
+  try {
+    if (this->grade_ > 150)
+      throw std::exception();
+  }
+  catch (const std::exception err) {
+    std::cerr << "Error: Wrong input. Grade too low.\n";
+  }
 }
 
 void Bureaucrat::incrementGrade() {
   if (this->grade_ < 1) {
-    // throw GradeTooHighException("Error: Wrong input. Grade too high.\n");
-    this->GradeTooHighException("Error: Wrong input. Grade too high.\n");
+    this->GradeTooHighException();
     return;
   }
 
@@ -79,8 +90,7 @@ void Bureaucrat::incrementGrade() {
 
 void Bureaucrat::decrementGrade() {
   if (this->grade_ > 150) {
-    // throw GradeTooLowException("Error: Wrong input. Grade too low.\n");
-    this->GradeTooLowException("Error: Wrong input. Grade too low.\n");
+    this->GradeTooLowException();
     return;
   }
 
@@ -91,22 +101,18 @@ void Bureaucrat::isGradeOutOfRange(int grade) {
   if (grade < 1 || grade > 150) {
     try {
       if (grade < 1) {
-        // throw GradeTooHighException("Error: Wrong input. Grade too high.\n");
-        this->GradeTooHighException("Error: Wrong input. Grade too high.\n");
+        this->GradeTooHighException();
         return;
       } else if (grade > 150) {
-        // throw GradeTooLowException("Error: Wrong input. Grade too low.\n");
-        this->GradeTooLowException("Error: Wrong input. Grade too low.\n");
+        this->GradeTooLowException();
         return;
       }
     } catch (const Bureaucrat &e) {
       if (grade < 1) {
-        // throw GradeTooHighException("Error: Wrong input. Grade too high.\n");
-        this->GradeTooHighException("Error: Wrong input. Grade too high.\n");
+        this->GradeTooHighException();
         return;
       } else if (grade < 150) {
-        // throw GradeTooLowException("Error: Wrong input. Grade too low.\n");
-        this->GradeTooLowException("Error: Wrong input. Grade too low.\n");
+        this->GradeTooLowException();
         return;
       }
     }
