@@ -13,8 +13,6 @@ Bureaucrat::Bureaucrat(std::string const name, int grade)
   if (DEBUG)
     std::cout << GREEN << "Bureaucrat Arguments Base Constructor called"
               << RESET << std::endl;
-
-  isGradeOutOfRange(grade);
 }
 
 // ----------------------------------------------------------------- Destructor
@@ -60,42 +58,24 @@ std::ostream &operator<<(std::ostream &lhs, Bureaucrat const &rhs) {
 
 // -------------------------------------------------------------------- Methods
 void Bureaucrat::incrementGrade() {
-  if (this->grade_ < 1) {
-    GradeTooHighException("Error: Wrong input. Grade too high.\n",
-                          this->grade_);
-  }
+  // if (this->grade_ < 1) {
+  //   throw GradeTooHighException("Error: Wrong input. Grade too high.\n",
+  //                         this->grade_);
+  // }
 
   this->grade_ -= 1;
 }
 
 void Bureaucrat::decrementGrade() {
-  if (this->grade_ > 150) {
-    GradeTooLowException("Error: Wrong input. Grade too low.\n", this->grade_);
-  }
+  // if (this->grade_ > 150) {
+  //   throw GradeTooLowException("Error: Wrong input. Grade too low.\n", this->grade_);
+  // }
 
   this->grade_ += 1;
 }
 
-void Bureaucrat::isGradeOutOfRange(int grade) {
-  if (grade < 1 || grade > 150) {
-    try {
-      if (grade < 1) {
-        GradeTooHighException("Error: Wrong input. Grade too high.\n",
-                              this->grade_);
-      } else if (grade > 150) {
-        GradeTooLowException("Error: Wrong input. Grade too low.\n",
-                             this->grade_);
-      }
-    } catch (const Bureaucrat &e) {
-      if (grade < 1) {
-        GradeTooHighException("Error: Wrong input. Grade too high.\n",
-                              this->grade_);
-      } else if (grade > 150) {
-        GradeTooLowException("Error: Wrong input. Grade too low.\n",
-                             this->grade_);
-      }
-    }
-  }
+int Bureaucrat::isGradeOutOfRange(int grade) {
+  return (grade < 1 || grade > 150);
 }
 
 // -------------------------------------------------------------------- Setters
