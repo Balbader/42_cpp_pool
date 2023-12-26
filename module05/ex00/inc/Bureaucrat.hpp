@@ -22,18 +22,20 @@ public:
   Bureaucrat &operator=(const Bureaucrat &);
 
   // --------------------------------------------------------------- Exceptions
-  // class GradeTooHighException : public std::exception {
-  // public:
-  //   // Constructor to use to pass the error message
-  //   GradeTooHighException(const std::string &msg) : message_(msg) {}
-  //   // Overriding the what message to return a custom error message
-  //   virtual const char *what() const throw() { return message_.c_str(); }
-  //   // Destructor
-  //   virtual ~GradeTooHighException() throw() {}
+  class GradeTooHighException : public std::exception {
+  public:
+    // Constructor used to pass the error message
+    GradeTooHighException(const std::string &msg) : message_(msg) {}
 
-  // private:
-  //   std::string message_;
-  // };
+    // Overriding the what message to return a custom error message
+    virtual const char *what() const throw() { return message_.c_str(); }
+
+    // Destructor
+    virtual ~GradeTooHighException() throw() {}
+
+  private:
+    std::string message_;
+  };
 
   // class GradeTooLowException : public std::exception {
   // public:
@@ -48,8 +50,8 @@ public:
   // ------------------------------------------------------------------ Methods
   void incrementGrade();
   void decrementGrade();
-  void GradeTooHighException(std::string const);
-  void GradeTooLowException(std::string const);
+  // void GradeTooHighException();
+  void GradeTooLowException();
   void printGrade();
   void isGradeOutOfRange(int);
 
