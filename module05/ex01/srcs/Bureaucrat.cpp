@@ -32,11 +32,10 @@ Bureaucrat::Bureaucrat(const Bureaucrat &rhs)
               << std::endl;
 }
 
-
 // ------------------------------------------------------------------- Overload
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &rhs) {
   if (DEBUG)
-    std::cout << GRAY << "Bureaucrat Base = Assignment Operator Called" << RESET
+    std::cout << LYELLOW << "Bureaucrat Base = Assignment Operator Called" << RESET
               << std::endl;
 
   if (this != &rhs) {
@@ -49,7 +48,7 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &rhs) {
 
 std::ostream &operator<<(std::ostream &lhs, Bureaucrat const &rhs) {
   if (DEBUG)
-    std::cout << GRAY << "Bureaucrat Base << Assignment Operator Called"
+    std::cout << LYELLOW << "Bureaucrat Base << Assignment Operator Called"
               << RESET << std::endl;
 
   lhs << rhs.getName() << ", bureaucrat grade " << LGREEN << rhs.getGrade()
