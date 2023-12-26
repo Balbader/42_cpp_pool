@@ -61,8 +61,7 @@ std::ostream &operator<<(std::ostream &lhs, Bureaucrat const &rhs) {
 // -------------------------------------------------------------------- Methods
 void Bureaucrat::incrementGrade() {
   if (this->grade_ < 1) {
-    GradeTooHighException("Error: Wrong input. Grade too high.\n");
-    return;
+    GradeTooHighException("Error: Wrong input. Grade too high.\n", this->grade_);
   }
 
   this->grade_ -= 1;
@@ -70,8 +69,7 @@ void Bureaucrat::incrementGrade() {
 
 void Bureaucrat::decrementGrade() {
   if (this->grade_ > 150) {
-    GradeTooLowException("Error: Wrong input. Grade too low.\n");
-    return;
+    GradeTooLowException("Error: Wrong input. Grade too low.\n", this->grade_);
   }
 
   this->grade_ += 1;
@@ -81,19 +79,15 @@ void Bureaucrat::isGradeOutOfRange(int grade) {
   if (grade < 1 || grade > 150) {
     try {
       if (grade < 1) {
-        GradeTooHighException("Error: Wrong input. Grade too high.\n");
-        return;
+        GradeTooHighException("Error: Wrong input. Grade too high.\n", this->grade_);
       } else if (grade > 150) {
-        GradeTooLowException("Error: Wrong input. Grade too low.\n");
-        return;
+        GradeTooLowException("Error: Wrong input. Grade too low.\n", this->grade_);
       }
     } catch (const Bureaucrat &e) {
       if (grade < 1) {
-        GradeTooHighException("Error: Wrong input. Grade too high.\n");
-        return;
+        GradeTooHighException("Error: Wrong input. Grade too high.\n", this->grade_);
       } else if (grade < 150) {
-        GradeTooLowException("Error: Wrong input. Grade too low.\n");
-        return;
+        GradeTooLowException("Error: Wrong input. Grade too low.\n", this->grade_);
       }
     }
   }
