@@ -2,10 +2,8 @@
 #define BUREAUCRAT_HPP
 
 #include "colors.hpp"
-#include <cstdlib>
 #include <exception>
 #include <iostream>
-#include <limits.h>
 #include <string>
 
 #define DEBUG 1
@@ -29,11 +27,12 @@ public:
 
   void setName(std::string);
   void setGrade(int);
+  const char* GradeTooHighException();
+  const char* GradeTooLowException();
 
   const std::string &getName() const;
   unsigned int const &getGrade() const;
 
-protected:
 private:
   std::string name_;
   unsigned int grade_;
