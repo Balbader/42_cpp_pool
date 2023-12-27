@@ -14,13 +14,23 @@ Bureaucrat::Bureaucrat(std::string const name, int grade)
     std::cout << GREEN << "Bureaucrat Arguments Base Constructor called"
               << RESET << std::endl;
 
-  isGradeOutOfRange(grade);
+  try {
+    if (isGradeOutOfRange(grade)) {
+      if (grade < 1)
+        throw "Exception error occured.\nGrade too high.\n";
+      if (grade > 150)
+        throw "Exception error occured.\nGrade too low.\n";
+    }
+  }
+  catch (const char* e) {
+    std::cerr << e << std::endl;
+  }
 }
 
 // ----------------------------------------------------------------- Destructor
 Bureaucrat::~Bureaucrat() {
   if (DEBUG)
-    std::cout << RED << "\nBureaucrat Base Destructor called" << RESET
+    std::cout << RED << "Bureaucrat Base Destructor called" << RESET
               << std::endl;
 }
 
@@ -35,8 +45,8 @@ Bureaucrat::Bureaucrat(const Bureaucrat &rhs)
 // ------------------------------------------------------------------- Overload
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &rhs) {
   if (DEBUG)
-    std::cout << LYELLOW << "Bureaucrat Base = Assignment Operator Called" << RESET
-              << std::endl;
+    std::cout << LYELLOW << "Bureaucrat Base = Assignment Operator Called"
+              << RESET << std::endl;
 
   if (this != &rhs) {
     this->name_ = rhs.getName();
@@ -59,19 +69,9 @@ std::ostream &operator<<(std::ostream &lhs, Bureaucrat const &rhs) {
 }
 
 // -------------------------------------------------------------------- Methods
-void Bureaucrat::GradeTooHighException(std::string const err) {
-  std::cerr << err;
-}
-
-void Bureaucrat::GradeTooLowException(std::string const err) {
-  std::cerr << err;
-}
-
 void Bureaucrat::incrementGrade() {
   if (this->grade_ < 1) {
-    // throw GradeTooHighException("Error: Wrong input. Grade too high.\n");
-    this->GradeTooHighException("Error: Wrong input. Grade too high.\n");
-    return;
+    throw GradeTooHighException();
   }
 
   this->grade_ -= 1;
@@ -79,39 +79,24 @@ void Bureaucrat::incrementGrade() {
 
 void Bureaucrat::decrementGrade() {
   if (this->grade_ > 150) {
-    // throw GradeTooLowException("Error: Wrong input. Grade too low.\n");
-    this->GradeTooLowException("Error: Wrong input. Grade too low.\n");
-    return;
+    throw GradeTooLowException();
   }
 
   this->grade_ += 1;
 }
 
-void Bureaucrat::isGradeOutOfRange(int grade) {
-  if (grade < 1 || grade > 150) {
-    try {
-      if (grade < 1) {
-        // throw GradeTooHighException("Error: Wrong input. Grade too high.\n");
-        this->GradeTooHighException("Error: Wrong input. Grade too high.\n");
-        // return;
-      } else if (grade > 150) {
-        // throw GradeTooLowException("Error: Wrong input. Grade too low.\n");
-        this->GradeTooLowException("Error: Wrong input. Grade too low.\n");
-        // return;
-      }
-    } catch (const Bureaucrat &e) {
-      if (grade < 1) {
-        // throw GradeTooHighException("Error: Wrong input. Grade too high.\n");
-        this->GradeTooHighException("Error: Wrong input. Grade too high.\n");
-        // return;
-      } else if (grade < 150) {
-        // throw GradeTooLowException("Error: Wrong input. Grade too low.\n");
-        this->GradeTooLowException("Error: Wrong input. Grade too low.\n");
-        // return;
-      }
-    }
-  }
+int Bureaucrat::isGradeOutOfRange(int grade) {
+  return (grade < 1 || grade > 150);
 }
+
+const char* Bureaucrat::GradeTooHighException() {
+  return "Exception error occured.\nGrade too high.\n";
+}
+
+const char* Bureaucrat::GradeTooLowException() {
+  return "Exception error occured.\nGrade too low.\n";
+}
+
 
 // -------------------------------------------------------------------- Setters
 void Bureaucrat::setName(std::string name) { this->name_ = name; }
