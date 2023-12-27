@@ -13,12 +13,24 @@ Bureaucrat::Bureaucrat(std::string const name, int grade)
   if (DEBUG)
     std::cout << GREEN << "Bureaucrat Arguments Base Constructor called"
               << RESET << std::endl;
+
+  try {
+    if (isGradeOutOfRange(grade)) {
+      if (grade < 1)
+        throw "Exception error occured.\nGrade too high.\n";
+      if (grade > 150)
+        throw "Exception error occured.\nGrade too low.\n";
+    }
+  }
+  catch (const char* e) {
+    std::cerr << e << std::endl;
+  }
 }
 
 // ----------------------------------------------------------------- Destructor
 Bureaucrat::~Bureaucrat() {
   if (DEBUG)
-    std::cout << RED << "\nBureaucrat Base Destructor called" << RESET
+    std::cout << RED << "Bureaucrat Base Destructor called" << RESET
               << std::endl;
 }
 
@@ -58,18 +70,17 @@ std::ostream &operator<<(std::ostream &lhs, Bureaucrat const &rhs) {
 
 // -------------------------------------------------------------------- Methods
 void Bureaucrat::incrementGrade() {
-  // if (this->grade_ < 1) {
-  //   throw GradeTooHighException("Error: Wrong input. Grade too high.\n",
-  //                         this->grade_);
-  // }
+  if (this->grade_ < 1) {
+    throw GradeTooHighException();
+  }
 
   this->grade_ -= 1;
 }
 
 void Bureaucrat::decrementGrade() {
-  // if (this->grade_ > 150) {
-  //   throw GradeTooLowException("Error: Wrong input. Grade too low.\n", this->grade_);
-  // }
+  if (this->grade_ > 150) {
+    throw GradeTooLowException();
+  }
 
   this->grade_ += 1;
 }
@@ -77,6 +88,15 @@ void Bureaucrat::decrementGrade() {
 int Bureaucrat::isGradeOutOfRange(int grade) {
   return (grade < 1 || grade > 150);
 }
+
+const char* Bureaucrat::GradeTooHighException() {
+  return "Exception error occured.\nGrade too high.\n";
+}
+
+const char* Bureaucrat::GradeTooLowException() {
+  return "Exception error occured.\nGrade too low.\n";
+}
+
 
 // -------------------------------------------------------------------- Setters
 void Bureaucrat::setName(std::string name) { this->name_ = name; }
