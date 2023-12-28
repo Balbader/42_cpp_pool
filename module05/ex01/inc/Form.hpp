@@ -15,7 +15,6 @@ public:
 
   // ------------------------------------------------------------------ Methods
   void beSigned(Bureaucrat const &);
-  void signForm();
 
   // --------------------------------------------------------------- Exceptions
   class GradeTooHighException : public std::exception {
@@ -49,6 +48,6 @@ private:
   bool isSigned_(int);
 };
 
-std::ostream &operator<<(std::ostream &lhs, Bureaucrat const &rhs);
+std::ostream &operator<<(std::ostream &lhs, Form const &rhs);
 
 #endif // !FORM_HPP
