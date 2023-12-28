@@ -18,8 +18,17 @@ public:
   void signForm();
 
   // --------------------------------------------------------------- Exceptions
-  const char *GradeTooHighException();
-  const char *GradeTooLowException();
+  class GradeTooHighException : public std::exception {
+      virtual const char* what() const throw() {
+        return "Form Exception error occured.\nGrade too high.\n";
+    }
+  };
+  
+  class GradeTooLowException : public std::exception {
+      virtual const char* what() const throw() {
+        return "Form Exception error occured.\nGrade too Low.\n";
+    }
+  };
 
   // ------------------------------------------------------------------ Setters
   void setName(std::string);
