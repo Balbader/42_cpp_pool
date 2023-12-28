@@ -2,54 +2,50 @@
 #define BUREAUCRAT_HPP
 
 #include "colors.hpp"
-#include <cstdlib>
 #include <exception>
 #include <iostream>
-#include <limits.h>
 #include <string>
 
 #define DEBUG 1
 
+// ----------------------------------------------------------------- Bureaucrat
 class Bureaucrat {
 
 public:
-  int grade_;
-
-  // ------------------------------------------------- Constructor & Destructor
-  Bureaucrat(std::string, int);
+  Bureaucrat();
   ~Bureaucrat();
 
-  // ----------------------------------- Copy constructor & Assignment operator
+  Bureaucrat(std::string, int);
+
   Bureaucrat(const Bureaucrat &);
   Bureaucrat &operator=(const Bureaucrat &);
 
-  // ------------------------------------------------------------------ Methods
+  class GradeTooHighException : public std::exception {
+      virtual const char* what() const throw() {
+        return "Exception error occured.\nGrade too high.\n";
+    }
+  };
+  
+  class GradeTooLowException : public std::exception {
+      virtual const char* what() const throw() {
+        return "Exception error occured.\nGrade too Low.\n";
+    }
+  };
+
   void incrementGrade();
   void decrementGrade();
   void printGrade();
   int isGradeOutOfRange(int);
 
-  // --------------------------------------------------------------- Exceptions
-  // const char *GradeTooHighException();
-  // const char *GradeTooLowException();
-
-  class MyClass : public std::exception {
-
-  }
-
-  // ------------------------------------------------------------------ Setters
   void setName(std::string);
   void setGrade(int);
 
-  // ------------------------------------------------------------------ Getters
   const std::string &getName() const;
-  int const &getGrade() const;
-
-protected:
-  Bureaucrat();
+  unsigned int const &getGrade() const;
 
 private:
   std::string name_;
+  unsigned int grade_;
 };
 
 std::ostream &operator<<(std::ostream &lhs, Bureaucrat const &rhs);
