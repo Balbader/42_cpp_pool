@@ -14,7 +14,9 @@ Form::Form(std::string name, int grade)
 }
 
 // ----------------------------------------------------------- Copy Constructor
-Form::Form(const Form &rhs) : name_(rhs.getName()), gradeToExec_(rhs.getGradeToExec()), gradeToSign_(rhs.getGradeToSign()) {
+Form::Form(const Form &rhs)
+    : name_(rhs.getName()), gradeToExec_(rhs.getGradeToExec())
+    , gradeToSign_(rhs.getGradeToSign()) {
   if (DEBUG)
     std::cout << ORANGE << "Form Base Copy Constructor Called" << RESET
               << std::endl;
@@ -46,7 +48,8 @@ std::ostream &operator<<(std::ostream &lhs, Form const &rhs) {
     std::cout << ORANGE << "Bureaucrat Base << Assignment Operator Called"
               << RESET << std::endl;
 
-  if ((rhs.getGradeToExec() < 1 || rhs.getGradeToExec() > 150) || (rhs.getGradeToSign() < 1 || rhs.getGradeToSign() > 150)) {
+  if ((rhs.getGradeToExec() < 1 || rhs.getGradeToExec() > 150) ||
+      (rhs.getGradeToSign() < 1 || rhs.getGradeToSign() > 150)) {
     try {
       if (rhs.getGradeToSign() < 1 || rhs.getGradeToExec() < 1)
         throw "Exception error occured.\nGrade too high.\n";
