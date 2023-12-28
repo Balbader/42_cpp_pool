@@ -26,8 +26,8 @@ Form::Form(std::string name, int grade)
 
 // ----------------------------------------------------------- Copy Constructor
 Form::Form(const Form &rhs)
-    : name_(rhs.getName()), gradeToExec_(rhs.getGradeToExec())
-    , gradeToSign_(rhs.getGradeToSign()) {
+    : name_(rhs.getName()), gradeToExec_(rhs.getGradeToExec()),
+      gradeToSign_(rhs.getGradeToSign()) {
   if (DEBUG)
     std::cout << ORANGE << "Form Base Copy Constructor Called" << RESET
               << std::endl;
@@ -42,8 +42,8 @@ Form::~Form() {
 // ------------------------------------------------------------------- Overload
 Form &Form::operator=(const Form &rhs) {
   if (DEBUG)
-    std::cout << ORANGE << "Form Base = Assignment Operator Called"
-              << RESET << std::endl;
+    std::cout << ORANGE << "Form Base = Assignment Operator Called" << RESET
+              << std::endl;
 
   if (this != &rhs) {
     this->name_ = rhs.getName();
@@ -70,8 +70,8 @@ std::ostream &operator<<(std::ostream &lhs, Form const &rhs) {
       std::cerr << e << std::endl;
     }
   } else {
-    lhs << "Form " << LGREEN << rhs.getName() << RESET << ", created with a grade of "
-        << LGREEN << rhs.getGradeToSign()
+    lhs << "Form " << LGREEN << rhs.getName() << RESET
+        << ", created with a grade of " << LGREEN << rhs.getGradeToSign()
         << ".\n"
         << RESET;
   }
