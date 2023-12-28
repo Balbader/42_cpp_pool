@@ -11,6 +11,17 @@ Form::Form(std::string name, int grade)
   if (DEBUG)
     std::cout << ORANGE << "Form base with args constructor called" << RESET
               << "\n";
+
+  try {
+    if (isGradeOutOfRange(gradeToSign_) || isGradeOutOfRange(gradeToExec_)) {
+      if (gradeToExec_ < 1 || gradeToSign_ < 1)
+        throw GradeTooHighException();
+      if (gradeToExec_ > 150 || gradeToSign_ > 150)
+        throw GradeTooLowException();
+    }
+  } catch (const std::exception &e) {
+    std::cerr << e.what() << std::endl;
+  }
 }
 
 // ----------------------------------------------------------- Copy Constructor
