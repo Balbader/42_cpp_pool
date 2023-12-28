@@ -5,14 +5,26 @@
 
 class Form : public Bureaucrat {
 public:
+  // ------------------------------------------------- Constructor & Destructor
   Form(std::string, int);
   ~Form();
 
+  // ----------------------------------- Copy constructor & Assignment operator
   Form(const Form &);
   Form &operator=(const Form &);
 
+  // ------------------------------------------------------------------ Methods
   void beSigned(Bureaucrat);
   void signForm();
+
+  // ------------------------------------------------------------------ Setters
+  void setName(std::string);
+  void setGrade(int);
+
+  // ------------------------------------------------------------------ Getters
+  const std::string &getName() const;
+  int const &getGradeToExec() const;
+  int const &getGradeToSign() const;
 
 protected:
   Form();
@@ -23,5 +35,7 @@ private:
   int gradeToExec_;
   bool isSigned_(int);
 };
+
+std::ostream &operator<<(std::ostream &lhs, Bureaucrat const &rhs);
 
 #endif // !FORM_HPP
