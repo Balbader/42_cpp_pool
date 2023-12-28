@@ -17,12 +17,12 @@ Bureaucrat::Bureaucrat(std::string const name, int grade)
   try {
     if (isGradeOutOfRange(grade)) {
       if (grade < 1)
-        throw "Exception error occured.\nGrade too high.\n";
+        throw GradeTooHighException();
       if (grade > 150)
-        throw "Exception error occured.\nGrade too low.\n";
+        throw GradeTooLowException();
     }
-  } catch (const char *e) {
-    std::cerr << e << std::endl;
+  } catch (const std::exception &e) {
+    std::cerr << e.what() << std::endl;
   }
 }
 
@@ -86,14 +86,6 @@ void Bureaucrat::decrementGrade() {
 
 int Bureaucrat::isGradeOutOfRange(int grade) {
   return (grade < 1 || grade > 150);
-}
-
-const char *Bureaucrat::GradeTooHighException() {
-  return "Exception error occured.\nGrade too high.\n";
-}
-
-const char *Bureaucrat::GradeTooLowException() {
-  return "Exception error occured.\nGrade too low.\n";
 }
 
 // -------------------------------------------------------------------- Setters
