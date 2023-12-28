@@ -60,9 +60,20 @@ std::ostream &operator<<(std::ostream &lhs, Bureaucrat const &rhs) {
     std::cout << LYELLOW << "Bureaucrat Base << Assignment Operator Called"
               << RESET << std::endl;
 
-  lhs << rhs.getName() << ", bureaucrat grade " << LGREEN << rhs.getGrade()
-      << ".\n"
-      << RESET;
+  if (rhs.grade_ < 1 || rhs. grade_ > 150) {
+    try {
+      if (rhs.grade_ < 1)
+        throw "Exception error occured.\nGrade too high.\n";
+      if (rhs.grade_ > 150)
+        throw "Exception error occured.\nGrade too low.\n";
+    } catch (const char *e) {
+      std::cerr << e << std::endl;
+    }
+  } else {
+    lhs << rhs.getName() << ", bureaucrat grade " << LGREEN << rhs.getGrade()
+        << ".\n"
+        << RESET;
+  }
 
   return lhs;
 }
