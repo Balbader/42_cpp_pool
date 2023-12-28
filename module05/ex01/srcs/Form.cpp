@@ -68,9 +68,9 @@ std::ostream &operator<<(std::ostream &lhs, Form const &rhs) {
 }
 
 // -------------------------------------------------------------------- Methods
-Form::beSigned(Bureaucrat const &rhs) {
+// Form::beSigned(Bureaucrat const &rhs) {
 
-}
+// }
 
 
 // -------------------------------------------------------------------- Setters
