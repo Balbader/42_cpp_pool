@@ -30,8 +30,12 @@ public:
   int isGradeOutOfRange(int);
 
   // --------------------------------------------------------------- Exceptions
-  const char *GradeTooHighException();
-  const char *GradeTooLowException();
+  // const char *GradeTooHighException();
+  // const char *GradeTooLowException();
+
+  class MyClass : public std::exception {
+
+  }
 
   // ------------------------------------------------------------------ Setters
   void setName(std::string);
