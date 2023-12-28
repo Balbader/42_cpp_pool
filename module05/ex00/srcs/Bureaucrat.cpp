@@ -21,8 +21,7 @@ Bureaucrat::Bureaucrat(std::string const name, int grade)
       if (grade > 150)
         throw "Exception error occured.\nGrade too low.\n";
     }
-  }
-  catch (const char* e) {
+  } catch (const char *e) {
     std::cerr << e << std::endl;
   }
 }
@@ -89,14 +88,13 @@ int Bureaucrat::isGradeOutOfRange(int grade) {
   return (grade < 1 || grade > 150);
 }
 
-const char* Bureaucrat::GradeTooHighException() {
+const char *Bureaucrat::GradeTooHighException() {
   return "Exception error occured.\nGrade too high.\n";
 }
 
-const char* Bureaucrat::GradeTooLowException() {
+const char *Bureaucrat::GradeTooLowException() {
   return "Exception error occured.\nGrade too low.\n";
 }
-
 
 // -------------------------------------------------------------------- Setters
 void Bureaucrat::setName(std::string name) { this->name_ = name; }
