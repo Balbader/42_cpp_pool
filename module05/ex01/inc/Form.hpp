@@ -3,18 +3,25 @@
 
 #include "Bureaucrat.hpp"
 
-class Form {
+class Form : public Bureaucrat {
 public:
-  Form();
+  Form(int);
   ~Form();
 
   Form(const Form &);
   Form &operator=(const Form &);
 
+  void beSigned(Bureaucrat);
+  void signForm();
+
+protected:
+  Form();
+
 private:
   std::string name_;
-  unsigned int grade_;
-  void isSigned(); // NOTE: need argument?
+  unsigned int gradeToSign_;
+  unsigned int gradeToExec_;
+  int isSigned_(int);
 };
 
 #endif // !FORM_HPP
