@@ -5,7 +5,7 @@
 
 class Form : public Bureaucrat {
 public:
-  Form(int);
+  Form(std::string, int);
   ~Form();
 
   Form(const Form &);
@@ -19,9 +19,9 @@ protected:
 
 private:
   std::string name_;
-  unsigned int gradeToSign_;
-  unsigned int gradeToExec_;
-  int isSigned_(int);
+  int gradeToSign_;
+  int gradeToExec_;
+  bool isSigned_(int);
 };
 
 #endif // !FORM_HPP
