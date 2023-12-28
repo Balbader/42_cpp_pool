@@ -14,7 +14,7 @@ public:
   Form &operator=(const Form &);
 
   // ------------------------------------------------------------------ Methods
-  void beSigned(Bureaucrat);
+  void beSigned(Bureaucrat const &);
   void signForm();
 
   // ------------------------------------------------------------------ Setters
