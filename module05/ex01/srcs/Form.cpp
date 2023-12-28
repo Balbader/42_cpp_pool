@@ -79,6 +79,12 @@ std::ostream &operator<<(std::ostream &lhs, Form const &rhs) {
   return lhs;
 }
 
+// -------------------------------------------------------------------=- Method
+void Form::signForm(Form signedForm) {
+  std::cout << "Bureaucrat " << LGREEN << this->getName() << RESET
+            << " signed form " << LGREEN << signedForm << RESET << std::endl;
+}
+
 // -------------------------------------------------------------------- Setters
 void Form::setName(std::string name) { this->name_ = name; }
 
