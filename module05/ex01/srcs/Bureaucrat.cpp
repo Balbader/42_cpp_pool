@@ -3,7 +3,7 @@
 // ---------------------------------------------------------------- Constructor
 Bureaucrat::Bureaucrat() : name_("000"), grade_(0) {
   if (DEBUG)
-    std::cout << LGREEN << "Bureaucrat Base Constructor called" << RESET
+    std::cout << GREEN << "Bureaucrat Base Constructor called" << RESET
               << std::endl;
 }
 
@@ -11,7 +11,7 @@ Bureaucrat::Bureaucrat(std::string const name, int grade)
     : name_(name), grade_(grade) {
 
   if (DEBUG)
-    std::cout << LGREEN << "Bureaucrat Arguments Base Constructor called"
+    std::cout << GREEN << "Bureaucrat Arguments Base Constructor called"
               << RESET << std::endl;
 
   try {
@@ -21,15 +21,15 @@ Bureaucrat::Bureaucrat(std::string const name, int grade)
       if (grade > 150)
         throw GradeTooLowException();
     }
-  } catch (const char *e) {
-    std::cerr << e << std::endl;
+  } catch (const std::exception &e) {
+    std::cerr << e.what() << std::endl;
   }
 }
 
 // ----------------------------------------------------------------- Destructor
 Bureaucrat::~Bureaucrat() {
   if (DEBUG)
-    std::cout << LGREEN << "Bureaucrat Base Destructor called" << RESET
+    std::cout << RED << "Bureaucrat Base Destructor called" << RESET
               << std::endl;
 }
 
@@ -44,7 +44,7 @@ Bureaucrat::Bureaucrat(const Bureaucrat &rhs)
 // ------------------------------------------------------------------- Overload
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &rhs) {
   if (DEBUG)
-    std::cout << LGREEN << "Bureaucrat Base = Assignment Operator Called"
+    std::cout << LYELLOW << "Bureaucrat Base = Assignment Operator Called"
               << RESET << std::endl;
 
   if (this != &rhs) {
@@ -57,23 +57,12 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &rhs) {
 
 std::ostream &operator<<(std::ostream &lhs, Bureaucrat const &rhs) {
   if (DEBUG)
-    std::cout << LGREEN << "Bureaucrat Base << Assignment Operator Called"
+    std::cout << LYELLOW << "Bureaucrat Base << Assignment Operator Called"
               << RESET << std::endl;
 
-  if (rhs.grade_ < 1 || rhs.grade_ > 150) {
-    try {
-      if (rhs.grade_ < 1)
-        throw "Exception error occured.\nGrade too high.\n";
-      if (rhs.grade_ > 150)
-        throw "Exception error occured.\nGrade too low.\n";
-    } catch (const char *e) {
-      std::cerr << e << std::endl;
-    }
-  } else {
-    lhs << rhs.getName() << ", bureaucrat grade " << LGREEN << rhs.getGrade()
-        << ".\n"
-        << RESET;
-  }
+  lhs << rhs.getName() << ", bureaucrat grade " << LGREEN << rhs.getGrade()
+      << ".\n"
+      << RESET;
 
   return lhs;
 }
@@ -99,14 +88,6 @@ int Bureaucrat::isGradeOutOfRange(int grade) {
   return (grade < 1 || grade > 150);
 }
 
-const char *Bureaucrat::GradeTooHighException() {
-  return "Exception error occured.\nGrade too high.\n";
-}
-
-const char *Bureaucrat::GradeTooLowException() {
-  return "Exception error occured.\nGrade too low.\n";
-}
-
 // -------------------------------------------------------------------- Setters
 void Bureaucrat::setName(std::string name) { this->name_ = name; }
 
@@ -119,4 +100,4 @@ void Bureaucrat::setGrade(int grade) {
 
 // -------------------------------------------------------------------- Getters
 const std::string &Bureaucrat::getName() const { return this->name_; }
-int const &Bureaucrat::getGrade() const { return this->grade_; }
+unsigned int const &Bureaucrat::getGrade() const { return this->grade_; }
