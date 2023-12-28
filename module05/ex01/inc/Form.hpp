@@ -17,6 +17,10 @@ public:
   void beSigned(Bureaucrat const &);
   void signForm();
 
+  // --------------------------------------------------------------- Exceptions
+  const char *GradeTooHighException();
+  const char *GradeTooLowException();
+
   // ------------------------------------------------------------------ Setters
   void setName(std::string);
   void setGrade(int);
