@@ -12,10 +12,6 @@ Form::Form(std::string name, int grade)
     std::cout << ORANGE << "Form base with args constructor called" << RESET
               << "\n";
 
-  std::cout << this->name_ << std::endl;
-  std::cout << this->gradeToSign_ << std::endl;
-  std::cout << this->gradeToExec_ << std::endl;
-
   try {
     if (isGradeOutOfRange(gradeToSign_) || isGradeOutOfRange(gradeToExec_)) {
       if (gradeToExec_ < 1 || gradeToSign_ < 1)
@@ -74,19 +70,14 @@ std::ostream &operator<<(std::ostream &lhs, Form const &rhs) {
       std::cerr << e << std::endl;
     }
   } else {
-    lhs << rhs.getName() << ", bureaucrat signed form " << LGREEN << rhs.getGrade()
+    lhs << "Form " << LGREEN << rhs.getName() << RESET << ", created with a grade of "
+        << LGREEN << rhs.getGradeToSign()
         << ".\n"
         << RESET;
   }
 
   return lhs;
 }
-
-// -------------------------------------------------------------------- Methods
-// Form::beSigned(Bureaucrat const &rhs) {
-
-// }
-
 
 // -------------------------------------------------------------------- Setters
 void Form::setName(std::string name) { this->name_ = name; }
