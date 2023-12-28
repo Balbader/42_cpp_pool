@@ -15,18 +15,17 @@ public:
 
   // ------------------------------------------------------------------ Methods
   void beSigned(Bureaucrat const &);
-  void signForm(Form);
 
   // --------------------------------------------------------------- Exceptions
   class GradeTooHighException : public std::exception {
-      virtual const char* what() const throw() {
-        return "Form Exception error occured.\nGrade too high.\n";
+    virtual const char *what() const throw() {
+      return "Form Exception error occured.\nGrade too high.\n";
     }
   };
-  
+
   class GradeTooLowException : public std::exception {
-      virtual const char* what() const throw() {
-        return "Form Exception error occured.\nGrade too Low.\n";
+    virtual const char *what() const throw() {
+      return "Form Exception error occured.\nGrade too Low.\n";
     }
   };
 
