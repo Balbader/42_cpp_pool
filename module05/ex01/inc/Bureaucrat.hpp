@@ -24,10 +24,12 @@ public:
   // ------------------------------------------------------------------ Methods
   void incrementGrade();
   void decrementGrade();
-  const char *GradeTooHighException();
-  const char *GradeTooLowException();
   void printGrade();
   int isGradeOutOfRange(int);
+
+  // --------------------------------------------------------------- Exceptions
+  const char *GradeTooHighException();
+  const char *GradeTooLowException();
 
   // ------------------------------------------------------------------ Setters
   void setName(std::string);
