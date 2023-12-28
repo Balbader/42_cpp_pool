@@ -67,6 +67,12 @@ std::ostream &operator<<(std::ostream &lhs, Form const &rhs) {
   return lhs;
 }
 
+// -------------------------------------------------------------------- Methods
+Form::beSigned(Bureaucrat const &rhs) {
+
+}
+
+
 // -------------------------------------------------------------------- Setters
 void Form::setName(std::string name) { this->name_ = name; }
 
