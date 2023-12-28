@@ -13,7 +13,7 @@
 class Bureaucrat {
 
 public:
-  unsigned int grade_;
+  int grade_;
 
   // ------------------------------------------------- Constructor & Destructor
   Bureaucrat(std::string, int);
@@ -39,7 +39,7 @@ public:
 
   // ------------------------------------------------------------------ Getters
   const std::string &getName() const;
-  unsigned int const &getGrade() const;
+  int const &getGrade() const;
 
 protected:
   Bureaucrat();
