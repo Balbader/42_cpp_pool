@@ -29,7 +29,7 @@ Bureaucrat::Bureaucrat(std::string const name, int grade)
 // ----------------------------------------------------------------- Destructor
 Bureaucrat::~Bureaucrat() {
   if (DEBUG)
-    std::cout << RED << "Bureaucrat Base Destructor called" << RESET
+    std::cout << RED << "Bureaucrat Base Destructor called\n" << RESET
               << std::endl;
 }
 
