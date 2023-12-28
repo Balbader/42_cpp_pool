@@ -3,7 +3,7 @@
 // ---------------------------------------------------------------- Constructor
 Bureaucrat::Bureaucrat() : name_("000"), grade_(0) {
   if (DEBUG)
-    std::cout << GREEN << "Bureaucrat Base Constructor called" << RESET
+    std::cout << LGREEN << "Bureaucrat Base Constructor called" << RESET
               << std::endl;
 }
 
@@ -11,7 +11,7 @@ Bureaucrat::Bureaucrat(std::string const name, int grade)
     : name_(name), grade_(grade) {
 
   if (DEBUG)
-    std::cout << GREEN << "Bureaucrat Arguments Base Constructor called"
+    std::cout << LGREEN << "Bureaucrat Arguments Base Constructor called"
               << RESET << std::endl;
 
   try {
@@ -29,7 +29,7 @@ Bureaucrat::Bureaucrat(std::string const name, int grade)
 // ----------------------------------------------------------------- Destructor
 Bureaucrat::~Bureaucrat() {
   if (DEBUG)
-    std::cout << RED << "Bureaucrat Base Destructor called" << RESET
+    std::cout << LGREEN << "Bureaucrat Base Destructor called" << RESET
               << std::endl;
 }
 
@@ -44,7 +44,7 @@ Bureaucrat::Bureaucrat(const Bureaucrat &rhs)
 // ------------------------------------------------------------------- Overload
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &rhs) {
   if (DEBUG)
-    std::cout << LYELLOW << "Bureaucrat Base = Assignment Operator Called"
+    std::cout << LGREEN << "Bureaucrat Base = Assignment Operator Called"
               << RESET << std::endl;
 
   if (this != &rhs) {
@@ -57,7 +57,7 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &rhs) {
 
 std::ostream &operator<<(std::ostream &lhs, Bureaucrat const &rhs) {
   if (DEBUG)
-    std::cout << LYELLOW << "Bureaucrat Base << Assignment Operator Called"
+    std::cout << LGREEN << "Bureaucrat Base << Assignment Operator Called"
               << RESET << std::endl;
 
   if (rhs.grade_ < 1 || rhs. grade_ > 150) {
