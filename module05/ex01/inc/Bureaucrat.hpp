@@ -8,6 +8,8 @@
 
 #define DEBUG 1
 
+class Form;
+
 // ----------------------------------------------------------------- Bureaucrat
 class Bureaucrat {
 
@@ -21,21 +23,21 @@ public:
   Bureaucrat &operator=(const Bureaucrat &);
 
   class GradeTooHighException : public std::exception {
-      virtual const char* what() const throw() {
-        return "Exception error occured.\nGrade too high.\n";
+    virtual const char *what() const throw() {
+      return "Exception error occured.\nGrade too high.\n";
     }
   };
-  
+
   class GradeTooLowException : public std::exception {
-      virtual const char* what() const throw() {
-        return "Exception error occured.\nGrade too Low.\n";
+    virtual const char *what() const throw() {
+      return "Exception error occured.\nGrade too Low.\n";
     }
   };
 
   int isGradeOutOfRange(int);
   void incrementGrade();
   void decrementGrade();
-  void signForm();
+  void signForm(Form);
   void printGrade();
 
   void setName(std::string);
