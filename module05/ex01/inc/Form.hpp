@@ -15,6 +15,7 @@ public:
 
   // ------------------------------------------------------------------ Methods
   void beSigned(Bureaucrat const &);
+  void signForm(Form);
 
   // --------------------------------------------------------------- Exceptions
   class GradeTooHighException : public std::exception {
