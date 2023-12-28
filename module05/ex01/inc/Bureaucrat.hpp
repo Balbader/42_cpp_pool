@@ -13,6 +13,8 @@
 class Bureaucrat {
 
 public:
+  unsigned int grade_;
+
   // ------------------------------------------------- Constructor & Destructor
   Bureaucrat(std::string, int);
   ~Bureaucrat();
@@ -44,7 +46,6 @@ protected:
 
 private:
   std::string name_;
-  unsigned int grade_;
 };
 
 std::ostream &operator<<(std::ostream &lhs, Bureaucrat const &rhs);
