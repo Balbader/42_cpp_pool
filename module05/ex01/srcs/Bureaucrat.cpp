@@ -30,8 +30,8 @@ Bureaucrat::Bureaucrat(std::string const name, int grade)
 // ----------------------------------------------------------------- Destructor
 Bureaucrat::~Bureaucrat() {
   if (DEBUG)
-    std::cout << RED << "Bureaucrat Base Destructor called\n" << RESET
-              << std::endl;
+    std::cout << RED << "Bureaucrat Base Destructor called\n"
+              << RESET << std::endl;
 }
 
 // ----------------------------------------------------------- Copy Constructor
@@ -72,8 +72,7 @@ std::ostream &operator<<(std::ostream &lhs, Bureaucrat const &rhs) {
     }
   } else {
     lhs << LGREEN << rhs.getName() << RESET << ", bureaucrat grade " << LGREEN
-        << rhs.getGrade()
-        << ".\n"
+        << rhs.getGrade() << ".\n"
         << RESET;
   }
 
@@ -101,9 +100,9 @@ int Bureaucrat::isGradeOutOfRange(int grade) {
   return (grade < 1 || grade > 150);
 }
 
-void Bureaucrat::signForm() {
+void Bureaucrat::signForm(Form form) {
   std::cout << "Bureaucrat " << LGREEN << this->getName() << RESET
-            << " signed form " << RESET << std::endl;
+            << " signed form " << LGREEN << form.get RESET << std::endl;
 }
 
 // -------------------------------------------------------------------- Setters
