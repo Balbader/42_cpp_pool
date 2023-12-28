@@ -16,6 +16,7 @@ int main() {
   Form transfer("transfer", 144);
   std::cout << transfer;
   std::cout << "\n";
+  cfo.signForm();
 
   Form profile("Doudou", -420);
   std::cout << profile;
