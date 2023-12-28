@@ -60,7 +60,7 @@ std::ostream &operator<<(std::ostream &lhs, Bureaucrat const &rhs) {
     std::cout << LGREEN << "Bureaucrat Base << Assignment Operator Called"
               << RESET << std::endl;
 
-  if (rhs.grade_ < 1 || rhs. grade_ > 150) {
+  if (rhs.grade_ < 1 || rhs.grade_ > 150) {
     try {
       if (rhs.grade_ < 1)
         throw "Exception error occured.\nGrade too high.\n";
@@ -119,4 +119,4 @@ void Bureaucrat::setGrade(int grade) {
 
 // -------------------------------------------------------------------- Getters
 const std::string &Bureaucrat::getName() const { return this->name_; }
-unsigned int const &Bureaucrat::getGrade() const { return this->grade_; }
+int const &Bureaucrat::getGrade() const { return this->grade_; }
