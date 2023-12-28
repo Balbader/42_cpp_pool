@@ -4,21 +4,21 @@
 int main() {
   std::cout << "\n";
 
-  Bureaucrat mimi("mimi", 448);
-  Bureaucrat riri("riri", -31);
-  Bureaucrat fifi("fifi", 42);
+  Bureaucrat ceo("Mimi", 448);
+  Bureaucrat coo("Riri", -31);
+  Bureaucrat cfo("Fifi", 42);
 
-  std::cout << fifi << "\n";
-  std::cout << riri;
-  std::cout << mimi;
+  std::cout << cfo << "\n";
+  std::cout << coo;
+  std::cout << ceo;
   std::cout << "\n";
 
-  Form loulou("loulou", 42);
-  std::cout << loulou;
+  Form transfer("transfer", 144);
+  std::cout << transfer;
   std::cout << "\n";
 
-  Form doudou("doudou", -42);
-  std::cout << doudou;
+  Form profile("Doudou", -420);
+  std::cout << profile;
   std::cout << "\n";
   return 0;
 }
