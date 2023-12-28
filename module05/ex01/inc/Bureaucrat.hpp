@@ -32,10 +32,11 @@ public:
     }
   };
 
+  int isGradeOutOfRange(int);
   void incrementGrade();
   void decrementGrade();
+  void signForm();
   void printGrade();
-  int isGradeOutOfRange(int);
 
   void setName(std::string);
   void setGrade(int);
