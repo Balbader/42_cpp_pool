@@ -1,4 +1,5 @@
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 // ---------------------------------------------------------------- Constructor
 Bureaucrat::Bureaucrat() : name_("000"), grade_(0) {
@@ -98,6 +99,11 @@ void Bureaucrat::decrementGrade() {
 
 int Bureaucrat::isGradeOutOfRange(int grade) {
   return (grade < 1 || grade > 150);
+}
+
+void Bureaucrat::signForm() {
+  std::cout << "Bureaucrat " << LGREEN << this->getName() << RESET
+            << " signed form " << RESET << std::endl;
 }
 
 // -------------------------------------------------------------------- Setters
