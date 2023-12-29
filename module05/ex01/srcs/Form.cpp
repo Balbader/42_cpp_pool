@@ -14,12 +14,10 @@ Form::Form(std::string name, int gradeToSign, int gradeToExec)
               << "\n";
 
   try {
-    if (isGradeOutOfRange(gradeToSign_) || isGradeOutOfRange(gradeToExec_)) {
-      if (gradeToExec_ < 1 || gradeToSign_ < 1)
-        throw GradeTooHighException();
-      if (gradeToExec_ > 150 || gradeToSign_ > 150)
-        throw GradeTooLowException();
-    }
+    if (gradeToExec_ < 1 || gradeToSign_ < 1)
+      throw GradeTooHighException();
+    if (gradeToExec_ > 150 || gradeToSign_ > 150)
+      throw GradeTooLowException();
   } catch (const std::exception &e) {
     std::cerr << e.what() << std::endl;
   }
@@ -81,7 +79,7 @@ std::ostream &operator<<(std::ostream &lhs, Form const &rhs) {
 }
 
 // -------------------------------------------------------------------=- Method
-void Form::besigned(Bureaucrat signedForm) {
+void Form::beSigned(Bureaucrat const& signedForm) {
   std::cout << "Bureaucrat " << LGREEN << this->getName() << RESET
             << " signed form " << LGREEN << signedForm << RESET << std::endl;
 }
