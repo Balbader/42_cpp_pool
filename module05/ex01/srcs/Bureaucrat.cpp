@@ -102,7 +102,7 @@ int Bureaucrat::isGradeOutOfRange(int grade) {
 
 void Bureaucrat::signForm(Form form) {
   std::cout << "Bureaucrat " << LGREEN << this->getName() << RESET
-            << " signed form " << LGREEN << form.get RESET << std::endl;
+            << " signed form " << LGREEN << form.getGrade() <<  RESET << std::endl;
 }
 
 // -------------------------------------------------------------------- Setters
