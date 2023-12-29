@@ -42,12 +42,12 @@ public:
 
   void setName(std::string);
   void setGrade(int);
-  const std::string getName() const;
-  unsigned int const getGrade() const;
+  std::string getName() const;
+  int getGrade() const;
 
 private:
-  const std::string name_;
-  unsigned int grade_;
+  std::string name_;
+  int grade_;
 };
 
 std::ostream &operator<<(std::ostream &lhs, Bureaucrat const &rhs);
