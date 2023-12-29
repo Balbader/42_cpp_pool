@@ -13,7 +13,7 @@ int main() {
   std::cout << ceo;
   std::cout << "\n";
 
-  Form transfer("transfer", 144);
+  Form transfer("transfer", 144, 42);
   std::cout << transfer;
   std::cout << "\n";
   cfo.signForm();
