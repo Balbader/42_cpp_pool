@@ -100,9 +100,19 @@ int Bureaucrat::isGradeOutOfRange(int grade) {
   return (grade < 1 || grade > 150);
 }
 
+// void Bureaucrat::signForm(Form form) {
+//   std::cout << "Bureaucrat " << LGREEN << this->getName() << RESET
+//             << " signed form " << LGREEN << form.getGrade() << RESET
+//             << std::endl;
+// }
+
 void Bureaucrat::signForm(Form form) {
-  std::cout << "Bureaucrat " << LGREEN << this->getName() << RESET
-            << " signed form " << LGREEN << form.getGrade() <<  RESET << std::endl;
+  try {
+    form.beSigned(*this);
+  } catch (std::exception &e) {
+    std::cerr << "Bureaucrat " << this->_name << " couldn't sign "
+              << form.getName() << " because " << e.what();
+  }
 }
 
 // -------------------------------------------------------------------- Setters
