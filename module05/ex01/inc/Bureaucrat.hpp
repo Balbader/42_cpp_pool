@@ -42,7 +42,6 @@ public:
 
   void setName(std::string);
   void setGrade(int);
-
   const std::string &getName() const;
   unsigned int const &getGrade() const;
 
