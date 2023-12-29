@@ -1,4 +1,5 @@
 #include "Form.hpp"
+#include "Bureaucrat.hpp"
 
 // ---------------------------------------------------------------- Constructor
 Form::Form() {
@@ -6,8 +7,8 @@ Form::Form() {
     std::cout << ORANGE << "Form base constructor called" << RESET << "\n";
 }
 
-Form::Form(std::string name, int grade)
-    : name_(name), gradeToSign_(grade), gradeToExec_(grade) {
+Form::Form(std::string name, int gradeToSign, int gradeToExec)
+    : name_(name), gradeToSign_(gradeToSign), gradeToExec_(gradeToExec) {
   if (DEBUG)
     std::cout << ORANGE << "Form base with args constructor called" << RESET
               << "\n";
