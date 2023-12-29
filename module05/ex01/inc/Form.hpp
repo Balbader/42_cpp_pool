@@ -6,7 +6,7 @@
 class Form : public Bureaucrat {
 public:
   // ------------------------------------------------- Constructor & Destructor
-  Form(std::string, int);
+  Form(std::string, int, int);
   ~Form();
 
   // ----------------------------------- Copy constructor & Assignment operator
@@ -45,7 +45,7 @@ private:
   std::string name_;
   int gradeToSign_;
   int gradeToExec_;
-  bool isSigned_(int);
+  bool isSigned_;
 };
 
 std::ostream &operator<<(std::ostream &lhs, Form const &rhs);
