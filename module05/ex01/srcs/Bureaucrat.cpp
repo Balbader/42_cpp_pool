@@ -100,17 +100,11 @@ int Bureaucrat::isGradeOutOfRange(int grade) {
   return (grade < 1 || grade > 150);
 }
 
-// void Bureaucrat::signForm(Form form) {
-//   std::cout << "Bureaucrat " << LGREEN << this->getName() << RESET
-//             << " signed form " << LGREEN << form.getGrade() << RESET
-//             << std::endl;
-// }
-
 void Bureaucrat::signForm(Form form) {
   try {
     form.beSigned(*this);
   } catch (std::exception &e) {
-    std::cerr << "Bureaucrat " << this->_name << " couldn't sign "
+    std::cerr << "Bureaucrat " << this->name_ << " couldn't sign "
               << form.getName() << " because " << e.what();
   }
 }
@@ -126,5 +120,5 @@ void Bureaucrat::setGrade(int grade) {
 }
 
 // -------------------------------------------------------------------- Getters
-const std::string &Bureaucrat::getName() const { return this->name_; }
-unsigned int const &Bureaucrat::getGrade() const { return this->grade_; }
+const std::string Bureaucrat::getName() const { return this->name_; }
+unsigned int const Bureaucrat::getGrade() const { return this->grade_; }
