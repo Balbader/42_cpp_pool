@@ -47,7 +47,7 @@ public:
   unsigned int const &getGrade() const;
 
 private:
-  std::string name_;
+  const std::string name_;
   unsigned int grade_;
 };
 
