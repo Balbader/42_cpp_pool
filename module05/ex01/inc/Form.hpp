@@ -3,7 +3,8 @@
 
 #include "Bureaucrat.hpp"
 
-class Form : public Bureaucrat {
+class Bureaucrat;
+class Form {
 public:
   // ------------------------------------------------- Constructor & Destructor
   Form(std::string, int, int);
