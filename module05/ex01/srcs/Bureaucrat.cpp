@@ -49,8 +49,8 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &rhs) {
               << RESET << std::endl;
 
   if (this != &rhs) {
-    this->name_ = rhs.getName();
-    this->grade_ = rhs.getGrade();
+    this->name_ = rhs.name_;
+    this->grade_ = rhs.grade_;
   }
 
   return *this;
@@ -120,5 +120,5 @@ void Bureaucrat::setGrade(int grade) {
 }
 
 // -------------------------------------------------------------------- Getters
-const std::string Bureaucrat::getName() const { return this->name_; }
-unsigned int const Bureaucrat::getGrade() const { return this->grade_; }
+std::string Bureaucrat::getName() const { return this->name_; }
+int Bureaucrat::getGrade() const { return this->grade_; }
