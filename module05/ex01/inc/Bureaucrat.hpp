@@ -14,7 +14,7 @@ class Form;
 class Bureaucrat {
 
 public:
-  Bureaucrat();
+  Bureaucrat(std::string);
   ~Bureaucrat();
 
   Bureaucrat(std::string, int);
