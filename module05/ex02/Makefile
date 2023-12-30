@@ -11,7 +11,7 @@ INC_DIR			:=	./inc
 SRCS_DIR		:=	./srcs
 SRCS				:=	\
 							Bureaucrat.cpp \
-							Form.cpp \
+							AForm.cpp \
 							main.cpp
 SRCS				:=	$(SRCS:%=$(SRCS_DIR)/%)
 
