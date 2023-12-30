@@ -4,11 +4,16 @@
 int main(int ac, char **av) {
 
   if (ac == 3) {
-    Form WireTransfer;
-    Bureaucrat Basil;
+    Form WireTransfer("Wire Transfer");
+    Bureaucrat Basil("Basil");
 
     std::cout << WireTransfer;
     std::cout << Basil;
+
+    WireTransfer.beSigned(Basil);
+    std::cout << "\n";
+    Basil.signForm(WireTransfer);
+    std::cout << "\n";
   }
   else
     std::cerr << RED << "ERROR OCCURED!\n" << RESET
