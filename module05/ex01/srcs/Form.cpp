@@ -84,7 +84,9 @@ std::ostream &operator<<(std::ostream &lhs, Form const &rhs) {
 
 // -------------------------------------------------------------------=- Method
 void Form::beSigned(Bureaucrat const &rhs) {
-  if (rhs.getGrade() < 1 || rhs.getGrade() > 150) {
+  if ((rhs.getGrade() < 1 || rhs.getGrade() > 150) 
+      || (this->gradeToSign_ < 1 || this->gradeToSign_ > 150)
+      || (this->gradeToExec_ < 1 || this->gradeToExec_ > 150)) {
     std::cout << "Form " << LGREEN << this->getName() << RESET
               << " couldn't be signed by " << LGREEN << rhs.getName() << RESET
               << " due to a wrong grade : " << LGREEN << this->getGradeToSign() << RESET
