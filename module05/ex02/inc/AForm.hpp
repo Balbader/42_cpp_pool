@@ -9,14 +9,15 @@ public:
   // ------------------------------------------------- Constructor & Destructor
   Form(std::string);
   Form(std::string, int, int);
-  ~Form();
+  virtual ~Form();
 
   // ----------------------------------- Copy constructor & Assignment operator
   Form(const Form &);
   Form &operator=(const Form &);
 
   // ------------------------------------------------------------------ Methods
-  void beSigned(Bureaucrat const &);
+  // Assigning 0 to the followin function to turn the Form Class to an Abstract Class
+  void beSigned(Bureaucrat const &) = 0;
 
   // --------------------------------------------------------------- Exceptions
   class GradeTooHighException : public std::exception {
