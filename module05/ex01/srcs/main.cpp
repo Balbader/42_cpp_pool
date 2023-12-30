@@ -4,23 +4,22 @@
 int main(int ac, char **av) {
 
   if (ac == 3) {
-    Form WireTransfer("Wire Transfer");
+    // Form WireTransfer("Wire Transfer");
     Bureaucrat Basil("Basil");
 
-    std::cout << WireTransfer;
-    std::cout << Basil;
-    std::cout << "\n";
+    // std::cout << WireTransfer;
+    // std::cout << Basil;
+    // std::cout << "\n";
 
-    WireTransfer.beSigned(Basil);
-    std::cout << "\n";
-    Basil.signForm(WireTransfer);
-    std::cout << "\n";
+    // WireTransfer.beSigned(Basil);
+    // std::cout << "\n";
+    // Basil.signForm(WireTransfer);
+    // std::cout << "\n";
 
     // New Form
-    // Form ElectricBill("Electric Bill", 42, 154);
-    // Form ElectricBill("Electric Bill", -33, 142);
-    Form ElectricBill("Electric Bill", 42, 142);
+    Form ElectricBill("Electric Bill", atoi(av[1]), atoi(av[2]));
     std::cout << ElectricBill << std::endl;
+    Basil.signForm(ElectricBill);
   }
   else
     std::cerr << RED << "ERROR OCCURED!\n" << RESET
