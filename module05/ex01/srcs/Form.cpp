@@ -37,7 +37,7 @@ Form::Form(const Form &rhs)
               << std::endl;
 }
 
-// ---------------------------------------------------------------- Destructor
+// --=-------------------------------------------------------------- Destructor
 Form::~Form() {
   if (DEBUG)
     std::cout << ORANGE << "Form base destructor called" << RESET << std::endl;
@@ -60,8 +60,8 @@ Form &Form::operator=(const Form &rhs) {
 
 std::ostream &operator<<(std::ostream &lhs, Form const &rhs) {
   if (DEBUG)
-    std::cout << ORANGE << "Form Base << Assignment Operator Called" << std::
-              endl;
+    std::cout << ORANGE << "Form Base << Assignment Operator Called"
+              << RESET << std::endl;
 
   if ((rhs.getGradeToExec() < 1 || rhs.getGradeToExec() > 150) ||
       (rhs.getGradeToSign() < 1 || rhs.getGradeToSign() > 150)) {
@@ -86,8 +86,8 @@ std::ostream &operator<<(std::ostream &lhs, Form const &rhs) {
 void Form::beSigned(Bureaucrat const &rhs) {
   std::cout << "Form " << LGREEN << this->getName() << RESET
             << " was signed by " << LGREEN << rhs.getName() << RESET
-            << " with a grade of " << LGREEN << this->getGradeToSign()
-            << RESET << "." << std::endl;
+            << " with a grade of " << LGREEN << this->getGradeToSign() << RESET
+            << "." << std::endl;
 }
 
 // -------------------------------------------------------------------- Setters
