@@ -10,7 +10,6 @@
 
 class Form;
 
-// ----------------------------------------------------------------- Bureaucrat
 class Bureaucrat {
 
 public:
