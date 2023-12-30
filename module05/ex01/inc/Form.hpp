@@ -7,7 +7,7 @@ class Bureaucrat;
 class Form {
 public:
   // ------------------------------------------------- Constructor & Destructor
-  Form();
+  Form(std::string);
   Form(std::string, int, int);
   ~Form();
 
