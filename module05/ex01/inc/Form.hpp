@@ -7,6 +7,7 @@ class Bureaucrat;
 class Form {
 public:
   // ------------------------------------------------- Constructor & Destructor
+  Form();
   Form(std::string, int, int);
   ~Form();
 
@@ -38,9 +39,6 @@ public:
   const std::string &getName() const;
   int const &getGradeToExec() const;
   int const &getGradeToSign() const;
-
-protected:
-  Form();
 
 private:
   std::string name_;
