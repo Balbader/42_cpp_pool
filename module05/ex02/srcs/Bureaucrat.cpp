@@ -1,5 +1,5 @@
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 
 // ---------------------------------------------------------------- Constructor
 Bureaucrat::Bureaucrat(std::string name) : grade_(10) {
@@ -35,8 +35,8 @@ Bureaucrat::Bureaucrat(std::string const name, int grade)
 // ----------------------------------------------------------------- Destructor
 Bureaucrat::~Bureaucrat() {
   if (DEBUG)
-    std::cout << RED << "Bureaucrat Base Destructor called"
-              << RESET << std::endl;
+    std::cout << RED << "Bureaucrat Base Destructor called" << RESET
+              << std::endl;
 }
 
 // ----------------------------------------------------------- Copy Constructor
@@ -76,8 +76,9 @@ std::ostream &operator<<(std::ostream &lhs, Bureaucrat const &rhs) {
       std::cerr << e << std::endl;
     }
   } else {
-    lhs << "Bureaucrat " << LGREEN << rhs.getName() << RESET << ", bureaucrat grade " << LGREEN
-        << rhs.getGrade() << RESET <<".\n\n";
+    lhs << "Bureaucrat " << LGREEN << rhs.getName() << RESET
+        << ", bureaucrat grade " << LGREEN << rhs.getGrade() << RESET
+        << ".\n\n";
   }
 
   return lhs;
