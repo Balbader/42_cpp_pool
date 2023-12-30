@@ -79,7 +79,7 @@ std::ostream &operator<<(std::ostream &lhs, Form const &rhs) {
 }
 
 // -------------------------------------------------------------------=- Method
-void Form::beSigned(Bureaucrat const& signedForm) {
+void Form::beSigned(Bureaucrat const &signedForm) {
   std::cout << "Bureaucrat " << LGREEN << this->getName() << RESET
             << " signed form " << LGREEN << signedForm << RESET << std::endl;
 }
