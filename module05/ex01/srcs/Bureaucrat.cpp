@@ -2,7 +2,7 @@
 #include "Form.hpp"
 
 // ---------------------------------------------------------------- Constructor
-Bureaucrat::Bureaucrat(std::string name) : grade_(1) {
+Bureaucrat::Bureaucrat(std::string name) : grade_(10) {
   if (DEBUG)
     std::cout << GREEN << "Bureaucrat Base Constructor called" << RESET
               << std::endl;
