@@ -2,7 +2,7 @@
 #include "Bureaucrat.hpp"
 
 // ---------------------------------------------------------------- Constructor
-Form::Form(std::string name) : gradeToExec_(1), gradeToSign_(1) {
+Form::Form(std::string name) : gradeToExec_(10), gradeToSign_(10) {
   if (DEBUG)
     std::cout << ORANGE << "Form base constructor called" << RESET << "\n";
 
@@ -84,10 +84,18 @@ std::ostream &operator<<(std::ostream &lhs, Form const &rhs) {
 
 // -------------------------------------------------------------------=- Method
 void Form::beSigned(Bureaucrat const &rhs) {
-  std::cout << "Form " << LGREEN << this->getName() << RESET
-            << " was signed by " << LGREEN << rhs.getName() << RESET
-            << " with a grade of " << LGREEN << this->getGradeToSign() << RESET
-            << "." << std::endl;
+  if (rhs.getGrade() < 1 || rhs.getGrade() > 150) {
+    std::cout << "Form " << LGREEN << this->getName() << RESET
+              << " couldn't be signed by " << LGREEN << rhs.getName() << RESET
+              << " due to a wrong grade : " << LGREEN << this->getGradeToSign() << RESET
+              << "." << std::endl;
+  }
+  else {
+    std::cout << "Form " << LGREEN << this->getName() << RESET
+              << " was signed by " << LGREEN << rhs.getName() << RESET
+              << " with a grade of " << LGREEN << this->getGradeToSign() << RESET
+              << "." << std::endl;
+  }
 }
 
 // -------------------------------------------------------------------- Setters
