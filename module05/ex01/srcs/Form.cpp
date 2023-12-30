@@ -2,9 +2,14 @@
 #include "Bureaucrat.hpp"
 
 // ---------------------------------------------------------------- Constructor
-Form::Form() {
+Form::Form(std::string name) : gradeToExec_(1), gradeToSign_(1) {
   if (DEBUG)
     std::cout << ORANGE << "Form base constructor called" << RESET << "\n";
+
+  if (name == "")
+    this->name_ = "Name undefined";
+  else
+    this->name_ = name;
 }
 
 Form::Form(std::string name, int gradeToSign, int gradeToExec)
@@ -35,7 +40,7 @@ Form::Form(const Form &rhs)
 // ---------------------------------------------------------------- Destructor
 Form::~Form() {
   if (DEBUG)
-    std::cout << ORANGE << "Form base destructor called" << RESET << "\n";
+    std::cout << ORANGE << "Form base destructor called" << RESET << std::endl;
 }
 
 // ------------------------------------------------------------------- Overload
@@ -55,8 +60,8 @@ Form &Form::operator=(const Form &rhs) {
 
 std::ostream &operator<<(std::ostream &lhs, Form const &rhs) {
   if (DEBUG)
-    std::cout << ORANGE << "Bureaucrat Base << Assignment Operator Called"
-              << RESET << std::endl;
+    std::cout << ORANGE << "Form Base << Assignment Operator Called" << std::
+              endl;
 
   if ((rhs.getGradeToExec() < 1 || rhs.getGradeToExec() > 150) ||
       (rhs.getGradeToSign() < 1 || rhs.getGradeToSign() > 150)) {
@@ -71,17 +76,18 @@ std::ostream &operator<<(std::ostream &lhs, Form const &rhs) {
   } else {
     lhs << "Form " << LGREEN << rhs.getName() << RESET
         << ", created with a grade of " << LGREEN << rhs.getGradeToSign()
-        << ".\n"
-        << RESET;
+        << RESET << ".\n\n";
   }
 
   return lhs;
 }
 
 // -------------------------------------------------------------------=- Method
-void Form::beSigned(Bureaucrat const &signedForm) {
-  std::cout << "Bureaucrat " << LGREEN << this->getName() << RESET
-            << " signed form " << LGREEN << signedForm << RESET << std::endl;
+void Form::beSigned(Bureaucrat const &rhs) {
+  std::cout << "Form " << LGREEN << this->getName() << RESET
+            << " was signed by " << LGREEN << rhs.getName() << RESET
+            << " with a grade of " << LGREEN << this->getGradeToSign()
+            << RESET << "." << std::endl;
 }
 
 // -------------------------------------------------------------------- Setters
