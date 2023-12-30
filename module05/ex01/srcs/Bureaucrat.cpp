@@ -2,10 +2,15 @@
 #include "Form.hpp"
 
 // ---------------------------------------------------------------- Constructor
-Bureaucrat::Bureaucrat() : name_("000"), grade_(0) {
+Bureaucrat::Bureaucrat(std::string name) : grade_(1) {
   if (DEBUG)
     std::cout << GREEN << "Bureaucrat Base Constructor called" << RESET
               << std::endl;
+
+  if (name == "")
+    this->name_ = "Name undefined";
+  else
+    this->name_ = name;
 }
 
 Bureaucrat::Bureaucrat(std::string const name, int grade)
@@ -30,7 +35,7 @@ Bureaucrat::Bureaucrat(std::string const name, int grade)
 // ----------------------------------------------------------------- Destructor
 Bureaucrat::~Bureaucrat() {
   if (DEBUG)
-    std::cout << RED << "Bureaucrat Base Destructor called\n"
+    std::cout << RED << "Bureaucrat Base Destructor called"
               << RESET << std::endl;
 }
 
@@ -71,9 +76,8 @@ std::ostream &operator<<(std::ostream &lhs, Bureaucrat const &rhs) {
       std::cerr << e << std::endl;
     }
   } else {
-    lhs << LGREEN << rhs.getName() << RESET << ", bureaucrat grade " << LGREEN
-        << rhs.getGrade() << ".\n"
-        << RESET;
+    lhs << "Bureaucrat " << LGREEN << rhs.getName() << RESET << ", bureaucrat grade " << LGREEN
+        << rhs.getGrade() << RESET <<".\n\n";
   }
 
   return lhs;
