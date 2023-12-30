@@ -9,11 +9,18 @@ int main(int ac, char **av) {
 
     std::cout << WireTransfer;
     std::cout << Basil;
+    std::cout << "\n";
 
     WireTransfer.beSigned(Basil);
     std::cout << "\n";
     Basil.signForm(WireTransfer);
     std::cout << "\n";
+
+    // New Form
+    // Form ElectricBill("Electric Bill", 42, 154);
+    // Form ElectricBill("Electric Bill", -33, 142);
+    Form ElectricBill("Electric Bill", 42, 142);
+    std::cout << ElectricBill << std::endl;
   }
   else
     std::cerr << RED << "ERROR OCCURED!\n" << RESET
