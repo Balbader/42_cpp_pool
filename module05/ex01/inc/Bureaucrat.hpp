@@ -4,6 +4,7 @@
 #include "colors.hpp"
 #include <exception>
 #include <iostream>
+#include <stdlib.h>
 #include <string>
 
 #define DEBUG 1
