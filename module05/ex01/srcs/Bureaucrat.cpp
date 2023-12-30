@@ -86,6 +86,7 @@ std::ostream &operator<<(std::ostream &lhs, Bureaucrat const &rhs) {
 // -------------------------------------------------------------------- Methods
 void Bureaucrat::incrementGrade() {
   if (this->grade_ < 1) {
+    std::cout << "\n";
     throw GradeTooHighException();
   }
 
@@ -106,6 +107,7 @@ int Bureaucrat::isGradeOutOfRange(int grade) {
 
 void Bureaucrat::signForm(Form form) {
   try {
+    // Will call the beSigned() function in the Form Class
     form.beSigned(*this);
   } catch (std::exception &e) {
     std::cerr << "Bureaucrat " << this->name_ << " couldn't sign "
