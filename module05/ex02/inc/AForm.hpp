@@ -1,10 +1,11 @@
-#ifndef FORM_HPP
-#define FORM_HPP
+#ifndef AFORM_HPP
+#define AFORM_HPP
 
 #include "Bureaucrat.hpp"
 
 class Bureaucrat;
-class Form {
+
+class AForm {
 public:
   // ------------------------------------------------- Constructor & Destructor
   Form(std::string);
@@ -16,7 +17,7 @@ public:
   Form &operator=(const Form &);
 
   // ------------------------------------------------------------------ Methods
-  // Assigning 0 to the followin function to turn the Form Class to an Abstract Class
+  // Assigning 0 to the following function to turn the Form Class to an Abstract Class
   void beSigned(Bureaucrat const &) = 0;
 
   // --------------------------------------------------------------- Exceptions
@@ -50,4 +51,4 @@ private:
 
 std::ostream &operator<<(std::ostream &lhs, Form const &rhs);
 
-#endif // !FORM_HPP
+#endif // !AFORM_HPP
