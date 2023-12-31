@@ -22,10 +22,12 @@ PresidentialPardonForm::PresidentialPardonForm(std::string name, std::string tar
 }
 
 // ----------------------------------------------------------- Copy Constructor
-PresidentialPardonForm::PresidentialPardonForm() {
+PresidentialPardonForm::PresidentialPardonForm(const Bureaucrat &rhs) {
   if (DEBUG)
     std::cout << MAGENTA << "PresidentialPardonForm derived copy constructor called"
               << RESET << std::endl;
+  if (*this != rhs)
+
 }
 
 // ------------------------------------------------------------------- Overload
