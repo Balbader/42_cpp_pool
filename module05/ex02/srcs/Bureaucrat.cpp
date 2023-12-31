@@ -36,7 +36,7 @@ Bureaucrat::Bureaucrat(std::string const name, int grade)
 Bureaucrat::~Bureaucrat() {
   if (DEBUG)
     std::cout << RED << "Bureaucrat Base Destructor called" << RESET
-              << std::endl;
+             << std::endl;
 }
 
 // ----------------------------------------------------------- Copy Constructor
