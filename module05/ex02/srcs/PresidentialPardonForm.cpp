@@ -8,6 +8,11 @@ PresidentialPardonForm::PresidentialPardonForm() {
 }
 
 // ----------------------------------------------------------------- Destructor
+~PresidentialPardonForm::PresidentialPardonForm() {
+  if (DEBUG)
+    std::cout << MAGENTA << "PresidentialPardonForm Derived desstructor called"
+              << RESET << std::endl;
+}
 
 // ----------------------------------------------------------- Copy Constructor
 
