@@ -34,6 +34,5 @@ int main(int ac, char **av) {
               << "3. Grade to sign (from 1 to 150 included): " << LGREEN
               << " 42"
               << RESET << std::endl;
-
   return 0;
 }
