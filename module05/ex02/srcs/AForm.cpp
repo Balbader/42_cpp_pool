@@ -1,5 +1,4 @@
 #include "AForm.hpp"
-#include "Bureaucrat.hpp"
 
 // ---------------------------------------------------------------- Constructor
 Form::Form(std::string name) : gradeToExec_(10), gradeToSign_(10) {
