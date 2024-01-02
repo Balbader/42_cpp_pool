@@ -1,5 +1,4 @@
 
-
 int ShrubberyCreationForm:: execute(Bureaucrat const & executor) const
 {
 	if (this->getSignedForm() == false)
