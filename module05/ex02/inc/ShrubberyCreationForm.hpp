@@ -10,6 +10,8 @@ public:
   ShrubberyCreationForm &operator=(const ShrubberyCreationForm &);
 
 private:
+    unsigned int requiredSign = 145;
+    unsigned int requiredExec = 137;
 };
 
 #endif // !SHRUBBERYCREATIONFORM_HPP
