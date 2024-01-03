@@ -19,10 +19,9 @@ public:
 
 private:
     std::string const target_;
-    unsingned int requiredSign_;
-    unsingned int requiredExec_;
+    unsingned int requiredSign_(25);
+    unsingned int requiredExec_(5);
     PresidentialPardonForm();
-
 };
 
 std::ostream &operator<<(std::ostream &lhs, PresidentialPardonForm const &rhs);
