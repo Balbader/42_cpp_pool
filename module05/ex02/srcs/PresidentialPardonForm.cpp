@@ -49,17 +49,17 @@ std::ostream &operator<<(std::ostream &lhs, PresidentialPardonForm const &rhs) {
         std::cout << MAGENTA << "PresidentialPardonForm assignment << operator called"
                   << RESET << std::endl;
 
-  if (rhs.getGrade() < 1 || rhs.getGrade() > 150) {
-    try {
-      if (rhs.getGrade() < 1)
-        throw "Exception error occured.\nGrade too high.\n";
-      if (rhs.getGrade() > 150)
-        throw "Exception error occured.\nGrade too low.\n";
-    } catch (const char *e) {
-      std::cerr << e << std::endl;
-    }
-
-    lhs << MAGENTA << rhs.getTarget() << RESET << "has been pardoned by Zaphod Beeblebrox." << std::endl;
+    if (rhs.getGradeToExec < 5 || rhs.getGradeTosign < 25) {
+        try {
+            if ((rhs.getGradeToExec() < 5)
+                throw "Exception error occured.\nGrade too Exec too low.\n";
+            if (rhs.getGradeTosign() < 25)
+                throw "Exception error occured.\nGrade too sign low.\n";
+        } catch (const char *e) {
+            std::cerr << e << std::endl;
+        }
+    } else 
+        lhs << MAGENTA << rhs.getTarget() << RESET << "has been pardoned by Zaphod Beeblebrox." << std::endl;
 }
 
 // -------------------------------------------------------------------- Methods
