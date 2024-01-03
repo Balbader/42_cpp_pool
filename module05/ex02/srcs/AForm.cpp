@@ -1,14 +1,9 @@
 #include "AForm.hpp"
 
 // ---------------------------------------------------------------- Constructor
-Form::Form(std::string name) : gradeToExec_(10), gradeToSign_(10) {
+Form::Form() : name_("Name undefined") gradeToExec_(10), gradeToSign_(10) {
   if (DEBUG)
     std::cout << ORANGE << "Form base constructor called" << RESET << "\n";
-
-  if (name == "")
-    this->name_ = "Name undefined";
-  else
-    this->name_ = name;
 }
 
 Form::Form(std::string name, int gradeToSign, int gradeToExec)
