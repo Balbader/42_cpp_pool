@@ -1,39 +1,132 @@
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
-int main(int ac, char **av) {
+void	create_a_president_form(std::string target)
+{
+	Bureaucrat 				William;
+	Bureaucrat 				Hugo("Hugo", 1);
+	PresidentialPardonForm	form(target);
 
-  if (ac == 3) {
-    // Form WireTransfer("Wire Transfer");
-    Bureaucrat Basil("Basil");
+	std ::cout << form;
+	std::cout << "\n";
 
-    // std::cout << WireTransfer;
-    // std::cout << Basil;
-    // std::cout << "\n";
+	try
+	{
+		form.execute(William);
+	}
+	catch (std::exception& e)
+	{
+		std::cerr << "Bureaucrat " << William.getName() << " couldn't execute " << form.getName() << " because " << e.what();
+	}
+	try
+	{
+		form.beSigned(William);
+	}
+	catch (std::exception& e)
+	{
+		std::cerr << "Bureaucrat " << William.getName() << " couldn't sign " << form.getName() << " because " << e.what();
+	}
+	William.signForm(form);
+	William.executeForm(form);
 
-    // WireTransfer.beSigned(Basil);
-    // std::cout << "\n";
-    // Basil.signForm(WireTransfer);
-    // std::cout << "\n";
+	std::cout << "\n";
+	Hugo.signForm(form);
+	Hugo.executeForm(form);
+	Hugo.signForm(form);
+}
 
-    // New Form
-    Form ElectricBill("Electric Bill", atoi(av[1]), atoi(av[2]));
-    std::cout << ElectricBill << std::endl;
-    Basil.signForm(ElectricBill);
-  }
-  else
-    std::cerr << RED << "ERROR OCCURED!\n" << RESET
-              << "Please provide the following arguments in the folllowing "
-                 "order to successfully execute the program: \n"
-              << "1. Name of executable: " << LGREEN
-              << "<./Bureaucrat\n"
-              << RESET
-              << "2. Grade to execute (from 1 to 150 included): " << LGREEN
-              << "148\n"
-              << RESET
-              << "3. Grade to sign (from 1 to 150 included): " << LGREEN
-              << " 42"
-              << RESET << std::endl;
+void	create_a_shrubbery_form(std::string target)
+{
+	Bureaucrat 				Gurvan;
+	Bureaucrat 				Meryem("Meryem", 1);
+	ShrubberyCreationForm	form(target);
 
-  return 0;
+	std ::cout << form;
+	std::cout << "\n";
+
+	try
+	{
+		form.execute(Gurvan);
+	}
+	catch (std::exception& e)
+	{
+		std::cerr << "Bureaucrat " << Gurvan.getName() << " couldn't execute " << form.getName() << " because " << e.what();
+	}
+	try
+	{
+		form.beSigned(Gurvan);
+	}
+	catch (std::exception& e)
+	{
+		std::cerr << "Bureaucrat " << Gurvan.getName() << " couldn't sign " << form.getName() << " because " << e.what();
+	}
+	Gurvan.signForm(form);
+	Gurvan.executeForm(form);
+
+	std::cout << "\n";
+	Meryem.signForm(form);
+	Meryem.executeForm(form);
+	Meryem.signForm(form);
+}
+
+void	create_a_robotomy_form(std::string target)
+{
+	Bureaucrat 				Axel;
+	Bureaucrat 				Karim("Karim", 1);
+	RobotomyRequestForm		form(target);
+
+	std ::cout << form;
+	std::cout << "\n";
+
+	try
+	{
+		form.execute(Axel);
+	}
+	catch (std::exception& e)
+	{
+		std::cerr << "Bureaucrat " << Axel.getName() << " couldn't execute " << form.getName() << " because " << e.what();
+	}
+	try
+	{
+		form.beSigned(Axel);
+	}
+	catch (std::exception& e)
+	{
+		std::cerr << "Bureaucrat " << Axel.getName() << " couldn't sign " << form.getName() << " because " << e.what();
+	}
+	Axel.signForm(form);
+	Axel.executeForm(form);
+
+	std::cout << "\n";
+	Karim.signForm(form);
+	Karim.executeForm(form);
+	Karim.signForm(form);
+	Karim.executeForm(form);
+	Karim.executeForm(form);
+	Karim.executeForm(form);
+	Karim.executeForm(form);
+	Karim.executeForm(form);
+	Karim.executeForm(form);
+	Karim.executeForm(form);
+	Karim.executeForm(form);
+}
+int	main(int argc, char **argv)
+{
+	if (argc != 2)
+	{
+		std::cerr << "Error: usage is ./Form <target>.\n";
+		return (ERROR);
+	}
+	try
+	{
+		create_a_shrubbery_form(argv[1]);
+		create_a_robotomy_form(argv[1]);
+		create_a_president_form(argv[1]);
+	}	
+	catch (std::exception)
+	{
+		return (ERROR);
+	}
+	return (SUCCESS);
 }
