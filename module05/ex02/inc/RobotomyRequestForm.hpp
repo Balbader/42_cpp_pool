@@ -8,21 +8,20 @@ class RobotomyRequestForm : public AForm
 {
 public :
 	RobotomyRequestForm();
+	RobotomyRequestForm(std::string const);
 	virtual ~RobotomyRequestForm();
 
-	RobotomyRequestForm(std::string const&);
+	RobotomyRequestForm(RobotomyRequestForm const &);
 	RobotomyRequestForm& operator=(RobotomyRequestForm const &);
 
-	virtual void	beSigned(Bureaucrat const &bureaucrat);
-	virtual void	execute(Bureaucrat const &executor) const;
+	virtual void beSigned(Bureaucrat const &bureaucrat);
+	virtual void execute(Bureaucrat const &executor) const;
 
-	std::string		getTarget(void) const;
+	std::string	getTarget(void) const;
+	void setTarget(std::string);
 
 private :
 	std::string	const 			_target;
-	RobotomyRequestForm();
-
-	RobotomyRequestForm(RobotomyRequestForm const & src);
 };
 
 std::ostream & operator<<(std::ostream & lhs, RobotomyRequestForm const & rhs);
