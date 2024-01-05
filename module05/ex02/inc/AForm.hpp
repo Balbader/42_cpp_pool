@@ -7,32 +7,32 @@
 
 class Bureaucrat;
 
-class AForm {
+class AAForm {
 public:
     // ------------------------------------------------- Constructor & Destructor
-    Form();
-    Form(std::string, int, int);
-    virtual ~Form();
+    AForm();
+    AForm(std::string, int, int);
+    virtual ~AForm();
 
     // ----------------------------------- Copy constructor & Assignment operator
-    Form(const Form &);
-    Form &operator=(const Form &);
+    AForm(const AForm &);
+    AForm &operator=(const AForm &);
 
     // ------------------------------------------------------------------ Methods
-    // Assigning 0 to the following functions to turn the Form Class to an Abstract Class
+    // Assigning 0 to the following functions to turn the AForm Class to an Abstract Class
     void beSigned(Bureaucrat const &) = 0;
     void execute(Bureaucrat const &) = 0;
 
     // --------------------------------------------------------------- Exceptions
     class GradeTooHighException : public std::exception {
         virtual const char *what() const throw() {
-          return "Form Exception error occured.\nGrade too high.\n";
+          return "AForm Exception error occured.\nGrade too high.\n";
         }
     };
 
     class GradeTooLowException : public std::exception {
         virtual const char *what() const throw() {
-          return "Form Exception error occured.\nGrade too Low.\n";
+          return "AForm Exception error occured.\nGrade too Low.\n";
         }
     };
 
@@ -53,6 +53,6 @@ private:
     bool isSigned_;
 };
 
-std::ostream &operator<<(std::ostream &lhs, Form const &rhs);
+std::ostream &operator<<(std::ostream &lhs, AForm const &rhs);
 
 #endif // !AFORM_HPP
