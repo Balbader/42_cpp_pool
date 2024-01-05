@@ -1,15 +1,15 @@
-#include "AForm.hpp"
+#include "AAForm.hpp"
 
 // ---------------------------------------------------------------- Constructor
-Form::Form() : name_("Name undefined") gradeToExec_(10), gradeToSign_(10) {
+AForm::AForm() : name_("Name undefined") gradeToExec_(10), gradeToSign_(10) {
   if (DEBUG)
-    std::cout << ORANGE << "Form base constructor called" << RESET << "\n";
+    std::cout << ORANGE << "AForm base constructor called" << RESET << "\n";
 }
 
-Form::Form(std::string name, int gradeToSign, int gradeToExec)
+AForm::AForm(std::string name, int gradeToSign, int gradeToExec)
     : name_(name), gradeToSign_(gradeToSign), gradeToExec_(gradeToExec) {
   if (DEBUG)
-    std::cout << ORANGE << "Form base with args constructor called" << RESET
+    std::cout << ORANGE << "AForm base with args constructor called" << RESET
               << "\n";
 
   try {
@@ -23,24 +23,24 @@ Form::Form(std::string name, int gradeToSign, int gradeToExec)
 }
 
 // ----------------------------------------------------------- Copy Constructor
-Form::Form(const Form &rhs)
+AForm::AForm(const AForm &rhs)
     : name_(rhs.getName()), gradeToExec_(rhs.getGradeToExec()),
       gradeToSign_(rhs.getGradeToSign()) {
   if (DEBUG)
-    std::cout << ORANGE << "Form Base Copy Constructor Called" << RESET
+    std::cout << ORANGE << "AForm Base Copy Constructor Called" << RESET
               << std::endl;
 }
 
 // --=-------------------------------------------------------------- Destructor
-Form::~Form() {
+AForm::~AForm() {
   if (DEBUG)
-    std::cout << ORANGE << "Form base destructor called" << RESET << std::endl;
+    std::cout << ORANGE << "AForm base destructor called" << RESET << std::endl;
 }
 
 // ------------------------------------------------------------------- Overload
-Form &Form::operator=(const Form &rhs) {
+AForm &AForm::operator=(const AForm &rhs) {
   if (DEBUG)
-    std::cout << ORANGE << "Form Base = Assignment Operator Called" << RESET
+    std::cout << ORANGE << "AForm Base = Assignment Operator Called" << RESET
               << std::endl;
 
   if (this != &rhs) {
@@ -52,9 +52,9 @@ Form &Form::operator=(const Form &rhs) {
   return *this;
 }
 
-std::ostream &operator<<(std::ostream &lhs, Form const &rhs) {
+std::ostream &operator<<(std::ostream &lhs, AForm const &rhs) {
   if (DEBUG)
-    std::cout << ORANGE << "Form Base << Assignment Operator Called" << RESET
+    std::cout << ORANGE << "AForm Base << Assignment Operator Called" << RESET
               << std::endl;
 
   if ((rhs.getGradeToExec() < 1 || rhs.getGradeToExec() > 150) ||
@@ -68,7 +68,7 @@ std::ostream &operator<<(std::ostream &lhs, Form const &rhs) {
       std::cerr << e << std::endl;
     }
   } else {
-    lhs << "Form " << LGREEN << rhs.getName() << RESET
+    lhs << "AForm " << LGREEN << rhs.getName() << RESET
         << ", created with a grade of " << LGREEN << rhs.getGradeToSign()
         << RESET << ".\n\n";
   }
@@ -77,16 +77,16 @@ std::ostream &operator<<(std::ostream &lhs, Form const &rhs) {
 }
 
 // -------------------------------------------------------------------=- Method
-void Form::beSigned(Bureaucrat const &rhs) {
+void AForm::beSigned(Bureaucrat const &rhs) {
   if ((rhs.getGrade() < 1 || rhs.getGrade() > 150) ||
       (this->gradeToSign_ < 1 || this->gradeToSign_ > 150) ||
       (this->gradeToExec_ < 1 || this->gradeToExec_ > 150)) {
-    std::cout << "Form " << LGREEN << this->getName() << RESET
+    std::cout << "AForm " << LGREEN << this->getName() << RESET
               << " couldn't be signed by " << LGREEN << rhs.getName() << RESET
               << " due to a wrong grade : " << LGREEN << this->getGradeToSign()
               << RESET << "." << std::endl;
   } else {
-    std::cout << "Form " << LGREEN << this->getName() << RESET
+    std::cout << "AForm " << LGREEN << this->getName() << RESET
               << " was signed by " << LGREEN << rhs.getName() << RESET
               << " with a grade of " << LGREEN << this->getGradeToSign()
               << RESET << "." << std::endl;
@@ -94,9 +94,9 @@ void Form::beSigned(Bureaucrat const &rhs) {
 }
 
 // -------------------------------------------------------------------- Setters
-void Form::setName(std::string name) { this->name_ = name; }
+void AForm::setName(std::string name) { this->name_ = name; }
 
-void Form::setGrade(int grade) {
+void AForm::setGrade(int grade) {
   if (grade < 1 || grade > 150)
     std::cerr << "Error: Grade input out of range" << std::endl;
 
@@ -105,6 +105,6 @@ void Form::setGrade(int grade) {
 }
 
 // -------------------------------------------------------------------- Getters
-const std::string &Form::getName() const { return this->name_; }
-int const &Form::getGradeToExec() const { return this->gradeToExec_; }
-int const &Form::getGradeToSign() const { return this->gradeToSign_; }
+const std::string &AForm::getName() const { return this->name_; }
+int const &AForm::getGradeToExec() const { return this->gradeToExec_; }
+int const &AForm::getGradeToSign() const { return this->gradeToSign_; }
