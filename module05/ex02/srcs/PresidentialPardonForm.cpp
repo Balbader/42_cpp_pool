@@ -62,9 +62,3 @@ std::ostream &operator<<(std::ostream &lhs, PresidentialPardonForm const &rhs) {
         lhs << MAGENTA << rhs.getTarget() << RESET << "has been pardoned by Zaphod Beeblebrox." << std::endl;
 }
 
-// -------------------------------------------------------------------- Methods
-
-
-// -------------------------------------------------------------------- Setters
-
-// -------------------------------------------------------------------- Getters
