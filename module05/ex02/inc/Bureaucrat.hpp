@@ -9,7 +9,7 @@
 
 #define DEBUG 1
 
-class Form;
+class AForm;
 
 class Bureaucrat {
 
@@ -37,7 +37,7 @@ public:
   int isGradeOutOfRange(int);
   void incrementGrade();
   void decrementGrade();
-  void signForm(Form);
+  void signForm(AForm &);
   void printGrade();
 
   void setName(std::string);
