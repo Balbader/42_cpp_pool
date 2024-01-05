@@ -106,13 +106,13 @@ int Bureaucrat::isGradeOutOfRange(int grade) {
   return (grade < 1 || grade > 150);
 }
 
-void Bureaucrat::signForm(Form form) {
+void Bureaucrat::signForm(AForm &aform) {
   try {
     // Will call the beSigned() function in the Form Class
-    form.beSigned(*this);
+    aform.beSigned(*this);
   } catch (std::exception &e) {
     std::cerr << "Bureaucrat " << this->name_ << " couldn't sign "
-              << form.getName() << " because " << e.what();
+              << aform.getName() << " because " << e.what();
   }
 }
 
