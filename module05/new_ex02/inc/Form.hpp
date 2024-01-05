@@ -1,33 +1,33 @@
-#ifndef FORM_HPP
-#define FORM_HPP
+#ifndef AFORM_HPP
+#define AFORM_HPP
 
 #include "Bureaucrat.hpp"
 
 class Bureaucrat;
-class Form {
+class AForm {
 public:
   // ------------------------------------------------- Constructor & Destructor
-  Form(std::string);
-  Form(std::string, int, int);
-  ~Form();
+  AForm(std::string);
+  AForm(std::string, int, int);
+  ~AForm();
 
   // ----------------------------------- Copy constructor & Assignment operator
-  Form(const Form &);
-  Form &operator=(const Form &);
+  AForm(const AForm &);
+  AForm &operator=(const AForm &);
 
   // ------------------------------------------------------------------ Methods
-  void beSigned(Bureaucrat const &);
+  virtual void beSigned(Bureaucrat const &) = 0;
 
   // --------------------------------------------------------------- Exceptions
   class GradeTooHighException : public std::exception {
     virtual const char *what() const throw() {
-      return "Form Exception error occured.\nGrade too high.\n";
+      return "AForm Exception error occured.\nGrade too high.\n";
     }
   };
 
   class GradeTooLowException : public std::exception {
     virtual const char *what() const throw() {
-      return "Form Exception error occured.\nGrade too Low.\n";
+      return "AForm Exception error occured.\nGrade too Low.\n";
     }
   };
 
@@ -47,6 +47,6 @@ private:
   bool isSigned_;
 };
 
-std::ostream &operator<<(std::ostream &lhs, Form const &rhs);
+std::ostream &operator<<(std::ostream &lhs, AForm const &rhs);
 
-#endif // !FORM_HPP
+#endif // !AForm_HPP
