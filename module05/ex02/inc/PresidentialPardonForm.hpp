@@ -1,7 +1,7 @@
 #ifndef PRESIDENTIALPARDONFORM_HPP
 #define PRESIDENTIALPARDONFORM_HPP
 
-#include "AForm.hpp";
+#include "AForm.hpp"
 
 class PresidentialPardonForm : public AForm {
 
@@ -19,8 +19,8 @@ public:
 
 private:
     std::string const target_;
-    unsingned int requiredSign_(25);
-    unsingned int requiredExec_(5);
+    unsigned int requiredSign_;
+    unsigned int requiredExec_;
     PresidentialPardonForm();
 };
 
