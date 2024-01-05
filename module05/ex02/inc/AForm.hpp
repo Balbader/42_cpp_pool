@@ -7,7 +7,7 @@
 
 class Bureaucrat;
 
-class AAForm {
+class AForm {
 public:
     // ------------------------------------------------- Constructor & Destructor
     AForm();
@@ -20,8 +20,8 @@ public:
 
     // ------------------------------------------------------------------ Methods
     // Assigning 0 to the following functions to turn the AForm Class to an Abstract Class
-    void beSigned(Bureaucrat const &) = 0;
-    void execute(Bureaucrat const &) = 0;
+    void beSigned(Bureaucrat const &);
+    virtual void execute(Bureaucrat const &) = 0;
 
     // --------------------------------------------------------------- Exceptions
     class GradeTooHighException : public std::exception {
