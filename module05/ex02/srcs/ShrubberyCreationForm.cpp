@@ -1,3 +1,17 @@
+#include <ShrubberyCreationForm.hpp>
+
+
+// ---------------------------------------------------------------- Constructor
+ShrubberyCreationForm::ShrubberyCreationForm() : name_("Shrubbery Creation Form"), gradeToSign_(145), gradeToExec_(137) {
+    if (DEBUG)
+        std::cout << CYAN << "Shrubbery Creation Form base constructor called" << RESET << std::endl;
+}
+
+ShrubberyCreationForm::ShrubberyCreationForm(std::string name) : name_("Shrubbery Creation Form"), gradeToSign_(145), gradeToExec_(137) {
+    if (DEBUG)
+        std::cout << CYAN << "Shrubbery Creation Form base constructor called" << RESET << std::endl;
+}
+
 
 int ShrubberyCreationForm:: execute(Bureaucrat const & executor) const
 {
