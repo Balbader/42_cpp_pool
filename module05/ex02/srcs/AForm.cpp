@@ -1,7 +1,7 @@
-#include "AAForm.hpp"
+#include "AForm.hpp"
 
 // ---------------------------------------------------------------- Constructor
-AForm::AForm() : name_("Name undefined") gradeToExec_(10), gradeToSign_(10) {
+AForm::AForm() : name_("Name undefined"), gradeToExec_(10), gradeToSign_(10) {
   if (DEBUG)
     std::cout << ORANGE << "AForm base constructor called" << RESET << "\n";
 }
@@ -26,6 +26,7 @@ AForm::AForm(std::string name, int gradeToSign, int gradeToExec)
 AForm::AForm(const AForm &rhs)
     : name_(rhs.getName()), gradeToExec_(rhs.getGradeToExec()),
       gradeToSign_(rhs.getGradeToSign()) {
+
   if (DEBUG)
     std::cout << ORANGE << "AForm Base Copy Constructor Called" << RESET
               << std::endl;
@@ -33,8 +34,9 @@ AForm::AForm(const AForm &rhs)
 
 // --=-------------------------------------------------------------- Destructor
 AForm::~AForm() {
+
   if (DEBUG)
-    std::cout << ORANGE << "AForm base destructor called" << RESET << std::endl;
+    std::cout << ORANGE << "AForm base virtual destructor called" << RESET << std::endl;
 }
 
 // ------------------------------------------------------------------- Overload
@@ -106,5 +108,5 @@ void AForm::setGrade(int grade) {
 
 // -------------------------------------------------------------------- Getters
 const std::string &AForm::getName() const { return this->name_; }
-int const &AForm::getGradeToExec() const { return this->gradeToExec_; }
-int const &AForm::getGradeToSign() const { return this->gradeToSign_; }
+int const &AForm::getGradeToExec() const { return this->getGradeToExec(); }
+int const &AForm::getGradeToSign() const { return this->getGradeToSign(); }
