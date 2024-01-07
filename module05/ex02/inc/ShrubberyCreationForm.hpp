@@ -18,14 +18,16 @@ public:
     virtual void beSigned(Bureaucrat const &);
     virtual void execute(virtual const &) const;
 
-    std::string getTarget(void) const;
-
     class FileException : public std::exception {
     public:
         virtual const char* what() const throw() {
             return " creation has failed.\n";
         }
     };
+
+    std::string getTarget() const;
+    int getReqToExec() const;
+    int getReqToSign() const;
 
 protected:
     std::string const target_;
