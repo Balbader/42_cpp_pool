@@ -20,8 +20,10 @@ public:
 
     // ------------------------------------------------------------------ Methods
     // Assigning 0 to the following functions to turn the AForm Class to an Abstract Class
-    virtual void beSigned(Bureaucrat const &) = 0;
-    virtual void execute(Bureaucrat const &) = 0;
+    void beSigned(Bureaucrat const &);
+	void execute(Bureaucrat const &);
+
+	virtual void doExecute() const = 0;
 
     // --------------------------------------------------------------- Exceptions
     class GradeTooHighException : public std::exception {
@@ -35,6 +37,12 @@ public:
           return "AForm Exception error occured.\nGrade too Low.\n";
         }
     };
+
+	class UnsignedFormException : public std::exception {
+		virtual const char *what() const throw() {
+			return "AForm Exception err occured.\nUnsigned form being processed.\n";
+		}
+	}
 
     // ------------------------------------------------------------------ Setters
     void setName(std::string);
