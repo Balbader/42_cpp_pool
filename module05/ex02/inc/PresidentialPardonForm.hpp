@@ -6,7 +6,7 @@
 class PresidentialPardonForm : public AForm {
 
 public:
-    PresidentialPardonForm(std::string const target);
+    PresidentialPardonForm(std::string const);
     virtual ~PresidentialPardonForm();
 
     PresidentialPardonForm(const PresidentialPardonForm &);
