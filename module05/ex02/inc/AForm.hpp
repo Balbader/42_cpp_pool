@@ -40,7 +40,7 @@ public:
 		virtual const char *what() const throw() {
 			return "AForm Exception err occured.\nUnsigned form being processed.\n";
 		}
-	}
+	};
 
     // ------------------------------------------------------------------ Setters
     void setName(std::string);

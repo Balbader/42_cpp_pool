@@ -36,7 +36,6 @@ protected:
 private:
     int reqToSign_ = 145;
     int reqToExec_ = 137;
-	
 };
 
 std::ostream & operator<<(std::ostream &, ShrubberyCreationForm const &);
