@@ -50,6 +50,7 @@ std::ostream & operator<<(std::ostream &, ShrubberyCreationForm const &) {
 	return lhs;
 }
 
+
 // -------------------------------------------------------------------- Methods
 int ShrubberyCreationForm:: execute(Bureaucrat const & executor) const
 {
