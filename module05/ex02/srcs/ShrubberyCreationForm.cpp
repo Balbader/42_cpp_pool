@@ -40,6 +40,14 @@ ShrubberyCreationForm::ShrubberyCreationForm &operator=(const ShrubberyCreationF
 }
 
 std::ostream & operator<<(std::ostream &, ShrubberyCreationForm const &) {
+	lhs << rhs.getName() << " requires grade " << rhs.getReqToExec() << " to be executed, " << rhs.getReqToSign() << " to be signed" << " and is ";
+
+	if (rhs.getIsSigned() == NOT_SIGNED)
+		lhs << "not ";
+    else
+	    lhs << "signed. Target is " << rhs.getTarget() << ".\n";
+
+	return lhs;
 }
 
 // -------------------------------------------------------------------- Methods
@@ -49,7 +57,7 @@ int ShrubberyCreationForm:: execute(Bureaucrat const & executor) const
 	{
 		throw unsignedFormtoExecuteException(executor, *this);
 	}
-	if (executor.getGrade() > this->getGradeToExecute())
+	if (executor.getGrade() > this->getReqToExec())
 	{
 		throw GradeTooLowtoExecuteException(executor, *this);
 	}
@@ -74,4 +82,6 @@ int ShrubberyCreationForm:: execute(Bureaucrat const & executor) const
 
 
 // --------------------------------------------------------------------- Getter
-
+std::string ShrubberyCreationForm::getTarget() const { return this->target_; }
+int ShrubberyCreationForm::getReqToExec() const { return this->reqToExec_; }
+int ShrubberyCreationForm::getReqToSign() const { return this->reqToSign_; }
