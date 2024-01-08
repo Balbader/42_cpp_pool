@@ -6,6 +6,8 @@
 #include <iostream>
 #include <string>
 
+#define DEBUG 1
+
 class AForm;
 
 class Bureaucrat {
@@ -13,8 +15,8 @@ public:
 	Bureaucrat(const std::string &, int);
 	~Bureaucrat();
 
-	Bureaucrat(const Bureaucrat &) = default;
-	Bureaucrat &operator=(const Bureaucrat &) = default;
+	Bureaucrat(const Bureaucrat &);
+	Bureaucrat &operator=(const Bureaucrat &);
 
 	class GradeTooHighException : public std::exception {
 		public:

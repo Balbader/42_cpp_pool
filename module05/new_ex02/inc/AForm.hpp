@@ -12,7 +12,7 @@ public:
 	~AForm();
 
 	AForm(const AForm &);
-	AForm &operator=(const AForm &) = default;
+	AForm &operator=(const AForm &);
 
 	class GradeTooHighException : public std::exception {
 		public:
@@ -35,13 +35,16 @@ public:
 		}
 	};
 
-	const std::sring& getName() const;
+	const std::string& getName() const;
 	bool getIsSigned() const;
 	int getGradeToSign() const;
 	int getGradeToExec() const;
 
 	void beSigned(const Bureaucrat&);
 	virtual void execute(Bureaucrat const& executioner) const = 0;
+
+protected:
+	AForm();
 
 private:
 	const std::string name_;
@@ -50,6 +53,6 @@ private:
 	const int gradeToExec_;
 };
 
-std::ostream& operator<<(std::ostream& lhs, AForm& const rhs);
+std::ostream& operator<<(std::ostream& lhs, const AForm& rhs);
 
 #endif // !AFORM_HPP
