@@ -14,10 +14,8 @@ class AForm;
 class Bureaucrat {
 
 public:
-	Bureaucrat(std::string);
-	~Bureaucrat();
-
 	Bureaucrat(std::string, int);
+	~Bureaucrat();
 
 	Bureaucrat(const Bureaucrat &);
 	Bureaucrat &operator=(const Bureaucrat &);
@@ -45,6 +43,9 @@ public:
 	void setGrade(int);
 	std::string getName() const;
 	int getGrade() const;
+
+protected:
+	Bureaucrat();
 
 private:
 	std::string name_;
