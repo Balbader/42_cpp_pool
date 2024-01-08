@@ -117,17 +117,17 @@ void Bureaucrat::signForm(AForm &aform) {
 }
 
 // FIX:
-void Bureaucrat::executeForm(AForm const &ref) const
+void Bureaucrat::executeForm(AForm const &rhs) const
 {
 	try
 	{
-		ref.execute(*this);
-		std::cout << ORANGE << this->name << " executes " << ref.getName() << std::endl << STOP;
-		ref.do_execute();
+		rhs.execute(*this);
+		std::cout << ORANGE << this->name_ << " executes " << rhs.getName() << RESET << std::endl;
+		// ref.execute();
 	}
 	catch (std::exception &except)
 	{
-		std::cout << RED << BOLD << this->name << " cannot execute " << ref.getName() << ": " << STOP << RED << except.what() << std::endl;
+		std::cout << RED << BOLD << this->name_ << " cannot execute " << rhs.getName() << ": " << RESET << RED << except.what() << std::endl;
 	}
 }
 
