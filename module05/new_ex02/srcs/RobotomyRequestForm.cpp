@@ -1,45 +1,44 @@
-#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
 
 // ----------------------------------------------------------------------------
 // ----------------------------------------------------------- Args Constructor
 // ----------------------------------------------------------------------------
-PresidentialPardonForm::PresidentialPardonForm(const std::string& target)
-					   : AForm("PresidentialPardonForm", 25, 5), target_(target) {
-    if (DEBUG)
-        std::cout << MAGENTA << "PresidentialPardonForm args derived constructor called"
-                  << RESET << std::endl;
+RobotomyRequestForm::RobotomyRequestForm(const std::string& target)
+					: AForm("RobotomyRequestForm", 72, 45), _target(target) {
+	if (DEBUG)
+		std::cout << YELLOW << "Robotomy request form arguments constructor called"
+				  << RESET << std::endl;
 }
 
 
 // ----------------------------------------------------------------------------
 // ----------------------------------------------------------- Copy Constructor
 // ----------------------------------------------------------------------------
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& rhs)
-					   : AForm(rhs), target_(rhs.target_) {
-    if (DEBUG)
-        std::cout << MAGENTA << "PresidentialPardonForm derived copy constructor called"
-                  << RESET << std::endl;
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& rhs)
+					: AForm(rhs), _target(rhs._target) {
+  if (DEBUG)
+    std::cout << YELLOW << "Robotomy request form copy constructor called"
+			  << RESET << std::endl;
 }
 
 
 // ----------------------------------------------------------------------------
 // ----------------------------------------------------------------- Destructor
 // ----------------------------------------------------------------------------
-PresidentialPardonForm::~PresidentialPardonForm() {
-    if (DEBUG)
-        std::cout << MAGENTA << "PresidentialPardonForm derived destructor called"
-                  << RESET << std::endl;
+RobotomyRequestForm::~RobotomyRequestForm() {
+	if (DEBUG)
+		std::cout << YELLOW << "Robotomy request form base destructor called"
+				  << RESET << std::endl;
 }
 
 
 // ----------------------------------------------------------------------------
 // ------------------------------------------------------------------- Overload
 // ----------------------------------------------------------------------------
-PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPardonForm& rhs)
-{
-    if (DEBUG)
-        std::cout << MAGENTA << "PresidentialPardonForm assignment copy operator called"
-                  << RESET << std::endl;
+RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& rhs) {
+  if (DEBUG)
+    std::cout << YELLOW << "Robotomy request form base assignment operator Called"
+			  << RESET << std::endl;
 
 	(void)rhs;
 
@@ -50,12 +49,17 @@ PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPard
 // ----------------------------------------------------------------------------
 // -------------------------------------------------------------------- Methods
 // ----------------------------------------------------------------------------
-void	PresidentialPardonForm::execute(const Bureaucrat& executor) const {
+void RobotomyRequestForm::execute(const Bureaucrat& executor) const {
 
 	if (this->getIsSigned() == false)
 		throw(AForm::UnsignedFormException());
-	else if (executor.getGrade() > this->getGradeToExec())
+	else if(executor.getGrade() > this->getGradeToExec())
 		throw(AForm::GradeTooLowException());
-		
-	std::cout << this->target_ << " has been pardoned by Zaphod Beeblebrox" << std::endl;
+	
+	srand(time(NULL));
+	int r = rand() % 100 + 1;
+	if (r > 50)
+		std::cout << this->_target << " has successfully been ROBOTOMIZED" << std::endl;
+	else
+		std::cout << this->_target << " has NOT been ROBOTOMIZED" << std::endl;
 }

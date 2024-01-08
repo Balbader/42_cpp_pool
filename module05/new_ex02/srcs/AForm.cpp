@@ -4,7 +4,7 @@
 // ---------------------------------------------------------------- Constructor
 // ----------------------------------------------------------------------------
 AForm::AForm()
-	  :name_("Name undefined"), isSigned(false), gradeToSign_(), gradeToExec_(gradeToExec) {
+	  :name_("Name undefined"), isSigned_(false), gradeToSign_(10), gradeToExec_(10) {
   if (DEBUG)
     std::cout << ORANGE << "AForm base constructor called" << RESET << "\n";
 }
@@ -14,7 +14,7 @@ AForm::AForm()
 // ----------------------------------------------------------- Args Constructor
 // ----------------------------------------------------------------------------
 AForm::AForm(const std::string& name, int gradeToSign, int gradeToExec)
-	  :name_(name), isSigned(false), gradeToSign_(gradeToSign), gradeToExec_(gradeToExec) {
+	  :name_(name), isSigned_(false), gradeToSign_(gradeToSign), gradeToExec_(gradeToExec) {
 
   if (DEBUG)
     std::cout << ORANGE << "AForm base with args constructor called" << RESET
@@ -80,12 +80,12 @@ AForm& AForm::operator=(const AForm& rhs) {
 // ----------------------------------------------------------------------------
 const std::string& AForm::getName() const {	return this->name_; }
 bool AForm::getIsSigned() const { return this->isSigned_; } 
-int AForm::getGradeSign() const { return (this->_gradeSign); }
-int	AForm::getGradeExecute() const { return (this->_gradeExecute); }
+int AForm::getGradeToSign() const { return (this->gradeToSign_); }
+int	AForm::getGradeToExec() const { return (this->gradeToExec_); }
 
 void AForm::beSigned(const Bureaucrat& bae) {
-	if (bae.getGrade() <= this->_gradeSign)
-		this->_sign = true;
+	if (bae.getGrade() <= this->gradeToSign_)
+		this->isSigned_ = true;
 	else
 		throw(Bureaucrat::GradeTooLowException());
 }

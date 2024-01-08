@@ -25,12 +25,10 @@ Bureaucrat::Bureaucrat(const std::string& name, int grade)
 	// 	throw Bureaucrat::GradeTooLowException();
 
 	try {
-		if (isGradeOutOfRange(grade)) {
-			if (grade < 1)
-				throw GradeTooHighException();
-			if (grade > 150)
-				throw GradeTooLowException();
-		}
+		if (grade < 1)
+			throw GradeTooHighException();
+		if (grade > 150)
+			throw GradeTooLowException();
 	} catch (const std::exception &e) {
 		std::cerr << e.what() << std::endl;
 	}
@@ -66,7 +64,7 @@ Bureaucrat&	Bureaucrat::operator=(const Bureaucrat& rhs) {
     std::cout << ORANGE << "AForm assignment operator overload called" << RESET << std::endl;
 
 	if (this != &rhs) {
-		this->_grade = rhs._grade;
+		this->grade_ = rhs.grade_;
 	}
 
 	return (*this);
@@ -87,7 +85,7 @@ void Bureaucrat::signForm(AForm& form) {
 	}
 }
 
-void Bureaucrat::executeForm(AForm& form) {
+void Bureaucrat::execForm(AForm& form) {
 	try {
 		form.execute(*this);
 		std::cout << this->getName() << " executed " << form.getName() << std::endl;
@@ -99,25 +97,25 @@ void Bureaucrat::executeForm(AForm& form) {
 }
 
 void Bureaucrat::incrementGrade() {
-	if (_grade - 1 < 1)
+	if (grade_ - 1 < 1)
 		throw Bureaucrat::GradeTooHighException();
 
-	_grade -= 1;
+	grade_ -= 1;
 }
 
 void Bureaucrat::decrementGrade() {
-	if (_grade + 1 > 150)
+	if (grade_ + 1 > 150)
 		throw Bureaucrat::GradeTooLowException();
 
-	_grade += 1;
+	grade_ += 1;
 }
 
 
 // ----------------------------------------------------------------------------
 // -------------------------------------------------------------------- Getters
 // ----------------------------------------------------------------------------
-const std::string Bureaucrat::getName() const { return (this->_name); }
-int	Bureaucrat::getGrade() const { return (this->_grade); }
+const std::string Bureaucrat::getName() const { return (this->name_); }
+int	Bureaucrat::getGrade() const { return (this->grade_); }
 
 
 // ----------------------------------------------------------------------------
