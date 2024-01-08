@@ -33,14 +33,18 @@ public:
 	};
 
 	int isGradeOutOfRange(int);
+
 	void incrementGrade();
 	void decrementGrade();
-	void signForm(AForm &);
-	void executeForm(AForm const &) const;
-	void printGrade();
 
+	void signForm(AForm &);
+	void executeForm(AForm const &);
+
+	// Setters
 	void setName(std::string);
 	void setGrade(int);
+
+	// Getters
 	std::string getName() const;
 	int getGrade() const;
 
