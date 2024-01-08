@@ -3,66 +3,56 @@
 
 #include "Bureaucrat.hpp"
 #include <iostream>
-#include <string>
 
 class Bureaucrat;
 
 class AForm {
 public:
-    // Constructor & Destructor
-    AForm(std::string, int, int);
-    virtual ~AForm();
+	AForm(const std::string &, int, int);
+	~AForm();
 
-    // Copy constructor & Assignment operator
-    AForm(const AForm &);
-    AForm &operator=(const AForm &);
+	AForm(const AForm &);
+	AForm &operator=(const AForm &);
 
-    // Methods
-    void beSigned(Bureaucrat const &);
-	void execute(Bureaucrat const &);
-
-    // Assigning 0 to the following functions to turn the AForm Class to an Abstract Class
-	virtual void execNow() const = 0;
-
-    // Exceptions
-    class GradeTooHighException : public std::exception {
-        virtual const char *what() const throw() {
-          return "AForm Exception error occured.\nGrade too high.\n";
-        }
-    };
-
-    class GradeTooLowException : public std::exception {
-        virtual const char *what() const throw() {
-          return "AForm Exception error occured.\nGrade too Low.\n";
-        }
-    };
-
-	class UnsignedFormException : public std::exception {
-		virtual const char *what() const throw() {
-			return "AForm Exception err occured.\nUnsigned form being processed.\n";
+	class GradeTooHighException : public std::exception {
+		public:
+			virtual const char* what() const throw() {
+				return "Error Occured!\nGrade too high.\n";
 		}
 	};
 
-    // Setters
-    void setName(std::string);
-    void setGrade(int);
+	class GradeTooLowException : public std::exception {
+		public:
+			virtual const char* what() const throw() {
+				return "Error Occured!\nGrade too low.\n";
+		}
+	};
 
-    // Getters
-    const std::string &getName() const;
-	bool const &getIsSigned() const;
-    int const &getGradeToExec() const;
-    int const &getGradeToSign() const;
+	class UnsignedFormException : public std::exception {
+		public:
+			virtual const char* what() const throw() {
+				return "Error Occured!\nGrade too low.\n";
+		}
+	};
+
+	const std::string& getName() const;
+	bool getIsSigned() const;
+	int getGradeToSign() const;
+	int getGradeToExec() const;
+
+	void beSigned(const Bureaucrat&);
+	virtual void execute(Bureaucrat const& executioner) const = 0;
 
 protected:
 	AForm();
 
 private:
-    std::string name_;
+	const std::string name_;
 	bool isSigned_;
-    const int gradeToSign_;
-    const int gradeToExec_;
+	const int gradeToSign_;
+	const int gradeToExec_;
 };
 
-std::ostream &operator<<(std::ostream &lhs, AForm const &rhs);
+std::ostream& operator<<(std::ostream& lhs, const AForm& rhs);
 
 #endif // !AFORM_HPP

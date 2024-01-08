@@ -1,50 +1,72 @@
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
-#include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include <iostream>
 
-int	main(void)
+
+int main(void)
 {
-	Bureaucrat zap1("Zap1", 1);
-	Bureaucrat bob20("Bob20", 20);
-	Bureaucrat dan70("Dan70", 70);
-	Bureaucrat ted100("Ted100", 100);
-	Bureaucrat tod150("Tod150", 150);
-	std::cout << std::endl;
-	{
-		ShrubberyCreationForm scf("Planet2000Express");
-		tod150.executeForm(scf);
-		ted100.executeForm(scf);
-		tod150.signForm(scf);
-		ted100.signForm(scf);
-		tod150.executeForm(scf);
-		ted100.executeForm(scf);
+    std::cout << "\n-------------------CEO----------------------------------" << std::endl;
+
+    try {
+        Bureaucrat bur = Bureaucrat("Sophie Vigier", 1);
+	    ShrubberyCreationForm form("42Paris");
+	
+	    std::cout << bur;
+        std::cout << form;
+        
+        bur.signForm(form);
+        bur.execForm(form);
+        bur.execForm(form);
+        bur.execForm(form);
+
+        RobotomyRequestForm dead("ael-youb");
+        std::cout << dead;
+        
+        bur.signForm(dead);
+        bur.execForm(dead);
+        
+        PresidentialPardonForm mercy("ael-youb");
+        std::cout << mercy;
+        bur.signForm(mercy);
+        bur.execForm(mercy);
+    }
+    catch(const std::exception& e) {
+		std::cerr << e.what() << std::endl;
 	}
-		std::cout << std::endl;
-	{
-		RobotomyRequestForm rrf("Fry");
-		ted100.executeForm(rrf);
-		dan70.executeForm(rrf);
-		ted100.signForm(rrf);
-		dan70.signForm(rrf);
-		dan70.executeForm(rrf);
-		bob20.executeForm(rrf);
-		bob20.executeForm(rrf);
-		bob20.executeForm(rrf);
-		bob20.executeForm(rrf);
-		bob20.executeForm(rrf);
+
+    std::cout << "\n-------------------USELESS INTERN-------------------------" << std::endl;
+
+    try {
+        Bureaucrat bur = Bureaucrat("Useless Intern", 150);
+	    ShrubberyCreationForm form("Home");
+	
+	    std::cout << bur;
+        std::cout << form;
+        
+        bur.signForm(form);
+        bur.execForm(form);
+        bur.execForm(form);
+        bur.execForm(form);
+
+        RobotomyRequestForm dead("ael-youb");
+        std::cout << dead;
+
+        bur.signForm(dead);
+        bur.execForm(dead);
+        
+        PresidentialPardonForm mercy("ael-youb");
+        std::cout << mercy;
+        bur.signForm(mercy);
+        bur.execForm(mercy);
+        
+        std::cout << std::endl;
+    }
+    catch(const std::exception& e) {
+		std::cerr << e.what() << std::endl;
 	}
-		std::cout << std::endl;
-	{
-		PresidentialPardonForm ppf("Bender");
-		bob20.executeForm(ppf);
-		zap1.executeForm(ppf);
-		dan70.signForm(ppf);
-		bob20.signForm(ppf);
-		bob20.executeForm(ppf);
-		zap1.executeForm(ppf);
-	}
-	std::cout << std::endl;
-	return (0);
+
+    return (0);
 }

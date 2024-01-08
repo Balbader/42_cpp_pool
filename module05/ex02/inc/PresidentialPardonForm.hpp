@@ -3,28 +3,20 @@
 
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
+#include "colors.hpp"
 
 class PresidentialPardonForm : public AForm {
+public :
+	PresidentialPardonForm(const std::string&);
+	~PresidentialPardonForm();
+	
+	PresidentialPardonForm(const PresidentialPardonForm&);
+	PresidentialPardonForm& operator=(const PresidentialPardonForm&);
 
-public:
-    PresidentialPardonForm(std::string const);
-    ~PresidentialPardonForm();
+	void	execute(const Bureaucrat&) const;
 
-    PresidentialPardonForm(const PresidentialPardonForm &);
-    PresidentialPardonForm &operator=(const PresidentialPardonForm &);
-
-    // virtual void beSigned(Bureaucrat const &bureaucrat);
-    virtual void execute(Bureaucrat const &executor) const;
-
-    // std::string getTarget(void) const;
-
-protected:
-	PresidentialPardonForm();
-
-private:
-    std::string const target_;
+private :
+	const std::string& target_;
 };
-
-std::ostream &operator<<(std::ostream &lhs, PresidentialPardonForm const &rhs);
 
 #endif // !PRESIDENTIALPARDONFORM_HPP

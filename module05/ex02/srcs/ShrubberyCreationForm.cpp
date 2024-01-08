@@ -1,88 +1,91 @@
-#include <ShrubberyCreationForm.hpp>
+#include "ShrubberyCreationForm.hpp"
 
-// ---------------------------------------------------------------- Constructor
-ShrubberyCreationForm::ShrubberyCreationForm() : name_("Shrubbery Creation Form"), gradeToSign_(145), gradeToExec_(137) {
+// ----------------------------------------------------------------------------
+// ----------------------------------------------------------- Args Constructor
+// ----------------------------------------------------------------------------
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string& target)
+					  : AForm("ShrubberyCreationForm", 145, 137), _target(target) {
     if (DEBUG)
-        std::cout << CYAN << "Shrubbery Creation Form base constructor called" << RESET << std::endl;
+        std::cout << CYAN << "Shrubbery Creation Form args constructor called"
+				  << RESET << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string targetName) : name_(targetName), gradeToSign_(145), gradeToExec_(137) {
-    if (DEBUG)
-        std::cout << CYAN << "Shrubbery Creation Form base constructor called" << RESET << std::endl;
-}
 
-
+// ----------------------------------------------------------------------------
 // ----------------------------------------------------------------- Destructor
+// ----------------------------------------------------------------------------
 ShrubberyCreationForm::~ShrubberyCreationForm() {
     if (DEBUG)
         std::cout << CYAN << "Shrubbery Creation Form destructor calledaa"
+				  << RESET << std::endl;
 }
 
 
+// ----------------------------------------------------------------------------
 // ----------------------------------------------------------- Copy Constructor
-ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const &rhs) {
+// ----------------------------------------------------------------------------
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& rhs)
+					  : AForm(rhs), _target(rhs._target) {
     if (DEBUG)
-        std::cout << CYAN << "Shrubbery Creation Form copy constructor called" << RESET << std::endl;
-
-    *this = rhs;
+        std::cout << CYAN << "Shrubbery Creation Form copy constructor called"
+				  << RESET << std::endl;
 }
 
 
-// ------------------------------------------------------------------- Overlaud
-ShrubberyCreationForm::ShrubberyCreationForm &operator=(const ShrubberyCreationForm &rhs) {
+// ----------------------------------------------------------------------------
+// ------------------------------------------------------------------- Overload
+// ----------------------------------------------------------------------------
+ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm& rhs) {
     if (DEBUG)
-        std::cout << CYAN << "Shrubbery Creation Form assignment operator called" << RESET << std::endl;
+        std::cout << CYAN << "Shrubbery Creation Form assignment operator called"
+				  << RESET << std::endl;
 
-    it (*this != rhs)
-        this->isSigned = rhs.isSigned;
+	(void)rhs;
 
-    return *this;
-}
-
-std::ostream & operator<<(std::ostream &, ShrubberyCreationForm const &) {
-	lhs << rhs.getName() << " requires grade " << rhs.getReqToExec() << " to be executed, " << rhs.getReqToSign() << " to be signed" << " and is ";
-
-	if (rhs.getIsSigned() == NOT_SIGNED)
-		lhs << "not ";
-    else
-	    lhs << "signed. Target is " << rhs.getTarget() << ".\n";
-
-	return lhs;
+	return (*this);
 }
 
 
+// ----------------------------------------------------------------------------
 // -------------------------------------------------------------------- Methods
-int ShrubberyCreationForm:: execute(Bureaucrat const & executor) const
+// ----------------------------------------------------------------------------
+void ShrubberyCreationForm::execute(const Bureaucrat& executor) const
 {
-	if (this->getSignedForm() == false)
-	{
-		throw unsignedFormtoExecuteException(executor, *this);
-	}
-	if (executor.getGrade() > this->getReqToExec())
-	{
-		throw GradeTooLowtoExecuteException(executor, *this);
-	}
-	std::string name = getTarget() + "_shruberry";
-	std::ofstream outputFile(name.c_str());
-	if (outputFile.is_open())
-	{
-		for (int count = 0; count < 30; count++)
-		{
-			outputFile << "\n";
-			outputFile << "       *         *         *         *         *         *\n";
-			outputFile << "      ***       ***       ***       ***       ***       ***\n";
-			outputFile << "     *****     *****     *****     *****     *****     *****\n";
-			outputFile << "    *******   *******   *******   *******   *******   *******\n";
-			outputFile << "   ********* ********* ********* ********* ********* *********\n";
-			outputFile << "      ***       ***       ***       ***       ***       ***\n";
-			outputFile << "      ***       ***       ***       ***       ***       ***\n";
-		}
-	}
-	return 0;
+	if (this->getIsSigned() == false)
+		throw(AForm::UnsignedFormException());
+	else if (executor.getGrade() > this->getGradeToExec())
+		throw(AForm::GradeTooLowException());
+
+	std::string l = this->_target + "_shrubbery";
+	const char* p = l.c_str();
+	std::ofstream file(p, std::ios_base::app);
+	file << "                                                         ." << std::endl;
+	file << "                                              .         ;  " << std::endl;
+	file << "                 .              .              ;%     ;;   " << std::endl;
+	file << "                   ,           ,                :;%  %;   " << std::endl;
+	file << "                    :         ;                   :;%;'     .,   " << std::endl;
+	file << "           ,.        %;     %;            ;        %;'    ,;" << std::endl;
+	file << "             ;       ;%;  %%;        ,     %;    ;%;    ,%'" << std::endl;
+	file << "              %;       %;%;      ,  ;       %;  ;%;   ,%;' " << std::endl;
+	file << "               ;%;      %;        ;%;        % ;%;  ,%;'" << std::endl;
+	file << "                `%;.     ;%;     %;'         `;%%;.%;'" << std::endl;
+	file << "                 `:;%.    ;%%. %@;        %; ;@%;%'" << std::endl;
+	file << "                    `:%;.  :;bd%;          %;@%;'" << std::endl;
+	file << "                      `@%:.  :;%.         ;@@%;'   " << std::endl;
+	file << "                        `@%.  `;@%.      ;@@%;         " << std::endl;
+	file << "                          `@%%. `@%%    ;@@%;        " << std::endl;
+	file << "                            ;@%. :@%%  %@@%;       " << std::endl;
+	file << "                              %@bd%%%bd%%:;     " << std::endl;
+	file << "                                #@%%%%%:;;" << std::endl;
+	file << "                                %@@%%%::;" << std::endl;
+	file << "                                %@@@%(o);  . '         " << std::endl;
+	file << "                                %@@@o%;:(.,'         " << std::endl;
+	file << "                            `.. %@@@o%::;         " << std::endl;
+	file << "                               `)@@@o%::;         " << std::endl;
+	file << "                                %@@(o)::;        " << std::endl;
+	file << "                               .%@@@@%::;         " << std::endl;
+	file << "                               ;%@@@@%::;.          " << std::endl;
+	file << "                              ;%@@@@%%:;;;. " << std::endl;
+	file << "                          ...;%@@@@@%%:;;;;,.." << std::endl;
+	file.close();
 }
-
-
-// --------------------------------------------------------------------- Getter
-std::string ShrubberyCreationForm::getTarget() const { return this->target_; }
-int ShrubberyCreationForm::getReqToExec() const { return this->reqToExec_; }
-int ShrubberyCreationForm::getReqToSign() const { return this->reqToSign_; }

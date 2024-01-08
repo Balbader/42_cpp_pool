@@ -1,51 +1,65 @@
 #include "RobotomyRequestForm.hpp"
 
-// ---------------------------------------------------------------- Constructor
-RobotomyRequestForm::RobotomyRequestForm() : name_("Robotomy Request Form"), gradeToSign_(72), gradeToExec_(45) {
+// ----------------------------------------------------------------------------
+// ----------------------------------------------------------- Args Constructor
+// ----------------------------------------------------------------------------
+RobotomyRequestForm::RobotomyRequestForm(const std::string& target)
+					: AForm("RobotomyRequestForm", 72, 45), _target(target) {
 	if (DEBUG)
-		std::cout << YELLOW << "Robotomy request form base constructor called" << RESET << std::endl;
+		std::cout << YELLOW << "Robotomy request form arguments constructor called"
+				  << RESET << std::endl;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(std::string const targetName) : name_(targetName), gradeToSign_(72), gradeToExec_(45) {
-	if (DEBUG)
-		std::cout << YELLOW << "Robotomy request form arguments constructor called" << RESET << std::endl;
-}
 
-
+// ----------------------------------------------------------------------------
 // ----------------------------------------------------------- Copy Constructor
-RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &rhs)
-    : name_(rhs.getName()), gradeToSign_(rhs.getGradeToSign()), gradeToExec_(rhs.getGradeToExec()) {
-
+// ----------------------------------------------------------------------------
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& rhs)
+					: AForm(rhs), _target(rhs._target) {
   if (DEBUG)
-    std::cout << YELLOW << "Robotomy request form copy constructor called" << RESET
-              << std::endl;
+    std::cout << YELLOW << "Robotomy request form copy constructor called"
+			  << RESET << std::endl;
 }
 
 
+// ----------------------------------------------------------------------------
 // ----------------------------------------------------------------- Destructor
+// ----------------------------------------------------------------------------
 RobotomyRequestForm::~RobotomyRequestForm() {
 	if (DEBUG)
-		std::cout << YELLOW << "Robotomy request form base destructor called" << RESET << std::endl;
-
+		std::cout << YELLOW << "Robotomy request form base destructor called"
+				  << RESET << std::endl;
 }
 
+
+// ----------------------------------------------------------------------------
 // ------------------------------------------------------------------- Overload
-RobotomyRequestForm& operator=(RobotomyRequestForm const &rhs) {
+// ----------------------------------------------------------------------------
+RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& rhs) {
   if (DEBUG)
-    std::cout << YELLOW << "Robotomy request form base assignment operator Called" << RESET
-              << std::endl;
+    std::cout << YELLOW << "Robotomy request form base assignment operator Called"
+			  << RESET << std::endl;
 
-    if (*this != rhs)
-        this->setTarget() = rhs.getTarget();
+	(void)rhs;
 
-    return *this;
+	return (*this);
 }
 
-// --------------------------------------------------------------------- Setter
-void RobotomyRequestForm::setTarget(std::string target) const {
-	this->target_ = target;
-	this->gradeToExec_ = 45;
-	this->gradeToSign_ = 72;
-}
 
-// --------------------------------------------------------------------- Getter
+// ----------------------------------------------------------------------------
+// -------------------------------------------------------------------- Methods
+// ----------------------------------------------------------------------------
+void RobotomyRequestForm::execute(const Bureaucrat& executor) const {
+
+	if (this->getIsSigned() == false)
+		throw(AForm::UnsignedFormException());
+	else if(executor.getGrade() > this->getGradeToExec())
+		throw(AForm::GradeTooLowException());
+	
+	srand(time(NULL));
+	int r = rand() % 100 + 1;
+	if (r > 50)
+		std::cout << this->_target << " has successfully been ROBOTOMIZED" << std::endl;
+	else
+		std::cout << this->_target << " has NOT been ROBOTOMIZED" << std::endl;
+}
