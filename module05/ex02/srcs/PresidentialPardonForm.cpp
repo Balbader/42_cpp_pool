@@ -10,7 +10,7 @@ PresidentialPardonForm::PresidentialPardonForm() {
                   << RESET << std::endl;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(std::string name, std::string target) : AForm(name, 25, 5, 5, target) {
+PresidentialPardonForm::PresidentialPardonForm(std::string target) : AForm(25, 5, 5, target) {
     if (DEBUG)
         std::cout << MAGENTA << "PresidentialPardonForm args derived constructor called"
                   << RESET << std::endl;
@@ -62,3 +62,9 @@ std::ostream &operator<<(std::ostream &lhs, PresidentialPardonForm const &rhs) {
         lhs << MAGENTA << rhs.getTarget() << RESET << "has been pardoned by Zaphod Beeblebrox." << std::endl;
 }
 
+void PresidentialPardonForm::execute(const Bureaucrat& executioner) const {
+	if (this->getIsSigned == false)
+		throw AForm::UnsignedFormException();
+	else if (executioner.getGradeTosign() < this->getGradeToExec())
+		throw AForm::GradeToLowException();
+}
