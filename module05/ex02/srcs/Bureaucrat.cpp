@@ -116,6 +116,7 @@ void Bureaucrat::signForm(AForm &aform) {
   }
 }
 
+// FIX:
 void Bureaucrat::executeForm(AForm const &ref) const
 {
 	try
@@ -129,6 +130,8 @@ void Bureaucrat::executeForm(AForm const &ref) const
 		std::cout << RED << BOLD << this->name << " cannot execute " << ref.getName() << ": " << STOP << RED << except.what() << std::endl;
 	}
 }
+
+// FIX: : need an execute function here
 
 // -------------------------------------------------------------------- Setters
 void Bureaucrat::setName(std::string name) { this->name_ = name; }
