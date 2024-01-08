@@ -22,13 +22,13 @@ int main(void)
         bur.execForm(form);
         bur.execForm(form);
 
-        RobotomyRequestForm dead("ael-youb");
+        RobotomyRequestForm dead("baalbade");
         std::cout << dead;
         
         bur.signForm(dead);
         bur.execForm(dead);
         
-        PresidentialPardonForm mercy("ael-youb");
+        PresidentialPardonForm mercy("baalbade");
         std::cout << mercy;
         bur.signForm(mercy);
         bur.execForm(mercy);
@@ -51,13 +51,13 @@ int main(void)
         bur.execForm(form);
         bur.execForm(form);
 
-        RobotomyRequestForm dead("ael-youb");
+        RobotomyRequestForm dead("baalbade");
         std::cout << dead;
 
         bur.signForm(dead);
         bur.execForm(dead);
         
-        PresidentialPardonForm mercy("ael-youb");
+        PresidentialPardonForm mercy("baalbade");
         std::cout << mercy;
         bur.signForm(mercy);
         bur.execForm(mercy);
