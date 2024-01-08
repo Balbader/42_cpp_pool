@@ -19,11 +19,11 @@ public:
     AForm &operator=(const AForm &);
 
     // ------------------------------------------------------------------ Methods
-    // Assigning 0 to the following functions to turn the AForm Class to an Abstract Class
-    virtual void beSigned(Bureaucrat const &) = 0;
+    void beSigned(Bureaucrat const &);
+	void execute(Bureaucrat const &);
 
-	//NOTE: find the execute function in order to apply it to the bureaucrat class
-	virtual void execute(Bureaucrat const &) = 0;
+    // Assigning 0 to the following functions to turn the AForm Class to an Abstract Class
+	virtual void execNow() const = 0;
 
     // --------------------------------------------------------------- Exceptions
     class GradeTooHighException : public std::exception {
