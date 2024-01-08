@@ -116,6 +116,20 @@ void Bureaucrat::signForm(AForm &aform) {
   }
 }
 
+void Bureaucrat::executeForm(AForm const &ref) const
+{
+	try
+	{
+		ref.execute(*this);
+		std::cout << ORANGE << this->name << " executes " << ref.getName() << std::endl << STOP;
+		ref.do_execute();
+	}
+	catch (std::exception &except)
+	{
+		std::cout << RED << BOLD << this->name << " cannot execute " << ref.getName() << ": " << STOP << RED << except.what() << std::endl;
+	}
+}
+
 // -------------------------------------------------------------------- Setters
 void Bureaucrat::setName(std::string name) { this->name_ = name; }
 
