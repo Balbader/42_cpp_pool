@@ -21,6 +21,8 @@ public:
     // ------------------------------------------------------------------ Methods
     // Assigning 0 to the following functions to turn the AForm Class to an Abstract Class
     virtual void beSigned(Bureaucrat const &) = 0;
+
+	//NOTE: find the execute function in order to apply it to the bureaucrat class
 	virtual void execute(Bureaucrat const &) = 0;
 
     // --------------------------------------------------------------- Exceptions
