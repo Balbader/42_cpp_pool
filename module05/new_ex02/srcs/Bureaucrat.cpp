@@ -53,6 +53,9 @@ Bureaucrat::Bureaucrat(const Bureaucrat& rhs) {
 // ------------------------------------------------------------------- Overload
 // ----------------------------------------------------------------------------
 Bureaucrat&	Bureaucrat::operator=(const Bureaucrat& rhs) {
+	if (DEBUG)
+    std::cout << ORANGE << "AForm assignment operator overload called" << RESET << std::endl;
+
 	if (this != &rhs) {
 		this->_grade = rhs._grade;
 	}
