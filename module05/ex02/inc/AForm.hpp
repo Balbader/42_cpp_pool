@@ -9,23 +9,22 @@ class Bureaucrat;
 
 class AForm {
 public:
-    // ------------------------------------------------- Constructor & Destructor
-    AForm();
+    // Constructor & Destructor
     AForm(std::string, int, int);
     virtual ~AForm();
 
-    // ----------------------------------- Copy constructor & Assignment operator
+    // Copy constructor & Assignment operator
     AForm(const AForm &);
     AForm &operator=(const AForm &);
 
-    // ------------------------------------------------------------------ Methods
+    // Methods
     void beSigned(Bureaucrat const &);
 	void execute(Bureaucrat const &);
 
     // Assigning 0 to the following functions to turn the AForm Class to an Abstract Class
 	virtual void execNow() const = 0;
 
-    // --------------------------------------------------------------- Exceptions
+    // Exceptions
     class GradeTooHighException : public std::exception {
         virtual const char *what() const throw() {
           return "AForm Exception error occured.\nGrade too high.\n";
@@ -44,21 +43,24 @@ public:
 		}
 	};
 
-    // ------------------------------------------------------------------ Setters
+    // Setters
     void setName(std::string);
     void setGrade(int);
 
-    // ------------------------------------------------------------------ Getters
+    // Getters
     const std::string &getName() const;
+	bool const &getIsSigned() const;
     int const &getGradeToExec() const;
     int const &getGradeToSign() const;
-    bool const &getIsSigned() const;
+
+protected:
+	AForm();
 
 private:
     std::string name_;
-    unsigned int gradeToSign_;
-    unsigned int gradeToExec_;
-    bool isSigned_;
+	bool isSigned_;
+    const int gradeToSign_;
+    const int gradeToExec_;
 };
 
 std::ostream &operator<<(std::ostream &lhs, AForm const &rhs);
