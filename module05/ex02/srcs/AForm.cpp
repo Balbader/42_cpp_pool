@@ -96,6 +96,12 @@ void AForm::beSigned(Bureaucrat const &rhs) {
 }
 
 // FIX: : need an execute function here
+void AForm::execute(Bureaucrat const &executionner) const {
+	if (this->isSigned == false)
+		throw AForm::UnsignedFormException();
+	if (this->gradeToExec_ < executionner.getGrade())
+		throw AForm::GradeTooLowException();
+}
 
 // -------------------------------------------------------------------- Setters
 void AForm::setName(std::string name) { this->name_ = name; }
