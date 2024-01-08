@@ -2,15 +2,10 @@
 #include "AForm.hpp"
 
 // ---------------------------------------------------------------- Constructor
-Bureaucrat::Bureaucrat(std::string name) : grade_(10) {
+Bureaucrat::Bureaucrat() : name_("Name undefined"), grade_(10) {
   if (DEBUG)
     std::cout << GREEN << "Bureaucrat Base Constructor called" << RESET
               << std::endl;
-
-  if (name == "")
-    this->name_ = "Name undefined";
-  else
-    this->name_ = name;
 }
 
 Bureaucrat::Bureaucrat(std::string const name, int grade)
