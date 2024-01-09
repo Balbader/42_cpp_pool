@@ -4,7 +4,9 @@
 #include "colors.hpp"
 
 #include <iostream>
-#include <cstdlilb>
+#include <cstdlib>
+
+#define DEBUG 1
 
 class Base {
 public:
