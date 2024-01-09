@@ -1,11 +1,11 @@
-#include "Functions.hpp"
+#include "Functions.tpp"
 #include "colors.hpp"
 
 #include <iostream>
 #include <string>
 
 template<typename T>
-void swap(T& a, T& b) {
+T& swap(T& a, T& b) {
     T tmp = a;
     a = b;
     b = tmp;
