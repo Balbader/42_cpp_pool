@@ -1,7 +1,7 @@
 ########
 # NAME #
 ########
-NAME			:=	Identify
+NAME			:=	Functions
 
 ###############
 # INGREDIENTS #
@@ -10,10 +10,7 @@ INC_DIR			:=	./inc
 
 SRCS_DIR		:=	./srcs
 SRCS			:=	\
-					Base.cpp \
-					A.cpp \
-					B.cpp \
-					C.cpp \
+					Functions.cpp \
 					main.cpp
 SRCS			:=	$(SRCS:%=$(SRCS_DIR)/%)
 
