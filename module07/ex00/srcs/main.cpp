@@ -5,6 +5,8 @@ int main( void ) {
     int a = 2;
     int b = 3;
 
+	std::cout << YELLOW << "\nWhith int's :" << RESET << std::endl;
+
     std::cout << "int a before swap = " << YELLOW << a << RESET
 			  << "\nint b before swap = " << YELLOW << b << RESET
 			  << "\n" << std::endl;
@@ -23,7 +25,9 @@ int main( void ) {
     std::string c = "String 1";
     std::string d = "String 2";
 
-    std::cout << "\nstring a before swap = " << LGREEN << c << RESET
+	std::cout << LGREEN << "\n\nWhith strings :" << RESET << std::endl;
+
+    std::cout << "string a before swap = " << LGREEN << c << RESET
 			  << "\nstring b before swap = " << LGREEN << d << RESET
 			  << "\n" << std::endl;
 
