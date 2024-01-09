@@ -10,7 +10,6 @@ INC_DIR			:=	./inc
 
 SRCS_DIR		:=	./srcs
 SRCS			:=	\
-					Functions.cpp \
 					main.cpp
 SRCS			:=	$(SRCS:%=$(SRCS_DIR)/%)
 
