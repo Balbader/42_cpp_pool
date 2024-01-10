@@ -5,8 +5,7 @@ int main(void)
     std::vector<int> l;
     std::vector<int>::iterator lol;
 
-    for (int i = 0; i < 100; i++)
-    {
+    for (int i = 0; i < 100; i++) {
         l.push_back(i);
     }
 
@@ -14,8 +13,7 @@ int main(void)
     std::vector<char> b;
     std::vector<char>::iterator bol;
 
-    for (int i = 0; i < 10; i++)
-    {
+    for (int i = 0; i < 10; i++) {
         b.push_back('c');
     }
     
@@ -61,7 +59,6 @@ int main(void)
     } catch (const std::exception& e) {
         std::cout << "Can't find what you're looking for" << std::endl;
     }
-
 
     try {
         lol = easyfind(l, 99);
