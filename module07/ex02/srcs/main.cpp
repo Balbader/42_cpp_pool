@@ -25,6 +25,7 @@ int main(void)
     //SCOPE TEST COPIE PROFONDE
     std::cout << "\nTest Copie Profonde ===================================== \n" << std::endl; {
 
+		std::cout << "\n";
         std::cout << "Testons d'abord la surcharge de l'operateur =" << std::endl;
 
         Array<int> toCopy(10);
@@ -35,6 +36,7 @@ int main(void)
 
         Array<int> copy = toCopy;
 
+		std::cout << "\n";
         std::cout << "Maintenant, affichons les deux Arrays" << std::endl;
 		
         for (unsigned int i = 0; i < toCopy.size(); i++) {
@@ -42,12 +44,14 @@ int main(void)
             std::cout << "copy[" << i << "]: " << copy[i] << std::endl;
         }
 
+		std::cout << "\n";
         std::cout << "Modifions copy : cela ne devrait pas modifier toCopy!" << std::endl;
 
         for (unsigned int i = 0; i < toCopy.size(); i++) {
             copy[i] = 10 - i;
         }
 
+		std::cout << "\n";
         std::cout << "copy modifie, affichons les deux Array a nouveau" << std::endl;
 
         for (unsigned int i = 0; i < toCopy.size(); i++) {
@@ -55,6 +59,7 @@ int main(void)
             std::cout << "copy[" << i << "]: " << copy[i] << std::endl;
         }
 
+		std::cout << "\n";
         std::cout << "Maintenant, testons la copie par constructeur" << std::endl;
 
         Array<int> copy2(copy);
@@ -64,12 +69,14 @@ int main(void)
             std::cout << "copy2[" << i << "]: " << copy2[i] << std::endl;
         }
 
+		std::cout << "\n";
         std::cout << "Modifions copy2 : cela ne devrait pas modifier copy!" << std::endl;
 
         for (unsigned int i = 0; i < toCopy.size(); i++) {
             copy2[i] = i;
         }
 
+		std::cout << "\n";
         std::cout << "copy2 modifie, affichons les deux Array a nouveau" << std::endl;
 
         for (unsigned int i = 0; i < copy.size(); i++) {
@@ -85,6 +92,7 @@ int main(void)
         }
     }
     
+	std::cout << "\n";
     std::cout << "Quelques tests de l'index out of bound" << std::endl;
 
     try {
