@@ -149,7 +149,6 @@ void BitcoinExchange::readInputFile(std::string input) {
 					// std::cout << "Pair found : " << p.first << ":" << p.second << std::endl;
 					std::cout << date << " => " << valueStr << " = " << value * p.second << std::endl;
 					// << std::fixed << std::setprecision(5)
-
 				}
 			} else
 				std::cerr << "Error : bad input => " << buffer << std::endl;
