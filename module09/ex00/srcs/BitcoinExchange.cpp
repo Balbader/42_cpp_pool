@@ -136,7 +136,6 @@ void BitcoinExchange::readInputFile(std::string input) {
 				date = trim(date);
 
 				std::string valueStr = buffer.substr(i + 1, buffer.length() - i);
-
 				valueStr = trim(valueStr);
 				float value = std::atof(valueStr.c_str());
 
