@@ -13,13 +13,17 @@ class MutantStack : public std::stack<T> {
         typedef typename std::stack<T>::container_type::const_iterator const_iterator;
 
         MutantStack() {};
+
         ~MutantStack() {};
 
         MutantStack( const MutantStack& rhs ) { *this = rhs; }
+
         MutantStack& operator=(const MutantStack& rhs) {
+
             if (this != &rhs) {
                 std::stack<T>::operator=(rhs);
             }
+
             return *this;
         }
 
