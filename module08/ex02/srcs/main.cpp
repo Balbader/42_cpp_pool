@@ -3,7 +3,7 @@
 int main() {
 
     {
-        MutantStack<int> mstack;
+        Mutants<int> mstack;
 
         mstack.push(5);
         mstack.push(17);
@@ -17,8 +17,8 @@ int main() {
         mstack.push(737);
         mstack.push(0);
 
-        MutantStack<int>::iterator it = mstack.begin();
-        MutantStack<int>::iterator ite = mstack.end();
+        Mutants<int>::iterator it = mstack.begin();
+        Mutants<int>::iterator ite = mstack.end();
 
         ++it;
         --it;
