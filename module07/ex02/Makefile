@@ -9,9 +9,7 @@ NAME			:=	Iterate
 INC_DIR			:=	./inc
 
 SRCS_DIR		:=	./srcs
-SRCS			:=	\
-					Array.cpp \
-					main.cpp
+SRCS			:=	main.cpp
 SRCS			:=	$(SRCS:%=$(SRCS_DIR)/%)
 
 BUILD_DIR		:=	.build
