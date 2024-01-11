@@ -1,5 +1,5 @@
-#ifndef MUTANTSTACK_HPP
-# define MUTANTSTACK_HPP
+#ifndef MUTANTS_HPP
+#define MUTANTS_HPP
 
 #include <iostream>
 #include <stack>
@@ -7,18 +7,18 @@
 
 template <typename T>
 
-class MutantStack : public std::stack<T> {
+class Mutants : public std::stack<T> {
     public:
         typedef typename std::stack<T>::container_type::iterator iterator;
         typedef typename std::stack<T>::container_type::const_iterator const_iterator;
 
-        MutantStack() {};
+        Mutants() {};
 
-        ~MutantStack() {};
+        ~Mutants() {};
 
-        MutantStack( const MutantStack& rhs ) { *this = rhs; }
+        Mutants( const Mutants& rhs ) { *this = rhs; }
 
-        MutantStack& operator=(const MutantStack& rhs) {
+        Mutants& operator=(const Mutants& rhs) {
 
             if (this != &rhs) {
                 std::stack<T>::operator=(rhs);
