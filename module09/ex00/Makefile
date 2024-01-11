@@ -1,7 +1,7 @@
 ########
 # NAME #
 ########
-NAME			:=	BicoinExchange
+NAME			:=	btc
 
 ###############
 # INGREDIENTS #
