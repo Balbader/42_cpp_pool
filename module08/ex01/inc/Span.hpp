@@ -13,6 +13,7 @@
 #define DEBUG 1
 
 class Span {
+
 public:
 	typedef std::vector<int>::iterator ITER;
 
