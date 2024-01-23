@@ -15,7 +15,6 @@ struct Data {
 
 class Serialization {
 public:
-	Serialization();
 	~Serialization();
 
 	Serialization(const Serialization &);
@@ -25,6 +24,7 @@ public:
 	static Data* deserialize(uintptr_t raw);
 
 private:
+	Serialization();
 	
 };
 
