@@ -17,7 +17,7 @@ Base::~Base() {
 // -------------------------------------------------------------------- Methods
 // ----------------------------------------------------------------------------
 Base* aCreator() {
-    std::cout << "A created" << std::endl;
+    std::cout << LGREEN << "A created" << RESET << std::endl;
     return (new A());
 }
 
