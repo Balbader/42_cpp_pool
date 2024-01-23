@@ -12,6 +12,7 @@ Converting between numeric types (like `int` to `float`), converting pointers up
 ### Safety
 Does not provide runtime checks, so it's less safe than `dynamic_cast` for downcasting
 
+<br>
 
 # II. dynamic_cast
 
@@ -30,6 +31,7 @@ Safe downcasting in ingeritance hierarchies (from base to derived)
 ### Safety
 Returns `nullptr` for pointers or throws `std::bad_cast` for reference on failure, providing safety against invalid casts
 
+<br>
 
 # III. reinterpret_cast
 
