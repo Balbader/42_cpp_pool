@@ -25,7 +25,7 @@ ScalarConverter::ScalarConverter(const ScalarConverter& rhs) {
 // ----------------------------------------------------------------------------
 // ------------------------------------------------------------------- Overload
 // ----------------------------------------------------------------------------
-ScalarConverter&	ScalarConverter::operator=(const ScalarConverter& rhs) {
+ScalarConverter& ScalarConverter::operator=(const ScalarConverter& rhs) {
   if (DEBUG)
     std::cout << GREEN << "ScalarConverter assignment operator called" << RESET
               << std::endl;
