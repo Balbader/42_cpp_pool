@@ -12,13 +12,15 @@
 
 class ScalarConverter {
 public:
-	ScalarConverter();
 	~ScalarConverter();
 
 	ScalarConverter(const ScalarConverter &);
 	ScalarConverter &operator=(const ScalarConverter &);
 
 	static void convertTo(std::string&);
+
+private:
+	ScalarConverter();
 };
 
 #endif // !SCALARCONVERTER_HPP
