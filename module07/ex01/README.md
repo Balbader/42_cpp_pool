@@ -64,13 +64,17 @@ Example:
 ```
 In this case, a specialized version of the Stack class is defined specifically for boolean values.
 
-Advantages:
+## Advantages:
 
-Code Reuse: Write a function or class once and use it with any data type.
+### Code Reuse:
+Write a function or class once and use it with any data type.
 Type Safety: Templates are type-safe, as the compiler generates the code for the specific type used.
 Efficiency: Templates can be more efficient than void pointers or other generic techniques because they allow type-specific optimizations at compile time.
 Considerations:
 
-Code Bloat: The compiler generates separate instances of the template code for each type used, which can increase the size of the compiled binary.
-Complexity: Template code can be difficult to write and debug due to its generic nature.
+### Code Bloat:
+The compiler generates separate instances of the template code for each type used, which can increase the size of the compiled binary.
+
+###Complexity:
+Template code can be difficult to write and debug due to its generic nature.
 In summary, templates are a cornerstone of C++ programming, enabling generic programming and the creation of flexible, reusable, and efficient software components. They are extensively used in the STL and are vital for writing modern C++ code.
