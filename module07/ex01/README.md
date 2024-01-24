@@ -75,6 +75,6 @@ Considerations:
 ### Code Bloat:
 The compiler generates separate instances of the template code for each type used, which can increase the size of the compiled binary.
 
-###Complexity:
+### Complexity:
 Template code can be difficult to write and debug due to its generic nature.
 In summary, templates are a cornerstone of C++ programming, enabling generic programming and the creation of flexible, reusable, and efficient software components. They are extensively used in the STL and are vital for writing modern C++ code.
