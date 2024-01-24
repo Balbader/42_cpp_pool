@@ -10,7 +10,7 @@ template<typename T>
 class Array
 {
 public:
-	// constructor
+	// constructor with unsigned int
 	Array(unsigned int n) {
 		tabSize = n;
 		tab = new T[n];
@@ -20,7 +20,7 @@ public:
 		}
 	}
 	
-	// copy constructor
+	// construction by copy
 	Array(const Array& rhs) {
 
 		this->tabSize = rhs.size();
@@ -31,16 +31,11 @@ public:
 		}
 	}
 
-	// destructor
-	~Array() {
-		delete [] tab;
-	}
-
 	// assignment operator
 	Array& operator=(const Array& rhs) {
 		delete [] tab; //very deep copy
 		tabSize = rhs.size();
-		tab = new T[rhs.size()];
+		tab = new T[rhs.size()]; // new template created with its own memory space
 
 		for (unsigned int i = 0; i < rhs.size(); i++) {
 			tab[i] = rhs[i];
@@ -48,7 +43,12 @@ public:
 
 		return (*this);
 	}
-	
+
+	// destructor
+	~Array() {
+		delete [] tab;
+	}
+
 	// methods
 	//unsigned int, if a negative number is sent it will automatically overflow
 	T& operator[](unsigned int index) {
@@ -68,7 +68,8 @@ public:
 	}
 
 private:
-	T* tab;
+    // constructor with no parameters
+	T* tab; 
 	unsigned int tabSize;
 
 	Array() {
