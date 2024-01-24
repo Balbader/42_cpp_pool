@@ -9,10 +9,10 @@ Function Templates: These allow you to define a function without specifying the 
 Example:
 
 ```cpp
-    template <typename T>
-    T max(T x, T y) {
-        return (x > y) ? x : y;
-    }
+template <typename T>
+T max(T x, T y) {
+    return (x > y) ? x : y;
+}
 ```
 Here, T is a template parameter that can be replaced with any data type when the function is called, like max<int>(10, 20) or max<double>(3.14, 2.71).
 
