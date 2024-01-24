@@ -21,18 +21,18 @@ Class Templates: These are similar to function templates but are used to define 
 Example:
 
 ```cpp
-    template <typename T>
-    class Stack {
-    private:
-        std::vector<T> elements;
-    public:
-        void push(T const& elem);
-        void pop();
-        T top() const;
-        bool empty() const {
-            return elements.empty();
-        }
-    };
+template <typename T>
+class Stack {
+private:
+    std::vector<T> elements;
+public:
+    void push(T const& elem);
+    void pop();
+    T top() const;
+    bool empty() const {
+        return elements.empty();
+    }
+};
 ```
 
 In this example, Stack<T> is a generic stack class that can store elements of any type.
@@ -42,12 +42,12 @@ Non-Type Template Parameters: Templates can also have non-type parameters, like 
 Example:
 
 ```cpp
-    template <class T, size_t N>
-    class FixedArray {
-        T array[N];
-    public:
-        // Methods for FixedArray
-    };
+template <class T, size_t N>
+class FixedArray {
+    T array[N];
+public:
+    // Methods for FixedArray
+};
 ```
 
 Here, FixedArray<T, N> defines an array of a fixed size N, with N being a non-type parameter.
@@ -57,10 +57,10 @@ Template Specialization: This allows you to define a specific implementation of 
 Example:
 
 ```cpp
-    template <>
-    class Stack<bool> { 
-        // Specialized implementation for a stack of bools
-    };
+template <>
+class Stack<bool> { 
+    // Specialized implementation for a stack of bools
+};
 ```
 In this case, a specialized version of the Stack class is defined specifically for boolean values.
 
