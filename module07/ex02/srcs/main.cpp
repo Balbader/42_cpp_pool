@@ -22,11 +22,12 @@ int main(void)
     //     std::cout << "Mirror:"<< mirror[i] << std::endl;
     // }
 
-    //SCOPE TEST COPIE PROFONDE
-    std::cout << "\nTest Copie Profonde ===================================== \n" << std::endl; {
+    //Scope Deep Copy test
+    std::cout << "\n------------------------------> Deep Copy tests" << std::endl;
 
-		std::cout << "\n";
-        std::cout << "Testons d'abord la surcharge de l'operateur =" << std::endl;
+    {
+
+        std::cout << "\nOperator overload =" << std::endl;
 
         Array<int> toCopy(10);
 
@@ -36,52 +37,49 @@ int main(void)
 
         Array<int> copy = toCopy;
 
-		std::cout << "\n";
-        std::cout << "Maintenant, affichons les deux Arrays" << std::endl;
+        std::cout << "\nDisplay both arrays" << std::endl;
 		
         for (unsigned int i = 0; i < toCopy.size(); i++) {
             std::cout << "toCopy[" << i << "]: " << toCopy[i] << std::endl;
-            std::cout << "copy[" << i << "]: " << copy[i] << std::endl;
+            std::cout << "  copy[" << i << "]: " << copy[i] << std::endl;
+            std::cout << "\n";
         }
 
-		std::cout << "\n";
-        std::cout << "Modifions copy : cela ne devrait pas modifier toCopy!" << std::endl;
-
+        std::cout << "\nModify \"copy\", shouldn't modify \"toCopy\"" << std::endl;
         for (unsigned int i = 0; i < toCopy.size(); i++) {
             copy[i] = 10 - i;
         }
 
-		std::cout << "\n";
-        std::cout << "copy modifie, affichons les deux Array a nouveau" << std::endl;
-
+        std::cout << "\"copy\" has been modified, print both arrays\n" << std::endl;
         for (unsigned int i = 0; i < toCopy.size(); i++) {
             std::cout << "toCopy[" << i << "]: " << toCopy[i] << std::endl;
-            std::cout << "copy[" << i << "]: " << copy[i] << std::endl;
+            std::cout << "  copy[" << i << "]: " << copy[i] << std::endl;
+            std::cout << "\n";
         }
 
 		std::cout << "\n";
-        std::cout << "Maintenant, testons la copie par constructeur" << std::endl;
+        std::cout << "----------------> Copy through constructor test\n" << std::endl;
 
         Array<int> copy2(copy);
 
         for (unsigned int i = 0; i < copy.size(); i++) {
-            std::cout << "copy[" << i << "]: " << copy[i] << std::endl;
+            std::cout << " copy[" << i << "]: " << copy[i] << std::endl;
             std::cout << "copy2[" << i << "]: " << copy2[i] << std::endl;
+		    std::cout << "\n";
         }
 
-		std::cout << "\n";
-        std::cout << "Modifions copy2 : cela ne devrait pas modifier copy!" << std::endl;
+        std::cout << "\nModify \"copy2\", shouldn't modify \"copy\"" << std::endl;
 
         for (unsigned int i = 0; i < toCopy.size(); i++) {
             copy2[i] = i;
         }
 
-		std::cout << "\n";
-        std::cout << "copy2 modifie, affichons les deux Array a nouveau" << std::endl;
+        std::cout << "\"copy2\" has been modified, print both arrays\n" << std::endl;
 
         for (unsigned int i = 0; i < copy.size(); i++) {
-            std::cout << "copy[" << i << "]: " << copy[i] << std::endl;
+            std::cout << " copy[" << i << "]: " << copy[i] << std::endl;
             std::cout << "copy2[" << i << "]: " << copy2[i] << std::endl;
+		    std::cout << "\n";
         }
     }
 
