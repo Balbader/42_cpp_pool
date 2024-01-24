@@ -26,7 +26,7 @@ int main(int ac, char **av) {
               << "Please provide the following arguments in the folllowing "
                  "order to successfully execute the program: \n"
               << "1. Name of executable: " << LGREEN
-              << "<./Bureaucrat\n"
+              << "<./Maggots\n"
               << RESET
               << "2. Grade to execute (from 1 to 150 included): " << LGREEN
               << "148\n"
