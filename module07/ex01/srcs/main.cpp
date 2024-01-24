@@ -6,7 +6,7 @@ int main(void) {
     ::iter(tab, 4, print);
 
     std::string lol[] = {
-        "rir",
+        "riri",
         "fifi",
         "loulou"
     };
