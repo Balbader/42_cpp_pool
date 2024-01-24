@@ -1,3 +1,4 @@
+# Exceptions
 
 In C++, exceptions are a mechanism for handling runtime errors or unusual situations in a program in a controlled manner. They provide a way to react to exceptional circumstances (like runtime errors) in programs without the need for frequent error checks after every operation.
 
