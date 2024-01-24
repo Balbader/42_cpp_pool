@@ -9,9 +9,7 @@ Here are some of the major container templates in C++:
 ### Sequence Containers:
 
 + std::vector: Dynamic array that can change size. Provides fast random access and is used for storing sequences in contiguous memory.
-
 + std::list: Doubly linked list allowing fast insertion and deletion at any point in the list.
-
 + std::deque (double-ended queue): Similar to vector, but allows efficient insertion and deletion at both the beginning and the end.
 
 ### Associative Containers:
