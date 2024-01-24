@@ -1,4 +1,4 @@
-# I. static_cast
+# I. static cast
 
 ### Purpose
 Used for general, well-defined conversions between types. This includes conversions between numberic types, conversions between classes where there is a clear inheritance relationship, and conversions defined by explicit or implicit conversion operatorsl.
@@ -14,7 +14,7 @@ Does not provide runtime checks, so it's less safe than `dynamic_cast` for downc
 
 <br>
 
-# II. dynamic_cast
+# II. dynamic cast
 
 ### Purpose
 Primarily used for safe downcasting in class hierarchies
@@ -33,7 +33,7 @@ Returns `nullptr` for pointers or throws `std::bad_cast` for reference on failur
 
 <br>
 
-# III. reinterpret_cast
+# III. reinterpret cast
 
 ### Purpose
 Provides a low-level reinterpreting of bit patterns. It allws you to treat the sequence of bits of one object as if it were a different object
