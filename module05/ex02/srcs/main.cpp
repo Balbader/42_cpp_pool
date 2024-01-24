@@ -11,7 +11,7 @@ int main(void)
     std::cout << "\n-------------------CEO----------------------------------" << std::endl;
 
     try {
-        Bureaucrat bur = Bureaucrat("Sophie Vigier", 1);
+        Bureaucrat bur = Bureaucrat("Sophie Viger", 1);
 	    ShrubberyCreationForm form("42Paris");
 	
 	    std::cout << bur;
@@ -32,8 +32,7 @@ int main(void)
         std::cout << mercy;
         bur.signForm(mercy);
         bur.execForm(mercy);
-    }
-    catch(const std::exception& e) {
+    } catch(const std::exception& e) {
 		std::cerr << e.what() << std::endl;
 	}
 
@@ -63,8 +62,7 @@ int main(void)
         bur.execForm(mercy);
         
         std::cout << std::endl;
-    }
-    catch(const std::exception& e) {
+    } catch(const std::exception& e) {
 		std::cerr << e.what() << std::endl;
 	}
 
