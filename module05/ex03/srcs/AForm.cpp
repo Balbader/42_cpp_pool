@@ -78,6 +78,10 @@ bool AForm::getIsSigned() const { return this->isSigned_; }
 int AForm::getGradeToSign() const { return (this->gradeToSign_); }
 int	AForm::getGradeToExec() const { return (this->gradeToExec_); }
 
+
+// ----------------------------------------------------------------------------
+// -------------------------------------------------------------------- Methods
+// ----------------------------------------------------------------------------
 void AForm::beSigned(const Bureaucrat& bae) {
 	if (bae.getGrade() <= this->gradeToSign_)
 		this->isSigned_ = true;
