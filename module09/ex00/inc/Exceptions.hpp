@@ -1,18 +1,7 @@
 #ifndef EXCEPTIONS_HPP
 #define EXCEPTIONS_HPP
 
-# include <cstdlib>
-# include <cstring>
-# include <fstream>
 # include <iostream>
-# include <list>
-# include <map>
-# include <string>
-# include <sstream>
-# include <vector>
-# include <utility>
-
-#include <cstdlib>
 
 class ErrorException : public std::exception 
 {
