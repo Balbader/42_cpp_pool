@@ -187,4 +187,42 @@ Provide a different interface for sequential containers. Examples include:
 + queue: Adapts a container to provide queue (FIFO - First In First Out) operations.
 + priority_queue: Adapts a container to provide priority queue.
 
+Here's a simple example to illustrate how you can use a queue in C++:
+
+```cpp
+#include <iostream>
+#include <queue>
+
+int main() {
+    // Create a queue to store integers
+    std::queue<int> myQueue;
+
+    // Add some elements to the queue
+    myQueue.push(10);
+    myQueue.push(20);
+    myQueue.push(30);
+
+    // Print and remove elements from the queue
+    std::cout << "Elements in the queue:" << std::endl;
+    while (!myQueue.empty()) {
+        // Print the front element
+        std::cout << myQueue.front() << std::endl;
+
+        // Remove the front element
+        myQueue.pop();
+    }
+
+    return 0;
+}
+```
+In this example:
+
+A queue of integers is created.
+Elements are added to the queue using push().
+The queue is processed in a loop until it is empty. Within the loop:
+The front element of the queue is accessed using front() and printed.
+The front element is then removed from the queue using pop().
+
+This code demonstrates the basic FIFO nature of a queue: elements are added to the back and removed from the front in the order they were added. This is a typical use case for a queue, often applied in scenarios like task scheduling, managing requests in a service, and breadth-first search in algorithms.
+
 Each type of container has its own characteristics and is suitable for different kinds of tasks. The choice of container depends on factors like the type of operations you need to perform, the efficiency of these operations, memory usage, and whether or not you need to maintain order among the elements.
