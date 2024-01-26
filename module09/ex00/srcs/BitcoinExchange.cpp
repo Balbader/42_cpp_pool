@@ -31,6 +31,9 @@ BitcoinExchange::~BitcoinExchange()
 
 BitcoinExchange &	BitcoinExchange::operator=(BitcoinExchange const & rhs)
 {
+	if (DEBUG)
+		std::cout << LBLUE << "BitcoinExchange assignment operator called." << RESET << std::endl;
+
 	this->_database = rhs._database;
 	return *this;
 }
@@ -76,30 +79,40 @@ const char* ParseFailException::what() const throw()
 void	BitcoinExchange::getDatabase(void)
 {
 	std::ifstream infile("data.csv");
+
+    // Check for file errors
 	if (!infile.is_open() || infile.fail())
 		throw(FileOpeningException());
 
 	std::string line;
 	while (std::getline(infile, line))
 	{
+        // Parsing data
 		std::string date = line.substr(0, 10);
 		std::string valueStr = line.substr(11, (int)line.size());
 
+        // Extract data 
 		std::istringstream	iss(valueStr);
-		char	*valueNbr = new char[valueStr.length() + 1];
+		char *valueNbr = new char[valueStr.length() + 1];
 		std::strcpy(valueNbr, valueStr.c_str());
+
 		if (iss >> valueNbr)
 		{
+            // convert string to double
 			double valueDouble = atof(valueNbr);
+
+            // insert data to database by generating key/value pairs
 			this->_database.insert(std::make_pair(date, valueDouble));
 			delete[]valueNbr;
 		}
+
 		else
 		{
 			delete[] valueNbr;
 			throw(ParseFailException());
 		}
 	}
+
 	infile.close();
 }
 
@@ -107,18 +120,25 @@ void	BitcoinExchange::checkDate(std::string line)
 {
 	bool isLeapYear = FALSE;
 	int	Year = atoi(line.substr(0,4).c_str());
+
 	if ((Year % 4 == 0 && Year % 100 != 0) || (Year % 400 == 0))
 		isLeapYear = TRUE;
+
 	int	Month = atoi(line.substr(5,2).c_str());
 	int	Day = atoi(line.substr(8,2).c_str());
+
 	if ((Month < 1 || Month > 12) || (Day < 1 || Day > 31))
 		throw (WrongDateFormatException());
+
 	if (Month == FEBRUARY && ((isLeapYear && Day > 29) || (!isLeapYear && Day > 28)))
 		throw (WrongDateFormatException());
+
 	if (Day > 30 && (Month == APRIL || Month == JUNE || Month == SEPTEMBER || Month == NOVEMBER))
 		throw (WrongDateFormatException());
 }
 
+
+// make sure that data is at the right format
 void	BitcoinExchange::checkFormat(std::string line)
 {
 	std::string date = line.substr(0, 10);
@@ -130,25 +150,30 @@ void	BitcoinExchange::checkFormat(std::string line)
 			if (line[i] != '-')
 				throw(WrongDateFormatException());
 		}
+
 		else if (i == 10 || i == 12)
 		{
 			if (line[i] != ' ')
 				throw(WrongFormatException());
 		}
+
 		else if (i == 11)
 		{
 			if (line[i] != '|')
 				throw(WrongFormatException());
 		}
+
 		else
 		{
 			if (!isdigit(line[i]))
 				throw(WrongDateFormatException());
 		}
 	}
+
 	std::string value = line.substr(10);
 }
 
+// make sure that BitcoinExchange value format is right
 void	BitcoinExchange::checkValue(std::string line)
 {
 	int nbPositiveSign = 0;
@@ -164,21 +189,27 @@ void	BitcoinExchange::checkValue(std::string line)
 	int cptDot = 0;
 	for (int i = 0; i < (int)value.size(); i++)
 	{
+
 		if (value[i] == '.')
 		{
 			cptDot += 1;
 			if (cptDot > 1 || i > 4)
 				throw(WrongValueFormatException());
 		}
+
 		else if (!isdigit(value[i]))
 			throw(WrongValueFormatException());
 	}
+
 	if (cptDot == 0 && value.size() > 4)
 		throw(WrongValueFormatException());
 
-	std::istringstream	iss(value);
-	char	*valueNbr = new char[value.length() + 1];
+    // extract data and check data
+	std::istringstream iss(value);
+	char *valueNbr = new char[value.length() + 1];
 	std::strcpy(valueNbr, value.c_str());
+
+    // if data was properly extracted
 	if (iss >> valueNbr)
 	{
 		if (atoi(valueNbr) < 0 || atoi(valueNbr) > 1000)
@@ -187,16 +218,20 @@ void	BitcoinExchange::checkValue(std::string line)
 			throw(WrongValueFormatException());
 		}
 	}
+
 	else
 	{
 		delete[] valueNbr;
 		throw(ParseFailException());
 	}
+
 	delete[] valueNbr;
 }	
 
+
 void	BitcoinExchange::getInput(char *input)
 {
+    // check input file stream
 	std::ifstream infile(input);
 	if (!infile.is_open() || infile.fail())
 		throw(FileOpeningException());
@@ -204,15 +239,12 @@ void	BitcoinExchange::getInput(char *input)
 	std::string line;
 	while (std::getline(infile, line))
 	{
-		try
-		{
+		try {
 			checkFormat(line);
 			checkDate(line);
 			checkValue(line);
 			printValue(line);
-		}
-		catch(const std::exception& e)
-		{
+		} catch(const std::exception& e) {
 			std::cerr << "Error: " << e.what() << '\n';
 		}
 	}
@@ -232,5 +264,6 @@ void	BitcoinExchange::printValue(std::string line)
 			throw(ErrorException());
 		it--;
 	}
+
 	std::cout << date << " => " << amountBitcoin << " = " << (amountBitcoin * it->second) << "\n";
 }
