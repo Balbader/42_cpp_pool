@@ -2,6 +2,8 @@
 #define BUREAUCRAT_HPP
 
 #include "colors.hpp"
+#include "Exceptions.hpp"
+
 #include <exception>
 #include <iostream>
 #include <stdlib.h>
@@ -12,42 +14,29 @@
 class Form;
 
 class Bureaucrat {
-
 public:
-  Bureaucrat(std::string);
-  ~Bureaucrat();
+    Bureaucrat(std::string);
+    ~Bureaucrat();
 
-  Bureaucrat(std::string, int);
+    Bureaucrat(std::string, int);
 
-  Bureaucrat(const Bureaucrat &);
-  Bureaucrat &operator=(const Bureaucrat &);
+    Bureaucrat(const Bureaucrat &);
+    Bureaucrat &operator=(const Bureaucrat &);
 
-  class GradeTooHighException : public std::exception {
-    virtual const char *what() const throw() {
-      return "Exception error occured.\nGrade too high.\n";
-    }
-  };
+    int isGradeOutOfRange(int);
+    void incrementGrade();
+    void decrementGrade();
+    void signForm(Form);
+    void printGrade();
 
-  class GradeTooLowException : public std::exception {
-    virtual const char *what() const throw() {
-      return "Exception error occured.\nGrade too Low.\n";
-    }
-  };
-
-  int isGradeOutOfRange(int);
-  void incrementGrade();
-  void decrementGrade();
-  void signForm(Form);
-  void printGrade();
-
-  void setName(std::string);
-  void setGrade(int);
-  std::string getName() const;
-  int getGrade() const;
+    void setName(std::string);
+    void setGrade(int);
+    std::string getName() const;
+    int getGrade() const;
 
 private:
-  std::string name_;
-  int grade_;
+    std::string name_;
+    int grade_;
 };
 
 std::ostream &operator<<(std::ostream &lhs, Bureaucrat const &rhs);
