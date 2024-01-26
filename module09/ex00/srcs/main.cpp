@@ -1,18 +1,21 @@
 #include "BitcoinExchange.hpp"
 
-int main(int ac , char **av)
-{
-	if (ac != 2) {
-		std::cerr << "Error: could not open file." << std::endl;
-		return (0);
+int main(int ac , char **av){
+
+    if (ac != 2) {
+		std::cerr << "Error: Usage is ./btc <file>.\n";
+		return (ERROR);
 	}
 
-	BitcoinExchange binance;
+	BitcoinExchange btc;
 
-	if (binance.getAbort() == 1)
-		return (0);
+	try {
+		btc.getDatabase();
+		btc.getInput(av[1]);
+		return (SUCCESS);
+	} catch(const std::exception& e) {
+		std::cerr << "Error: " << e.what() << '\n';
+	}
 
-	binance.readInputFile(av[1]);
-
-	return (1);
+	return (ERROR);
 }

@@ -2,36 +2,63 @@
 # define BITCOINEXCHANGE_HPP
 
 #include "colors.hpp"
+#include "Exceptions.hpp"
 
-#include <iostream>
-#include <cstdlib>
-#include <map>
-#include <fstream>
-#include <string>
-#include <iomanip>
+# include <cstdlib>
+# include <cstring>
+# include <fstream>
+# include <iostream>
+# include <list>
+# include <map>
+# include <string>
+# include <sstream>
+# include <vector>
+# include <utility>
+
+ #include <cstdlib>
+
+#define SUCCESS 0
+#define ERROR 1
+
+#define FALSE 0
+#define TRUE 1
+
+#define FEBRUARY 2
+#define APRIL 4
+#define JUNE 6
+#define SEPTEMBER 9
+#define NOVEMBER 11
 
 #define DEBUG 1
 
-class BitcoinExchange {
-public:
-	BitcoinExchange();
-	~BitcoinExchange();
+/// irc = mapde commande 
 
-	BitcoinExchange(const BitcoinExchange& rhs);
-	BitcoinExchange& operator=(const BitcoinExchange& rhs);
+typedef std::map<std::string, double> map_t;
 
-	int	checkFormatDate(std::string date);
-	int	checkFormatInput(std::string line);
-	int	checkFormatDatabase(std::string line);
+class BitcoinExchange
+{
+	private:
+		map_t	_database;
 
-	void readInputFile(std::string input);
+	public:
+		BitcoinExchange();
+		~BitcoinExchange();
 
-	int	getAbort();
+        BitcoinExchange(BitcoinExchange const & src);
 
+		void	getInput(char *input);
 
-private:
-	int abort;
-	std::map<std::string, float> dataExchange;
+		void	getDatabase(void);
+
+		void	checkDate(std::string line);
+		void	checkFormat(std::string line);
+		void	checkValue(std::string line);
+		void	printValue(std::string line);
+
+		BitcoinExchange &	operator=(BitcoinExchange const & rhs);
+
 };
+
+std::ostream & operator<<(std::ostream & lhs, BitcoinExchange const & rhs);
 
 #endif
