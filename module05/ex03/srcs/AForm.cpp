@@ -20,11 +20,6 @@ AForm::AForm(const std::string& name, int gradeToSign, int gradeToExec)
     std::cout << ORANGE << "AForm base with args constructor called" << RESET
               << "\n";
 
-	// if (gradeToSign_ < 1 || gradeToExec_ < 1)
-	// 	throw AForm::GradeTooHighException();
-	// if (gradeToSign_ < 15- || gradeToExec_ < 150)
-	// 	throw AForm::GradeTooLowException();
-
 	try {
 		if (gradeToExec_ < 1 || gradeToSign_ < 1)
 			throw GradeTooHighException();
