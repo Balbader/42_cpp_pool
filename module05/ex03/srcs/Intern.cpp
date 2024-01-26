@@ -55,6 +55,7 @@ AForm*	Intern::makeForm(std::string name, std::string target)
 			"presidential pardon",
 			"shrubbery creation"
 		};
+
 		AForm* forms[] = {
 			new RobotomyRequestForm(target),
 			new PresidentialPardonForm(target),
@@ -82,6 +83,7 @@ AForm*	Intern::makeForm(std::string name, std::string target)
 		}
 
 		return NULL;
+
 	} catch(const std::bad_alloc& e) {
 		std::cerr << e.what() << '\n';
 		return NULL;
