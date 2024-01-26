@@ -8,9 +8,6 @@
 
 #define DEBUG 1
 
-#define SUCCESS 0
-#define ERROR 1
-
 class AForm;
 
 class Bureaucrat {
