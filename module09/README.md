@@ -14,6 +14,51 @@ They store elements in a linear sequence. Examples include:
 + array: Fixed-size array (introduced in C++11).
 + forward_list: Singly-linked list (introduced in C++11).
 
+```cpp
+#include <iostream>
+#include <vector>
+
+int main() {
+    // Create a vector to store integers
+    std::vector<int> myVector;
+
+    // Add some elements to the vector
+    myVector.push_back(10);
+    myVector.push_back(20);
+    myVector.push_back(30);
+
+    // Access and print elements using a loop
+    std::cout << "The vector elements are: ";
+    for(int i = 0; i < myVector.size(); i++) {
+        std::cout << myVector[i] << " ";
+    }
+    std::cout << std::endl;
+
+    // Remove the last element
+    myVector.pop_back();
+
+    // Print the size of the vector
+    std::cout << "The size of the vector after pop_back: " << myVector.size() << std::endl;
+
+    // Iterate and print elements using an iterator
+    std::cout << "Elements in vector: ";
+    for(auto it = myVector.begin(); it != myVector.end(); ++it) {
+        std::cout << *it << " ";
+    }
+    std::cout << std::endl;
+
+    return 0;
+}
+```
+In this example:
+
+A vector of integers is declared.
+Elements are added to the vector using push_back().
+The elements of the vector are accessed and printed using a for loop and the [] operator.
+The pop_back() function is used to remove the last element from the vector.
+The size of the vector is printed after removal of an element.
+A range-based for loop (using iterators) is used to iterate over the vector and print its elements.
+
 ### Associative Containers:
 
 These containers automatically sort their elements or allow fast retrieval based on keys. Examples include:
