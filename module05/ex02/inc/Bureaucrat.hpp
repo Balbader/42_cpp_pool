@@ -8,10 +8,14 @@
 
 #define DEBUG 1
 
+#define SUCCESS 0
+#define ERROR 1
+
 class AForm;
 
 class Bureaucrat {
 public:
+	Bureaucrat();
 	Bureaucrat(const std::string &, int);
 	~Bureaucrat();
 
@@ -40,9 +44,6 @@ public:
 
 	const std::string getName() const;
 	int getGrade() const;
-
-protected:
-	Bureaucrat();
 
 private:
 	const std::string name_;
