@@ -2,6 +2,8 @@
 #define BUREAUCRAT_HPP
 
 #include "colors.hpp"
+#include "Exceptions.hpp"
+
 #include <exception>
 #include <iostream>
 #include <string>
@@ -9,42 +11,29 @@
 #define DEBUG 1
 
 class Bureaucrat {
-
 public:
-  Bureaucrat();
-  ~Bureaucrat();
+    Bureaucrat();
+    ~Bureaucrat();
 
-  Bureaucrat(std::string, int);
+    Bureaucrat(std::string, int);
 
-  Bureaucrat(const Bureaucrat &);
-  Bureaucrat &operator=(const Bureaucrat &);
+    Bureaucrat(const Bureaucrat &);
+    Bureaucrat &operator=(const Bureaucrat &);
 
-  class GradeTooHighException : public std::exception {
-      virtual const char* what() const throw() {
-        return "Exception error occured.\nGrade too high.\n";
-    }
-  };
-  
-  class GradeTooLowException : public std::exception {
-      virtual const char* what() const throw() {
-        return "Exception error occured.\nGrade too Low.\n";
-    }
-  };
+    void incrementGrade();
+    void decrementGrade();
+    void printGrade();
+    int isGradeOutOfRange(int);
 
-  void incrementGrade();
-  void decrementGrade();
-  void printGrade();
-  int isGradeOutOfRange(int);
+    void setName(std::string);
+    void setGrade(int);
 
-  void setName(std::string);
-  void setGrade(int);
-
-  const std::string &getName() const;
-  unsigned int const &getGrade() const;
+    const std::string &getName() const;
+    unsigned int const &getGrade() const;
 
 private:
-  std::string name_;
-  unsigned int grade_;
+    std::string name_;
+    unsigned int grade_;
 };
 
 std::ostream &operator<<(std::ostream &lhs, Bureaucrat const &rhs);
