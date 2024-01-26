@@ -8,7 +8,6 @@
 
 #define DEBUG 1
 
-// ----------------------------------------------------------------- Bureaucrat
 class Bureaucrat {
 
 public:
