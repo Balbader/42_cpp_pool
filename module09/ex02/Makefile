@@ -1,7 +1,7 @@
 ########
 # NAME #
 ########
-NAME			:=	PMerge
+NAME			:=	PMergeMe
 
 ###############
 # INGREDIENTS #
@@ -10,7 +10,7 @@ INC_DIR			:=	./inc
 
 SRCS_DIR		:=	./srcs
 SRCS			:=	\
-					PMerge.cpp \
+					PMergeMe.cpp \
 					main.cpp
 SRCS			:=	$(SRCS:%=$(SRCS_DIR)/%)
 
