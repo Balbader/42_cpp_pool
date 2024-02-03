@@ -15,24 +15,19 @@
 
 #include "Weapon.hpp"
 
-class HumanA
-{
-
+class HumanA {
 public:
+  HumanA(std::string, Weapon &);
+  ~HumanA();
 
-    HumanA(std::string, Weapon&);
-    ~HumanA();
+  void attack();
 
-    void attack();
-
-    std::string getName(void) const;
-    std::string getWeaponA(void) const;
+  std::string getName(void) const;
+  std::string getWeaponA(void) const;
 
 private:
-
-    std::string _name;
-    Weapon& _weaponA;
-
+  std::string _name;
+  Weapon &_weaponA;
 };
 
 #endif // !HUMANA_HPP
