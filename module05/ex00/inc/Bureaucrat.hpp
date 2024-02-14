@@ -11,29 +11,30 @@
 #define DEBUG 1
 
 class Bureaucrat {
-public:
-    Bureaucrat();
-    ~Bureaucrat();
 
-    Bureaucrat(std::string, int);
+	public:
+		Bureaucrat();
+		~Bureaucrat();
 
-    Bureaucrat(const Bureaucrat &);
-    Bureaucrat &operator=(const Bureaucrat &);
+		Bureaucrat(std::string, int);
 
-    void incrementGrade();
-    void decrementGrade();
-    void printGrade();
-    int isGradeOutOfRange(int);
+		Bureaucrat(const Bureaucrat &);
+		Bureaucrat &operator=(const Bureaucrat &);
 
-    void setName(std::string);
-    void setGrade(int);
+		void incrementGrade();
+		void decrementGrade();
+		void printGrade();
+		int isGradeOutOfRange(int);
 
-    const std::string &getName() const;
-    unsigned int const &getGrade() const;
+		void setName(std::string);
+		void setGrade(int);
 
-private:
-    std::string name_;
-    unsigned int grade_;
+		const std::string &getName() const;
+		unsigned int const &getGrade() const;
+
+	private:
+		std::string name_;
+		unsigned int grade_;
 };
 
 std::ostream &operator<<(std::ostream &lhs, Bureaucrat const &rhs);
