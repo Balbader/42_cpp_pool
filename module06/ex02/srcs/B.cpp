@@ -5,6 +5,6 @@
 // ----------------------------------------------------------------------------
 B::~B() {
   if (DEBUG)
-    std::cout << LRED << "B derived destructor called"
+    std::cout << LBLUE << "B derived destructor called"
 			  << RESET << std::endl;
 }
