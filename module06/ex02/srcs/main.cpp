@@ -5,7 +5,6 @@
 
 int main()
 {
-    srand(time(NULL));
     Base* rand = generate();
     Base* ran = generate();
     Base* ra = generate();
