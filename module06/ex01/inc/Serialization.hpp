@@ -14,17 +14,18 @@ struct Data {
 };
 
 class Serialization {
-public:
-	~Serialization();
 
-	Serialization(const Serialization &);
-	Serialization &operator=(const Serialization &);
+    public:
+        ~Serialization();
 
-	static uintptr_t serialize(Data* ptr);
-	static Data* deserialize(uintptr_t raw);
+        Serialization(const Serialization &);
+        Serialization &operator=(const Serialization &);
 
-private:
-	Serialization();
+        static uintptr_t serialize(Data* ptr);
+        static Data* deserialize(uintptr_t raw);
+
+    private:
+        Serialization();
 	
 };
 
