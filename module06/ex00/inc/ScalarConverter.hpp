@@ -11,6 +11,7 @@
 #define DEBUG 1
 
 class ScalarConverter {
+
     public:
         ~ScalarConverter();
 
