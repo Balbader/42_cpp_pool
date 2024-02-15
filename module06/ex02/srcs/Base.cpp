@@ -22,12 +22,12 @@ Base* aCreator() {
 }
 
 Base* bCreator() {
-    std::cout << "B created" << std::endl;
+    std::cout << LBLUE << "B created" << RESET << std::endl;
     return (new B());
 }
 
 Base* cCreator() {
-    std::cout << "C created" << std::endl;
+    std::cout << YELLOW << "C created" << RESET << std::endl;
     return (new C());
 }
 
@@ -38,11 +38,11 @@ Base* generate(void) {
 
 void identify(Base* p) {
     if (dynamic_cast<A*>(p))
-        std::cout << "A" << std::endl;
+        std::cout << LGREEN << "A" << RESET << std::endl;
     else if (dynamic_cast<B*>(p))
-        std::cout << "B" << std::endl;
+        std::cout << LBLUE << "B" << RESET << std::endl;
     else if (dynamic_cast<C*>(p))
-        std::cout << "C" << std::endl;
+        std::cout << YELLOW << "C" << RESET << std::endl;
     else
         std::cout << "What is this?" << std::endl;
 }
@@ -51,17 +51,17 @@ void identify(Base& p) {
     try {
         A& a = dynamic_cast<A&>(p);
         (void)a;
-        std::cout << "A" << std::endl;
+        std::cout << LGREEN "A" << RESET << std::endl;
     } catch(const std::exception& e) {
         try {
             B& b = dynamic_cast<B&>(p);
             (void)b;
-            std::cout << "B" << std::endl;
+            std::cout << LBLUE << "B" << RESET << std::endl;
         } catch(const std::exception& e) {
             try {
                 C& c = dynamic_cast<C&>(p);
                 (void)c;
-                std::cout << "C" << std::endl;
+                std::cout << YELLOW << "C" << RESET << std::endl;
             } catch(const std::exception& e) {
                 std::cout << "What is this?" << std::endl;
             }
