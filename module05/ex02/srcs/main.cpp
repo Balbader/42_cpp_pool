@@ -1,126 +1,64 @@
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
+#include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
 #include "ShrubberyCreationForm.hpp"
-#include "RobotomyRequestForm.hpp"
-#include <stdlib.h> 
+#include <iostream>
 
-void	create_a_president_form(std::string target)
+
+int main(void)
 {
-	Bureaucrat 				William;
-	Bureaucrat 				Hugo("Hugo", 1);
-	PresidentialPardonForm	form(target);
+    std::cout << "\n-------------------CEO----------------------------------" << std::endl;
 
-	std ::cout << form;
-	std::cout << "\n";
+    try {
+        Bureaucrat bur = Bureaucrat("Big Boss", 1);
+	    ShrubberyCreationForm form("42Paris");
+	
+	    std::cout << bur;
+        std::cout << form;
+        bur.signForm(form);
+        bur.execForm(form);
 
-	try
-	{
-		form.execute(William);
+        RobotomyRequestForm dead("baalbade");
+        std::cout << dead;
+        bur.signForm(dead);
+        bur.execForm(dead);
+        
+        PresidentialPardonForm mercy("baalbade");
+        std::cout << mercy;
+        bur.signForm(mercy);
+        bur.execForm(mercy);
+    } catch(const std::exception& e) {
+		std::cerr << e.what() << std::endl;
 	}
-	catch (std::exception& e)
-	{
-		std::cerr << "Bureaucrat " << William.getName() << " couldn't execute " << form.getName() << " because " << e.what();
-	}
-	try
-	{
-		form.beSigned(William);
-	}
-	catch (std::exception& e)
-	{
-		std::cerr << "Bureaucrat " << William.getName() << " couldn't sign " << form.getName() << " because " << e.what();
-	}
-	William.signForm(form);
-	William.execForm(form);
 
-	std::cout << "\n";
-	Hugo.signForm(form);
-	Hugo.execForm(form);
-	Hugo.signForm(form);
-}
+    std::cout << "\n-------------------INTERN-------------------------" << std::endl;
 
-void	create_a_shrubbery_form(std::string target)
-{
-	Bureaucrat 				Gurvan;
-	Bureaucrat 				Meryem("Meryem", 1);
-	ShrubberyCreationForm	form(target);
+    try {
+        Bureaucrat bur = Bureaucrat("Intern", 150);
+	    ShrubberyCreationForm form("Useless Form");
+	
+	    std::cout << bur;
+        std::cout << form;
+        
+        bur.signForm(form);
+        bur.execForm(form);
 
-	std ::cout << form;
-	std::cout << "\n";
+        RobotomyRequestForm dead("baalbade");
+        std::cout << dead;
+        bur.signForm(dead);
+        bur.execForm(dead);
+        
+        PresidentialPardonForm mercy("baalbade");
+        std::cout << mercy;
+        bur.signForm(mercy);
+        bur.execForm(mercy);
+        
+        std::cout << std::endl;
 
-	try
-	{
-		form.execute(Gurvan);
+    } catch(const std::exception& e) {
+		std::cerr << e.what() << std::endl;
 	}
-	catch (std::exception& e)
-	{
-		std::cerr << "Bureaucrat " << Gurvan.getName() << " couldn't execute " << form.getName() << " because " << e.what();
-	}
-	try
-	{
-		form.beSigned(Gurvan);
-	}
-	catch (std::exception& e)
-	{
-		std::cerr << "Bureaucrat " << Gurvan.getName() << " couldn't sign " << form.getName() << " because " << e.what();
-	}
-	Gurvan.signForm(form);
-	Gurvan.execForm(form);
 
-	std::cout << "\n";
-	Meryem.signForm(form);
-	Meryem.execForm(form);
-	Meryem.signForm(form);
-}
-
-void	create_a_robotomy_form(std::string target)
-{
-	Bureaucrat 				Axel;
-	Bureaucrat 				Karim("Karim", 1);
-	RobotomyRequestForm		form(target);
-
-	std ::cout << form;
-	std::cout << "\n";
-
-	try
-	{
-		form.execute(Axel);
-	}
-	catch (std::exception& e)
-	{
-		std::cerr << "Bureaucrat " << Axel.getName() << " couldn't execute " << form.getName() << " because " << e.what();
-	}
-	try
-	{
-		form.beSigned(Axel);
-	}
-	catch (std::exception& e)
-	{
-		std::cerr << "Bureaucrat " << Axel.getName() << " couldn't sign " << form.getName() << " because " << e.what();
-	}
-	Axel.signForm(form);
-	Axel.execForm(form);
-
-	std::cout << "\n";
-	Karim.signForm(form);
-	Karim.execForm(form);
-}
-int	main(int argc, char **argv)
-{
-	if (argc != 2)
-	{
-		std::cerr << "Error: usage is ./Form <target>.\n";
-		return (ERROR);
-	}
-	try
-	{
-		create_a_shrubbery_form(argv[1]);
-		create_a_robotomy_form(argv[1]);
-		create_a_president_form(argv[1]);
-	}	
-	catch (std::exception)
-	{
-		return (ERROR);
-	}
-	return (SUCCESS);
+    return (0);
 }

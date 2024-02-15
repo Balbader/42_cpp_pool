@@ -1,15 +1,20 @@
 #include "Bureaucrat.hpp"
 
 int main() {
-  std::cout << "\n";
-  Bureaucrat mimi("mimi", 448);
-  std::cout << "mimi\n" << mimi << "\n";
+    std::cout << "\n";
+    Bureaucrat mimi("mimi", 448);
+    // std::cout << "mimi\n" << mimi << "\n";
 
-  Bureaucrat riri("riri", -31);
-  std::cout << "riri\n" << riri << "\n";
+    Bureaucrat riri("riri", -31);
+    // std::cout << "riri\n" << riri << "\n";
 
-  Bureaucrat fifi("fifi", 42);
-  std::cout << "fifi\n" << fifi;
+    Bureaucrat fifi("fifi", 42);
+    std::cout << "fifi\n" << fifi;
+    fifi.incrementGrade();
+    std::cout << "fifi\n" << fifi;
+    fifi.decrementGrade();
+    std::cout << "fifi\n" << fifi;
+
 
   return 0;
 }

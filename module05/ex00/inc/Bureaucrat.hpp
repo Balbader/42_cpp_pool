@@ -8,7 +8,8 @@
 #include <iostream>
 #include <string>
 
-#define DEBUG 1
+#define DEBUG 0
+// #define DEBUG 1
 
 class Bureaucrat {
 public:

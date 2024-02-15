@@ -14,20 +14,22 @@ AForm::AForm()
 // ----------------------------------------------------------- Args Constructor
 // ----------------------------------------------------------------------------
 AForm::AForm(const std::string& name, int gradeToSign, int gradeToExec)
-	  :name_(name), isSigned_(false), gradeToSign_(gradeToSign), gradeToExec_(gradeToExec) {
+                       : name_(name), isSigned_(false), gradeToExec_(gradeToExec), gradeToSign_(gradeToSign){
 
   if (DEBUG)
     std::cout << ORANGE << "AForm base with args constructor called" << RESET
               << "\n";
 
-	try {
-		if (gradeToExec_ < 1 || gradeToSign_ < 1)
-			throw GradeTooHighException();
-		if (gradeToExec_ > 150 || gradeToSign_ > 150)
-		  	throw GradeTooLowException();
-	} catch (const std::exception &e) {
-		std::cerr << e.what() << std::endl;
-	}
+    if (gradeToExec < 1 || gradeToExec > 150 || gradeToSign < 1 || gradeToSign > 150 ) {
+        try {
+            if (gradeToExec_ < 1 || gradeToSign_ < 1)
+                throw GradeTooHighException();
+            if (gradeToExec_ > 150 || gradeToSign_ > 150)
+                throw GradeTooLowException();
+        } catch (const std::exception &e) {
+            std::cerr << e.what() << std::endl;
+        }
+    }
 }
 
 

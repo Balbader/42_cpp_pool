@@ -13,46 +13,45 @@ Bureaucrat::Bureaucrat() : name_("Name undefined"), grade_(10) {
 // ----------------------------------------------------------------------------
 // ----------------------------------------------------------- Args Constructor
 // ----------------------------------------------------------------------------
-Bureaucrat::Bureaucrat(const std::string& name, int grade)
-		   : name_(name), grade_(grade) {
+Bureaucrat::Bureaucrat(const std::string& name, int grade) : name_(name) {
   if (DEBUG)
     std::cout << GREEN << "Bureaucrat Arguments Base Constructor called"
               << RESET << std::endl;
 
-	// if (grade < 1)
-	// 	throw Bureaucrat::GradeTooHighException();
-	// else if (grade > 150)
-	// 	throw Bureaucrat::GradeTooLowException();
-
-	try {
-		if (grade < 1)
-			throw GradeTooHighException();
-		if (grade > 150)
-			throw GradeTooLowException();
-	} catch (const std::exception &e) {
-		std::cerr << e.what() << std::endl;
-	}
-}
-
-
-// ----------------------------------------------------------------------------
-// ----------------------------------------------------------- Copy Constructor
-// ----------------------------------------------------------------------------
-Bureaucrat::Bureaucrat(const Bureaucrat& rhs) {
-  if (DEBUG)
-    std::cout << GREEN << "Bureaucrat Copy Constructor called"
-              << RESET << std::endl;
-
-	*this = rhs;
-}
+        if (grade < 1 || grade > 150)
+        {
+            try {
+                if (grade < 1)
+                    throw GradeTooHighException();
+                if (grade > 150)
+                    throw GradeTooLowException();
+            } catch (const std::exception &e) {
+                std::cerr << e.what() << std::endl;
+            }
+        }
+        else
+            this->grade_ = grade;
+    }
 
 
-// ----------------------------------------------------------------------------
-// ----------------------------------------------------------------- Destructor
-// ----------------------------------------------------------------------------
-Bureaucrat::~Bureaucrat() {
-  if (DEBUG)
-    std::cout << GREEN << "Bureaucrat base destructor called" << RESET << std::endl;
+    // ----------------------------------------------------------------------------
+    // ----------------------------------------------------------- Copy Constructor
+    // ----------------------------------------------------------------------------
+    Bureaucrat::Bureaucrat(const Bureaucrat& rhs) {
+      if (DEBUG)
+        std::cout << GREEN << "Bureaucrat Copy Constructor called"
+                  << RESET << std::endl;
+
+        *this = rhs;
+    }
+
+
+    // ----------------------------------------------------------------------------
+    // ----------------------------------------------------------------- Destructor
+    // ----------------------------------------------------------------------------
+    Bureaucrat::~Bureaucrat() {
+      if (DEBUG)
+        std::cout << GREEN << "Bureaucrat base destructor called" << RESET << std::endl;
 }
 
 
@@ -88,10 +87,12 @@ void Bureaucrat::signForm(AForm& form) {
 void Bureaucrat::execForm(AForm& form) {
 	try {
 		form.execute(*this);
-		std::cout << this->getName() << " executed " << form.getName() << std::endl;
+		std::cout << LGREEN << this->getName() << RESET << " executed " 
+                  << LGREEN << form.getName() << RESET << std::endl;
 	}
 	catch(const std::exception& e) {
-		std::cerr << this->getName() << " couldn't execute " << form.getName() << " because " 
+		std::cerr << LGREEN << this->getName() << RESET << " couldn't execute "
+                  << LGREEN <<form.getName() << RESET << " because " 
 		<< e.what() << std::endl;
 	}
 }
@@ -123,7 +124,7 @@ int	Bureaucrat::getGrade() const { return (this->grade_); }
 // ----------------------------------------------------------------------------
 std::ostream& operator<<(std::ostream& lhs, const Bureaucrat& rhs) {
 
-	lhs << rhs.getName() << " bureaucrat grade " << rhs.getGrade() << std::endl;
+	lhs << LGREEN << rhs.getName() << RESET << " bureaucrat grade " << LGREEN << rhs.getGrade() << RESET << std::endl;
 
 	return lhs;
 }

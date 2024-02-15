@@ -19,11 +19,6 @@ Bureaucrat::Bureaucrat(const std::string& name, int grade)
     std::cout << GREEN << "Bureaucrat Arguments Base Constructor called"
               << RESET << std::endl;
 
-	// if (grade < 1)
-	// 	throw Bureaucrat::GradeTooHighException();
-	// else if (grade > 150)
-	// 	throw Bureaucrat::GradeTooLowException();
-
 	try {
 		if (grade < 1)
 			throw GradeTooHighException();
@@ -88,10 +83,10 @@ void Bureaucrat::signForm(AForm& form) {
 void Bureaucrat::execForm(AForm& form) {
 	try {
 		form.execute(*this);
-		std::cout << this->getName() << " executed " << form.getName() << std::endl;
+		std::cout << LGREEN << this->getName() << RESET << " executed " << form.getName() << std::endl;
 	}
 	catch(const std::exception& e) {
-		std::cerr << this->getName() << " couldn't execute " << form.getName() << " because " 
+		std::cerr << LGREEN << this->getName() << RESET << " couldn't execute " << form.getName() << " because " 
 		<< e.what() << std::endl;
 	}
 }

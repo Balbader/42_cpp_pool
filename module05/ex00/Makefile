@@ -1,7 +1,7 @@
 ########
 # NAME #
 ########
-NAME				:=	Bureaucrat
+NAME			:=	Bureaucrat
 
 ###############
 # INGREDIENTS #
@@ -9,30 +9,30 @@ NAME				:=	Bureaucrat
 INC_DIR			:=	./inc
 
 SRCS_DIR		:=	./srcs
-SRCS				:=	\
-							Bureaucrat.cpp \
-							main.cpp
-SRCS				:=	$(SRCS:%=$(SRCS_DIR)/%)
+SRCS			:=	\
+					Bureaucrat.cpp \
+					main.cpp
+SRCS			:=	$(SRCS:%=$(SRCS_DIR)/%)
 
 BUILD_DIR		:=	.build
-OBJS				:=	$(SRCS:$(SRCS_DIR)/%.cpp=$(BUILD_DIR)/%.o)
-DEPS				:=	$(OBJS:.o=.d)
+OBJS			:=	$(SRCS:$(SRCS_DIR)/%.cpp=$(BUILD_DIR)/%.o)
+DEPS			:=	$(OBJS:.o=.d)
 
 CC					:=	c++ -o
 CFLAGS			:=	-Wall -Wextra -Werror -std=c++98
 IFLAGS			:=	$(addprefix -I, $(INC_DIR))
 MAKEFLAGS		+=	--no-print-directory
 
-RM					:=	rm -rf
+RM				:=	rm -rf
 DIR_DUP			=	mkdir -p $(dir $@)
 
 ##########
 # COLORS #
 ##########
-RED					:=	\033[0;31m
-GREEN				:=	\033[0;32m
+RED				:=	\033[0;31m
+GREEN			:=	\033[0;32m
 YELLOW			:=	\033[0;33m
-RESET				:=	\033[0;0m
+RESET			:=	\033[0;0m
 
 ###########
 # RECIPES #

@@ -8,10 +8,10 @@
 
 int main(void)
 {
-     std::cout << "\n-------------------CEO----------------------------------" << std::endl;
+     std::cout << "\n------------------- CEO ----------------------------------" << std::endl;
     try
     {
-        Bureaucrat bur = Bureaucrat("Sophie Vigier", 1);
+        Bureaucrat bur = Bureaucrat("Big Boss", 1);
 	    Intern pipo = Intern();
 
 		AForm* form = pipo.makeForm("shrubbery creation", "42Paris");
@@ -48,6 +48,7 @@ int main(void)
 			delete dead;
 			return (1);
 		}
+
         std::cout << *mercy;
         bur.signForm(*mercy);
         bur.execForm(*mercy);
@@ -59,30 +60,31 @@ int main(void)
     {
         std::cerr << e.what() << std::endl;
     }
-    std::cout << "\n-------------------LIL MAN-------------------------" << std::endl;
+
+    std::cout << "\n------------------- Intern -------------------------" << std::endl;
     try
     {
-        Bureaucrat bur = Bureaucrat("Useless Intern", 150);
+        Bureaucrat intern = Bureaucrat("Intern", 21);
 	    ShrubberyCreationForm form("Home");
 	
-	    std::cout << bur;
+	    std::cout << intern;
         std::cout << form;
         
-        bur.signForm(form);
-        bur.execForm(form);
-        bur.execForm(form);
-        bur.execForm(form);
+        intern.signForm(form);
+        intern.execForm(form);
+        intern.execForm(form);
+        intern.execForm(form);
 
         RobotomyRequestForm dead("baalbade");
-        std::cout << dead;
+        std::cout << "\n" << dead;
 
-        bur.signForm(dead);
-        bur.execForm(dead);
+        intern.signForm(dead);
+        intern.execForm(dead);
         
         PresidentialPardonForm mercy("baalbade");
-        std::cout << mercy;
-        bur.signForm(mercy);
-        bur.execForm(mercy);
+        std::cout << "\n" << mercy;
+        intern.signForm(mercy);
+        intern.execForm(mercy);
         
         std::cout << std::endl;
     }

@@ -6,7 +6,8 @@
 #include <iostream>
 #include <string>
 
-#define DEBUG 1
+// #define DEBUG 1
+#define DEBUG 0
 
 #define SUCCESS 0
 #define ERROR 1

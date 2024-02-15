@@ -50,7 +50,7 @@ Intern&	Intern::operator=(const Intern& rhs)
 AForm*	Intern::makeForm(std::string name, std::string target)
 {
 	try {
-		std::string formuu[] = {
+		std::string form[] = {
 			"robotomy request",
 			"presidential pardon",
 			"shrubbery creation"
@@ -63,23 +63,24 @@ AForm*	Intern::makeForm(std::string name, std::string target)
 		};
 
 		for (int i = 0; i < 3; i++) {
-			if (name == formuu[i]) {
-				std::cout << "Intern creates " << name << std::endl;
+			if (name == form[i]) {
+				std::cout << LBLUE << "Intern" << RESET << " creates " << name << std::endl;
 				for (int i = 0; i < 3; i++) {
-					if (name != formuu[i]) {
-						AForm* lol = forms[i];
-						delete lol;
+					if (name != form[i]) {
+		                std::cout << LBLUE << "Intern" << RESET << " couldn't create " << name << std::endl;
+						AForm* badForm = forms[i];
+						delete badForm;
 					}
 				}
 				return (forms[i]);
 			}
 		}
 
-		std::cout << "Intern couldn't create " << name << std::endl;
+		// std::cout << "Intern couldn't create " << name << std::endl;
 
 		for (int i = 0; i < 3; i++) {
-			AForm* lol = forms[i];
-			delete lol;
+			AForm* badForm = forms[i];
+			delete badForm;
 		}
 
 		return NULL;

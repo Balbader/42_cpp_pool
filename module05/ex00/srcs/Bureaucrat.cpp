@@ -9,23 +9,24 @@ Bureaucrat::Bureaucrat() : name_("000"), grade_(0) {
               << std::endl;
 }
 
-Bureaucrat::Bureaucrat(std::string const name, int grade)
-    : name_(name), grade_(grade) {
+Bureaucrat::Bureaucrat(std::string const name, int grade) : name_(name) {
 
   if (DEBUG)
     std::cout << GREEN << "Bureaucrat Arguments Base Constructor called"
               << RESET << std::endl;
 
-  try {
     if (isGradeOutOfRange(grade)) {
-      if (grade < 1)
-        throw GradeTooHighException();
-      if (grade > 150)
-        throw GradeTooLowException();
+        try {
+          if (grade < 1)
+            throw GradeTooHighException();
+          if (grade > 150)
+            throw GradeTooLowException();
+        } catch (const std::exception &e) {
+            std::cerr << e.what() << std::endl;
+        }
+    } else {
+        this->grade_ = grade;
     }
-  } catch (const std::exception &e) {
-    std::cerr << e.what() << std::endl;
-  }
 }
 
 // ----------------------------------------------------------------------------
