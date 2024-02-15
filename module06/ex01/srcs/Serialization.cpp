@@ -25,7 +25,7 @@ Serialization::Serialization(const Serialization& rhs) {
 // ----------------------------------------------------------------------------
 Serialization::~Serialization() {
   if (DEBUG)
-    std::cout << GREEN << "ScalarConverter destructor called"
+    std::cout << GREEN << "Serialization destructor called"
 			  << RESET << std::endl;
 }
 
@@ -34,7 +34,7 @@ Serialization::~Serialization() {
 // ----------------------------------------------------------------------------
 Serialization& Serialization::operator=(const Serialization& rhs) {
   if (DEBUG)
-    std::cout << GREEN << "ScalarConverter assignment operator called"
+    std::cout << GREEN << "Serialization assignment operator called"
 			  << RESET << std::endl;
 
     (void)rhs;
