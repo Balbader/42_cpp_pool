@@ -5,6 +5,6 @@
 // ----------------------------------------------------------------------------
 A::~A() {
   if (DEBUG)
-    std::cout << LYELLOW << "A derived destructor called"
+    std::cout << LGREEN << "A derived destructor called"
 			  << RESET << std::endl;
 }
