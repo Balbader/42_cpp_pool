@@ -6,6 +6,6 @@
 // ----------------------------------------------------------------------------
 C::~C() {
   if (DEBUG)
-    std::cout << ORANGE << "C derived destructor called"
+    std::cout << YELLOW << "C derived destructor called"
 			  << RESET << std::endl;
 }
