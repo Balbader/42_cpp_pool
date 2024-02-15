@@ -11,16 +11,16 @@
 #define DEBUG 1
 
 class ScalarConverter {
-public:
-	~ScalarConverter();
+    public:
+        ~ScalarConverter();
 
-	ScalarConverter(const ScalarConverter &);
-	ScalarConverter &operator=(const ScalarConverter &);
+        ScalarConverter(const ScalarConverter &);
+        ScalarConverter &operator=(const ScalarConverter &);
 
-	static void convertTo(std::string&);
+        static void convertTo(std::string&);
 
-private:
-	ScalarConverter();
+    private:
+        ScalarConverter();
 };
 
 #endif // !SCALARCONVERTER_HPP
