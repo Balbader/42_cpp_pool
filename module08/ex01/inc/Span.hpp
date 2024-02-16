@@ -14,38 +14,38 @@
 
 class Span {
 
-public:
-	typedef std::vector<int>::iterator ITER;
+    public:
+        typedef std::vector<int>::iterator ITER;
 
-	Span(unsigned int);
-	~Span();
+        Span(unsigned int);
+        ~Span();
 
-	Span(const Span&);
-	Span& operator=(const Span&);
+        Span(const Span&);
+        Span& operator=(const Span&);
 
-	class TooSmallException : public std::exception {
-		public:
-			virtual const char * what () const throw() {
-				return "Not enough elements to find span";
-			}
-	};
-	
-	class TooBigException : public std::exception {
-		public:
-			virtual const char * what () const throw() {
-				return "Can't add any more numbers";
-			}
-	};
+        class TooSmallException : public std::exception {
+            public:
+                virtual const char * what () const throw() {
+                    return "Not enough elements to find span";
+                }
+        };
+        
+        class TooBigException : public std::exception {
+            public:
+                virtual const char * what () const throw() {
+                    return "Can't add any more numbers";
+                }
+        };
 
-	void	addNumber(int);
-	void	addRange(ITER, ITER);
-	int		shortestSpan();
-	int		longestSpan();
+        void	addNumber(int);
+        void	addRange(ITER, ITER);
+        int		shortestSpan();
+        int		longestSpan();
 
-private:
-	std::vector<int> _v;
-	std::size_t _s;
-	Span();
+    private:
+        std::vector<int> _v;
+        std::size_t _s;
+        Span();
 };
 
 #endif
