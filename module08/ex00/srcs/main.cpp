@@ -37,7 +37,7 @@ int main(void)
         lol = easyfind(l, 3);
         std::cout << "iterator: " << *lol << std::endl;
     } catch (const std::exception& e) {
-        // std::cerr << e.what() << '\n';
+        std::cout << "Can't find what you're looking for" << std::endl;
     }
 
     try {
