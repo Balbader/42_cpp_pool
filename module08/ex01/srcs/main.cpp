@@ -2,7 +2,7 @@
 
 int main()
 {
-	srand(time(0));
+	// srand(time(0));
 	Span sp = Span(110000);
 
 	sp.addNumber(6);
