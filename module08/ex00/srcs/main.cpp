@@ -21,14 +21,16 @@ int main(void)
         bol = easyfind(b, 2);
         std::cout << "iterator: " << *bol << std::endl;
     } catch (const std::exception& e) {
-        std::cout << "Can't find what you're looking for in CHAR VECTOR OMG" << std::endl;
+        std::cout << "Can't find what you're looking for in CHAR VECTOR" << std::endl;
     }
+
 	try {
         bol = easyfind(b, 'c');
         std::cout << "iterator: " << *bol << std::endl;
     } catch (const std::exception& e) {
-        std::cout << "Can't find what you're looking for in CHAR VECTOR OMG" << std::endl;
+        std::cout << "Can't find what you're looking for in CHAR VECTOR" << std::endl;
     }
+
     // fin petit test
     
     try {
