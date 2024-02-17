@@ -10,34 +10,34 @@
 
 class ClapTrap {
 
-public:
-	ClapTrap(std::string);
-	~ClapTrap();
+    public:
+        ClapTrap(std::string);
+        ~ClapTrap();
 
-	ClapTrap(const ClapTrap&);
-	ClapTrap& operator=(const ClapTrap&);
+        ClapTrap(const ClapTrap&);
+        ClapTrap& operator=(const ClapTrap&);
 
-	void attack(const std::string&);
-	void takeDamage(unsigned int);
-	void beRepaired(unsigned int);
+        void attack(const std::string&);
+        void takeDamage(unsigned int);
+        void beRepaired(unsigned int);
 
-	void setName(std::string);
-	void setHitPoints(unsigned int);
-	void setEnergyPoints(unsigned int);
-	void setAttackPoints(unsigned int);
+        void setName(std::string);
+        void setHitPoints(unsigned int);
+        void setEnergyPoints(unsigned int);
+        void setAttackPoints(unsigned int);
 
-	std::string getName() const;
-	unsigned int getHitPoints() const;
-	unsigned int getEnergyPoints() const;
-	unsigned int getAttackDamage() const;
+        std::string getName() const;
+        unsigned int getHitPoints() const;
+        unsigned int getEnergyPoints() const;
+        unsigned int getAttackDamage() const;
 
-protected:
-	ClapTrap();
+    protected:
+        ClapTrap();
 
-	std::string _name;
-	unsigned int _hitPoints;
-	unsigned int _energyPoints;
-	unsigned int _attackDamage;
+        std::string _name;
+        unsigned int _hitPoints;
+        unsigned int _energyPoints;
+        unsigned int _attackDamage;
 	
 };
 
