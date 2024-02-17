@@ -5,7 +5,9 @@
 #include <string>
 
 template<typename T>
+
 void iter(T* array, size_t length, void(*f)(const T&)) {
+
     if (array) {
         for (size_t i = 0; i < length; i++)
             f(array[i]);
@@ -16,6 +18,7 @@ void iter(T* array, size_t length, void(*f)(const T&)) {
 
 //no need for protection because reference and T* not T**
 template<typename T>
+
 void print(const T& c) {
     std::cout << c << std::endl;
 }
