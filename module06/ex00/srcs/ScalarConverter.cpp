@@ -70,6 +70,7 @@ void	ScalarConverter::convertTo(std::string& str)
 	
 	toInt = std::atoll(str.c_str());
     
+    // verify if float or double
 	if (str[str.length() - 1] == 'f') {
 		toFloat = std::atof(str.c_str());
 		toDouble = static_cast<double>(toFloat);
@@ -85,7 +86,9 @@ void	ScalarConverter::convertTo(std::string& str)
 		}
 	}
 	
+    // check range of char to int
 	if (toChar == "" && toInt < 256 && toInt >= 0) {
+        //check if char is printable
         if (std::isprint(toInt)) {
             toChar = "'";
             toChar += static_cast<char>(toInt);
@@ -95,13 +98,16 @@ void	ScalarConverter::convertTo(std::string& str)
 		toChar = "Non displayable";
 	}
 	
+    // print char
     std::cout << "char: " << toChar << std::endl;
 
+    // print int
     if (toChar == "impossible" || (toInt < INT_MIN || toInt > INT_MAX))
         std::cout << "int: impossible" << std::endl;
     else
         std::cout << "int: " << toInt << std::endl;
     
+    // print float && double 
     if (toChar == "impossible" && toFloat == 0) {
         std::cout << "float: impossible" << std::endl;
         std::cout << "double: impossible" << std::endl;
