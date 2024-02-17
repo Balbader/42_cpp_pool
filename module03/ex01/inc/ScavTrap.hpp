@@ -4,17 +4,18 @@
 #include "ClapTrap.hpp"
 
 class ScavTrap : public ClapTrap {
-public:
-	ScavTrap();
-	~ScavTrap();
 
-	ScavTrap(std::string);
+    public:
+        ScavTrap();
+        ~ScavTrap();
 
-	ScavTrap(const ScavTrap&);
-	ScavTrap& operator=(const ScavTrap&);
+        ScavTrap(std::string);
 
-	void attack(const std::string&);
-	void guardGate(void);
+        ScavTrap(const ScavTrap&);
+        ScavTrap& operator=(const ScavTrap&);
+
+        void attack(const std::string&);
+        void guardGate(void);
 };
 
 std::ostream & operator<<(std::ostream & lhs, ScavTrap const & rhs);
