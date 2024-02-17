@@ -7,9 +7,10 @@
 // ----------------------------------------------------------------- Destructor
 // ----------------------------------------------------------------------------
 Base::~Base() {
-  if (DEBUG)
-    std::cout << GREEN << "Base destructor called"
-			  << RESET << std::endl;
+
+    if (DEBUG)
+        std::cout << GREEN << "Base destructor called"
+                  << RESET << std::endl;
 }
 
 
@@ -44,7 +45,7 @@ void identify(Base* p) {
     else if (dynamic_cast<C*>(p))
         std::cout << YELLOW << "C" << RESET << std::endl;
     else
-        std::cout << "What is this?" << std::endl;
+        std::cout << "Someting's not adding up here!!!" << std::endl;
 }
 
 void identify(Base& p) {
@@ -63,7 +64,7 @@ void identify(Base& p) {
                 (void)c;
                 std::cout << YELLOW << "C" << RESET << std::endl;
             } catch(const std::exception& e) {
-                std::cout << "What is this?" << std::endl;
+                std::cout << "Someting's not adding up here!!!" << std::endl;
             }
         }
     }
