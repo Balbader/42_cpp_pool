@@ -5,13 +5,13 @@ int main(void) {
 
     ::iter(tab, 4, print);
 
-    std::string lol[] = {
+    std::string names[] = {
         "riri",
         "fifi",
         "loulou"
     };
     
-    ::iter(lol, 3, print);
+    ::iter(names, 3, print);
     
     return (0);
 }
