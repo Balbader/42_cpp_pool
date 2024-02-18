@@ -15,6 +15,7 @@
 class Span {
 
     public:
+
         typedef std::vector<int>::iterator ITER;
 
         Span(unsigned int);
@@ -43,6 +44,7 @@ class Span {
         int		longestSpan();
 
     private:
+
         std::vector<int> _v;
         std::size_t _s;
         Span();
