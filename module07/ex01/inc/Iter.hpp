@@ -13,7 +13,7 @@ void iter(T* array, size_t length, void(*f)(const T&)) {
             f(array[i]);
     }
     else
-        std::cout << "Stop trying to break my program" << std::endl;
+        std::cout << "Something's not adding up here..." << std::endl;
 }
 
 //no need for protection because reference and T* not T**
