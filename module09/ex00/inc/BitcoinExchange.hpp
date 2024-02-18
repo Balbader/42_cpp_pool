@@ -29,18 +29,20 @@
 #define SEPTEMBER 9
 #define NOVEMBER 11
 
-#define DEBUG 1
+#define DEBUG 0
+// #define DEBUG 1
 
-/// irc = mapde commande 
 
 typedef std::map<std::string, double> map_t;
 
 class BitcoinExchange
 {
 	private:
+
 		map_t	_database;
 
 	public:
+
 		BitcoinExchange();
 		~BitcoinExchange();
 
