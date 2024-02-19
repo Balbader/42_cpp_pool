@@ -16,6 +16,7 @@
 class RPN
 {
 	public:
+
 		RPN();
 		RPN(RPN const & src);
 		~RPN();
@@ -30,6 +31,7 @@ class RPN
 		void readAndCalculate(std::string input);
 
 	private:
+
 		int	_result;
 		std::stack<int> _stack;
 };
