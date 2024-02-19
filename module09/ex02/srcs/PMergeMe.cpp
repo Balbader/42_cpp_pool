@@ -117,17 +117,24 @@ the function returns the deque as is, because a deque of size 0 or 1 is already 
 
 Dividing the deque into two halves:
 
-The first loop iterates from the start of the deque up to (but not including) the halfway point, pushing each element into dequeOne.
+The first loop iterates from the start of the deque up to (but not including)
+the halfway point, pushing each element into dequeOne.
+
 The second loop starts from the halfway point to the end of the deque, pushing each element into dequeTwo.
 
 Recursive Calls: Both dequeOne and dequeTwo are then passed to recursive calls of cutAndSort,
 which continues to split and sort each half until the base case is reached.
 
-Merging: Once the base case is reached for all recursive calls, the mergeSort function is used to merge dequeOne and dequeTwo back together in a sorted manner.
-This step is crucial and where the actual sorting happens. Each level of recursion will merge its two halves in a sorted order, building up to the final, sorted deque.
+Merging: Once the base case is reached for all recursive calls,
+the mergeSort function is used to merge dequeOne and dequeTwo back together in a sorted manner.
+This step is crucial and where the actual sorting happens.
+Each level of recursion will merge its two halves in a sorted order,
+building up to the final, sorted deque.
 
-Return Statement: The function returns the result of the mergeSort call, which should be the sorted version of the original input deque.
+Return Statement: The function returns the result of the mergeSort call,
+which should be the sorted version of the original input deque.
 */
+
 deque_t	PMergeMe::cutAndSort(deque_t deque) {
 
 	deque_t	dequeOne;
