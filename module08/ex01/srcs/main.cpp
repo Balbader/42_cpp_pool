@@ -13,6 +13,8 @@ int main()
 	std::cout << sp.shortestSpan() << std::endl;
 	std::cout << sp.longestSpan() << std::endl;
 
+    std::cout << "\n";
+
 	try {
 		for (int i = 0; i < 100000; i++) {
 			int l = rand();
@@ -26,8 +28,10 @@ int main()
 		std::cerr << e.what() << '\n';
 	}
 
+    std::cout << "\n";
+
 	try {
-        Span ranged = Span(210000);
+        Span ranged = Span(200000);
         std::vector<int> vector;
         
         for (int i = 0; i <= 200000; i++) {
