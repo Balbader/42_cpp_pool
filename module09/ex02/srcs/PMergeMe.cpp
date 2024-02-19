@@ -82,7 +82,7 @@ void PMergeMe::fillVector(int argc, char **argv) {
 
 void PMergeMe::printBefore(void) {
 
-	std::cout << "Before: ";
+	std::cout << "\n" << "Before: ";
 
 	for (int i = 0; i < (int)this->_vector.size(); i++)
 		std::cout << this->_vector[i] << " ";
@@ -92,7 +92,7 @@ void PMergeMe::printBefore(void) {
 
 void PMergeMe::printAfter(void) {
 
-	std::cout << "After: ";
+	std::cout << "\n" << "After: ";
 
 	for (int i = 0; i < (int)this->_vector.size(); i++)
 		std::cout << this->_vector[i] << " ";
@@ -224,6 +224,7 @@ void PMergeMe::printTime(int containerType, double time) {
 	if (containerType == VECTOR)
 		container = "vector";
 
+    std::cout << "\n";
 	std::cout << "Time to process elements with std::" << container << " : " << std::fixed << std::setprecision(4) << time << "ms.\n";
 }
 
