@@ -14,7 +14,7 @@ typename T::iterator easyfind(T& container, int toFind) {
         throw std::invalid_argument("Argument invalide");
 
     return it;
-    //if not found it returns the container.end()
+    //if not found returns the container.end()
 }
 
 #endif
