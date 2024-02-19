@@ -15,10 +15,6 @@
 
 class RPN
 {
-	private:
-		int	_result;
-		std::stack<int> _stack;
-
 	public:
 		RPN();
 		RPN(RPN const & src);
@@ -33,6 +29,9 @@ class RPN
 		void parseInput(std::string input);
 		void readAndCalculate(std::string input);
 
+	private:
+		int	_result;
+		std::stack<int> _stack;
 };
 
 #endif // !RPN_HPP
