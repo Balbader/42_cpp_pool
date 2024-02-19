@@ -26,11 +26,8 @@ typedef std::deque<int> deque_t;
 
 class PMergeMe
 {
-	private:
-		deque_t				_deque;
-		vector_t			_vector;
-
 	public:
+
 		PMergeMe();
 		PMergeMe(PMergeMe const & src);
 		~PMergeMe();
@@ -57,6 +54,10 @@ class PMergeMe
 		deque_t				cutAndSort(deque_t deque);
 		deque_t				mergeSort(deque_t dequeOne, deque_t dequeTwo);
 
+	private:
+
+		deque_t				_deque;
+		vector_t			_vector;
 };
 
 double	getTime(void);
