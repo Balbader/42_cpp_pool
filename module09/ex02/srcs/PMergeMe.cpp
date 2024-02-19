@@ -100,6 +100,34 @@ void PMergeMe::printAfter(void) {
 	std::cout << std::endl;
 }
 
+/*
+This function aims to sort a data structure of type deque_t using a divide-and-conquer strategy,
+reminiscent of the Merge Sort algorithm.
+The function recursively divides the input deque into two halves until the base case
+(deque size less than 2) is reached, and then merges these halves back together in a
+sorted manner using a mergeSort function.
+
+Here's a step-by-step explanation of the cutAndSort function:
+
+Initialization of two empty deque_t objects, dequeOne and dequeTwo:
+These are used to hold the two halves of the original deque.
+
+Base Case Check: If the size of the input deque is less than 2,
+the function returns the deque as is, because a deque of size 0 or 1 is already "sorted."
+
+Dividing the deque into two halves:
+
+The first loop iterates from the start of the deque up to (but not including) the halfway point, pushing each element into dequeOne.
+The second loop starts from the halfway point to the end of the deque, pushing each element into dequeTwo.
+
+Recursive Calls: Both dequeOne and dequeTwo are then passed to recursive calls of cutAndSort,
+which continues to split and sort each half until the base case is reached.
+
+Merging: Once the base case is reached for all recursive calls, the mergeSort function is used to merge dequeOne and dequeTwo back together in a sorted manner.
+This step is crucial and where the actual sorting happens. Each level of recursion will merge its two halves in a sorted order, building up to the final, sorted deque.
+
+Return Statement: The function returns the result of the mergeSort call, which should be the sorted version of the original input deque.
+*/
 deque_t	PMergeMe::cutAndSort(deque_t deque) {
 
 	deque_t	dequeOne;
@@ -139,6 +167,47 @@ vector_t PMergeMe::cutAndSort(vector_t vector)
 
 	return (mergeSort(vectorOne,vectorTwo));
 }
+
+/*
+The mergeSort function provided is part of the sorting algorithm implementation,
+specifically designed to merge two sorted deque_t objects
+(dequeOne and dequeTwo) into a single sorted deque_t object (dequeThree).
+This function is a critical component of the merge sort algorithm, where the "conquer" phase involves merging sorted
+sequences back together into a single sorted sequence. Here's how it works:
+
+Initialization of dequeThree: This is an empty deque_t object that will eventually
+contain the sorted elements from both dequeOne and dequeTwo.
+
+Merging Process:
+
+The function enters a while loop that continues as long as
+both dequeOne and dequeTwo are not empty. Within this loop,
+it compares the front elements of both deques.
+
+If the front element of dequeOne is less than the front element of dequeTwo,
+that element is moved from dequeOne to dequeThree, and then removed from dequeOne.
+
+If the front element of dequeTwo is less than or equal
+to the front element of dequeOne, that element is moved
+from dequeTwo to dequeThree, and then removed from dequeTwo.
+
+This comparison and movement of elements continue until one of the deques is empty.
+
+Draining the Remaining Elements:
+
+After the initial merging loop, there could be remaining elements in either dequeOne or dequeTwo
+(but not in both, since the loop continues until one is empty).
+
+Two additional while loops ensure that any remaining elements
+in dequeOne or dequeTwo are moved to dequeThree.
+This is necessary because, after the first while loop,
+at least one of the deques will be empty, but the other might still have elements
+that are already sorted and just need to be appended to dequeThree.
+
+Returning the Merged dequeThree: Once both dequeOne and dequeTwo are completely
+empty, the function returns dequeThree, which now contains all elements
+from the original two deques in a sorted order.
+*/
 
 deque_t	PMergeMe::mergeSort(deque_t dequeOne, deque_t dequeTwo) {
 
