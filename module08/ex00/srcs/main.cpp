@@ -30,6 +30,7 @@ int main(void)
     } catch (const std::exception& e) {
         std::cout << "Can't find what you're looking for" << std::endl;
     }
+    std::cout << "\n";
 
     // fin petit test
     
@@ -40,6 +41,8 @@ int main(void)
         std::cout << "Can't find what you're looking for" << std::endl;
     }
 
+    std::cout << "\n";
+
     try {
         lol = easyfind(l, -3);
         std::cout << "iterator: " << *lol << std::endl;
@@ -47,6 +50,8 @@ int main(void)
         std::cout << "Can't find what you're looking for" << std::endl;
     }
     
+    std::cout << "\n";
+
     try {
         lol = easyfind(l, 35);
         std::cout << "iterator: " << *lol << std::endl;
@@ -54,12 +59,16 @@ int main(void)
         std::cout << "Can't find what you're looking for" << std::endl;
     }
 
+    std::cout << "\n";
+
     try {
         lol = easyfind(l, 100);
         std::cout << "iterator: " << *lol << std::endl;
     } catch (const std::exception& e) {
         std::cout << "Can't find what you're looking for" << std::endl;
     }
+
+    std::cout << "\n";
 
     try {
         lol = easyfind(l, 99);
