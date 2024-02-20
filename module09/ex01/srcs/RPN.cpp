@@ -17,8 +17,7 @@ RPN::RPN(RPN const & src) : _result(src._result), _stack(src._stack) {
 // ----------------------------------------------------------------- Destructor
 // ----------------------------------------------------------------------------
 
-RPN::~RPN()
-{
+RPN::~RPN() {
 	if (DEBUG)
 		std::cout << LRED << "RPN destructor called." << RESET << std::endl;
 }
@@ -91,7 +90,7 @@ void RPN::doOperation(char op, int firstNb, int secondNb) {
 	this->_stack.push(result);
 }
 
-bool	RPN::isOperator(char c) {
+bool RPN::isOperator(char c) {
 
 	if (c == '-' || c == '+' || c == '/' || c == '*')
 		return (true);
@@ -100,7 +99,7 @@ bool	RPN::isOperator(char c) {
 }
 
 
-void	RPN::readAndCalculate(std::string input) {
+void RPN::readAndCalculate(std::string input) {
 
     //Loop through the input string: The function iterates over each character in the input string.
 	for (int i = 0; i < (int)input.size(); i++) {
@@ -109,7 +108,6 @@ void	RPN::readAndCalculate(std::string input) {
 		while (input[i] && input[i] == ' ')
 			i++;
 
-        
         //Check for digits: When it encounters a digit, it converts the character to an integer
         //(subtracting the ASCII value of '0' from the character's ASCII value) and pushes it onto the stack.
 		if (isdigit(input[i]) != 0) {
@@ -149,16 +147,20 @@ void	RPN::readAndCalculate(std::string input) {
 		throw TooMuchNumbersException();
 }
 
-void	RPN::parseInput(std::string input) {
+void RPN::parseInput(std::string input) {
 
+    // loop through each character
 	for (int i = 0; i < (int)input.size(); i++) {
 
+        // check for valid characters
 		if (isdigit(input[i]) == 0 && isOperator(input[i]) == false && input[i] != ' ')
 			throw(WrongInputException());
 
+        // check for digit followd directly by another character
 		if (isdigit(input[i]) != 0 && input[i + 1] && input[i + 1] != ' ')
 			throw(WrongInputException());
 
+        // check for operator followd directly by another character
 		if (isOperator(input[i]) && input[i + 1] && input[i + 1] != ' ')
 			throw(WrongInputException());
 	}
