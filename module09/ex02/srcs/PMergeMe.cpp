@@ -228,8 +228,8 @@ vector_t PMergeMe::mergeSort(vector_t vectorOne, vector_t vectorTwo) {
 	}
 
 	while (vectorTwo.empty() != true) {
-			vectorThree.push_back(vectorTwo[0]);
-			vectorTwo.erase(vectorTwo.begin());
+        vectorThree.push_back(vectorTwo[0]);
+        vectorTwo.erase(vectorTwo.begin());
 	}
 
 	return (vectorThree);
@@ -238,15 +238,21 @@ vector_t PMergeMe::mergeSort(vector_t vectorOne, vector_t vectorTwo) {
 double getTime(void) {
 
 	struct timeval	tv;
-	double			milisecondes;
-	double			secondes;
-	double			time;
+	double milisecondes;
+	double secondes;
+	double time;
 
+    // fill the 'tv' struct with the current time
 	if (gettimeofday(&tv, NULL) == -1)
 		throw(ErrorTimeException());
 
+    // calculate milisecondes / tv_usec = nb of microseconds since Epoch
 	milisecondes = (double)tv.tv_usec / 1000;
+
+    // calculate secondes / tv_sec = nb of seconds since Epoch
 	secondes = (double)tv.tv_sec * 0.001;
+
+    // combining seconds && milisecondes
 	time = secondes + milisecondes;
 
 	return (time);

@@ -8,10 +8,10 @@ int	main(int argc, char **argv)
 	}
 
 	try {
-		PMergeMe	PME;
+		PMergeMe PME;
 		PME.checkInput(argc, argv);
 		
-		double	startTime = getTime();
+		double startTime = getTime();
 		PME.fillVector(argc, argv);
 		PME.printBefore();
 		PME.setVector(PME.cutAndSort(PME.getVector()));
